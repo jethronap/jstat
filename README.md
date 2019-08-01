@@ -1,2 +1,7 @@
-# JavaDataAnalysis
-A Software that Calculates Basic Statistics &amp; Graphs
+# Java Data Analysis
+
+Basic statistics andd data analysis with Java
+
+## Dependencies
+
+## Installation
