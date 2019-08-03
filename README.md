@@ -1,7 +1,7 @@
 # Java Data Analysis
 
-Basic statistics andd data analysis with Java
+Basic statistics and data analysis with Java
 
 ## Dependencies
-
+Jackson Databind
 ## Installation
