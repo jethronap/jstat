@@ -12,7 +12,7 @@ import java.util.Map;
 
 /**
  * Simple Class that parses data set from a json file
- * without knowing the files format
+ * without knowing the file's format
  * & prints out the key value pairs.
  */
 
@@ -20,7 +20,7 @@ import java.util.Map;
 
 public class jsonDataLoader {
 
-    private String location = "where the file is located";
+    private String location = "/path/to/file.json";
     private File json = new File(location);
 
     public void parseJsonData(String json) throws IOException {
