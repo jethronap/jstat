@@ -3,5 +3,6 @@
 Basic statistics and data analysis with Java
 
 ## Dependencies
-Jackson Databind
+* Jackson Databind
+* Apache Commons CSV
 ## Installation
