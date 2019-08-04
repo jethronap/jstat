@@ -20,13 +20,13 @@ import java.util.Map;
 
 public class JsonDataLoader {
 
-    private String location = "/path/to/file.json";
-    private File json = new File(location);
-
-    JsonFactory factory = new JsonFactory();
-    ObjectMapper mapper = new ObjectMapper(factory);
-
     public void parseFile(String jsonFile) throws IOException {
+
+        String location = "/path/to/file.json";
+        File json = new File(location);
+
+        JsonFactory factory = new JsonFactory();
+        ObjectMapper mapper = new ObjectMapper(factory);
         JsonNode rootNode = mapper.readTree(json);
 
         Iterator<Map.Entry<String, JsonNode>> fieldsIterator = rootNode.fields();

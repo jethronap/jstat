@@ -15,11 +15,11 @@ import java.io.StringReader;
 
 public class CsvDataLoader {
 
-    private String location = "/path/to/file.csv";
-    private Reader csvData = new StringReader(location);
-
     public void parseFile( String csvFile) throws IOException {
-        
+
+        String location = "/path/to/file.csv";
+        Reader csvData = new StringReader(location);
+
         CSVParser parser = CSVParser.parse(csvData, CSVFormat.DEFAULT);
 
         for (CSVRecord record: parser) {
