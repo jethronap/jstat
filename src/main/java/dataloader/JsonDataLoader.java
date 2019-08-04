@@ -26,7 +26,7 @@ public class JsonDataLoader {
     JsonFactory factory = new JsonFactory();
     ObjectMapper mapper = new ObjectMapper(factory);
 
-    public void parseJsonData(String jsonFile) throws IOException {
+    public void parseFile(String jsonFile) throws IOException {
         JsonNode rootNode = mapper.readTree(json);
 
         Iterator<Map.Entry<String, JsonNode>> fieldsIterator = rootNode.fields();
