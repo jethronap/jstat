@@ -1,4 +1,4 @@
-package dataLoader;
+package dataloader;
 
 
 import com.fasterxml.jackson.core.JsonFactory;
@@ -18,17 +18,15 @@ import java.util.Map;
 
 
 
-public class jsonDataLoader {
+public class JsonDataLoader {
 
     private String location = "/path/to/file.json";
     private File json = new File(location);
 
-    public void parseJsonData(String json) throws IOException {
+    JsonFactory factory = new JsonFactory();
+    ObjectMapper mapper = new ObjectMapper(factory);
 
-
-        JsonFactory factory = new JsonFactory();
-
-        ObjectMapper mapper = new ObjectMapper(factory);
+    public void parseJsonData(String jsonFile) throws IOException {
         JsonNode rootNode = mapper.readTree(json);
 
         Iterator<Map.Entry<String, JsonNode>> fieldsIterator = rootNode.fields();

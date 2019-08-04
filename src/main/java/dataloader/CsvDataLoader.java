@@ -1,4 +1,4 @@
-package dataLoader;
+package dataloader;
 
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
@@ -13,7 +13,7 @@ import java.io.StringReader;
  * without knowing the headers of the file
  * */
 
-public class csvDataLoader {
+public class CsvDataLoader {
 
     private String location = "/path/to/file.csv";
     private Reader csvData = new StringReader(location);
