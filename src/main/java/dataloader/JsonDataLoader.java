@@ -17,7 +17,6 @@ import java.util.Map;
  */
 
 
-
 public class JsonDataLoader {
 
     public void parseFile(String jsonFile) throws IOException {

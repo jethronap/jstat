@@ -11,19 +11,19 @@ import java.io.StringReader;
 /**
  * Simple class that parses data set from a csv file
  * without knowing the headers of the file
- * */
+ */
 
 public class CsvDataLoader {
 
-    public void parseFile( String csvFile) throws IOException {
+    public void parseFile(String csvFile) throws IOException {
 
         String location = "/path/to/file.csv";
         Reader csvData = new StringReader(location);
 
         CSVParser parser = CSVParser.parse(csvData, CSVFormat.DEFAULT);
 
-        for (CSVRecord record: parser) {
-            for (String field: record) {
+        for (CSVRecord record : parser) {
+            for (String field : record) {
                 System.out.println("\"" + field + "\", ");
             }
         }
