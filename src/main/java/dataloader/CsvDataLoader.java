@@ -7,6 +7,7 @@ import org.apache.commons.csv.CSVRecord;
 import java.io.IOException;
 import java.io.Reader;
 import java.io.StringReader;
+import java.util.TreeMap;
 
 /**
  * Simple class that parses data set from a csv file
@@ -15,7 +16,7 @@ import java.io.StringReader;
 
 public class CsvDataLoader {
 
-    public void parseFile(String csvFile) throws IOException {
+    public void parseFile(String csvFile, TreeMap dataSet) throws IOException {
 
         Reader csvData = new StringReader(csvFile);
 
@@ -23,6 +24,9 @@ public class CsvDataLoader {
 
         for (CSVRecord record : parser) {
             for (String field : record) {
+                dataSet.keySet();
+                dataSet.get(field);
+                System.out.println(dataSet);
                 System.out.println("\"" + field + "\", ");
             }
         }
