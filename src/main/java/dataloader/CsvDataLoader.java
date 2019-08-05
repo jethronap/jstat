@@ -21,16 +21,19 @@ public class CsvDataLoader {
         Reader csvData = new StringReader(csvFile);
 
         CSVParser parser = CSVParser.parse(csvData, CSVFormat.DEFAULT);
-
-        for (CSVRecord record : parser) {
-            for (String field : record) {
-                dataSet.keySet();
-                dataSet.get(field);
-                System.out.println(dataSet);
-                System.out.println("\"" + field + "\", ");
+        if (!dataSet.isEmpty()) {
+            for (CSVRecord record : parser) {
+                for (String field : record) {
+                    dataSet.keySet();
+                    dataSet.get(field);
+                    System.out.println(dataSet);
+                    System.out.println("\"" + field + "\", ");
+                }
             }
+            System.out.println();
+        } else {
+            throw new IllegalStateException("dataSet cannot be null");
         }
-        System.out.println();
     }
 
 }
