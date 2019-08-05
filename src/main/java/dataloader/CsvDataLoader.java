@@ -17,8 +17,7 @@ public class CsvDataLoader {
 
     public void parseFile(String csvFile) throws IOException {
 
-        String location = "/path/to/file.csv";
-        Reader csvData = new StringReader(location);
+        Reader csvData = new StringReader(csvFile);
 
         CSVParser parser = CSVParser.parse(csvData, CSVFormat.DEFAULT);
 
