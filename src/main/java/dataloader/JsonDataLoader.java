@@ -24,26 +24,22 @@ public class JsonDataLoader {
     public void parseFile(String jsonFile, HashMap<String, Object> dataSet) throws IOException {
 
         File json = new File(jsonFile);
-        // check added for precondition violations:
-        if (!dataSet.isEmpty()) {
-            try {
-                JsonFactory factory = new JsonFactory();
-                ObjectMapper mapper = new ObjectMapper(factory);
-                JsonNode rootNode = mapper.readTree(json);
+        try {
+            JsonFactory factory = new JsonFactory();
+            ObjectMapper mapper = new ObjectMapper(factory);
+            JsonNode rootNode = mapper.readTree(json);
 
-                Iterator<Map.Entry<String, JsonNode>> fieldsIterator = rootNode.fields();
-                while (fieldsIterator.hasNext()) {
-                    Map.Entry<String, JsonNode> field = fieldsIterator.next();
-                    dataSet.put(field.getKey(), field.getValue());
+            Iterator<Map.Entry<String, JsonNode>> fieldsIterator = rootNode.fields();
+            while (fieldsIterator.hasNext()) {
+                Map.Entry<String, JsonNode> field = fieldsIterator.next();
+                dataSet.put(field.getKey(), field.getValue());
 
-                    System.out.println(dataSet);
-                    System.out.println("Key: " + field.getKey() + "\tValue: " + field.getValue());
-                }
-            } catch (FileNotFoundException e) {
-                System.out.println(e);
+                System.out.println(dataSet);
+                System.out.println("Key: " + field.getKey() + "\tValue: " + field.getValue());
             }
-        } else {
-            throw new IllegalStateException("dataSet cannot be null");
+        } catch (FileNotFoundException e) {
+            System.out.println(e);
         }
+
     }
 }

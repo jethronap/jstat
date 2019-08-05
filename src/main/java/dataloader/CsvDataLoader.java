@@ -4,6 +4,7 @@ import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.Reader;
 import java.io.StringReader;
@@ -19,9 +20,8 @@ public class CsvDataLoader {
     public void parseFile(String csvFile, TreeMap dataSet) throws IOException {
 
         Reader csvData = new StringReader(csvFile);
-
-        CSVParser parser = CSVParser.parse(csvData, CSVFormat.DEFAULT);
-        if (!dataSet.isEmpty()) {
+        try {
+            CSVParser parser = CSVParser.parse(csvData, CSVFormat.DEFAULT);
             for (CSVRecord record : parser) {
                 for (String field : record) {
                     dataSet.keySet();
@@ -31,8 +31,8 @@ public class CsvDataLoader {
                 }
             }
             System.out.println();
-        } else {
-            throw new IllegalStateException("dataSet cannot be null");
+        } catch (FileNotFoundException e) {
+            System.out.println(e);
         }
     }
 
