@@ -23,6 +23,7 @@ public class JsonDataLoader {
     public void parseFile(String jsonFile, HashMap<String, Object> dataSet) throws IOException {
 
         File json = new File(jsonFile);
+        // check added for precondition violations:
         if (dataSet.isEmpty()) {
             throw new IllegalStateException("dataSet is empty.");
         } else {
