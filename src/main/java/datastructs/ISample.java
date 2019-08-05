@@ -1,23 +1,19 @@
 package datastructs;
 
-import stats.Statistics;
-
 
 /**
  * Interface to model a sample from the data
  */
 public interface ISample {
 
+    /**
+     * The name of the sample
+     */
+    public String getName();
 
     /**
-     * Compute the statistics of the sample
-     * @return
+     * Returns the size of the sample
      */
-    public Statistics getStatistics();
-
-    /**
-     * Compute the mean of the sample
-     */
-    public double getMean();
+    public int getsize();
 
 }
