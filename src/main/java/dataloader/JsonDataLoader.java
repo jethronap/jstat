@@ -7,6 +7,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
@@ -21,8 +22,8 @@ public class JsonDataLoader {
 
     public void parseFile(String jsonFile) throws IOException {
 
-        String location = "/path/to/file.json";
-        File json = new File(location);
+        File json = new File(jsonFile);
+        HashMap<String, Object> dataset = new HashMap();
 
         JsonFactory factory = new JsonFactory();
         ObjectMapper mapper = new ObjectMapper(factory);
@@ -31,6 +32,9 @@ public class JsonDataLoader {
         Iterator<Map.Entry<String, JsonNode>> fieldsIterator = rootNode.fields();
         while (fieldsIterator.hasNext()) {
             Map.Entry<String, JsonNode> field = fieldsIterator.next();
+            dataset.put(field.getKey(), field.getValue());
+
+            System.out.println(dataset);
             System.out.println("Key: " + field.getKey() + "\tValue: " + field.getValue());
         }
     }
