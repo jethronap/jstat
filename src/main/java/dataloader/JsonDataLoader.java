@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -24,21 +25,25 @@ public class JsonDataLoader {
 
         File json = new File(jsonFile);
         // check added for precondition violations:
-        if (dataSet.isEmpty()) {
-            throw new IllegalStateException("dataSet is empty.");
-        } else {
-            JsonFactory factory = new JsonFactory();
-            ObjectMapper mapper = new ObjectMapper(factory);
-            JsonNode rootNode = mapper.readTree(json);
+        if (!dataSet.isEmpty()) {
+            try {
+                JsonFactory factory = new JsonFactory();
+                ObjectMapper mapper = new ObjectMapper(factory);
+                JsonNode rootNode = mapper.readTree(json);
 
-            Iterator<Map.Entry<String, JsonNode>> fieldsIterator = rootNode.fields();
-            while (fieldsIterator.hasNext()) {
-                Map.Entry<String, JsonNode> field = fieldsIterator.next();
-                dataSet.put(field.getKey(), field.getValue());
+                Iterator<Map.Entry<String, JsonNode>> fieldsIterator = rootNode.fields();
+                while (fieldsIterator.hasNext()) {
+                    Map.Entry<String, JsonNode> field = fieldsIterator.next();
+                    dataSet.put(field.getKey(), field.getValue());
 
-                System.out.println(dataSet);
-                System.out.println("Key: " + field.getKey() + "\tValue: " + field.getValue());
+                    System.out.println(dataSet);
+                    System.out.println("Key: " + field.getKey() + "\tValue: " + field.getValue());
+                }
+            } catch (FileNotFoundException e) {
+                System.out.println(e);
             }
+        } else {
+            throw new IllegalStateException("dataSet cannot be null");
         }
     }
 }
