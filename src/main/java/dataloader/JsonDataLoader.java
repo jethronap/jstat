@@ -20,22 +20,24 @@ import java.util.Map;
 
 public class JsonDataLoader {
 
-    public void parseFile(String jsonFile) throws IOException {
+    public void parseFile(String jsonFile, HashMap<String, Object> dataSet) throws IOException {
 
         File json = new File(jsonFile);
-        HashMap<String, Object> dataset = new HashMap();
+        if (dataSet.isEmpty()) {
+            throw new IllegalStateException("dataSet is empty.");
+        } else {
+            JsonFactory factory = new JsonFactory();
+            ObjectMapper mapper = new ObjectMapper(factory);
+            JsonNode rootNode = mapper.readTree(json);
 
-        JsonFactory factory = new JsonFactory();
-        ObjectMapper mapper = new ObjectMapper(factory);
-        JsonNode rootNode = mapper.readTree(json);
+            Iterator<Map.Entry<String, JsonNode>> fieldsIterator = rootNode.fields();
+            while (fieldsIterator.hasNext()) {
+                Map.Entry<String, JsonNode> field = fieldsIterator.next();
+                dataSet.put(field.getKey(), field.getValue());
 
-        Iterator<Map.Entry<String, JsonNode>> fieldsIterator = rootNode.fields();
-        while (fieldsIterator.hasNext()) {
-            Map.Entry<String, JsonNode> field = fieldsIterator.next();
-            dataset.put(field.getKey(), field.getValue());
-
-            System.out.println(dataset);
-            System.out.println("Key: " + field.getKey() + "\tValue: " + field.getValue());
+                System.out.println(dataSet);
+                System.out.println("Key: " + field.getKey() + "\tValue: " + field.getValue());
+            }
         }
     }
 }
