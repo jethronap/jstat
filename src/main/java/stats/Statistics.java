@@ -6,10 +6,10 @@ package stats;
  */
 public class Statistics {
 
-    double mean=0.0;
-    double variance=0.0;
-    double median=0.0;
-    double max=0.0;
-    double min=0.0;
-	boolean is_valid=false;
+    public double mean=0.0;
+    public double variance=0.0;
+    public double median=0.0;
+    public double max=0.0;
+    public double min=0.0;
+	public boolean is_valid=false;
 }

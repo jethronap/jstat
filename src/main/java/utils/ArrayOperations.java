@@ -1,26 +1,56 @@
 package utils;
 
-class ArrayOperations
+import java.util.List;
+
+
+public class ArrayOperations
 {
 	
-	public static < T extends Number > T sum(List<T> array){
-		
-		T rslt = Adder<T>.zero();
-		
-		for(T element : array){
-			
-			rslt += array.get(i);
+	public static  Double sum(List< Double > array, Double none){
+
+		if(array == null){
+			throw new NullPointerException("Input List<T> is null");
 		}
-		
+
+
+		double rslt = 0.0;
+
+		for(Double element : array){
+
+			rslt += element;
+
+		}
+
 		return rslt;
-		
+	}
+
+	public static  Integer sum(List<Integer> array, Integer none){
+
+		if(array == null){
+			throw new NullPointerException("Input List<T> is null");
+		}
+
+
+		int rslt = 0;
+
+		for(Integer element : array){
+
+			rslt += element;
+
+		}
+
+		return rslt;
 	}
 	
-	public static < T extends Number > max(List< T > array){
+	public static Double max(List< Double > array, Double none){
+
+		if(array == null){
+			throw new NullPointerException("Input List<T> is null");
+		}
+
+		Double rslt = array.get(0);
 		
-		T rslt = array.get(0);
-		
-		for(T element : array){
+		for(Double element : array){
 			
 			if(element > rslt){
 					rslt = element;
@@ -29,18 +59,59 @@ class ArrayOperations
 		
 		return rslt;
 	}
-	
-	public static < T extends Number > min(List< T > array){
+
+	public static Integer max(List< Integer > array, Integer none){
+
+		if(array == null){
+			throw new NullPointerException("Input List<T> is null");
+		}
+
+		Integer rslt = array.get(0);
+
+		for(Integer element : array){
+
+			if(element > rslt){
+				rslt = element;
+			}
+		}
+
+		return rslt;
+	}
+
+
+	public static Double min(List< Double > array, Double none){
+
+		if(array == null){
+			throw new NullPointerException("Input List<T> is null");
+		}
+
+		Double rslt = array.get(0);
 		
-		T rslt = array.get(0);
-		
-		for(T element : array){
+		for(Double element : array){
 			
 			if(element < rslt){
 					rslt = element;
 			}	
 		}
 		
+		return rslt;
+	}
+
+	public static Integer min(List< Integer > array, Integer none){
+
+		if(array == null){
+			throw new NullPointerException("Input List<T> is null");
+		}
+
+		Integer rslt = array.get(0);
+
+		for(Integer element : array){
+
+			if(element < rslt){
+				rslt = element;
+			}
+		}
+
 		return rslt;
 	}
 	
