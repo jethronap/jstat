@@ -4,17 +4,18 @@ import stats.Statistics;
 import utils.ArrayOperations;
 import java.util.ArrayList;
 
-public abstract class NumericSampleBase<T> implements ISample {
+public abstract class NumericSampleBase< T extends Number > implements ISample {
 
 
     /**
      * Constructor
      */
-    protected NumericSampleBase(String name, ArrayList<T> data){
+    protected NumericSampleBase(String name, ArrayList<T> data, boolean is_sorted){
 
 		this.stats = new Statistics();
         this.name = name;
         this.data = data;
+		this.is_sorted = is_sorted;
     }
 
     /**
@@ -66,12 +67,22 @@ public abstract class NumericSampleBase<T> implements ISample {
 		// compute median
 		
 		// compute min/max
+		if(is_sorted){
+			stats.min = data.get(0);
+			stats.max = data.get(data.size()-1);
+		}
+		else{
+			
+			stats.min = ArrayOperations<T>.max( data );
+			stats.max = ArrayOperations<T>.min( data );
+		}
 		
 		stats.is_valid = true;
 	}	
 
-	private Statistics stats=null;
-    private String name=null;
+	private Statistics stats = null;
+    private String name = null;
     private ArrayList<T> data = null;
+	boolean is_sorted = false;
 
 }

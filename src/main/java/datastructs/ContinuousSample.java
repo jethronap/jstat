@@ -10,8 +10,8 @@ public class ContinuousSample extends NumericSampleBase<Double> {
      * Construct by using an ArrayList
      * @param data
      */
-    public ContinuousSample(String name, ArrayList<Double> data){
-        super(name, data);
+    public ContinuousSample(String name, ArrayList<Double> data, boolean is_sorted){
+        super(name, data, is_sorted);
     }
 
 }

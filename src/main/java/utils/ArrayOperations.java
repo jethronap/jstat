@@ -3,12 +3,11 @@ package utils;
 class ArrayOperations
 {
 	
-	
-	public static Integer sum(ArrayList<Integer> array){
+	public static < T extends Number > T sum(List<T> array){
 		
-		Integer rslt = new Integer(0);
+		T rslt = Adder<T>.zero();
 		
-		for(int i=0; i<array.size(); ++i){
+		for(T element : array){
 			
 			rslt += array.get(i);
 		}
@@ -17,27 +16,32 @@ class ArrayOperations
 		
 	}
 	
-	public static Double sum(ArrayList<Double> array){
+	public static < T extends Number > max(List< T > array){
 		
-		Double rslt = new Double(0.0);
+		T rslt = array.get(0);
 		
-		for(int i=0; i<array.size(); ++i){
+		for(T element : array){
 			
-			rslt += array.get(i);
+			if(element > rslt){
+					rslt = element;
+			}	
 		}
 		
 		return rslt;
-		
 	}
 	
-	public static Integer max(ArrayList<Integer> array){
+	public static < T extends Number > min(List< T > array){
 		
-		return 0;
-	}
-	
-	public static Integer min(ArrayList<Integer> array){
+		T rslt = array.get(0);
 		
-		return 0;
+		for(T element : array){
+			
+			if(element < rslt){
+					rslt = element;
+			}	
+		}
+		
+		return rslt;
 	}
 	
 }

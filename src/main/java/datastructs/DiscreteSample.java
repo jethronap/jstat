@@ -13,8 +13,8 @@ public final class DiscreteSample extends NumericSampleBase<Integer> {
      * Construct by using an ArrayList
      * @param data
      */
-    public DiscreteSample(String name, ArrayList<Integer> data){
-        super(name, data);
+    public DiscreteSample(String name, ArrayList<Integer> data, boolean is_sorted){
+        super(name, data, is_sorted);
     }
 
 }
