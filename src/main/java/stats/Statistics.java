@@ -11,4 +11,5 @@ public class Statistics {
     double median=0.0;
     double max=0.0;
     double min=0.0;
+	boolean is_valid=false;
 }
