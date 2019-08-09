@@ -28,21 +28,25 @@ public final class DiscreteSample extends NumericSampleBase<Integer> {
         stats.mean = sum/data.size();
 
         // compute variance
+		double sqrSum = ArrayOperations.sumSqr( data, new Integer (0.0)).doubleValue();
+		stats.variance = ( 1.0/(data.size() - 1) )*(sqrSum (sum*sum)/data.size());
 
-        // compute median
+        if(!is_sorted){
 
-        // compute min/max
-        if(is_sorted){
-
-            stats.min = data.get(0).doubleValue();
-            stats.max = data.get(data.size()-1).doubleValue();
-
+			// sort the data for 
+			Arrays.sort( data );
         }
-        else{
-
-            stats.min = ArrayOperations.max( data, new Integer(0) ).doubleValue();
-            stats.max = ArrayOperations.min( data, new Integer(0) ).doubleValue();
-        }
+        
+		stats.min = data.get(0).doubleValue();
+        stats.max = data.get(data.size()-1).doubleValue();
+		
+		// compute median
+		if (data.size() % 2 == 0){
+			stats.median = (double)(data.get(data.size()/2) + data.get(data.size()/2 - 1))/2;
+		}
+		else{
+			stats.median = (double) data.get(data.size()/2);
+		}
 
         stats.is_valid = true;
     }
