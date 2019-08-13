@@ -52,6 +52,21 @@ public abstract class NumericSampleBase< T extends Number > implements ISample {
      * Compute the variance of the sample
      */
     public final double getVar(){return getStatistics().variance;}
+	
+	/**
+	  * Returns the median of the sample
+	  */
+	public final double getMedian(){return getStatistics().median;}
+	
+	/**
+	  * Returns the maximum of the sample
+	  */
+	public final double getMax(){return getStatistics().max;}
+	
+	/**
+	  * Returns the minimum of the sample
+	  */
+	public final double getMin(){return getStatistics().min;}
 
 	/**
 	 * Compute the sample statistics

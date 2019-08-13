@@ -63,5 +63,4 @@ class CategoricalSample implements ISample
 	List<String> data = null;
 	HashMap<String, Integer> categories = null;
 
-
 }	
