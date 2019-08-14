@@ -51,6 +51,7 @@ public final class DiscreteSample extends NumericSampleBase<Integer> {
 
 			// sort the data for 
 			Collections.sort( data );
+			is_sorted=true;
         }
         
 		stats.min = data.get(0).doubleValue();

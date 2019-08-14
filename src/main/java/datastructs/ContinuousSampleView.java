@@ -86,6 +86,7 @@ public class ContinuousSampleView extends SampleView<Double>
 			
 			// sort the data for 
 			Collections.sort( data );
+			is_sorted = true;
         }
         
 		stats.min = data.get(0).doubleValue();
