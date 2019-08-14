@@ -17,6 +17,8 @@ public abstract class NumericSampleBase< T extends Number > implements ISample {
         this.data = data;
 		this.is_sorted = is_sorted;
     }
+	
+	
 
     /**
      * The name of the sample
@@ -72,7 +74,6 @@ public abstract class NumericSampleBase< T extends Number > implements ISample {
 	 * Compute the sample statistics
 	 */
 	protected abstract  void compute_sample_statistics();
-
 
 
 	protected Statistics stats = null;

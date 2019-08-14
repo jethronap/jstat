@@ -15,6 +15,12 @@ public class ContinuousSample extends NumericSampleBase<Double> {
 
         super(name, data, is_sorted);
     }
+	
+	public SampleView<Double> getView(int start, int end){
+		
+		 SampleView<T> view - new 
+		
+	}
 
     /**
      * Compute the sample statistics
