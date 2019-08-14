@@ -1,15 +1,23 @@
 package datastructs;
 
-class IntegerSampleView extends SampleView<Integer>
+import stats.Statistics;
+import utils.ArrayOperations;
+
+import java.util.Collections;
+import java.util.List;
+
+public class DiscreteSampleView extends SampleView<Integer>
 {
 	
-	public IntegerSampleView(){
+	public DiscreteSampleView(int capacity){
 		
-		super();
+		super(capacity);
+		stats = new Statistics();
 	}
 	
-	public IntegerSampleView(List<Integer> data, boolean is_sorted){
+	public DiscreteSampleView(List<Integer> data, boolean is_sorted){
 		super(data, is_sorted);
+		stats = new Statistics();
 	}
 	
 	/**
@@ -44,30 +52,39 @@ class IntegerSampleView extends SampleView<Integer>
 	/**
 	  * Returns the maximum of the sample
 	  */
-	public final Integer getMax(){return getStatistics().max;}
+	public final double getMax(){return getStatistics().max;}
 	
 	/**
 	  * Returns the minimum of the sample
 	  */
-	public final Integer getMin(){return getStatistics().min;}
+	public final double getMin(){return getStatistics().min;}
+
+	/**
+	 * Print information about the sample
+	 */
+	public final void printInfo(){
+
+		getStatistics();
+		stats.printInfo();
+	}
 
 	/**
 	 * Compute the sample statistics
 	 */
 	protected void compute_sample_statistics(){
 		
-		Double sum = ArrayOperations.sum(data, new Ineteger(0));
+		Integer sum = ArrayOperations.sum(data, new Integer(0));
         stats.mean = sum/data.size();
 
         // compute variance
-		double sqrSum = ArrayOperations.sumSqr( data, new Ineteger (0));
-		stats.variance = ( 1.0/(data.size() - 1) )*(sqrSum (sum*sum)/data.size());
+		double sqrSum = ArrayOperations.sumSqr( data, new Integer (0));
+		stats.variance = ( 1.0/(data.size() - 1) )*(sqrSum - (sum*sum)/data.size());
 
         // compute min/max
         if(!is_sorted){
 			
 			// sort the data for 
-			Arrays.sort( data );
+			Collections.sort( data );
         }
         
 		stats.min = data.get(0).doubleValue();

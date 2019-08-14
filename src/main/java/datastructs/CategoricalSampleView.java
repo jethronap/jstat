@@ -1,15 +1,19 @@
 package datastructs;
 
-class CategoricalSampleView extends SampleView<String>
+import java.util.HashMap;
+import java.util.List;
+import java.util.Set;
+
+public class CategoricalSampleView extends SampleView<String>
 {
 	
-		public CategoricalSampleView(){
+	public CategoricalSampleView(int capacity){
 		
-			super();
-			this.categories = null;
-		}
+		super(capacity);
+		this.categories = null;
+	}
 	
-	public CategoricalSampleView(String name, List<String> data){
+	public CategoricalSampleView( List<String> data ){
 		super(data, false);
 		this.categories = null;
 	}
@@ -21,7 +25,6 @@ class CategoricalSampleView extends SampleView<String>
 	public final Set<String> getCategories(){
 		
 		if(categories != null){
-			
 			return categories.keySet();
 		}
 		
@@ -29,7 +32,7 @@ class CategoricalSampleView extends SampleView<String>
 		
 		for(int i=0; i<data.size(); ++i){
 			
-			if(categories.contains(data.get(i)){
+			if(categories.containsKey(data.get(i))){
 				categories.put(data.get(i), categories.get(data.get(i)) +1 ); 
 			}
 			else{

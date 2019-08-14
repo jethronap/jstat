@@ -4,8 +4,7 @@ import stats.Statistics;
 import utils.ArrayOperations;
 import java.util.ArrayList;
 
-public abstract class NumericSampleBase< T extends Number > implements ISample {
-
+public abstract class NumericSampleBase< T extends Number > implements ISample<T> {
 
     /**
      * Constructor
@@ -17,8 +16,6 @@ public abstract class NumericSampleBase< T extends Number > implements ISample {
         this.data = data;
 		this.is_sorted = is_sorted;
     }
-	
-	
 
     /**
      * The name of the sample
@@ -71,9 +68,19 @@ public abstract class NumericSampleBase< T extends Number > implements ISample {
 	public final double getMin(){return getStatistics().min;}
 
 	/**
+	 * Prints information about the sample
+	 */
+	public void printInfo(){
+
+		getStatistics();
+		stats.printInfo();
+	}
+
+	/**
 	 * Compute the sample statistics
 	 */
 	protected abstract  void compute_sample_statistics();
+
 
 
 	protected Statistics stats = null;

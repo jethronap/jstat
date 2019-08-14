@@ -4,6 +4,7 @@ import stats.Statistics;
 import utils.ArrayOperations;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class ContinuousSample extends NumericSampleBase<Double> {
 
@@ -18,8 +19,15 @@ public class ContinuousSample extends NumericSampleBase<Double> {
 	
 	public SampleView<Double> getView(int start, int end){
 		
-		 SampleView<T> view - new 
-		
+		 SampleView<Double> view = new ContinuousSampleView(end - start);
+
+		int counter=0;
+		for(int i=start; i<end; ++i){
+
+			view.set(counter++, data.get(i));
+		}
+
+		 return view;
 	}
 
     /**
@@ -32,13 +40,13 @@ public class ContinuousSample extends NumericSampleBase<Double> {
 
         // compute variance
 		double sqrSum = ArrayOperations.sumSqr( data, new Double (0.0));
-		stats.variance = ( 1.0/(data.size() - 1) )*(sqrSum (sum*sum)/data.size());
+		stats.variance = ( 1.0/(data.size() - 1) )*(sqrSum - (sum*sum)/data.size());
 
         // compute min/max
         if(!is_sorted){
 			
 			// sort the data for 
-			Arrays.sort( data );
+			Collections.sort( data );
         }
         
 		stats.min = data.get(0).doubleValue();
