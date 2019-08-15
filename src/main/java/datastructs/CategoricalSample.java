@@ -1,14 +1,23 @@
 package datastructs;
 
-
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.*;
 
 public class CategoricalSample implements ISample<String>
 {
 
+	/**
+	 * Constructor
+	 */
+	public CategoricalSample(String name, int capacity){
+
+		this.name = name;
+		this.data = new ArrayList<String>(capacity);
+	}
+
+	/**
+	 * Constructor
+	 */
 	public CategoricalSample(String name, List<String> data){
 		this.name = name;
 		this.data = data;
@@ -25,23 +34,7 @@ public class CategoricalSample implements ISample<String>
      */
     public final int getsize(){return data.size();}
 
-	/**
-	 * Returns a view of the sample
-	 */
-	public SampleView<String> getView(int start, int end){
 
-		SampleView<String> view = new CategoricalSampleView(end - start);
-
-		int counter=0;
-		for(int i=start; i<end; ++i){
-
-			view.set(counter++, data.get(i));
-		}
-
-		return view;
-
-	}
-	
 	/**
 	  * Returns the unique categories
 	  */
@@ -92,6 +85,30 @@ public class CategoricalSample implements ISample<String>
 			System.out.println(entry.getKey() + ", " + entry.getValue());
 		}
 
+	}
+
+	/*
+	 * Add the value to the sample
+	 */
+	public final void add(String value){
+
+		data.add(value);
+	}
+
+	/**
+	 * Set the i-th entry to the given value
+	 */
+	public final void set(int i, String value){
+
+		data.set(i, value);
+	}
+
+	/**
+	 * Returns the i-th entry of the sample
+	 */
+	public final String get(int i){
+
+		return data.get(i);
 	}
 	
 	private String name = null;

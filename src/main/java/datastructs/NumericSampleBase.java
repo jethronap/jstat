@@ -6,6 +6,18 @@ import java.util.ArrayList;
 
 public abstract class NumericSampleBase< T extends Number > implements ISample<T> {
 
+
+	/**
+	 * Constructor
+	 */
+	public NumericSampleBase(String name, int capacity){
+
+		this.stats = new Statistics();
+		this.name = name;
+		this.data = new ArrayList<T>(capacity);
+		this.is_sorted = false;
+	}
+
     /**
      * Constructor
      */
@@ -29,7 +41,6 @@ public abstract class NumericSampleBase< T extends Number > implements ISample<T
 
     /**
      * Compute the statistics of the sample
-     * @return
      */
     public final Statistics getStatistics(){
 		
@@ -66,6 +77,30 @@ public abstract class NumericSampleBase< T extends Number > implements ISample<T
 	  * Returns the minimum of the sample
 	  */
 	public final double getMin(){return getStatistics().min;}
+
+	/**
+	 * Add the value to the sample
+	 */
+	public final void add(T value){
+
+		data.add(value);
+	}
+
+	/**
+	 * Set the i-th entry to the given value
+	 */
+	public final void set(int i, T value){
+
+		data.set(i, value);
+	}
+
+	/**
+	 * Returns the i-th entry of the sample
+	 */
+	public final T get(int i){
+
+		return data.get(i);
+	}
 
 	/**
 	 * Prints information about the sample

@@ -15,12 +15,23 @@ public interface ISample<T> {
      * Returns the size of the sample
      */
     public int getsize();
-	
+
 	/**
-	  * Returns a SampleView of the sample
-	  */
-	public SampleView<T> getView(int start, int end);
-	
+	 * Add the value to the sample
+	 */
+	public void add(T value);
+
+	/**
+	 * Set the i-th entry to the given value
+	 */
+	public  void set(int i, T value);
+
+	/**
+	 * Returns the i-th entry of the sample
+	 */
+	public T get(int i);
+
+
 	/**
 	  * Prints information about the sample
 	  */

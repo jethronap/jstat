@@ -13,27 +13,21 @@ public final class DiscreteSample extends NumericSampleBase<Integer> {
 
 
     /**
+     * Constructor
+     */
+    public DiscreteSample(String name, int capacity){
+
+        super(name, capacity);
+    }
+
+
+    /**
      * Construct by using an ArrayList
      */
     public DiscreteSample(String name, ArrayList<Integer> data, boolean is_sorted){
         super(name, data, is_sorted);
     }
 
-    /**
-     * Returns a view of the sample
-     */
-    public SampleView<Integer> getView(int start, int end){
-
-        SampleView<Integer> view = new DiscreteSampleView(end - start);
-
-        int counter=0;
-        for(int i=start; i<end; ++i){
-
-            view.set(counter++, data.get(i));
-        }
-
-        return view;
-    }
 
     /**
      * Compute the sample statistics

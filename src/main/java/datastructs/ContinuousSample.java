@@ -8,6 +8,14 @@ import java.util.Collections;
 
 public class ContinuousSample extends NumericSampleBase<Double> {
 
+	/**
+	 * Constructor
+	 */
+	public ContinuousSample(String name, int capacity){
+
+		super(name, capacity);
+	}
+
     /**
      * Construct by using an ArrayList
      * @param data
@@ -17,18 +25,6 @@ public class ContinuousSample extends NumericSampleBase<Double> {
         super(name, data, is_sorted);
     }
 	
-	public SampleView<Double> getView(int start, int end){
-		
-		 SampleView<Double> view = new ContinuousSampleView(end - start);
-
-		int counter=0;
-		for(int i=start; i<end; ++i){
-
-			view.set(counter++, data.get(i));
-		}
-
-		 return view;
-	}
 
     /**
      * Compute the sample statistics
