@@ -3,6 +3,7 @@ package datastructs;
 import stats.Statistics;
 import utils.ArrayOperations;
 import java.util.ArrayList;
+import java.util.List;
 
 public abstract class NumericSampleBase< T extends Number > implements ISample<T> {
 
@@ -25,7 +26,7 @@ public abstract class NumericSampleBase< T extends Number > implements ISample<T
 
 		this.stats = new Statistics();
         this.name = name;
-        this.data = data;
+		copy(data);
 		this.is_sorted = is_sorted;
     }
 
@@ -116,6 +117,22 @@ public abstract class NumericSampleBase< T extends Number > implements ISample<T
 	 */
 	protected abstract  void compute_sample_statistics();
 
+	/**
+	 * Copy the data from the given list
+	 */
+	protected void copy(final List<T> data){
+
+		if(data.size() == 0){
+			throw new IllegalStateException("The input data set has zero size");
+		}
+
+		this.data = new ArrayList<T>(data.size());
+
+		for(int i=0; i<data.size(); ++i){
+
+			this.data.add(data.get(i));
+		}
+	}
 
 
 	protected Statistics stats = null;
