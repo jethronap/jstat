@@ -3,6 +3,7 @@ package dataloader;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
+import tech.tablesaw.api.Table;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -34,6 +35,11 @@ public class CsvDataLoader {
         } catch (FileNotFoundException e) {
             System.out.println(e);
         }
+    }
+
+    public void parseFile(Table csvData) throws IOException {
+        //Table csvData = Table.read().csv("csvFile.csv");
+        csvData.read().file("myFile.csv");
     }
 
 }
