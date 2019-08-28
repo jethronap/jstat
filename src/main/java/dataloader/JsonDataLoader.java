@@ -4,6 +4,8 @@ package dataloader;
 import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import tech.tablesaw.api.Table;
+import tech.tablesaw.io.json.JsonReadOptions;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -41,5 +43,10 @@ public class JsonDataLoader {
             System.out.println(e);
         }
 
+    }
+
+    public void parseFile(Table jsonFile) throws IOException {
+        //jsonFile.read().file("myFile.json");
+        jsonFile.read().usingOptions(JsonReadOptions.builder("myFile.json"));
     }
 }
