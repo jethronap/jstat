@@ -42,7 +42,7 @@ public class ArrayOperations
 		return rslt;
 	}
 
-	public static  Integer sum(List<Integer> array, Integer none){
+	public static  Integer sum(List< Integer > array, Integer none){
 
 		if(array == null){
 			throw new NullPointerException("Input List<T> is null");
@@ -58,7 +58,7 @@ public class ArrayOperations
 		return rslt;
 	}
 	
-	public static  Integer sumSqr(List<Integer> array, Integer none){
+	public static  Integer sumSqr(List< Integer > array, Integer none){
 
 		if(array == null){
 			throw new NullPointerException("Input List<T> is null");

@@ -14,7 +14,13 @@ public class UseContinuousSample
 			sample.add(new Double(i));
 		}
 
-		sample.printInfo();
+		sample.getMean();
+		sample.getVar();
+
+		//sample.printInfo();
+
+		sample.set(0, 200.0);
+		sample.getMean();
 		
 	}
 	

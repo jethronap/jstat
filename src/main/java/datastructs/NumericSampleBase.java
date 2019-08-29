@@ -85,6 +85,7 @@ public abstract class NumericSampleBase< T extends Number > implements ISample<T
 	public final void add(T value){
 
 		data.add(value);
+		stats.is_valid = false;
 	}
 
 	/**
@@ -93,6 +94,7 @@ public abstract class NumericSampleBase< T extends Number > implements ISample<T
 	public final void set(int i, T value){
 
 		data.set(i, value);
+		//stats.is_valid = false;
 	}
 
 	/**
