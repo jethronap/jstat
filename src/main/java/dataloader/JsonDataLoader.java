@@ -14,15 +14,14 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
-/**
- * Simple Class that parses data set from a json file
- * without knowing the file's format
- * & prints out the key value pairs.
- */
-
 
 public class JsonDataLoader {
 
+    /**
+     * Simple Class that parses data set from a json file
+     * without knowing the file's format
+     * & prints out the key value pairs.
+     */
     public void parseFile(String jsonFile, HashMap<String, Object> dataSet) throws IOException {
 
         File json = new File(jsonFile);
@@ -45,8 +44,9 @@ public class JsonDataLoader {
 
     }
 
-    public void parseFile(Table jsonFile) throws IOException {
-        //jsonFile.read().file("myFile.json");
-        jsonFile.read().usingOptions(JsonReadOptions.builder("myFile.json"));
+    public void parseFile(String jsonFile, Table dataSet) throws IOException {
+        //jsonData.read().file("myFile.json");
+        dataSet.read().usingOptions(JsonReadOptions.builder(jsonFile));
+        System.out.println(dataSet);
     }
 }
