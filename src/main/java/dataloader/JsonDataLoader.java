@@ -18,7 +18,7 @@ import java.util.Map;
 public class JsonDataLoader {
 
     /**
-     * Simple Class that parses data set from a json file
+     * Method that parses data set from a json file
      * without knowing the file's format
      * & prints out the key value pairs.
      */
@@ -43,7 +43,11 @@ public class JsonDataLoader {
         }
 
     }
-
+    /**
+     * Method that accepts json format as arrays,
+     * with or without headers and
+     * array of objects.
+     * */
     public void parseFile(String jsonFile, Table dataSet) throws IOException {
         //jsonData.read().file("myFile.json");
         dataSet.read().usingOptions(JsonReadOptions.builder(jsonFile));
