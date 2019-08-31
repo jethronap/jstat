@@ -39,9 +39,10 @@ public class CsvDataLoader {
      * and the file has a header row.
      * Missing values are treated with an indicator.
      * */
-    public void parseFile(String csvFile, Table csvData) throws IOException {
+    public void parseFile(String csvFile, Table dataSet) throws IOException {
         //Table csvData = Table.read().csv("csvFile.csv");
-        csvData.read().usingOptions(CsvReadOptions.builder(csvFile).missingValueIndicator("-"));
+        dataSet.read().usingOptions(CsvReadOptions.builder(csvFile).missingValueIndicator("-"));
+        System.out.println(dataSet);
     }
 
 }
