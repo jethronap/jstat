@@ -13,7 +13,8 @@ import java.util.TreeMap;
 
 /**
  * Class that takes a String as path file
- * and uses datasets in two formats
+ * to csv files
+ * and creates datasets in two formats
  * TreeMap & Table from tablesaw.
  */
 
