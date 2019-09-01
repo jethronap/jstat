@@ -11,11 +11,15 @@ import java.io.IOException;
 import java.io.Reader;
 import java.util.TreeMap;
 
-
+/**
+ * Method that takes a String a path file
+ * and returns datasets in two formats
+ * TreeMap & Table from tablesaw.
+ * */
 public class CsvDataLoader {
 
     /**
-     * Simple class that parses data set from a csv file
+     * Simple method that parses data set from a csv file
      * without knowing the headers of the file
      */
     public void parseFile(String csvFile, TreeMap dataSet) throws IOException {
