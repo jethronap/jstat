@@ -19,6 +19,11 @@ public class CsvLoaderTest {
         loader.parseFile("nonExistent.csv", new TreeMap());
     }
 
+    /**
+     * This is the same test as above
+     * but for type Table.
+     */
+
     @Test(expected = IOException.class)
     public void testCsvFileEmptyStringForTable() throws IOException {
         CsvDataLoader loader = new CsvDataLoader();
