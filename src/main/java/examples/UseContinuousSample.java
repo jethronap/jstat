@@ -1,6 +1,6 @@
 package examples;
 
-import datastructs.ContinuousSample;
+import datastructs.NumericSample;
 
 public class UseContinuousSample
 {
@@ -8,7 +8,7 @@ public class UseContinuousSample
 
 	public static void main(String[] args){
 
-		ContinuousSample sample = new ContinuousSample("TestSample", 10);
+		NumericSample sample = new NumericSample("TestSample", 10);
 
 		for(int i=0; i < 10; i++){
 			sample.add(new Double(i));
@@ -16,12 +16,8 @@ public class UseContinuousSample
 
 		sample.getMean();
 		sample.getVar();
+		sample.printInfo();
 
-		//sample.printInfo();
-
-		sample.set(0, 200.0);
-		sample.getMean();
-		
 	}
 	
 	
