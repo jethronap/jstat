@@ -28,8 +28,6 @@ public class CsvDataLoader {
             for (String field : record) {
                 dataSet.keySet();
                 dataSet.get(field);
-                System.out.println(dataSet);
-                System.out.println("\"" + field + "\", ");
             }
         }
     }
@@ -38,11 +36,9 @@ public class CsvDataLoader {
      * Reads from csv in file system with columns separated by commas
      * and the file has a header row.
      * Missing values are treated with an indicator.
-     * */
+     */
     public void parseFile(String csvFile, Table dataSet) throws IOException {
-        //Table csvData = Table.read().csv("csvFile.csv");
         dataSet.read().usingOptions(CsvReadOptions.builder(csvFile).missingValueIndicator("-"));
-        System.out.println(dataSet);
     }
 
 }
