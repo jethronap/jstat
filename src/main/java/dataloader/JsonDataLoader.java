@@ -13,6 +13,12 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
+/**
+ * Class that takes a String as path
+ * to json files
+ * and creates datasets in two formats
+ * HashMap & Table from tablesaw.
+ */
 
 public class JsonDataLoader {
 
