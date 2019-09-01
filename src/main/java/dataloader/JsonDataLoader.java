@@ -45,7 +45,6 @@ public class JsonDataLoader {
      * array of objects.
      */
     public void parseFile(String jsonFile, Table dataSet) throws IOException {
-        //jsonData.read().file("myFile.json");
         dataSet.read().usingOptions(JsonReadOptions.builder(jsonFile));
     }
 }
