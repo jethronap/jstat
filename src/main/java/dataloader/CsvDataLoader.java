@@ -28,6 +28,8 @@ public class CsvDataLoader {
             for (String field : record) {
                 dataSet.keySet();
                 dataSet.get(field);
+
+                System.out.println("\"" + field + "\", ");
             }
         }
     }
