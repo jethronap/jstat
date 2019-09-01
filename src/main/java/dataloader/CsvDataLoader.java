@@ -12,10 +12,11 @@ import java.io.Reader;
 import java.util.TreeMap;
 
 /**
- * Method that takes a String a path file
- * and returns datasets in two formats
+ * Class that takes a String as path file
+ * and uses datasets in two formats
  * TreeMap & Table from tablesaw.
- * */
+ */
+
 public class CsvDataLoader {
 
     /**
