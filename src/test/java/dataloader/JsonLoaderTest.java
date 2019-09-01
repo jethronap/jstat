@@ -18,6 +18,10 @@ public class JsonLoaderTest {
         JsonDataLoader loader = new JsonDataLoader();
         loader.parseFile("nonExistent.json", new HashMap<String, Object>());
     }
+    /**
+     * This is the same test as above
+     * but for type Table.
+     * */
 
     @Test(expected = IOException.class)
     public void testEmptyStringForTable() throws IOException {
