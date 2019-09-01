@@ -34,7 +34,6 @@ public class JsonDataLoader {
             Map.Entry<String, JsonNode> field = fieldsIterator.next();
             dataSet.put(field.getKey(), field.getValue());
 
-            System.out.println(dataSet);
             System.out.println("Key: " + field.getKey() + "\tValue: " + field.getValue());
         }
 
@@ -48,6 +47,5 @@ public class JsonDataLoader {
     public void parseFile(String jsonFile, Table dataSet) throws IOException {
         //jsonData.read().file("myFile.json");
         dataSet.read().usingOptions(JsonReadOptions.builder(jsonFile));
-        System.out.println(dataSet);
     }
 }
