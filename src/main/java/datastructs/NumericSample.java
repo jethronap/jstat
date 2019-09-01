@@ -23,7 +23,7 @@ public class NumericSample implements ISample<Double> {
     /**
      * Constructor
      */
-    protected NumericSample(String name, List<Double> data, boolean is_sorted){
+    public NumericSample(String name, List<Double> data, boolean is_sorted){
 
     	this(name, data.size());
 		this.is_sorted_ = is_sorted;
@@ -173,10 +173,7 @@ public class NumericSample implements ISample<Double> {
 		this.stats_.is_valid = true;
 	}
 
-
-
-
-
+	
 	protected Statistics stats_ = null;
 	protected String name_ = null;
 	protected List<Double> data_ = null;
