@@ -1,150 +1,90 @@
 package utils;
-
 import java.util.List;
 
 
 public class ArrayOperations
 {
+
 	/**
 	  * Returns the sum of the array elements
 	  */
-	public static  Double sum(List< Double > array, Double none){
+	public static  Double sum(List< Double > array){
 
 		if(array == null){
 			throw new NullPointerException("Input List<T> is null");
 		}
 
-		double rslt = 0.0;
+		double result = 0.0;
 
 		for(Double element : array){
-			rslt += element;
+			result += element;
 		}
 
-		return rslt;
+		return result;
 	}
-	
+
+
 	/**
 	  * Returns the squared sum of the arraty elements
 	  */
-	public static  Double sumSqr(List< Double > array, Double none){
+	public static  Double sumSqr(List< Double > array ){
 
 		if(array == null){
 			throw new NullPointerException("Input List<T> is null");
 		}
 
-		double rslt = 0.0;
+		double result = 0.0;
 
 		for(Double element : array){
 
-			rslt += ( element*element );
+            result += ( element*element );
 		}
 
-		return rslt;
+		return result;
 	}
 
-	public static  Integer sum(List<Integer> array, Integer none){
+
+    /**
+      * Returns the maximum element in the List
+     */
+	public static Double max(List< Double > array){
 
 		if(array == null){
 			throw new NullPointerException("Input List<T> is null");
 		}
 
-		int rslt = 0;
-
-		for(Integer element : array){
-
-			rslt += element;
-		}
-
-		return rslt;
-	}
-	
-	public static  Integer sumSqr(List<Integer> array, Integer none){
-
-		if(array == null){
-			throw new NullPointerException("Input List<T> is null");
-		}
-
-		int rslt = 0;
-
-		for(Integer element : array){
-
-			rslt += ( element*element);
-		}
-
-		return rslt;
-	}
-	
-	public static Double max(List< Double > array, Double none){
-
-		if(array == null){
-			throw new NullPointerException("Input List<T> is null");
-		}
-
-		Double rslt = array.get(0);
+		Double result = array.get(0);
 		
 		for(Double element : array){
 			
-			if(element > rslt){
-					rslt = element;
+			if(element > result){
+                result = element;
 			}	
 		}
 		
-		return rslt;
+		return result;
 	}
 
-	public static Integer max(List< Integer > array, Integer none){
+
+    /**
+     * Returns the minimum element in the array
+     */
+	public static Double min(List< Double > array ){
 
 		if(array == null){
 			throw new NullPointerException("Input List<T> is null");
 		}
 
-		Integer rslt = array.get(0);
-
-		for(Integer element : array){
-
-			if(element > rslt){
-				rslt = element;
-			}
-		}
-
-		return rslt;
-	}
-
-
-	public static Double min(List< Double > array, Double none){
-
-		if(array == null){
-			throw new NullPointerException("Input List<T> is null");
-		}
-
-		Double rslt = array.get(0);
+		Double result = array.get(0);
 		
 		for(Double element : array){
 			
-			if(element < rslt){
-					rslt = element;
+			if(element < result){
+                result = element;
 			}	
 		}
 		
-		return rslt;
-	}
-
-	public static Integer min(List< Integer > array, Integer none){
-
-		if(array == null){
-			throw new NullPointerException("Input List<T> is null");
-		}
-
-		Integer rslt = array.get(0);
-
-		for(Integer element : array){
-
-			if(element < rslt){
-				rslt = element;
-			}
-		}
-
-		return rslt;
+		return result;
 	}
 	
 }

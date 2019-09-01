@@ -1,18 +1,19 @@
 package utils;
-import utils.ArrayOperations;
+
 import org.junit.Test;
 import java.util.ArrayList;
 import static org.junit.Assert.assertEquals;
 
+
 public class ArrayOperationsTest {
 
 
-    private final ArrayList<Integer> getSample(int size){
+    private final ArrayList<Double> getSample(int size){
 
-        final ArrayList<Integer> sample = new ArrayList<Integer>();
+        final ArrayList<Double> sample = new ArrayList<Double>();
 
         for(int i=0; i<size; ++i){
-            sample.add(i);
+            sample.add( new Double(i));
         }
 
         return sample;
@@ -26,7 +27,7 @@ public class ArrayOperationsTest {
     @Test(expected = NullPointerException.class)
     public void testNullMax(){
 
-        ArrayOperations.max(null, new Integer(0));
+        ArrayOperations.max(null);
     }
 
     /**
@@ -36,7 +37,7 @@ public class ArrayOperationsTest {
     @Test(expected = NullPointerException.class)
     public void testNullMin(){
 
-        ArrayOperations.min(null, new Integer(0));;
+        ArrayOperations.min(null );;
     }
 
     /**
@@ -46,8 +47,8 @@ public class ArrayOperationsTest {
     @Test
     public void testInvalidEndPosiionSampleMean(){
 
-        final ArrayList<Integer> sample = getSample(4);
-        Integer max = ArrayOperations.max(sample, new Integer(0));
+        final ArrayList<Double> sample = getSample(4);
+        Double max = ArrayOperations.max(sample);
         assertEquals(max.intValue(), 3);
     }
 
@@ -58,10 +59,9 @@ public class ArrayOperationsTest {
     @Test
     public void testCorrectComputeSampleMean(){
 
-        final ArrayList<Integer> sample = getSample(4);
-        Integer min = ArrayOperations.min(sample, new Integer(0));
+        final ArrayList<Double> sample = getSample(4);
+        Double min = ArrayOperations.min(sample );
         assertEquals(min.intValue(), 0);
     }
-
 
 }
