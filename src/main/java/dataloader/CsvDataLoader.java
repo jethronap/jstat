@@ -45,9 +45,11 @@ public class CsvDataLoader {
      * and the file has a header row.
      * Missing values are treated with an indicator.
      */
-    public void parseFile(String csvFile) throws IOException {
-        //dataSet.read().usingOptions(CsvReadOptions.builder(csvFile).missingValueIndicator("-"));
-        Table dataset = Table.read().usingOptions(CsvReadOptions.builder(csvFile).missingValueIndicator("-"));
+    public void parseFile(String csvFile, Table dataSet) throws IOException {
+        dataSet.read().usingOptions(CsvReadOptions
+                .builder(csvFile)
+                .missingValueIndicator("-")
+                .build());
     }
 
 }
