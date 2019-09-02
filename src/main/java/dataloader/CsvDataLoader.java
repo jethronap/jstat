@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.io.Reader;
 import java.util.TreeMap;
 
+
 /**
  * Class that takes a String as path file
  * to csv files
@@ -31,6 +32,7 @@ public class CsvDataLoader {
         CSVParser parser = CSVParser.parse(csvData, CSVFormat.DEFAULT);
 
         for (CSVRecord record : parser) {
+
             for (String field : record) {
                 dataSet.keySet();
                 dataSet.get(field);
@@ -45,11 +47,11 @@ public class CsvDataLoader {
      * and the file has a header row.
      * Missing values are treated with an indicator.
      */
-    public void parseFile(String csvFile, Table dataSet) throws IOException {
-        dataSet.read().usingOptions(CsvReadOptions
-                .builder(csvFile)
-                .missingValueIndicator("-")
-                .build());
+    public Table parseFile(String csvFile, Table dataSet) throws IOException {
+
+        CsvReadOptions options = CsvReadOptions.builder(csvFile).missingValueIndicator("-").build();
+        dataSet = Table.read().usingOptions(options);
+        return dataSet;
     }
 
 }
