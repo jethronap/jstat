@@ -6,6 +6,7 @@ import org.apache.commons.csv.CSVRecord;
 import tech.tablesaw.api.Table;
 import tech.tablesaw.io.csv.CsvReadOptions;
 
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
@@ -48,6 +49,18 @@ public class CsvDataLoader {
      * Missing values are treated with an indicator.
      */
     public Table parseFile(String csvFile, Table dataSet) throws IOException {
+
+        CsvReadOptions options = CsvReadOptions.builder(csvFile).missingValueIndicator("-").build();
+        dataSet = Table.read().usingOptions(options);
+        return dataSet;
+    }
+
+    /**
+     * Reads from csv in file system with columns separated by commas
+     * and the file has a header row.
+     * Missing values are treated with an indicator.
+     */
+    public Table parseFile(File csvFile, Table dataSet) throws IOException {
 
         CsvReadOptions options = CsvReadOptions.builder(csvFile).missingValueIndicator("-").build();
         dataSet = Table.read().usingOptions(options);
