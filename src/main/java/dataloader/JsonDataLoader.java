@@ -46,11 +46,27 @@ public class JsonDataLoader {
     }
 
     /**
-     * Method that accepts json format as arrays,
-     * with or without headers and
-     * array of objects.
+     * Reads from json in file system.
+     * Accepts json format as arrays,
+     * with or without headers, array of objects.
+     * A Table dataSet is returned.
      */
-    public void parseFile(String jsonFile, Table dataSet) throws IOException {
-        dataSet.read().usingOptions(JsonReadOptions.builder(jsonFile));
+    public Table parseFile(String jsonFile, Table dataSet) throws IOException {
+        dataSet.read().usingOptions(JsonReadOptions.builder(jsonFile).build());
+
+        return dataSet;
     }
+
+    /**
+     * Reads from json a file.
+     * Accepts json format as arrays,
+     * with or without headers, array of objects.
+     * A Table dataSet is returned.
+     */
+    public Table parseFile(File jsonFile, Table dataSet) throws IOException {
+        dataSet.read().usingOptions(JsonReadOptions.builder(jsonFile).build());
+
+        return dataSet;
+    }
+
 }
