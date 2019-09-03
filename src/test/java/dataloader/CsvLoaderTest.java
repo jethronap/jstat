@@ -2,14 +2,13 @@ package dataloader;
 
 import org.junit.Test;
 import tech.tablesaw.api.Table;
-import tech.tablesaw.columns.Column;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.List;
 import java.util.TreeMap;
 
-import static junit.framework.Assert.*;
+import static junit.framework.Assert.assertEquals;
+import static junit.framework.Assert.assertNotNull;
 
 public class CsvLoaderTest {
 
@@ -40,8 +39,9 @@ public class CsvLoaderTest {
     }
 
 
-    /** This is the same test as above
-     * but for type Table.
+    /** Test Scenario: a csv file is provided
+     * Expected Output: the dataset is returned
+     * along with the correct column size and row count.
      */
 
     @Test
