@@ -50,7 +50,8 @@ public class JsonDataLoader {
      * A Table dataSet is returned.
      */
     public Table parseFile(String jsonFile, Table dataSet) throws IOException {
-        dataSet.read().usingOptions(JsonReadOptions.builder(jsonFile).build());
+        JsonReadOptions options = JsonReadOptions.builder(jsonFile).build();
+        dataSet = Table.read().usingOptions(options);
 
         return dataSet;
     }
@@ -62,7 +63,8 @@ public class JsonDataLoader {
      * A Table dataSet is returned.
      */
     public Table parseFile(File jsonFile, Table dataSet) throws IOException {
-        dataSet.read().usingOptions(JsonReadOptions.builder(jsonFile).build());
+        JsonReadOptions options = JsonReadOptions.builder(jsonFile).build();
+        dataSet = Table.read().usingOptions(options);
 
         return dataSet;
     }
