@@ -39,8 +39,6 @@ public class JsonDataLoader {
         while (fieldsIterator.hasNext()) {
             Map.Entry<String, JsonNode> field = fieldsIterator.next();
             dataSet.put(field.getKey(), field.getValue());
-
-            System.out.println("Key: " + field.getKey() + "\tValue: " + field.getValue());
         }
 
     }
