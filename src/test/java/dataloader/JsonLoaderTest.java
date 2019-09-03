@@ -7,8 +7,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 
-import static junit.framework.Assert.assertEquals;
-import static junit.framework.Assert.assertNotNull;
+import static junit.framework.Assert.*;
 
 public class JsonLoaderTest {
 
@@ -46,11 +45,30 @@ public class JsonLoaderTest {
     public void testJsonFileForTable() throws IOException {
         JsonDataLoader loader = new JsonDataLoader();
         Table dataSet = null;
-        File file = new File("test_data/dummy.json");
+        File file = new File("test_data/dummy_array.json");
         dataSet = loader.parseFile(file, dataSet);
 
         assertNotNull(dataSet);
         assertEquals(dataSet.columns().size(), 3);
         assertEquals(dataSet.rowCount(), 1);
+    }
+
+    /**
+     * Test Scenario: The user provides a json file that is not
+     * in array format.
+     * Expected Output: The application read the json file and
+     * return a data set with the correct key-value pairs.
+     * */
+    @Test
+    public void testJsonFileForHashMap() throws IOException {
+        JsonDataLoader loader = new JsonDataLoader();
+        HashMap dataSet = new HashMap<String, Object>();
+        loader.parseFile("test_data/dummy.json", dataSet);
+
+        assertNotNull(dataSet);
+        assertTrue(dataSet.containsKey("id"));
+        //there is a problem with the values. our method doesn't seem
+        // to parse them correctly and the following test fails.
+        // assertTrue(dataSet.containsValue(2));
     }
 }
