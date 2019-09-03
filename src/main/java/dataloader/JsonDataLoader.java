@@ -26,8 +26,9 @@ public class JsonDataLoader {
      * Method that parses data set from a json file
      * without knowing the file's format
      * & gets the key value pairs.
+     * Doesn't accept json in array format.
      */
-    public void parseFile(String jsonFile, HashMap<String, Object> dataSet) throws IOException {
+    public HashMap parseFile(String jsonFile, HashMap<String, Object> dataSet) throws IOException {
 
         File json = new File(jsonFile);
 
@@ -40,7 +41,7 @@ public class JsonDataLoader {
             Map.Entry<String, JsonNode> field = fieldsIterator.next();
             dataSet.put(field.getKey(), field.getValue());
         }
-
+        return dataSet;
     }
 
     /**
