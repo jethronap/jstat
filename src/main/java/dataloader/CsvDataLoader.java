@@ -47,6 +47,7 @@ public class CsvDataLoader {
      * Reads from csv in file system with columns separated by commas
      * and the file has a header row.
      * Missing values are treated with an indicator.
+     * A Table dataSet is returned
      */
     public Table parseFile(String csvFile, Table dataSet) throws IOException {
 
@@ -56,9 +57,10 @@ public class CsvDataLoader {
     }
 
     /**
-     * Reads from csv in file system with columns separated by commas
+     * Reads from a csv file with columns separated by commas
      * and the file has a header row.
      * Missing values are treated with an indicator.
+     * A Table dataSet is returned
      */
     public Table parseFile(File csvFile, Table dataSet) throws IOException {
 
