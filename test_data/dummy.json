@@ -1,5 +1,5 @@
-[{
-  "id" : "2",
-  "username" : "ann",
-  "password" : "own"
-}]
+{
+  "id":2,
+  "username":"ann",
+  "password":"own"
+}
