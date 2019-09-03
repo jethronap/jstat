@@ -22,8 +22,18 @@ public class CsvLoaderTest {
 
     @Test(expected = IOException.class)
     public void testCsvFileEmptyStringForTree() throws IOException {
-        CsvDataLoader loader = new CsvDataLoader();
-        loader.parseFile("nonExistent.csv", new TreeMap());
+
+        CsvDataLoader.MapLoader.parseFile("nonExistent.csv");
+    }
+
+
+    @Test
+    public void testValidCsvFileForTree() throws IOException {
+
+        File file = new File("test_data/dummy.csv");
+        TreeMap dataSet = CsvDataLoader.MapLoader.parseFile(file);
+        assertNotNull(dataSet);
+        assertFalse("finish this test", true);
     }
 
 
@@ -34,9 +44,8 @@ public class CsvLoaderTest {
 
     @Test(expected = IOException.class)
     public void testCsvFileEmptyStringForTable() throws IOException {
-        CsvDataLoader loader = new CsvDataLoader();
-        Table dataSet = null;
-        dataSet = loader.parseFile("nonExistent.csv", dataSet);
+
+        CsvDataLoader.TableLoader.parseFile("nonExistent.csv");
     }
 
 
@@ -45,11 +54,10 @@ public class CsvLoaderTest {
      */
 
     @Test
-    public void testCsvFileForTable() throws IOException {
-        CsvDataLoader loader = new CsvDataLoader();
-        Table dataSet = null;
+    public void testValidCsvFileForTable() throws IOException {
+
         File file = new File("test_data/dummy.csv");
-        dataSet = loader.parseFile(file, dataSet);
+        Table dataSet = CsvDataLoader.TableLoader.parseFile(file);
 
         assertNotNull(dataSet);
         assertEquals(dataSet.columns().size(), 3);
