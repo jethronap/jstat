@@ -25,7 +25,7 @@ public class JsonDataLoader {
     /**
      * Method that parses data set from a json file
      * without knowing the file's format
-     * & prints out the key value pairs.
+     * & gets the key value pairs.
      */
     public void parseFile(String jsonFile, HashMap<String, Object> dataSet) throws IOException {
 
