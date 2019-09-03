@@ -38,7 +38,6 @@ public class CsvDataLoader {
                 dataSet.keySet();
                 dataSet.get(field);
 
-                System.out.println("\"" + field + "\", ");
             }
         }
     }
