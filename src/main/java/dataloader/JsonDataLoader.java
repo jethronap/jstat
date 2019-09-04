@@ -14,8 +14,8 @@ import java.util.Iterator;
 import java.util.Map;
 
 /**
- * Class that takes a String as path
- * to json files
+ * Class that loads data from a
+ * specific json file
  * and creates datasets in two formats
  * HashMap & Table from tablesaw.
  */
