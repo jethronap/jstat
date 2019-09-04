@@ -14,8 +14,8 @@ import java.util.TreeMap;
 
 
 /**
- * Class that takes a String as path file
- * to csv files
+ * Class that loads data from a
+ * specific csv file
  * and creates datasets in two formats
  * TreeMap & Table from tablesaw.
  */
