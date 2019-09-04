@@ -61,30 +61,35 @@ public class JsonDataLoader {
         }
     }
 
-    /**
-     * Reads from a json file.
-     * Accepts json format as arrays,
-     * with or without headers, array of objects.
-     * A dataSet in tablesaw format is returned.
-     */
-    public Table parseFile(String jsonFile, Table dataSet) throws IOException {
-        JsonReadOptions options = JsonReadOptions.builder(jsonFile).build();
-        dataSet = Table.read().usingOptions(options);
-
-        return dataSet;
-    }
 
     /**
-     * Reads from json a file.
-     * Accepts json format as arrays,
-     * with or without headers, array of objects.
-     * A dataSet in tablesaw format is returned.
+     * Handles the loading for Tablesaw
      */
-    public Table parseFile(File jsonFile, Table dataSet) throws IOException {
-        JsonReadOptions options = JsonReadOptions.builder(jsonFile).build();
-        dataSet = Table.read().usingOptions(options);
+    public static class TableLoader {
 
-        return dataSet;
+
+        /**
+         * Reads from a json file.
+         * Accepts json format as arrays,
+         * with or without headers, array of objects.
+         * A dataSet in tablesaw format is returned.
+         */
+        public static Table parseFile(String jsonFile) throws IOException {
+            File file = new File(jsonFile);
+            return TableLoader.parseFile(file);
+        }
+
+        /**
+         * Reads from json a file.
+         * Accepts json format as arrays,
+         * with or without headers, array of objects.
+         * A dataSet in tablesaw format is returned.
+         */
+        public static Table parseFile(File jsonFile) throws IOException {
+            JsonReadOptions options = JsonReadOptions.builder(jsonFile).build();
+            Table dataSet = Table.read().usingOptions(options);
+
+            return dataSet;
+        }
     }
-
 }
