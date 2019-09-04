@@ -9,10 +9,11 @@ import java.util.TreeMap;
 
 import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertNotNull;
+import static junit.framework.Assert.assertFalse;
 
 public class CsvLoaderTest {
 
-    
+
     /**
      * Test Scenario: The application wants to read a csv dataset
      * but the String is invalid(empty String).
@@ -21,8 +22,7 @@ public class CsvLoaderTest {
 
     @Test(expected = IOException.class)
     public void testCsvFileEmptyStringForTree() throws IOException {
-        CsvDataLoader loader = new CsvDataLoader();
-        loader.parseFile("nonExistent.csv", new TreeMap());
+        CsvDataLoader.MapLoader.parseFile("nonExistent.csv");
     }
 
 
@@ -33,23 +33,34 @@ public class CsvLoaderTest {
 
     @Test(expected = IOException.class)
     public void testCsvFileEmptyStringForTable() throws IOException {
-        CsvDataLoader loader = new CsvDataLoader();
-        Table dataSet = null;
-        dataSet = loader.parseFile("nonExistent.csv", dataSet);
+        CsvDataLoader.TableLoader.parseFile("nonExistent.csv");
     }
 
 
-    /** Test Scenario: a csv file is provided
+    /**
+     * Test Scenario: a csv file is provided
      * Expected Output: the dataset is returned
      * along with the correct column size and row count.
      */
 
     @Test
-    public void testCsvFileForTable() throws IOException {
-        CsvDataLoader loader = new CsvDataLoader();
-        Table dataSet = null;
+    public void testValidCsvFileForTree() throws IOException {
+
         File file = new File("test_data/dummy.csv");
-        dataSet = loader.parseFile(file, dataSet);
+        TreeMap dataSet = CsvDataLoader.MapLoader.parseFile(file);
+        assertNotNull(dataSet);
+        assertFalse("finish this test", true);
+    }
+
+
+    /**
+     * This is the same test as above
+     * but for type Table.
+     */
+    @Test
+    public void testValidCsvFileForTable() throws IOException {
+        File file = new File("test_data/dummy.csv");
+        Table dataSet = CsvDataLoader.TableLoader.parseFile(file);
 
         assertNotNull(dataSet);
         assertEquals(dataSet.columns().size(), 3);
