@@ -45,7 +45,7 @@ public class JsonDataLoader {
     }
 
     /**
-     * Reads from json in file system.
+     * Reads from a json file.
      * Accepts json format as arrays,
      * with or without headers, array of objects.
      * A Table dataSet is returned.
