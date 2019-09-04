@@ -22,50 +22,70 @@ import java.util.TreeMap;
 
 public class CsvDataLoader {
 
-    /**
-     * Simple method that parses data set from a csv file
-     * without knowing the headers of the file
-     */
-    public void parseFile(String csvFile, TreeMap dataSet) throws IOException {
 
-        Reader csvData = new FileReader(csvFile);
+    public static class MapLoader {
 
-        CSVParser parser = CSVParser.parse(csvData, CSVFormat.DEFAULT);
+        /**
+         * Simple method that parses data set from a csv file
+         * without knowing the headers of the file
+         */
+        public static TreeMap parseFile(File csvFile) throws IOException {
 
-        for (CSVRecord record : parser) {
+            Reader csvData = new FileReader(csvFile);
+            TreeMap dataSet = new TreeMap();
 
-            for (String field : record) {
-                dataSet.keySet();
-                dataSet.get(field);
+            CSVParser parser = CSVParser.parse(csvData, CSVFormat.DEFAULT);
 
+            for (CSVRecord record : parser) {
+
+                for (String field : record) {
+                    dataSet.keySet();
+                    dataSet.get(field);
+
+                }
             }
+            return dataSet;
+        }
+
+        /**
+         * Simple method that parses data set from a csv file
+         * without knowing the headers of the file
+         */
+        public static TreeMap parseFile(String csvFile) throws IOException {
+            File file = new File(csvFile);
+            return MapLoader.parseFile(file);
         }
     }
 
     /**
-     * Reads from csv in file system with columns separated by commas
-     * and the file has a header row.
-     * Missing values are treated with an indicator.
-     * A Table dataSet is returned
+     * Handles the loading for Tablesaw
      */
-    public Table parseFile(String csvFile, Table dataSet) throws IOException {
+    public static class TableLoader {
 
-        CsvReadOptions options = CsvReadOptions.builder(csvFile).missingValueIndicator("-").build();
-        dataSet = Table.read().usingOptions(options);
-        return dataSet;
+
+        /**
+         * Reads from csv in file system with columns separated by commas
+         * and the file has a header row.
+         * Missing values are treated with an indicator.
+         * A Table dataSet is returned
+         */
+        public static Table parseFile(String csvFile) throws IOException {
+
+            File file = new File(csvFile);
+            return TableLoader.parseFile(file);
+        }
+
+        /**
+         * Reads from a csv file with columns separated by commas
+         * and the file has a header row.
+         * Missing values are treated with an indicator.
+         * A Table dataSet is returned
+         */
+        public static Table parseFile(File csvFile) throws IOException {
+
+            CsvReadOptions options = CsvReadOptions.builder(csvFile).missingValueIndicator("-").build();
+            Table dataSet = Table.read().usingOptions(options);
+            return dataSet;
+        }
     }
-
-    /**
-     * Reads from a csv file with columns separated by commas
-     * and the file has a header row.
-     * Missing values are treated with an indicator.
-     * A Table dataSet is returned
-     */
-    public Table parseFile(File csvFile, Table dataSet) throws IOException {
-
-        CsvReadOptions options = CsvReadOptions.builder(csvFile).missingValueIndicator("-").build();
-        dataSet = Table.read().usingOptions(options);
-        return dataSet;
-    }
-
 }
