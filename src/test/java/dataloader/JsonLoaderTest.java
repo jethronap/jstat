@@ -61,10 +61,8 @@ public class JsonLoaderTest {
         File file = new File("test_data/dummy.json");
         HashMap dataSet = JsonDataLoader.MapLoader.parseFile(file);
 
+        assertEquals(dataSet.get("id"), 2);
         assertNotNull(dataSet);
-        assertTrue(dataSet.containsKey("id"));
-        //there is a problem with the values. our method doesn't seem
-        // to parse them correctly and the following test fails.
-        // assertTrue(dataSet.containsValue(2));
+
     }
 }
