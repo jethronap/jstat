@@ -19,8 +19,7 @@ public class JsonLoaderTest {
 
     @Test(expected = IOException.class)
     public void testEmptyStringForHashMap() throws IOException {
-        JsonDataLoader loader = new JsonDataLoader();
-        loader.parseFile("nonExistent.json", new HashMap<String, Object>());
+        JsonDataLoader.MapLoader.parseFile("nonExistent.csv");
     }
 
     /**
@@ -30,9 +29,7 @@ public class JsonLoaderTest {
 
     @Test(expected = IOException.class)
     public void testEmptyStringForTable() throws IOException {
-        JsonDataLoader loader = new JsonDataLoader();
-        Table dataSet = null;
-        loader.parseFile("nonExistent.json", dataSet);
+        JsonDataLoader.TableLoader.parseFile("nonExistent.csv");
     }
 
     /**
@@ -42,11 +39,10 @@ public class JsonLoaderTest {
      */
 
     @Test
-    public void testJsonFileForTable() throws IOException {
-        JsonDataLoader loader = new JsonDataLoader();
-        Table dataSet = null;
+    public void testValidJsonFileForTable() throws IOException {
+
         File file = new File("test_data/dummy_array.json");
-        dataSet = loader.parseFile(file, dataSet);
+        Table dataSet = JsonDataLoader.TableLoader.parseFile(file);
 
         assertNotNull(dataSet);
         assertEquals(dataSet.columns().size(), 3);
@@ -60,10 +56,10 @@ public class JsonLoaderTest {
      * return a data set with the correct key-value pairs.
      * */
     @Test
-    public void testJsonFileForHashMap() throws IOException {
-        JsonDataLoader loader = new JsonDataLoader();
-        HashMap dataSet = new HashMap<String, Object>();
-        loader.parseFile("test_data/dummy.json", dataSet);
+    public void testValidJsonFileForHashMap() throws IOException {
+
+        File file = new File("test_data/dummy.json");
+        HashMap dataSet = JsonDataLoader.MapLoader.parseFile(file);
 
         assertNotNull(dataSet);
         assertTrue(dataSet.containsKey("id"));
