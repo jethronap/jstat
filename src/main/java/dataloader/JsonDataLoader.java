@@ -34,7 +34,7 @@ public class JsonDataLoader {
         public static HashMap parseFile(File jsonFile) throws IOException {
 
             Reader json = new FileReader(jsonFile);
-            HashMap<String, Object> dataSet = new HashMap<>();
+            HashMap dataSet = new HashMap<>();
 
             JsonFactory factory = new JsonFactory();
             ObjectMapper mapper = new ObjectMapper(factory);
