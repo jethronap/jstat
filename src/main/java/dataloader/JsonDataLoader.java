@@ -48,6 +48,13 @@ public class JsonDataLoader {
             return dataSet;
         }
 
+
+        /**
+         * Method that parses data set from a json file
+         * without knowing the file's format
+         * & gets the key value pairs.
+         * Doesn't accept json in array format.
+         */
         public static HashMap parseFile(String jsonFile) throws IOException {
             File file = new File(jsonFile);
             return MapLoader.parseFile(file);
