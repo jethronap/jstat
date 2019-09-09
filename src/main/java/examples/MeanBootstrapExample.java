@@ -1,37 +1,41 @@
 package examples;
 import datastructs.NumericSample;
+import org.apache.commons.math3.stat.StatUtils;
 import stats.utils.Resample;
 import org.apache.commons.math3.distribution.NormalDistribution;
 
 /**
  *
- * Statistics Example 3
+ * Category: Statistics
+ * ID: MeanBootstrapExample
  * Illustration of basic bootstrap method for the mean
  * see also: https://machinelearningmastery.com/a-gentle-introduction-to-the-bootstrap-method/
  */
 
 
-public class UseBootstrap {
+public class MeanBootstrapExample {
 
 
     public static void main(String[] args){
 
 
-        //the size of the sample
+        // the size of the sample
         final int SIZE = 100;
         final int RESAMPLE_SIZE = 20;
 
-        //how many bootstrap iterations to perform
+        // how many bootstrap iterations to perform
         final int BOOST_ITRS = 100;
 
-        final double mu = 0.8;
-        final double sigma = 0.1;
+        // parameters for normal distribution
+        final double MU = 0.8;
+        final double SD = 0.1;
 
         // create a sample
         NumericSample sample = new NumericSample("Sample", SIZE);
 
-        // normal distribution
-        NormalDistribution dist = new NormalDistribution(mu, sigma);
+        // normal distribution:
+        // see https://commons.apache.org/proper/commons-math/javadocs/api-3.5/org/apache/commons/math3/distribution/NormalDistribution.html
+        NormalDistribution dist = new NormalDistribution(MU, SD);
 
         for(int i=0; i<SIZE; ++i){
 
@@ -52,6 +56,8 @@ public class UseBootstrap {
         }
 
         // compute the mean of means
+        double mean = StatUtils.mean(means);
+        System.out.println("Mean of means: "+mean);
 
     }
 
