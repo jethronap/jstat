@@ -9,6 +9,18 @@ import static org.junit.Assert.assertEquals;
 public class ResampleTest {
 
 
+    static final NumericSample getNumericSample(int size){
+
+        NumericSample inSample = new NumericSample("TestIn", size);
+
+        for(int i=0; i<size; ++i){
+            inSample.add(new Double(i));
+        }
+
+        return inSample;
+    }
+
+
     /**
      * Test Scenario: The application passes a non-null sample as input
      * and a non-null sample instance as output.
@@ -17,17 +29,9 @@ public class ResampleTest {
     @Test
     public void testResampleEqualSize(){
 
-
-        ISample<Double> inSample = new NumericSample("TestIn", 10);
-
-        for(int i=0; i<10; ++i){
-            inSample.add(new Double(i));
-        }
-
-        ISample<Double> outSample = new NumericSample("TestOut", 10);
-
-        Resample.resample(inSample, outSample, 10, 3);
-        assertEquals(outSample.getsize(), 10);
+        NumericSample inSample = ResampleTest.getNumericSample(10);
+        NumericSample outSample = Resample.resample(inSample, 10, 3);
+        assertEquals(outSample.size(), 10);
     }
 
 
@@ -39,17 +43,9 @@ public class ResampleTest {
     @Test
     public void testResampleSmallerSize(){
 
-
-        ISample<Double> inSample = new NumericSample("TestIn", 10);
-
-        for(int i=0; i<10; ++i){
-            inSample.add(new Double(i));
-        }
-
-        ISample<Double> outSample = new NumericSample("TestOut", 10);
-
-        Resample.resample(inSample, outSample, 5, 3);
-        assertEquals(outSample.getsize(),5 );
+        NumericSample inSample = ResampleTest.getNumericSample(10);
+        NumericSample outSample =Resample.resample(inSample, 5, 3);
+        assertEquals(outSample.size(),5 );
     }
 
 

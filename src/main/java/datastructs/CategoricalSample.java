@@ -35,7 +35,7 @@ public class CategoricalSample implements ISample<String>
     /**
      * Returns the size of the sample
      */
-    public final int getsize(){return data_.size();}
+    public final int size(){return data_.size();}
 
 
 	/**

@@ -40,7 +40,7 @@ public class NumericSample implements ISample<Double> {
     /**
      * Returns the size of the sample
      */
-    public int getsize(){ return this.data_.size();}
+    public int size(){ return this.data_.size();}
 
 
     /**
