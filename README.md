@@ -3,7 +3,8 @@
 Basic statistics and data analysis with Java
 
 ## Dependencies
-* Jackson Databind <https://github.com/FasterXML/jackson>
-* Apache Commons CSV <https://commons.apache.org/proper/commons-csv/>
-* Tablesaw Java Dataframe and Visualization Library <https://jtablesaw.github.io/tablesaw/>
+- <a href="https://github.com/FasterXML/jackson">Jackson Databind</a> 
+- <a href="https://commons.apache.org/proper/commons-csv/">Apache Commons CSV</a> 
+- <a href="https://mvnrepository.com/artifact/org.apache.commons/commons-math3">Apache Commons Math</a>
+- <a href="https://jtablesaw.github.io/tablesaw/">Tablesaw Java Dataframe and Visualization Library</a> 
 ## Installation
