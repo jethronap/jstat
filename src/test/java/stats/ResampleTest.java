@@ -44,7 +44,7 @@ public class ResampleTest {
     public void testResampleSmallerSize(){
 
         NumericSample inSample = ResampleTest.getNumericSample(10);
-        NumericSample outSample =Resample.resample(inSample, 5, 3);
+        NumericSample outSample = Resample.resample(inSample, 5, 3);
         assertEquals(outSample.size(),5 );
     }
 
