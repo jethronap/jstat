@@ -9,7 +9,7 @@ public interface ISample<T> {
     /**
      * The name of the sample
      */
-    String getName();
+    String name();
 
     /**
      * Returns the size of the sample
@@ -36,5 +36,6 @@ public interface ISample<T> {
 	  * Prints information about the sample
 	  */
 	void printInfo();
+
 
 }

@@ -16,7 +16,13 @@ public class NumericSample implements ISample<Double> {
 
 		this.stats_ = new Statistics();
 		this.name_ = name;
-		this.data_ = new ArrayList<Double>(capacity);
+
+		if( capacity == 0){
+			this.data_ = new ArrayList<Double>();
+		}
+		else {
+			this.initialize(capacity);
+		}
 		this.is_sorted_ = false;
 	}
 
@@ -34,7 +40,7 @@ public class NumericSample implements ISample<Double> {
     /**
      * The name of the sample
      */
-    public String getName(){ return this.name_; }
+    public String name(){ return this.name_; }
 
 
     /**
@@ -128,14 +134,32 @@ public class NumericSample implements ISample<Double> {
 	/**
 	 * Copy the data from the given list
 	 */
-	protected void copy(final List<Double> data){
+	public void copy(final List<Double> data){
 
 		if(data.size() == 0){
 			throw new IllegalStateException("The input data set has zero size");
 		}
 
+		if(this.data_.size() != data.size()){
+
+			// remove data completely
+			this.initialize(data.size());
+		}
+
 		Collections.copy(this.data_, data);
 		this.falsifyCalculations();
+	}
+
+	/**
+	 * Initialize the sample with zero entries
+	 */
+	protected final void initialize(int size){
+
+		this.data_ = new ArrayList<Double>(size);
+
+		for(int i=0; i< size; ++i){
+			this.data_.add(0.0);
+		}
 	}
 
 	/**

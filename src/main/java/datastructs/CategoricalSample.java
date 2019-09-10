@@ -32,7 +32,7 @@ public class CategoricalSample implements ISample<String>
 	 /**
      * The name of the sample
      */
-    public final String getName(){return name_;}
+    public final String name(){return name_;}
 
 
     /**
