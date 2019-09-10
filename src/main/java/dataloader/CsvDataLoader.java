@@ -1,5 +1,7 @@
 package dataloader;
 
+import base.Configuration;
+import datastructs.NumericSample;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
@@ -10,6 +12,9 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 import java.util.TreeMap;
 
 
@@ -25,24 +30,95 @@ public class CsvDataLoader {
 
     public static class MapLoader {
 
+
+        /**
+         * Create a NumericsSample from the given column of the
+         * in the TreeMap
+         */
+        public static NumericSample buildSample(TreeMap dataSet, String colName){
+
+            if(dataSet == null){
+
+                throw new IllegalArgumentException("Null data set given");
+            }
+
+            NumericSample sample = null;
+
+            if(!dataSet.containsKey(colName)){
+
+                if(Configuration.ENABLE_WARNINGS) {
+                    System.out.println("WARNING: Column " + colName + " not in dataset");
+                }
+
+                return new NumericSample(colName, 0);
+            }
+
+            throw new IllegalStateException("Fix this");
+            List<Double> data = (List<Double>) dataSet.get(colName);
+
+            sample = new NumericSample(colName, data, false);
+
+            return sample;
+        }
+
         /**
          * Simple method that parses data set from a csv file
-         * without knowing the headers of the file
+         * The CSV file should NOT have the last column ending with comma
          */
-        public static TreeMap parseFile(File csvFile) throws IOException {
+        public static TreeMap<String, List> parseFile(File csvFile) throws IOException {
 
             Reader csvData = new FileReader(csvFile);
-            TreeMap dataSet = new TreeMap();
+            TreeMap<String, List> dataSet = new TreeMap<String, List>();
 
             CSVParser parser = CSVParser.parse(csvData, CSVFormat.DEFAULT);
 
+            int lineCounter = 0;
+
+            ArrayList<String> colNames = new ArrayList<String>();
+
             for (CSVRecord record : parser) {
 
-                for (String field : record) {
+                // the first record is the header
+                if(lineCounter==0){
+
+                    for (String field : record){
+
+                        if(dataSet.containsKey(field)){
+
+                            if(Configuration.ENABLE_WARNINGS){
+                                Configuration.Logging.printWarning("Column: "+field+" already exists");
+                            }
+                        }
+                        else{
+                            // add a new column
+                            colNames.add(field);
+                            dataSet.put(field, new ArrayList());
+                        }
+                    }
+
+                    lineCounter++;
+                }
+                else{
+
+                    // this is not the header we walk the header and add
+                    // values
+                    Set<String> columns = dataSet.keySet();
+
+                    int colCounter = 0;
+                    for (String field : record){
+
+                        String colName = colNames.get(colCounter);
+                        dataSet.get(colName).add(field);
+                        colCounter++;
+
+                    }
+                }
+
+                /*for (String field : record) {
                     dataSet.keySet();
                     dataSet.get(field);
 
-                }
+                }*/
             }
             return dataSet;
         }
@@ -51,7 +127,7 @@ public class CsvDataLoader {
          * Simple method that parses data set from a csv file
          * without knowing the headers of the file
          */
-        public static TreeMap parseFile(String csvFile) throws IOException {
+        public static TreeMap<String, List> parseFile(String csvFile) throws IOException {
             File file = new File(csvFile);
             return MapLoader.parseFile(file);
         }
