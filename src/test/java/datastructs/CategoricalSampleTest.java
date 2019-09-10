@@ -5,6 +5,7 @@ import datastructs.CategoricalSample;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
 
@@ -133,13 +134,9 @@ public class CategoricalSampleTest {
 
         // add one more category
         sample.set(6, "Category_5");
-
-        //sample.printInfo();
-
-        sample.getCategories();
-
+        
         assertEquals(sample.getCategories().size(), 5);
-        assertEquals(sample.getCategoryFrequency("Category_1"), 4);
+        assertEquals(sample.getCategoryFrequency("Category_2"), 4);
         assertEquals(sample.getCategoryFrequency("Category_5"), 1);
     }
 
