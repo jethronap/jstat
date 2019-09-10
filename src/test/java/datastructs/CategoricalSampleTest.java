@@ -134,7 +134,7 @@ public class CategoricalSampleTest {
 
         // add one more category
         sample.set(6, "Category_5");
-        
+
         assertEquals(sample.getCategories().size(), 5);
         assertEquals(sample.getCategoryFrequency("Category_2"), 4);
         assertEquals(sample.getCategoryFrequency("Category_5"), 1);

@@ -93,7 +93,7 @@ public class NumericSample implements ISample<Double> {
 	public final void add(Double value){
 
 		this.data_.add(value);
-		this.stats_.is_valid = false;
+		this.falsifyCalculations();
 	}
 
 	/**
@@ -102,7 +102,7 @@ public class NumericSample implements ISample<Double> {
 	public final void set(int i, Double value){
 
 		this.data_.set(i, value);
-		this.stats_.is_valid = false;
+		this.falsifyCalculations();
 	}
 
 
@@ -135,7 +135,7 @@ public class NumericSample implements ISample<Double> {
 		}
 
 		Collections.copy(this.data_, data);
-		this.stats_.is_valid = false;
+		this.falsifyCalculations();
 	}
 
 	/**
@@ -173,6 +173,12 @@ public class NumericSample implements ISample<Double> {
 		this.stats_.is_valid = true;
 	}
 
+	protected final void falsifyCalculations(){
+
+		this.stats_.is_valid = false;
+		this.is_sorted_ = false;
+
+	}
 	
 	protected Statistics stats_ = null;
 	protected String name_ = null;
