@@ -1,6 +1,7 @@
 package dataloader;
 
 import base.Configuration;
+import dataloader.utils.ParseUtils;
 import datastructs.NumericSample;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
@@ -35,7 +36,7 @@ public class CsvDataLoader {
          * Create a NumericsSample from the given column of the
          * in the TreeMap
          */
-        public static NumericSample buildSample(TreeMap dataSet, String colName){
+        public static NumericSample buildSample(TreeMap<String, List> dataSet, String colName){
 
             if(dataSet == null){
 
@@ -53,11 +54,8 @@ public class CsvDataLoader {
                 return new NumericSample(colName, 0);
             }
 
-            throw new IllegalStateException("Fix this");
-            List<Double> data = (List<Double>) dataSet.get(colName);
-
+            List<Double> data = ParseUtils.parseAsDouble( dataSet.get(colName) );
             sample = new NumericSample(colName, data, false);
-
             return sample;
         }
 
