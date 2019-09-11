@@ -81,7 +81,7 @@ public class CsvLoaderTest {
         TreeMap dataSet = CsvDataLoader.MapLoader.parseFile(file);
         assertNotNull(dataSet);
 
-        NumericSample sample = CsvDataLoader.MapLoader.buildSample(dataSet, "DummyColumn");
+        NumericSample sample = CsvDataLoader.MapLoader.buildNumericSample(dataSet, "DummyColumn");
         assertEquals(sample.size(), 0);
     }
 
@@ -102,7 +102,7 @@ public class CsvLoaderTest {
          //   System.out.println(columns.);
         //}
 
-        NumericSample sample = CsvDataLoader.MapLoader.buildSample(dataSet, "X");
+        NumericSample sample = CsvDataLoader.MapLoader.buildNumericSample(dataSet, "X");
         assertEquals(sample.size(), 25);
     }
 }

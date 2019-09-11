@@ -2,10 +2,12 @@ package dataloader;
 
 import base.Configuration;
 import dataloader.utils.ParseUtils;
+import datastructs.CategoricalSample;
 import datastructs.NumericSample;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
+import sun.awt.ConstrainableGraphics;
 import tech.tablesaw.api.Table;
 import tech.tablesaw.io.csv.CsvReadOptions;
 
@@ -36,32 +38,64 @@ public class CsvDataLoader {
          * Create a NumericsSample from the given column of the
          * in the TreeMap
          */
-        public static NumericSample buildSample(TreeMap<String, List> dataSet, String colName){
+        public static NumericSample buildNumericSample(TreeMap<String, List> dataSet, String colName){
 
             if(dataSet == null){
 
                 throw new IllegalArgumentException("Null data set given");
             }
 
-            NumericSample sample = null;
+            NumericSample numericSample;
 
             if(!dataSet.containsKey(colName)){
 
                 if(Configuration.ENABLE_WARNINGS) {
-                    System.out.println("WARNING: Column " + colName + " not in dataset");
+                    Configuration.Logging.printWarning("Column " + colName + " not in dataset");
                 }
 
-                return new NumericSample(colName, 0);
+                numericSample = new NumericSample(colName, 0);
+            }
+            else {
+
+                List<Double> data = ParseUtils.parseAsDouble(dataSet.get(colName));
+                numericSample = new NumericSample(colName, data, false);
+            }
+            return  numericSample;
+        }
+
+
+        /**
+         * Create a NumericsSample from the given column of the
+         * in the TreeMap
+         */
+        public static CategoricalSample buildCategoricalSample(TreeMap<String, List> dataSet, String colName){
+
+            if(dataSet == null){
+                throw new IllegalArgumentException("Null data set given");
             }
 
-            List<Double> data = ParseUtils.parseAsDouble( dataSet.get(colName) );
-            sample = new NumericSample(colName, data, false);
-            return sample;
+            CategoricalSample categoricalSample;
+
+            if(!dataSet.containsKey(colName)){
+
+                if(Configuration.ENABLE_WARNINGS) {
+                    Configuration.Logging.printWarning("Column " + colName + " not in dataset");
+                }
+
+                categoricalSample = new CategoricalSample(colName, 0);
+            }
+            else{
+
+                categoricalSample = new CategoricalSample(colName, dataSet.get(colName));
+            }
+
+            return categoricalSample;
         }
 
         /**
          * Simple method that parses data set from a csv file
-         * The CSV file should NOT have the last column ending with comma
+         * The CSV file should NOT have the last column ending with comma.
+         * The CSV column names should NOT have white space
          */
         public static TreeMap<String, List> parseFile(File csvFile) throws IOException {
 
@@ -77,7 +111,7 @@ public class CsvDataLoader {
             for (CSVRecord record : parser) {
 
                 // the first record is the header
-                if(lineCounter==0){
+                if(lineCounter == 0){
 
                     for (String field : record){
 
@@ -98,10 +132,6 @@ public class CsvDataLoader {
                 }
                 else{
 
-                    // this is not the header we walk the header and add
-                    // values
-                    Set<String> columns = dataSet.keySet();
-
                     int colCounter = 0;
                     for (String field : record){
 
@@ -112,11 +142,6 @@ public class CsvDataLoader {
                     }
                 }
 
-                /*for (String field : record) {
-                    dataSet.keySet();
-                    dataSet.get(field);
-
-                }*/
             }
             return dataSet;
         }

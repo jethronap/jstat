@@ -92,9 +92,11 @@ public class CategoricalSample implements ISample<String>
 			getCategories();
 		}
 
+		System.out.println("Sample: "+this.name());
+		System.out.println("Size: "+this.size());
 		for(Map.Entry<String, Integer> entry : categories_.entrySet()){
 
-			System.out.println(entry.getKey() + ", " + entry.getValue());
+			System.out.println("Category: "+entry.getKey() + ", " + entry.getValue());
 		}
 
 	}

@@ -24,7 +24,7 @@ public class LoadCsvDataSetWithTreeMap {
             TreeMap dataSet = CsvDataLoader.MapLoader.parseFile("data/robot_state.csv");
 
             // load it in a NumericsSample
-            NumericSample sample = CsvDataLoader.MapLoader.buildSample(dataSet, "Y");
+            NumericSample sample = CsvDataLoader.MapLoader.buildNumericSample(dataSet, "Y");
 
             System.out.println(sample.size());
             System.out.println(sample.getMean());
