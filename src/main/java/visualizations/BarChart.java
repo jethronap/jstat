@@ -3,6 +3,7 @@ package visualizations;
 
 import tech.tablesaw.api.Table;
 import tech.tablesaw.plotly.Plot;
+import tech.tablesaw.plotly.api.HorizontalBarPlot;
 import tech.tablesaw.plotly.api.VerticalBarPlot;
 
 /**
@@ -19,6 +20,18 @@ public class BarChart {
             String chartTitle, Table table, String groupColName, String numberColName) {
 
         Plot.show(VerticalBarPlot.create(chartTitle, table, groupColName, numberColName));
+    }
+
+    /**
+     * Plot horizontal bar chart given
+     * chart title, data set in Table format,
+     * x-axis name, y-axis name.
+     */
+    public static void plotHorizontalBar(
+            String chartTitle, Table table, String groupColName, String numberColName) {
+
+        Plot.show(HorizontalBarPlot.create(chartTitle, table, groupColName, numberColName));
+
     }
 
 }
