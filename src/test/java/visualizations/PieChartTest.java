@@ -16,7 +16,7 @@ public class PieChartTest {
      *  Expected Output: The chart is plotted correctly.
      * */
     @Test
-    public void testPieShow() throws IOException {
+    public void testPlotPie() throws IOException {
 
         File file = new File("test_data/humans_data.csv");
         Table table = CsvDataLoader.TableLoader.parseFile(file);
