@@ -10,14 +10,15 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
-import java.util.TreeMap;
+import java.util.HashMap;
+import java.util.Map;
 
 
 /**
  * Class that loads data from a
  * specific csv file
  * and creates datasets in two formats
- * TreeMap & Table from tablesaw.
+ * HashMap & Table from tablesaw.
  */
 
 public class CsvDataLoader {
@@ -26,39 +27,36 @@ public class CsvDataLoader {
     public static class MapLoader {
 
         /**
-         * Simple method that parses data set from a csv file
-         * without knowing the headers of the file
+         * Simple method that parses a
+         * data set from a csv file
+         * without headers
          */
-        public static TreeMap parseFile(File csvFile) throws IOException {
+        public static HashMap parseFile(File csvFile) throws IOException {
 
             Reader csvData = new FileReader(csvFile);
-            TreeMap dataSet = new TreeMap();
+            HashMap<String, Map<String, String>> dataSet = new HashMap();
 
             CSVParser parser = CSVParser.parse(csvData, CSVFormat.DEFAULT);
 
             for (CSVRecord record : parser) {
-
-                for (String field : record) {
-                    dataSet.keySet();
-                    dataSet.get(field);
-
-                }
+                dataSet.put(record.toString(), record.toMap());
             }
             return dataSet;
         }
 
         /**
-         * Simple method that parses data set from a csv file
-         * without knowing the headers of the file
+         * Simple method that parses a
+         * data set from a csv file
+         * without headers
          */
-        public static TreeMap parseFile(String csvFile) throws IOException {
+        public static HashMap parseFile(String csvFile) throws IOException {
             File file = new File(csvFile);
             return MapLoader.parseFile(file);
         }
     }
 
     /**
-     * Handles the loading for Tablesaw
+     * Handles the loading for tablesaw
      */
     public static class TableLoader {
 

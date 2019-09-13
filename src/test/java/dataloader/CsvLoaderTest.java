@@ -5,7 +5,7 @@ import tech.tablesaw.api.Table;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.TreeMap;
+import java.util.HashMap;
 
 import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertNotNull;
@@ -38,23 +38,24 @@ public class CsvLoaderTest {
 
     /**
      * Test Scenario: a csv file is provided
-     * Expected Output: the dataset is returned
-     * along with the correct column size and row count.
+     * Expected Output: the data set is returned
+     * along with the data set size.
      */
 
     @Test
     public void testValidCsvFileForTree() throws IOException {
 
         File file = new File("test_data/dummy.csv");
-        TreeMap dataSet = CsvDataLoader.MapLoader.parseFile(file);
+        HashMap dataSet = CsvDataLoader.MapLoader.parseFile(file);
         assertNotNull(dataSet);
-        //assertFalse("finish this test", true);
+        assertEquals(dataSet.size(), 3);
     }
 
 
     /**
-     * This is the same test as above
-     * but for type Table.
+     * Test Scenario: a csv file is provided
+     * Expected Output: the data set is returned
+     * along with the correct column size and row count.
      */
     @Test
     public void testValidCsvFileForTable() throws IOException {
@@ -63,7 +64,6 @@ public class CsvLoaderTest {
 
         assertNotNull(dataSet);
         assertEquals(dataSet.columns().size(), 3);
-        assertEquals(dataSet.rowCount(), 1);
-
+        assertEquals(dataSet.rowCount(), 2);
     }
 }
