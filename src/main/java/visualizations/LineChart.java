@@ -1,7 +1,9 @@
 package visualizations;
 
 import tech.tablesaw.api.NumericColumn;
+import tech.tablesaw.api.Table;
 import tech.tablesaw.plotly.Plot;
+import tech.tablesaw.plotly.api.LinePlot;
 import tech.tablesaw.plotly.components.Figure;
 import tech.tablesaw.plotly.components.Layout;
 import tech.tablesaw.plotly.components.Line;
@@ -18,11 +20,9 @@ public class LineChart {
      * and two numeric columns.
      */
     public static void plotLine(
-            String chartTitle, NumericColumn x, NumericColumn y) {
+            String chartTitle, Table table, String x, String y) {
 
-        Layout layout = Layout.builder().title(chartTitle).build();
-        ScatterTrace trace = ScatterTrace.builder(x, y).mode(ScatterTrace.Mode.LINE).build();
-        Plot.show(new Figure(layout, trace));
+        Plot.show(LinePlot.create(chartTitle, table, x, y));
 
     }
 
