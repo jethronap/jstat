@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>hair color by age</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <div id='target' ></div>
+        <script>
+        var target_target = document.getElementById('target');
+        var layout = {
+    title: 'hair color by age',
+    height: 600,
+    width: 800,
+
+
+};
+
+var trace0 =
+    {
+        labels: ['BLACK','BLACK','BROWN','BLOND','BLACK','RED','BLACK','BLACK','BLACK','BLACK','BLACK','RED','RED','BROWN','BLACK','BLACK','BLACK','BLACK','BROWN','BROWN','BLOND','BLACK','BLACK','BLOND','BLACK','BLACK','BLACK','BLACK','BLOND'],
+        values: [35.0, 36.0, 45.0, 25.0, 35.0, 15.0, 55.0, 23.0, 13.0, 34.0, 36.0, 41.0, 44.0, 58.0, 59.0, 35.0, 37.0, 35.0, 63.0, 75.0, 78.0, 15.0, 21.0, 22.0, 27.0, 28.0, 29.0, 39.0, 43.0],
+        type: 'pie',
+        name: '',
+ }
+
+        var data = [ trace0];
+Plotly.newPlot(target_target, data, layout);            </script>
+
+</body>
+</html>
