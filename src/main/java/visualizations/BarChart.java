@@ -12,7 +12,7 @@ import tech.tablesaw.plotly.api.VerticalBarPlot;
 public class BarChart {
 
     /**
-     * Plot basic bar chart given
+     * Plots basic bar chart given
      * chart title, data set in Table format,
      * x-axis name, y-axis name.
      */
@@ -23,7 +23,7 @@ public class BarChart {
     }
 
     /**
-     * Plot horizontal bar chart given
+     * Plots horizontal bar chart given
      * chart title, data set in Table format,
      * x-axis name, y-axis name.
      */

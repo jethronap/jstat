@@ -16,6 +16,7 @@ public class LineChart {
 
     /**
      * Plots a line given the chart title,
+     * data set in Table format,
      * and two numeric columns.
      */
     public static void plotLine(
@@ -27,6 +28,7 @@ public class LineChart {
 
     /**
      * Plots a line given the chart title,
+     * data set in Table format,
      * two numeric columns and custom
      * smoothing.
      */
