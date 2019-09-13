@@ -32,7 +32,7 @@ public class LineChart {
      */
 
     public static void plotSmoothLine(
-            String chartTitle, Table table, int x, int y, Double smoothing) {
+            String chartTitle, Table table, String x, String y, Double smoothing) {
 
         Layout layout = Layout.builder().title(chartTitle).build();
         ScatterTrace trace = ScatterTrace.builder(table.numberColumn(x), table.numberColumn(y))
