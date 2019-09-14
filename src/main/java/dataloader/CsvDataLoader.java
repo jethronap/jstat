@@ -40,22 +40,26 @@ public class CsvDataLoader {
                 throw new IllegalArgumentException("Null data set given");
             }
 
-            NumericSample sample = null;
+            NumericSample sample;
 
             if(!dataSet.containsKey(colName)){
 
                 if(Configuration.ENABLE_WARNINGS) {
-                    System.out.println("WARNING: Column " + colName + " not in dataset");
+                    Configuration.Logging.printWarning("Column " + colName + " not in dataset");
                 }
 
-                return new NumericSample(colName, 0);
+                sample =  new NumericSample(colName, 0);
+            }
+            else{
+
+                List<Double> data = ParseUtils.parseAsDouble( dataSet.get(colName) );
+                sample = new NumericSample(colName, data, false);
             }
 
-            List<Double> data = ParseUtils.parseAsDouble( dataSet.get(colName) );
-            sample = new NumericSample(colName, data, false);
             return sample;
         }
 
+        
         /**
          * Simple method that parses data set from a csv file
          * The CSV file should NOT have the last column ending with comma
@@ -94,10 +98,6 @@ public class CsvDataLoader {
                     lineCounter++;
                 }
                 else{
-
-                    // this is not the header we walk the header and add
-                    // values
-                    Set<String> columns = dataSet.keySet();
 
                     int colCounter = 0;
                     for (String field : record){
