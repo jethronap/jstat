@@ -3,6 +3,8 @@ import dataloader.CsvDataLoader;
 import datastructs.NumericSample;
 
 import java.io.IOException;
+import java.util.List;
+import java.util.Map;
 import java.util.TreeMap;
 
 
@@ -21,7 +23,7 @@ public class LoadCsvDataSetWithTreeMap {
 
         try {
 
-            TreeMap dataSet = CsvDataLoader.MapLoader.parseFile("data/robot_state.csv");
+            Map<String, List<String>> dataSet = CsvDataLoader.MapLoader.parseFile("data/robot_state.csv");
 
             // load it in a NumericsSample
             NumericSample sample = CsvDataLoader.MapLoader.buildNumericSample(dataSet, "Y");

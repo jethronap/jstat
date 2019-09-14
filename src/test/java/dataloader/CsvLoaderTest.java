@@ -6,8 +6,8 @@ import tech.tablesaw.api.Table;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Set;
-import java.util.TreeMap;
+import java.util.List;
+import java.util.Map;
 
 import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertNotNull;
@@ -39,18 +39,19 @@ public class CsvLoaderTest {
 
 
     /**
-     * Test Scenario: a csv file is provided
-     * Expected Output: the dataset is returned
+     * Test Scenario: A csv file is provided
+     * Expected Output: The dataset is returned
      * along with the correct column size and row count.
      */
 
     @Test
-    public void testValidCsvFileForTree() throws IOException {
+    public void testValidCsvFileForMap() throws IOException {
 
         File file = new File("test_data/dummy.csv");
-        TreeMap dataSet = CsvDataLoader.MapLoader.parseFile(file);
+        Map<String, List<String>> dataSet = CsvDataLoader.MapLoader.parseFile(file);
         assertNotNull(dataSet);
-        //assertFalse("finish this test", true);
+        assertEquals(dataSet.size(), 3); // three columns are expected
+        assertEquals(dataSet.get("column1").size(), 1);
     }
 
 
@@ -78,7 +79,7 @@ public class CsvLoaderTest {
     public void testBuildNumericSampleFromCsvWithNoExistingColumn()throws IOException{
 
         File file = new File("test_data/dummy.csv");
-        TreeMap dataSet = CsvDataLoader.MapLoader.parseFile(file);
+        Map<String, List<String>> dataSet = CsvDataLoader.MapLoader.parseFile(file);
         assertNotNull(dataSet);
 
         NumericSample sample = CsvDataLoader.MapLoader.buildNumericSample(dataSet, "DummyColumn");
@@ -93,15 +94,9 @@ public class CsvLoaderTest {
     public void testBuildNumericSampleFromCsvWithExistingColumn()throws IOException{
 
         File file = new File("test_data/robot_state_test.csv");
-        TreeMap dataSet = CsvDataLoader.MapLoader.parseFile(file);
+        Map<String, List<String>> dataSet = CsvDataLoader.MapLoader.parseFile(file);
         assertNotNull(dataSet);
-
-        Set<String> columns = dataSet.keySet();
-
-        //for(int i=0; i<columns.size(); ++i){
-         //   System.out.println(columns.);
-        //}
-
+        
         NumericSample sample = CsvDataLoader.MapLoader.buildNumericSample(dataSet, "X");
         assertEquals(sample.size(), 25);
     }

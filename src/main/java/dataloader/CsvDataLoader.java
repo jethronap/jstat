@@ -15,10 +15,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
-import java.util.TreeMap;
+import java.util.*;
 
 
 /**
@@ -38,7 +35,7 @@ public class CsvDataLoader {
          * Create a NumericsSample from the given column of the
          * in the TreeMap
          */
-        public static NumericSample buildNumericSample(TreeMap<String, List> dataSet, String colName){
+        public static NumericSample buildNumericSample(Map<String, List<String>> dataSet, String colName){
 
             if(dataSet == null){
 
@@ -54,10 +51,11 @@ public class CsvDataLoader {
                 }
 
                 numericSample = new NumericSample(colName, 0);
-            }
-            else {
 
-                List<Double> data = ParseUtils.parseAsDouble(dataSet.get(colName));
+            }
+            else{
+
+                List<Double> data = ParseUtils.parseAsDouble( dataSet.get(colName) );
                 numericSample = new NumericSample(colName, data, false);
             }
             return  numericSample;
@@ -92,15 +90,16 @@ public class CsvDataLoader {
             return categoricalSample;
         }
 
+        
         /**
          * Simple method that parses data set from a csv file
          * The CSV file should NOT have the last column ending with comma.
          * The CSV column names should NOT have white space
          */
-        public static TreeMap<String, List> parseFile(File csvFile) throws IOException {
+        public static Map<String, List<String>> parseFile(File csvFile) throws IOException {
 
             Reader csvData = new FileReader(csvFile);
-            TreeMap<String, List> dataSet = new TreeMap<String, List>();
+            Map<String, List<String>> dataSet = new HashMap<String, List<String>>();
 
             CSVParser parser = CSVParser.parse(csvData, CSVFormat.DEFAULT);
 
@@ -150,7 +149,7 @@ public class CsvDataLoader {
          * Simple method that parses data set from a csv file
          * without knowing the headers of the file
          */
-        public static TreeMap<String, List> parseFile(String csvFile) throws IOException {
+        public static Map<String, List<String>> parseFile(String csvFile) throws IOException {
             File file = new File(csvFile);
             return MapLoader.parseFile(file);
         }
