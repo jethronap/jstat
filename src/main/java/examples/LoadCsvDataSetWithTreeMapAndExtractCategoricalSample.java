@@ -5,6 +5,7 @@ import dataloader.CsvDataLoader;
 import datastructs.CategoricalSample;
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 
@@ -22,7 +23,7 @@ public class LoadCsvDataSetWithTreeMapAndExtractCategoricalSample {
 
         try {
 
-            TreeMap<String, List> dataSet = CsvDataLoader.MapLoader.parseFile("data/humans_data.csv");
+            Map<String, List<String>> dataSet = CsvDataLoader.MapLoader.parseFile("data/humans_data.csv");
 
             if(!dataSet.containsKey("Age")){
                 Configuration.Logging.printWarning("Column " + "Age" + " not in dataset");

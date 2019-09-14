@@ -96,7 +96,7 @@ public class CsvLoaderTest {
         File file = new File("test_data/robot_state_test.csv");
         Map<String, List<String>> dataSet = CsvDataLoader.MapLoader.parseFile(file);
         assertNotNull(dataSet);
-        
+
         NumericSample sample = CsvDataLoader.MapLoader.buildNumericSample(dataSet, "X");
         assertEquals(sample.size(), 25);
     }

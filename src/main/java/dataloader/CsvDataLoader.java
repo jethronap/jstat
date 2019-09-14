@@ -66,7 +66,7 @@ public class CsvDataLoader {
          * Create a NumericsSample from the given column of the
          * in the TreeMap
          */
-        public static CategoricalSample buildCategoricalSample(TreeMap<String, List> dataSet, String colName){
+        public static CategoricalSample buildCategoricalSample(Map<String, List<String>> dataSet, String colName){
 
             if(dataSet == null){
                 throw new IllegalArgumentException("Null data set given");
