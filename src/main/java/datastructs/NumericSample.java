@@ -16,7 +16,13 @@ public class NumericSample implements ISample<Double> {
 
 		this.stats_ = new Statistics();
 		this.name_ = name;
-		this.data_ = new ArrayList<Double>(capacity);
+
+		if( capacity == 0){
+			this.data_ = new ArrayList<Double>();
+		}
+		else {
+			this.initialize(capacity);
+		}
 		this.is_sorted_ = false;
 	}
 
@@ -34,13 +40,13 @@ public class NumericSample implements ISample<Double> {
     /**
      * The name of the sample
      */
-    public String getName(){ return this.name_; }
+    public String name(){ return this.name_; }
 
 
     /**
      * Returns the size of the sample
      */
-    public int getsize(){ return this.data_.size();}
+    public int size(){ return this.data_.size();}
 
 
     /**
@@ -93,7 +99,7 @@ public class NumericSample implements ISample<Double> {
 	public final void add(Double value){
 
 		this.data_.add(value);
-		this.stats_.is_valid = false;
+		this.falsifyCalculations();
 	}
 
 	/**
@@ -102,7 +108,7 @@ public class NumericSample implements ISample<Double> {
 	public final void set(int i, Double value){
 
 		this.data_.set(i, value);
-		this.stats_.is_valid = false;
+		this.falsifyCalculations();
 	}
 
 
@@ -128,14 +134,32 @@ public class NumericSample implements ISample<Double> {
 	/**
 	 * Copy the data from the given list
 	 */
-	protected void copy(final List<Double> data){
+	public void copy(final List<Double> data){
 
 		if(data.size() == 0){
 			throw new IllegalStateException("The input data set has zero size");
 		}
 
+		if(this.data_.size() != data.size()){
+
+			// remove data completely
+			this.initialize(data.size());
+		}
+
 		Collections.copy(this.data_, data);
-		this.stats_.is_valid = false;
+		this.falsifyCalculations();
+	}
+
+	/**
+	 * Initialize the sample with zero entries
+	 */
+	protected final void initialize(int size){
+
+		this.data_ = new ArrayList<Double>(size);
+
+		for(int i=0; i< size; ++i){
+			this.data_.add(0.0);
+		}
 	}
 
 	/**
@@ -173,6 +197,12 @@ public class NumericSample implements ISample<Double> {
 		this.stats_.is_valid = true;
 	}
 
+	protected final void falsifyCalculations(){
+
+		this.stats_.is_valid = false;
+		this.is_sorted_ = false;
+
+	}
 	
 	protected Statistics stats_ = null;
 	protected String name_ = null;
