@@ -14,7 +14,7 @@ Basic statistics and data analysis with Java
 ## Examples Map
 
 - <a href="#">UseContinuousSample</a> Show cases how to create a ```NumericSample```
-- <a href="#">LoadCsvDataSetWithTreeMap</a>: How to load  CSV data and extract a column in a ```NumericSample```
-- <a href="#">LoadCsvDataSetWithTreeMapAndExtractCategoricalSample</a>: How to load  CSV data and extract a column in a ```CategoricalSample```
+- <a href="#">LoadCsvDataSetWithMap</a>: How to load  CSV data and extract a column in a ```NumericSample```
+- <a href="#">LoadCsvDataSetWithMapAndExtractCategoricalSample</a>: How to load  CSV data and extract a column in a ```CategoricalSample```
 - <a href="#">MeanBootstrapExample</a>: Vanilla Bootstrap for the mean
  
