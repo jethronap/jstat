@@ -23,7 +23,7 @@ public class PieChartTest {
 
         PieChart chart = new PieChart();
         chart.plotPie(
-                "hair color by age", table,
-                "HairColor", "Age");
+                "weight by sex", table,
+                "Sex", "Weight");
     }
 }
