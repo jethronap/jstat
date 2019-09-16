@@ -18,12 +18,14 @@ public class BarChartTest {
     @Test
     public void testPlotBar() throws IOException {
         File file = new File("test_data/humans_data.csv");
-        Table table = CsvDataLoader.TableLoader.parseFile(file);
+        Table data = CsvDataLoader.TableLoader.parseFile(file);
 
-        BarChart chart = new BarChart();
-        chart.plotBar(
-                "height by sex", table,
-                "Sex", "Height");
+        BarPlot.BarChartOptions options = new BarPlot.BarChartOptions();
+        options.chartTitle = "height by sex";
+        options.groupColName = "Sex";
+        options.numberColName = "Height";
+
+        BarPlot.plotBar(options, data);
     }
 
     /**
@@ -36,9 +38,11 @@ public class BarChartTest {
         File file = new File("test_data/humans_data.csv");
         Table table = CsvDataLoader.TableLoader.parseFile(file);
 
-        BarChart chart = new BarChart();
-        chart.plotHorizontalBar(
-                "height by sex", table,
-                "Sex", "Height");
+        BarPlot.BarChartOptions options = new BarPlot.BarChartOptions();
+        options.chartTitle = "height by sex";
+        options.groupColName = "Sex";
+        options.numberColName = "Height";
+
+        BarPlot.plotHorizontalBar(options, table);
     }
 }
