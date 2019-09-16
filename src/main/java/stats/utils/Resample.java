@@ -1,6 +1,7 @@
 package stats.utils;
 
 import datastructs.ISample;
+import datastructs.NumericSample;
 import java.util.Random;
 
 /**
@@ -13,18 +14,22 @@ public class Resample {
      * by using an random number generator thats uses the given seed
      * This function uses replacement
      */
-    public static <T> void resample(final ISample<T> in, ISample<T> out, int size ,int seed){
+    public static NumericSample resample(final NumericSample in, int size ,int seed){
 
         Random random = new Random();
         random.setSeed(seed);
 
+        NumericSample out = new NumericSample("Sample", size);
+
         for(int i=0; i<size; i++){
 
             //get a random index between [0, in.size())
-            int idx = random.nextInt(in.getsize());
+            int idx = random.nextInt(in.size());
 
-            T val = in.get(idx);
+            Double val = in.get(idx);
             out.add(val);
         }
+
+        return out;
     }
 }

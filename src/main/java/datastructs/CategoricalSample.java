@@ -13,6 +13,9 @@ public class CategoricalSample implements ISample<String>
 
 		this.name_ = name;
 		this.data_ = new ArrayList<String>(capacity);
+		for(int i=0; i<capacity; ++i){
+			this.data_.add("");
+		}
 		this.is_category_valid_= false;
 	}
 
@@ -29,13 +32,13 @@ public class CategoricalSample implements ISample<String>
 	 /**
      * The name of the sample
      */
-    public final String getName(){return name_;}
+    public final String name(){return name_;}
 
 
     /**
      * Returns the size of the sample
      */
-    public final int getsize(){return data_.size();}
+    public final int size(){return data_.size();}
 
 
 	/**
@@ -85,6 +88,10 @@ public class CategoricalSample implements ISample<String>
 	 */
 	public void printInfo(){
 
+		if(is_category_valid_ == false){
+			getCategories();
+		}
+
 		for(Map.Entry<String, Integer> entry : categories_.entrySet()){
 
 			System.out.println(entry.getKey() + ", " + entry.getValue());
@@ -94,13 +101,20 @@ public class CategoricalSample implements ISample<String>
 
 
 	/**
-	 * Copy the data from the given list
+	 * Copy the data from the given list. It drops
+	 * any data that might exist in favor of the new
+	 * data
 	 */
 	public final void copy(List<String> data){
 
-		if(this.data_ == null){
+		if(this.data_ == null || this.data_.size() != data.size() ) {
 			this.data_ = new ArrayList<String>(data.size());
+
+			for(int i=0; i<data.size(); ++i){
+				this.data_.add("");
+			}
 		}
+
 
 		Collections.copy(this.data_, data);
 	}
