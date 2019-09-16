@@ -12,7 +12,7 @@ public class PieChart {
     /**
      * Plots basic pie chart given
      * chart title, data set in Table format,
-     * x-axis name, y-axis name.
+     * group column name, numeric column name.
      */
     public static void plotPie (
             String chartTitle, Table table, String groupColName, String numericColName) {

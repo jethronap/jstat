@@ -95,3 +95,4 @@ fabric.properties
 .idea/
 1.0.0.iml
 /target
+/testoutput
