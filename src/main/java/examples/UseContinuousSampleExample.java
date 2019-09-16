@@ -6,7 +6,7 @@ import datastructs.NumericSample;
  *
  * Category: Data structures
  * ID: UseContinuousSampleExample
- * Illustration of basic of creating a NumericalSample and
+ * Description: Illustration of basic of creating a NumericalSample and
  * getting basic statistics
  */
 

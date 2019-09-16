@@ -6,7 +6,9 @@ import datastructs.NumericSample;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
+import tech.tablesaw.api.DoubleColumn;
 import tech.tablesaw.api.Table;
+import tech.tablesaw.columns.Column;
 import tech.tablesaw.io.csv.CsvReadOptions;
 
 import java.io.File;
@@ -34,8 +36,7 @@ public class CsvDataLoader {
 
 
         /**
-         * Create a NumericsSample from the given column of the
-         * in the TreeMap
+         * Create a NumericsSample from the given column of the given Map
          */
         public static NumericSample buildSample(Map<String, List<String>> dataSet, String colName){
 
@@ -159,6 +160,37 @@ public class CsvDataLoader {
             CsvReadOptions options = CsvReadOptions.builder(csvFile).missingValueIndicator("-").build();
             Table dataSet = Table.read().usingOptions(options);
             return dataSet;
+        }
+
+
+        /**
+         * Create a NumericsSample from the given column of the given Map
+         */
+        public static NumericSample buildNumericSample(Table dataSet, String colName){
+
+            if(dataSet == null){
+
+                throw new IllegalArgumentException("Null data set given");
+            }
+
+            NumericSample sample;
+            Column col =  dataSet.column(colName);
+
+            if(col == null){
+
+                if(Configuration.ENABLE_WARNINGS) {
+                    Configuration.Logging.printWarning("Column " + colName + " not in dataset");
+                }
+
+                sample =  new NumericSample(colName, 0);
+            }
+            else{
+
+                List<Double> data = ParseUtils.parseAsDouble( col );
+                sample = new NumericSample(colName, data, false);
+            }
+
+            return sample;
         }
     }
 }

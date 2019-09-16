@@ -1,6 +1,7 @@
 package datastructs;
 
 import stats.Statistics;
+import tech.tablesaw.api.DoubleColumn;
 import utils.ArrayOperations;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -37,8 +38,20 @@ public class NumericSample implements ISample<Double> {
     }
 
 
-    /**
-     * The name of the sample
+	/**
+	 * Constructor. Build from a DoubleColumn
+	 */
+
+	public NumericSample(String name, DoubleColumn data, boolean is_sorted){
+
+		this(name, data.size());
+		this.is_sorted_ = is_sorted;
+		copy(data);
+	}
+
+
+	/**
+	 * The name of the sample
      */
     public String name(){ return this.name_; }
 
@@ -91,6 +104,23 @@ public class NumericSample implements ISample<Double> {
 	  * Returns the minimum of the sample
 	  */
 	public final double getMin(){return getStatistics().min;}
+
+
+	/**
+	 * Returns the held data as an array
+	 */
+	public final double[] asArray(){
+
+		double[] data = new double[this.data_.size()];
+
+		for (int i = 0; i < this.data_.size(); i++) {
+
+			data[i] = this.data_.get(i);
+
+		}
+
+		return data;
+	}
 
 
 	/**
@@ -147,6 +177,26 @@ public class NumericSample implements ISample<Double> {
 		}
 
 		Collections.copy(this.data_, data);
+		this.falsifyCalculations();
+	}
+
+
+	/**
+	 * Copy the data from the given DoubleColumn
+	 */
+	public void copy(final DoubleColumn data){
+
+		if(data.size() == 0){
+			throw new IllegalStateException("The input data set has zero size");
+		}
+
+		if(this.data_.size() != data.size()){
+
+			// remove data completely
+			this.initialize(data.size());
+		}
+
+		Collections.copy(this.data_, data.asList());
 		this.falsifyCalculations();
 	}
 

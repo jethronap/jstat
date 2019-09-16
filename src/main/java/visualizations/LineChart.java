@@ -1,5 +1,7 @@
 package visualizations;
 
+import datastructs.NumericSample;
+import tech.tablesaw.api.DoubleColumn;
 import tech.tablesaw.api.Table;
 import tech.tablesaw.plotly.Plot;
 import tech.tablesaw.plotly.api.LinePlot;
@@ -13,6 +15,23 @@ import tech.tablesaw.plotly.traces.ScatterTrace;
  */
 
 public class LineChart {
+
+    public class LinePlotOptions
+    {
+        public String plotName;
+        public double smoothing;
+        public String xAxisName;
+        public String yAxisName;
+    }
+
+
+    public static void plot(NumericSample x, NumericSample y, LinePlotOptions options){
+
+        DoubleColumn xcol = DoubleColumn.create(options.xAxisName, x.asArray());
+        DoubleColumn ycol = DoubleColumn.create(options.yAxisName, y.asArray());
+        Table table = Table.create(xcol, ycol);
+        Plot.show(LinePlot.create(options.plotName, table, options.xAxisName, options.yAxisName));
+    }
 
     /**
      * Plots a line given the chart title,
