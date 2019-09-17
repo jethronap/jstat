@@ -5,6 +5,8 @@ import utils.ArrayOperations;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import org.apache.commons.math3.stat.descriptive.DescriptiveStatistics;
+import org.apache.commons.math3.stat.descriptive.rank.Median;
 
 public class NumericSample implements ISample<Double> {
 
@@ -23,16 +25,14 @@ public class NumericSample implements ISample<Double> {
 		else {
 			this.initialize(capacity);
 		}
-		this.is_sorted_ = false;
 	}
 
     /**
      * Constructor
      */
-    public NumericSample(String name, List<Double> data, boolean is_sorted){
+    public NumericSample(String name, List<Double> data){
 
     	this(name, data.size());
-		this.is_sorted_ = is_sorted;
 		copy(data);
     }
 
@@ -54,7 +54,7 @@ public class NumericSample implements ISample<Double> {
      */
     public final Statistics getStatistics(){
 		
-		if(!this.stats_.is_valid){
+		if(!this.stats_.isValid){
 			
 			compute_sample_statistics();
 		}
@@ -63,7 +63,13 @@ public class NumericSample implements ISample<Double> {
 	}
 
 
-    /**
+	/**
+	 * Returns true if the statistics have been calculated
+	 */
+	public final boolean isStatisticsValid(){return this.stats_.isValid;}
+
+
+	/**
      * Compute the mean of the sample
      */
     public final double getMean(){return getStatistics().mean;}
@@ -94,6 +100,18 @@ public class NumericSample implements ISample<Double> {
 
 
 	/**
+	 * Returns the kurtosis statistic
+	 */
+	public final double getKurtosis(){return getStatistics().kurtosis;}
+
+
+	/**
+	 * Returns the skewness statistic
+	 */
+	public final double getSkewness(){return getStatistics().skewness;}
+
+
+	/**
 	 * Add the value to the sample
 	 */
 	public final void add(Double value){
@@ -101,6 +119,7 @@ public class NumericSample implements ISample<Double> {
 		this.data_.add(value);
 		this.falsifyCalculations();
 	}
+
 
 	/**
 	 * Set the i-th entry to the given value
@@ -116,7 +135,6 @@ public class NumericSample implements ISample<Double> {
 	 * Returns the i-th entry of the sample
 	 */
 	public final Double get(int i){
-
 		return this.data_.get(i);
 	}
 
@@ -150,6 +168,7 @@ public class NumericSample implements ISample<Double> {
 		this.falsifyCalculations();
 	}
 
+
 	/**
 	 * Initialize the sample with zero entries
 	 */
@@ -167,46 +186,26 @@ public class NumericSample implements ISample<Double> {
 	 */
 	protected void compute_sample_statistics(){
 
+		double[] arrayData = ArrayOperations.toArray(this.data_);
+		DescriptiveStatistics stats = new DescriptiveStatistics(arrayData);
 
-		Double sum = ArrayOperations.sum(this.data_ );
-		this.stats_.mean = sum/this.data_.size();
-
-		// compute variance
-		double sqrSum = ArrayOperations.sumSqr( this.data_ );
-		this.stats_.variance = ( 1.0/(this.data_.size() - 1) )*(sqrSum - (sum*sum)/this.data_.size());
-
-		// compute min/max
-		if(!this.is_sorted_){
-
-			// sort the data for
-			Collections.sort( this.data_ );
-			this.is_sorted_ = true;
-		}
-
-		this.stats_.min = this.data_.get(0).doubleValue();
-		this.stats_.max = this.data_.get(this.data_.size()-1).doubleValue();
-
-		// compute median
-		if (this.data_.size() % 2 == 0){
-			this.stats_.median = (double)(this.data_.get(this.data_.size()/2) + this.data_.get(this.data_.size()/2 - 1))/2;
-		}
-		else{
-			this.stats_.median = (double) this.data_.get(this.data_.size()/2);
-		}
-
-		this.stats_.is_valid = true;
+		this.stats_.mean = stats.getMean();
+		this.stats_.variance = stats.getVariance();
+		this.stats_.min = stats.getMin();
+		this.stats_.max = stats.getMax();
+		this.stats_.kurtosis = stats.getKurtosis();
+		this.stats_.skewness = stats.getSkewness();
+		this.stats_.median = new Median().evaluate(arrayData);
+		this.stats_.isValid = true;
 	}
 
 	protected final void falsifyCalculations(){
 
-		this.stats_.is_valid = false;
-		this.is_sorted_ = false;
-
+		this.stats_.isValid = false;
 	}
 	
-	protected Statistics stats_ = null;
-	protected String name_ = null;
+	protected Statistics stats_;
+	protected String name_;
 	protected List<Double> data_ = null;
-	protected boolean is_sorted_ = false;
 
 }
