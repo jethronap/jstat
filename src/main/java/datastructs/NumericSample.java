@@ -94,6 +94,23 @@ public class NumericSample implements ISample<Double> {
 
 
 	/**
+	 * Returns the held data as an array
+	 */
+	public final double[] asArray(){
+
+		double[] data = new double[this.data_.size()];
+
+		for (int i = 0; i < this.data_.size(); i++) {
+
+			data[i] = this.data_.get(i);
+
+		}
+
+		return data;
+	}
+
+
+	/**
 	 * Add the value to the sample
 	 */
 	public final void add(Double value){
