@@ -53,7 +53,7 @@ public class CsvDataLoader {
             else{
 
                 List<Double> data = ParseUtils.parseAsDouble( dataSet.get(colName) );
-                sample = new NumericSample(colName, data, false);
+                sample = new NumericSample(colName, data);
             }
 
             return sample;
