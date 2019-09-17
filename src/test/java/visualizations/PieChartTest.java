@@ -21,7 +21,8 @@ public class PieChartTest {
         File file = new File("test_data/humans_data.csv");
         Table table = CsvDataLoader.TableLoader.parseFile(file);
 
-        PieChart.PieChartOptions options = new PieChart.PieChartOptions();
+        PieChart plotter = new PieChart();
+        PieChart.PieChartOptions options = plotter.new PieChartOptions();
         options.chartTitle = "height by sex";
         options.groupColName = "Sex";
         options.numericColName = "Height";
