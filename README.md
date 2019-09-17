@@ -17,4 +17,6 @@ Basic statistics and data analysis with Java
 - <a href="#">LoadCsvDataSetWithTreeMap</a>: How to load  CSV data and put a column in a ```NumericSample```
 - <a href="#">MeanBootstrapExample</a>: Vanilla Bootstrap for the mean
 - <a href="#">PlotALine</a>: Plot a line
+- <a href="#">PlotAPie</a>: Plot a pie
+- <a href="#">PlotABar</a>: Plot a bar 
  
