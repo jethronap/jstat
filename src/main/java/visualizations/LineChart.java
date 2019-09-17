@@ -14,15 +14,22 @@ import tech.tablesaw.plotly.traces.ScatterTrace;
 
 public class LineChart {
 
+    static class LineChartOptions {
+        String chartTitle;
+        String nameXCol;
+        String nameYCol;
+        Double smoothing;
+
+    }
+
     /**
      * Plots a line given the chart title,
      * data set in Table format,
      * and two numeric columns.
      */
-    public static void plotLine(
-            String chartTitle, Table table, String x, String y) {
+    public static void plotLine(LineChartOptions options, Table data) {
 
-        Plot.show(LinePlot.create(chartTitle, table, x, y));
+        Plot.show(LinePlot.create(options.chartTitle, data, options.nameXCol, options.nameYCol));
 
     }
 
@@ -33,13 +40,13 @@ public class LineChart {
      * smoothing.
      */
 
-    public static void plotSmoothLine(
-            String chartTitle, Table table, String x, String y, Double smoothing) {
+    public static void plotSmoothLine(LineChartOptions options, Table data) {
 
-        Layout layout = Layout.builder().title(chartTitle).build();
-        ScatterTrace trace = ScatterTrace.builder(table.numberColumn(x), table.numberColumn(y))
+        Layout layout = Layout.builder().title(options.chartTitle).build();
+        ScatterTrace trace = ScatterTrace
+                .builder(data.numberColumn(options.nameXCol), data.numberColumn(options.nameYCol))
                 .mode(ScatterTrace.Mode.LINE)
-                .line(Line.builder().shape(Line.Shape.SPLINE).smoothing(smoothing).build())
+                .line(Line.builder().shape(Line.Shape.SPLINE).smoothing(options.smoothing).build())
                 .build();
         Plot.show(new Figure(layout, trace));
     }
