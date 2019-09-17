@@ -9,15 +9,20 @@ import tech.tablesaw.plotly.api.PiePlot;
  */
 public class PieChart {
 
+    class PieChartOptions {
+        String chartTitle;
+        String groupColName;
+        String numericColName;
+    }
+
     /**
      * Plots basic pie chart given
      * chart title, data set in Table format,
      * group column name, numeric column name.
      */
-    public static void plotPie (
-            String chartTitle, Table table, String groupColName, String numericColName) {
+    public static void plotPie (PieChartOptions options, Table data) {
 
-        Plot.show(PiePlot.create(chartTitle, table, groupColName, numericColName));
+        Plot.show(PiePlot.create(options.chartTitle, data, options.groupColName, options.numericColName));
 
     }
 }
