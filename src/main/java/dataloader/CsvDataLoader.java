@@ -32,8 +32,7 @@ public class CsvDataLoader {
 
 
         /**
-         * Create a NumericsSample from the given column of the
-         * in the TreeMap
+         * Create a NumericsSample from the given column in the given Map
          */
         public static NumericSample buildNumericSample(Map<String, List<String>> dataSet, String colName){
 
@@ -63,8 +62,7 @@ public class CsvDataLoader {
 
 
         /**
-         * Create a NumericsSample from the given column of the
-         * in the TreeMap
+         * Create a CategoricalSample from the given column in the given Map
          */
         public static CategoricalSample buildCategoricalSample(Map<String, List<String>> dataSet, String colName){
 
