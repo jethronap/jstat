@@ -17,6 +17,7 @@ public class BarChart {
         String numberColName;
 
     }
+
     /**
      * Plots basic bar chart given
      * chart title, data set in Table format,
