@@ -11,10 +11,10 @@ import tech.tablesaw.plotly.api.VerticalBarPlot;
  */
 public class BarChart {
 
-    static class BarChartOptions {
-        String chartTitle;
-        String groupColName;
-        String numberColName;
+    public class BarChartOptions {
+        public String chartTitle;
+        public String groupColName;
+        public String numberColName;
 
     }
 

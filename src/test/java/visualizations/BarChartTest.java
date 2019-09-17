@@ -20,7 +20,8 @@ public class BarChartTest {
         File file = new File("test_data/humans_data.csv");
         Table data = CsvDataLoader.TableLoader.parseFile(file);
 
-        BarChart.BarChartOptions options = new BarChart.BarChartOptions();
+        BarChart plotter = new BarChart();
+        BarChart.BarChartOptions options = plotter.new BarChartOptions();
         options.chartTitle = "height by sex";
         options.groupColName = "Sex";
         options.numberColName = "Height";
@@ -38,7 +39,8 @@ public class BarChartTest {
         File file = new File("test_data/humans_data.csv");
         Table table = CsvDataLoader.TableLoader.parseFile(file);
 
-        BarChart.BarChartOptions options = new BarChart.BarChartOptions();
+        BarChart plotter = new BarChart();
+        BarChart.BarChartOptions options = plotter.new BarChartOptions();
         options.chartTitle = "height by sex";
         options.groupColName = "Sex";
         options.numberColName = "Height";
