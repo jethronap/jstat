@@ -16,7 +16,7 @@ import tech.tablesaw.plotly.traces.ScatterTrace;
 
 public class LineChart {
 
-    public static class LineChartOptions {
+    public class LineChartOptions {
         public String chartTitle;
         public double smoothing;
         public String xAxisName;
