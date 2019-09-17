@@ -19,8 +19,12 @@ public class LineChartTest {
         File file = new File("test_data/annual.csv");
         Table table = CsvDataLoader.TableLoader.parseFile(file);
 
-        LineChart chart = new LineChart();
-        chart.plotLine("temperature mean per year", table, "Year", "Mean");
+        LineChart.LineChartOptions options = new LineChart.LineChartOptions();
+        options.chartTitle = "temperature mean per year";
+        options.nameXCol = "Year";
+        options.nameYCol = "Mean";
+
+        LineChart.plotLine(options, table);
     }
 
     /**
@@ -35,7 +39,12 @@ public class LineChartTest {
         File file = new File("test_data/annual.csv");
         Table table = CsvDataLoader.TableLoader.parseFile(file);
 
-        LineChart chart = new LineChart();
-        chart.plotSmoothLine("temperature mean per year", table, "Year", "Mean", 1.2);
+        LineChart.LineChartOptions options = new LineChart.LineChartOptions();
+        options.chartTitle = "temperature mean per year";
+        options.nameXCol = "Year";
+        options.nameYCol = "Mean";
+        options.smoothing = 1.2;
+
+        LineChart.plotSmoothLine(options, table);
     }
 }
