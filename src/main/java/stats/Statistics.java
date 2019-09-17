@@ -18,15 +18,7 @@ public class Statistics {
 	public boolean isValid =false;
 
 	public final void printInfo(){
-
-	    System.out.println("Mean:     "+mean);
-        System.out.println("Variance: "+variance);
-        System.out.println("Median:   "+median);
-        System.out.println("Max:      "+max);
-        System.out.println("Min:      "+min);
-        System.out.println("skewness: "+skewness);
-        System.out.println("kurtosis: "+kurtosis);
-        System.out.println("Valid:    "+ isValid);
+	    System.out.println(this.toString());
     }
 
     @Override
@@ -35,11 +27,11 @@ public class Statistics {
 	    String str = new String();
 	    str = "Mean:  "+new Double(mean).toString()+"\n";
         str += "Variance:  "+new Double(variance).toString()+"\n";
-        str += "Variance:  "+new Double(median).toString()+"\n";
-        str += "Variance:  "+new Double(max).toString()+"\n";
-        str += "Variance:  "+new Double(min).toString()+"\n";
-        str += "Variance:  "+new Double(skewness).toString()+"\n";
-        str += "Variance:  "+new Double(kurtosis).toString()+"\n";
+        str += "Median:  "+new Double(median).toString()+"\n";
+        str += "Max:  "+new Double(max).toString()+"\n";
+        str += "Min:  "+new Double(min).toString()+"\n";
+        str += "Skewness:  "+new Double(skewness).toString()+"\n";
+        str += "Kurtosis:  "+new Double(kurtosis).toString()+"\n";
         str += "Valid:     "+new Boolean(isValid).toString()+"\n";
 	    return str;
     }
