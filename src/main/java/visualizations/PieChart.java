@@ -9,7 +9,7 @@ import tech.tablesaw.plotly.api.PiePlot;
  */
 public class PieChart {
 
-    class PieChartOptions {
+    static class PieChartOptions {
         String chartTitle;
         String groupColName;
         String numericColName;
