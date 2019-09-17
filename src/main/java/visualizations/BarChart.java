@@ -9,7 +9,7 @@ import tech.tablesaw.plotly.api.VerticalBarPlot;
 /**
  * Class that plots basic Bar charts.
  */
-public class BarPlot {
+public class BarChart {
 
     static class BarChartOptions {
         String chartTitle;

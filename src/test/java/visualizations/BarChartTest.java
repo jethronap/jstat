@@ -20,12 +20,12 @@ public class BarChartTest {
         File file = new File("test_data/humans_data.csv");
         Table data = CsvDataLoader.TableLoader.parseFile(file);
 
-        BarPlot.BarChartOptions options = new BarPlot.BarChartOptions();
+        BarChart.BarChartOptions options = new BarChart.BarChartOptions();
         options.chartTitle = "height by sex";
         options.groupColName = "Sex";
         options.numberColName = "Height";
 
-        BarPlot.plotBar(options, data);
+        BarChart.plotBar(options, data);
     }
 
     /**
@@ -38,11 +38,11 @@ public class BarChartTest {
         File file = new File("test_data/humans_data.csv");
         Table table = CsvDataLoader.TableLoader.parseFile(file);
 
-        BarPlot.BarChartOptions options = new BarPlot.BarChartOptions();
+        BarChart.BarChartOptions options = new BarChart.BarChartOptions();
         options.chartTitle = "height by sex";
         options.groupColName = "Sex";
         options.numberColName = "Height";
 
-        BarPlot.plotHorizontalBar(options, table);
+        BarChart.plotHorizontalBar(options, table);
     }
 }
