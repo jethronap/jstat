@@ -21,9 +21,11 @@ public class PieChartTest {
         File file = new File("test_data/humans_data.csv");
         Table table = CsvDataLoader.TableLoader.parseFile(file);
 
-        PieChart chart = new PieChart();
-        chart.plotPie(
-                "weight by sex", table,
-                "Sex", "Weight");
+        PieChart.PieChartOptions options = new PieChart.PieChartOptions();
+        options.chartTitle = "height by sex";
+        options.groupColName = "Sex";
+        options.numericColName = "Height";
+
+        PieChart.plotPie(options, table);
     }
 }
