@@ -1,6 +1,5 @@
 package stats;
 
-import datastructs.ISample;
 import datastructs.NumericSample;
 import org.junit.Test;
 import stats.utils.Resample;
