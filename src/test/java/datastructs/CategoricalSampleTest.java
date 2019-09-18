@@ -135,9 +135,4 @@ public class CategoricalSampleTest {
         assertEquals(sample.getCategoryFrequency("Category_2"), 4);
         assertEquals(sample.getCategoryFrequency("Category_5"), 1);
     }
-
-
-
-
-
 }

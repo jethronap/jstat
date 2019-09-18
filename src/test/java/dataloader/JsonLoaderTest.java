@@ -7,7 +7,8 @@ import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 
-import static junit.framework.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 public class JsonLoaderTest {
 

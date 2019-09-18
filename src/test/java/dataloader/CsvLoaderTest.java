@@ -9,8 +9,8 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
-import static junit.framework.Assert.assertEquals;
-import static junit.framework.Assert.assertNotNull;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 public class CsvLoaderTest {
 
@@ -82,7 +82,7 @@ public class CsvLoaderTest {
         Map<String, List<String>> dataSet = CsvDataLoader.MapLoader.parseFile(file);
         assertNotNull(dataSet);
 
-        NumericSample sample = CsvDataLoader.MapLoader.buildSample(dataSet, "DummyColumn");
+        NumericSample sample = CsvDataLoader.MapLoader.buildNumericSample(dataSet, "DummyColumn");
         assertEquals(sample.size(), 0);
     }
 
@@ -97,7 +97,7 @@ public class CsvLoaderTest {
         Map<String, List<String>> dataSet = CsvDataLoader.MapLoader.parseFile(file);
         assertNotNull(dataSet);
 
-        NumericSample sample = CsvDataLoader.MapLoader.buildSample(dataSet, "X");
+        NumericSample sample = CsvDataLoader.MapLoader.buildNumericSample(dataSet, "X");
         assertEquals(sample.size(), 25);
     }
 }

@@ -5,18 +5,16 @@ import datastructs.NumericSample;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
-import java.util.TreeMap;
-
 
 /**
  *
  * Category: Statistics, Data structures, Data loaders
- * ID: LoadCsvDataSetWithTreeMap
+ * ID: LoadCsvDataSetWithMap
  * Description: Load a CSV file using the CsvDataLoader.MapLoader and create
  * a NumericSample from the data set
  */
 
-public class LoadCsvDataSetWithTreeMap {
+public class LoadCsvDataSetWithMap {
 
 
     public static void main(String[] args){
@@ -26,7 +24,7 @@ public class LoadCsvDataSetWithTreeMap {
             Map<String, List<String>> dataSet = CsvDataLoader.MapLoader.parseFile("data/robot_state.csv");
 
             // load it in a NumericsSample
-            NumericSample sample = CsvDataLoader.MapLoader.buildSample(dataSet, "Y");
+            NumericSample sample = CsvDataLoader.MapLoader.buildNumericSample(dataSet, "Y");
 
             System.out.println(sample.size());
             System.out.println(sample.getMean());

@@ -7,13 +7,13 @@ import org.apache.commons.math3.distribution.NormalDistribution;
 /**
  *
  * Category: Statistics
- * ID: MeanBootstrapExample
+ * ID: MeanBootstrap
  * Illustration of basic bootstrap method for the mean
  * see also: https://machinelearningmastery.com/a-gentle-introduction-to-the-bootstrap-method/
  */
 
 
-public class MeanBootstrapExample {
+public class MeanBootstrap {
 
 
     public static void main(String[] args){
