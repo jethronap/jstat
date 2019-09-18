@@ -31,9 +31,9 @@ public class ScatterChart {
      */
     public static void plotScatter(NumericSample x, NumericSample y, ScatterChartOptions options){
 
-        DoubleColumn xcol = DoubleColumn.create(options.xAxisName, x.asArray());
-        DoubleColumn ycol = DoubleColumn.create(options.yAxisName, y.asArray());
-        Table table = Table.create(xcol, ycol);
+        DoubleColumn xCol = DoubleColumn.create(options.xAxisName, x.asArray());
+        DoubleColumn yCol = DoubleColumn.create(options.yAxisName, y.asArray());
+        Table table = Table.create(xCol, yCol);
         Plot.show(ScatterPlot.create(options.chartTitle, table, options.xAxisName, options.yAxisName));
     }
 
