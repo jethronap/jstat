@@ -28,4 +28,25 @@ public class ScatterChartTest {
 
         ScatterChart.plotScatter(options, data);
     }
+
+    /** Test Scenario: The user provides a data set
+     * and wants to plot a scatter with two numeric
+     * and o categorical variable.
+     * Expected Output: The chart is plotted correctly.
+     */
+    @Test
+    public void testPlotScatterWithCategorical() throws IOException {
+        File file = new File("test_data/annual.csv");
+        Table data = CsvDataLoader.TableLoader.parseFile(file);
+
+        ScatterChart plotter = new ScatterChart();
+        ScatterChart.ScatterChartOptions options = plotter.new ScatterChartOptions();
+        options.chartTitle = "temperature mean per year per source";
+        options.xAxisName = "Year";
+        options.yAxisName = "Mean";
+        options.groupColName = "Source";
+
+        ScatterChart.plotScatterWithCategorical(options, data);
+    }
+
 }
