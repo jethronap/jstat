@@ -9,6 +9,12 @@ import java.io.IOException;
 
 public class ScatterChartTest {
 
+
+    /**
+     * Test Scenario: The user provides a data set
+     * and wants to plot a scatter chart.
+     * Expected Output: The chart is plotted correctly.
+     */
     @Test
     public void testPlotScatter () throws IOException {
         File file = new File("test_data/annual.csv");
