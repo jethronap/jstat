@@ -32,7 +32,7 @@ public class ScatterChartTest {
 
     /** Test Scenario: The user provides a data set
      * and wants to plot a scatter with two numeric
-     * and o categorical variable.
+     * and one categorical variable.
      * Expected Output: The chart is plotted correctly.
      */
     @Test
@@ -53,7 +53,7 @@ public class ScatterChartTest {
     /**
      * Test Scenario: The user provides a data set
      * and wants to plot a scatter chart
-     * with two numeric variables.
+     * with three numeric variables.
      * Expected Output: The chart is plotted correctly.
      */
     @Test
