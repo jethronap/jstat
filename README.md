@@ -18,5 +18,6 @@ Basic statistics and data analysis with Java
 - <a href="#">MeanBootstrapExample</a>: Vanilla Bootstrap for the mean
 - <a href="#">PlotALine</a>: Plot a line
 - <a href="#">PlotAPie</a>: Plot a pie
-- <a href="#">PlotABar</a>: Plot a bar 
+- <a href="#">PlotABar</a>: Plot a bar
+- <a href="#">PlotAScatter</a>: Plot a scatter 
  
