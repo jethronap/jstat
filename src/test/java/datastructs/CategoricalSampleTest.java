@@ -1,11 +1,8 @@
 package datastructs;
 
 import org.junit.Test;
-import datastructs.CategoricalSample;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import static org.junit.Assert.assertEquals;
 
 public class CategoricalSampleTest {
@@ -138,9 +135,4 @@ public class CategoricalSampleTest {
         assertEquals(sample.getCategoryFrequency("Category_2"), 4);
         assertEquals(sample.getCategoryFrequency("Category_5"), 1);
     }
-
-
-
-
-
 }

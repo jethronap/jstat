@@ -4,11 +4,13 @@ import org.junit.runner.JUnitCore;
 import org.junit.runner.Result;
 import org.junit.runner.notification.Failure;
 
-public class CategoricalSampleTestRunner {
 
-    public static void main(String[] args) {
+public class NumericSampleTestRunner {
 
-        Result result = JUnitCore.runClasses(CategoricalSampleTest.class);
+
+    public static void run(String[] args){
+
+        Result result = JUnitCore.runClasses(NumericSampleTest.class);
 
         if( !result.wasSuccessful()) {
             for (Failure failure : result.getFailures()) {
@@ -20,5 +22,11 @@ public class CategoricalSampleTestRunner {
         }
 
         System.out.println("Test run time: "+ result.getRunTime());
+
+    }
+
+    public static void main(String[] args) {
+
+        NumericSampleTestRunner.run(args);
     }
 }
