@@ -1,6 +1,8 @@
 package visualizations;
 
 
+import datastructs.NumericSample;
+import tech.tablesaw.api.DoubleColumn;
 import tech.tablesaw.api.Table;
 import tech.tablesaw.plotly.Plot;
 import tech.tablesaw.plotly.api.BubblePlot;
@@ -18,6 +20,21 @@ public class ScatterChart {
         public String yAxisName;
         public String groupColName;
         public String sizeColName;
+    }
+
+    /**
+     * Plots a scatter chart given the chart title,
+     * data set in Table format,
+     * and two numeric columns
+     * created from a numeric sample
+     * of the data set.
+     */
+    public static void plotScatter(NumericSample x, NumericSample y, ScatterChartOptions options){
+
+        DoubleColumn xcol = DoubleColumn.create(options.xAxisName, x.asArray());
+        DoubleColumn ycol = DoubleColumn.create(options.yAxisName, y.asArray());
+        Table table = Table.create(xcol, ycol);
+        Plot.show(ScatterPlot.create(options.chartTitle, table, options.xAxisName, options.yAxisName));
     }
 
     /**
