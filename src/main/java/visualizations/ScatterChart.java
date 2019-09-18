@@ -29,6 +29,7 @@ public class ScatterChart {
      * created from a numeric sample
      * of the data set.
      */
+
     public static void plotScatter(NumericSample x, NumericSample y, ScatterChartOptions options){
 
         DoubleColumn xCol = DoubleColumn.create(options.xAxisName, x.asArray());
