@@ -21,7 +21,7 @@ public class ScatterChart {
     /**
      * Plots a scatter chart given the chart title,
      * data set in Table format,
-     * and two numeric columns.
+     * and two numeric variables.
      */
 
     public static void plotScatter(ScatterChartOption options, Table data) {
@@ -32,7 +32,7 @@ public class ScatterChart {
     /**
      * Plots a scatter chart given the chart title,
      * data set in Table format,
-     * two numeric columns and
+     * two numeric variables and
      * one categorical.
      */
 
