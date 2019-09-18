@@ -1,5 +1,6 @@
 package visualizations;
 
+
 import tech.tablesaw.api.Table;
 import tech.tablesaw.plotly.Plot;
 import tech.tablesaw.plotly.api.ScatterPlot;
@@ -14,6 +15,7 @@ public class ScatterChart {
         public String chartTitle;
         public String xAxisName;
         public String yAxisName;
+        public String groupColName;
     }
 
     /**
@@ -26,4 +28,19 @@ public class ScatterChart {
 
         Plot.show(ScatterPlot.create(options.chartTitle, data, options.xAxisName, options.yAxisName));
     }
+
+    /**
+     * Plots a scatter chart given the chart title,
+     * data set in Table format,
+     * two numeric columns and
+     * one categorical.
+     */
+
+    public static void plotScatterWithCategorical(ScatterChartOption options, Table data) {
+
+        Plot.show(
+                ScatterPlot.create(options.chartTitle,
+                        data, options.xAxisName, options.yAxisName, options.groupColName));
+    }
+
 }
