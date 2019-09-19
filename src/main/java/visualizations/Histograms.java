@@ -1,5 +1,7 @@
 package visualizations;
 
+import datastructs.NumericSample;
+import tech.tablesaw.api.DoubleColumn;
 import tech.tablesaw.api.Table;
 import tech.tablesaw.plotly.Plot;
 import tech.tablesaw.plotly.api.Histogram;
@@ -15,6 +17,22 @@ public class Histograms {
         public String chartTitle;
         public String xAxisName;
         public String yAxisName;
+    }
+
+    /**
+     * Plots a scatter chart given the chart title,
+     * data set in Table format,
+     * and one numeric column
+     * created from a numeric sample
+     * of the data set.
+     */
+
+    public static void plotHistogram(NumericSample x, HistogramOptions options) {
+
+        DoubleColumn xCol = DoubleColumn.create(options.xAxisName, x.asArray());
+
+        Table table = Table.create(xCol);
+        Plot.show(Histogram.create(options.chartTitle, table, options.xAxisName));
     }
 
     /**
