@@ -19,5 +19,6 @@ Basic statistics and data analysis with Java
 - <a href="#">PlotALine</a>: Plot a line
 - <a href="#">PlotAPie</a>: Plot a pie
 - <a href="#">PlotABar</a>: Plot a bar
-- <a href="#">PlotAScatter</a>: Plot a scatter 
+- <a href="#">PlotAScatter</a>: Plot a scatter
+- <a href="#">PlotAHistogram</a>: Plot a histogram 
  
