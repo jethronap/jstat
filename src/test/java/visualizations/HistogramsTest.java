@@ -27,4 +27,24 @@ public class HistogramsTest {
 
         Histograms.plotHistogram(options, data);
     }
+
+    /**
+     * Test Scenario: The user provides a data set
+     * and two numeric column name
+     * and wants to plot a 2D histogram.
+     * Expected Output: The 2D histogram is plotted correctly.
+     */
+    @Test
+    public void testPlotHistogram2D() throws IOException {
+        File file = new File("test_data/humans_data.csv");
+        Table data = CsvDataLoader.TableLoader.parseFile(file);
+
+        Histograms plotter = new Histograms();
+        Histograms.HistogramOptions options = plotter.new HistogramOptions();
+        options.chartTitle = "distribution of age";
+        options.xAxisName = "Age";
+        options.yAxisName = "Weight";
+
+        Histograms.plotHistogram2D(options, data);
+    }
 }
