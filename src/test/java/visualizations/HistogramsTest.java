@@ -1,6 +1,7 @@
 package visualizations;
 
 import dataloader.CsvDataLoader;
+import datastructs.NumericSample;
 import org.junit.Test;
 import tech.tablesaw.api.Table;
 
@@ -46,5 +47,27 @@ public class HistogramsTest {
         options.yAxisName = "Weight";
 
         Histograms.plotHistogram2D(options, data);
+    }
+
+    /**
+     * Test Scenario: The user provides a data set
+     * and one numeric column
+     * and wants to plot a histogram.
+     * Expected Output: The histogram is plotted correctly.
+     */
+    @Test
+    public void testPlotHistogramNumSample() throws IOException {
+        File file = new File("test_data/annual.csv");
+        Table data = CsvDataLoader.TableLoader.parseFile(file);
+
+        // Extract numeric samples from the data
+        NumericSample X = CsvDataLoader.TableLoader.buildNumericSample(data, "Mean");
+
+        Histograms plotter = new Histograms();
+        Histograms.HistogramOptions options = plotter.new HistogramOptions();
+        options.chartTitle = "distribution of mean temperature";
+        options.xAxisName = "Mean";
+
+        Histograms.plotHistogram(options, data);
     }
 }
