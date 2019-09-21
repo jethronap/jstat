@@ -54,6 +54,10 @@ public class Resample {
             throw new IllegalArgumentException("Cannot resample on a sample of zero size...");
         }
 
+        if(size > in.size()){
+            throw new IllegalArgumentException("Resample size should be smaller that in.size()...");
+        }
+
         Random random = new Random();
         random.setSeed(seed);
 
