@@ -1,14 +1,17 @@
 package stats;
-
+import testutils.ITestRunnerBase;
 import org.junit.runner.JUnitCore;
 import org.junit.runner.Result;
 import org.junit.runner.notification.Failure;
 
 
-public class ResampleTestRunner {
+public class ResampleTestRunner implements ITestRunnerBase {
 
 
-    public static void main(String[] args) {
+    public Result run(String[] args){
+
+        System.out.println("=====================================================");
+        System.out.println("Running: "+ ResampleTest.class.getName()+ " tests");
 
         Result result = JUnitCore.runClasses(ResampleTest.class);
 
@@ -21,7 +24,16 @@ public class ResampleTestRunner {
             System.out.println("All tests passed: "+ result.getRunCount());
         }
 
-        System.out.println("Test run time: "+ result.getRunTime());
+        System.out.println("Test run time: "+ result.getRunTime()+" secs");
+        System.out.println("Done...");
+        System.out.println("=====================================================");
+        return result;
+    }
+
+    public static void main(String[] args) {
+
+        ResampleTestRunner runner = new ResampleTestRunner();
+        runner.run(args);
     }
 }
 
