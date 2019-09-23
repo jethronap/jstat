@@ -17,4 +17,5 @@ Basic statistics and data analysis with Java
 - <a href="#">LoadCsvDataSetWithMap</a>: How to load  CSV data and extract a column in a ```NumericSample```
 - <a href="#">LoadCsvDataSetWithMapAndExtractCategoricalSample</a>: How to load  CSV data and extract a column in a ```CategoricalSample```
 - <a href="#">MeanBootstrapExample</a>: Vanilla Bootstrap for the mean
+- <a href="#">HypothesisTestingForMean</a>: Vanilla Hypothesis testing for the mean
  
