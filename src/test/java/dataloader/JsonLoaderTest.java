@@ -1,5 +1,6 @@
 package dataloader;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import org.junit.Test;
 import tech.tablesaw.api.Table;
 
@@ -62,8 +63,7 @@ public class JsonLoaderTest {
         File file = new File("test_data/dummy.json");
         HashMap dataSet = JsonDataLoader.MapLoader.parseFile(file);
 
-        assertEquals(dataSet.get("id"), 2);
         assertNotNull(dataSet);
-
+        assertEquals(((JsonNode) dataSet.get("id")).intValue(), 2);
     }
 }

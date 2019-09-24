@@ -2,11 +2,16 @@ package dataloader;
 
 import base.Configuration;
 import dataloader.utils.ParseUtils;
+import datastructs.CategoricalSample;
 import datastructs.NumericSample;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
+<<<<<<< HEAD
 import tech.tablesaw.api.DoubleColumn;
+=======
+import sun.awt.ConstrainableGraphics;
+>>>>>>> master
 import tech.tablesaw.api.Table;
 import tech.tablesaw.columns.Column;
 import tech.tablesaw.io.csv.CsvReadOptions;
@@ -36,16 +41,20 @@ public class CsvDataLoader {
 
 
         /**
+<<<<<<< HEAD
          * Create a NumericsSample from the given column of the given Map
+=======
+         * Create a NumericsSample from the given column in the given Map
+>>>>>>> master
          */
-        public static NumericSample buildSample(Map<String, List<String>> dataSet, String colName){
+        public static NumericSample buildNumericSample(Map<String, List<String>> dataSet, String colName){
 
             if(dataSet == null){
 
                 throw new IllegalArgumentException("Null data set given");
             }
 
-            NumericSample sample;
+            NumericSample numericSample;
 
             if(!dataSet.containsKey(colName)){
 
@@ -53,21 +62,50 @@ public class CsvDataLoader {
                     Configuration.Logging.printWarning("Column " + colName + " not in dataset");
                 }
 
-                sample =  new NumericSample(colName, 0);
+                numericSample = new NumericSample(colName, 0);
+
             }
             else{
 
                 List<Double> data = ParseUtils.parseAsDouble( dataSet.get(colName) );
-                sample = new NumericSample(colName, data, false);
+                numericSample = new NumericSample(colName, data);
+            }
+            return  numericSample;
+        }
+
+
+        /**
+         * Create a CategoricalSample from the given column in the given Map
+         */
+        public static CategoricalSample buildCategoricalSample(Map<String, List<String>> dataSet, String colName){
+
+            if(dataSet == null){
+                throw new IllegalArgumentException("Null data set given");
             }
 
-            return sample;
+            CategoricalSample categoricalSample;
+
+            if(!dataSet.containsKey(colName)){
+
+                if(Configuration.ENABLE_WARNINGS) {
+                    Configuration.Logging.printWarning("Column " + colName + " not in dataset");
+                }
+
+                categoricalSample = new CategoricalSample(colName, 0);
+            }
+            else{
+
+                categoricalSample = new CategoricalSample(colName, dataSet.get(colName));
+            }
+
+            return categoricalSample;
         }
 
 
         /**
          * Simple method that parses data set from a csv file
-         * The CSV file should NOT have the last column ending with comma
+         * The CSV file should NOT have the last column ending with comma.
+         * The CSV column names should NOT have white space
          */
         public static Map<String, List<String>> parseFile(File csvFile) throws IOException {
 
@@ -84,7 +122,7 @@ public class CsvDataLoader {
             for (CSVRecord record : parser) {
 
                 // the first record is the header
-                if(lineCounter==0){
+                if(lineCounter == 0){
 
                     for (String field : record){
 

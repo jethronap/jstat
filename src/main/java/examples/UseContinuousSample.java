@@ -5,12 +5,12 @@ import datastructs.NumericSample;
 /**
  *
  * Category: Data structures
- * ID: UseContinuousSampleExample
+ * ID: UseContinuousSample
  * Illustration of basic of creating a NumericalSample and
  * getting basic statistics
  */
 
-public class UseContinuousSampleExample
+public class UseContinuousSample
 {
 
 	public static void main(String[] args){
