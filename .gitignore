@@ -3,7 +3,7 @@
 
 # Log file
 *.log
-
+*.DS_Store
 # BlueJ files
 *.ctxt
 
@@ -93,12 +93,7 @@ fabric.properties
 .idea/caches/build_file_checksums.ser
 
 .idea/
-<<<<<<< HEAD
 1.0.0.iml
-/target
-/testoutput
-=======
 1.0.0.imltestoutput/*
 testoutput/
 target/
->>>>>>> master
