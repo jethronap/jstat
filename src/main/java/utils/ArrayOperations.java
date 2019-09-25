@@ -6,6 +6,25 @@ public class ArrayOperations
 {
 
 	/**
+	 * Returns an array of doubles
+	 */
+	public static double[] toArray(final List<Double> array){
+
+		if(array == null){
+			throw new NullPointerException("Input List<T> is null");
+		}
+
+		double[] data = new double[array.size()];
+
+		for (int i = 0; i < array.size(); i++) {
+			data[i] = array.get(i);
+		}
+
+		return data;
+
+	}
+
+	/**
 	  * Returns the sum of the array elements
 	  */
 	public static  Double sum(List< Double > array){

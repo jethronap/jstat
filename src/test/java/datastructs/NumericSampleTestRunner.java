@@ -1,20 +1,20 @@
-package dataloader;
+package datastructs;
 
-
+import testutils.ITestRunnerBase;
 import org.junit.runner.JUnitCore;
 import org.junit.runner.Result;
 import org.junit.runner.notification.Failure;
-import testutils.ITestRunnerBase;
 
-public class JsonLoaderTestRunner implements ITestRunnerBase {
+
+public class NumericSampleTestRunner implements ITestRunnerBase {
 
 
     public Result run(String[] args){
 
         System.out.println("=====================================================");
-        System.out.println("Running: "+ JsonLoaderTest.class.getName()+ " tests");
+        System.out.println("Running: "+ NumericSampleTest.class.getName()+ " tests");
 
-        Result result = JUnitCore.runClasses(JsonLoaderTest.class);
+        Result result = JUnitCore.runClasses(NumericSampleTest.class);
 
         if( !result.wasSuccessful()) {
             for (Failure failure : result.getFailures()) {
@@ -28,13 +28,12 @@ public class JsonLoaderTestRunner implements ITestRunnerBase {
         System.out.println("Test run time: "+ result.getRunTime()+" secs");
         System.out.println("Done...");
         System.out.println("=====================================================");
-
         return result;
     }
 
     public static void main(String[] args) {
 
-        JsonLoaderTestRunner runner = new JsonLoaderTestRunner();
+        NumericSampleTestRunner runner = new NumericSampleTestRunner();
         runner.run(args);
     }
 }
