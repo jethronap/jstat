@@ -3,7 +3,7 @@
 
 # Log file
 *.log
-
+*.DS_Store
 # BlueJ files
 *.ctxt
 
@@ -94,5 +94,6 @@ fabric.properties
 
 .idea/
 1.0.0.iml
-/target
-/testoutput
+1.0.0.imltestoutput/*
+testoutput/
+target/
