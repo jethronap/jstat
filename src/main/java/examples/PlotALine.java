@@ -20,7 +20,7 @@ public class PlotALine {
     public static void main(String[] args) throws IOException {
 
 
-        File file = new File("test_data/annual.csv");
+        File file = new File("data/annual.csv");
         Table table = CsvDataLoader.TableLoader.parseFile(file);
 
         // extract numeric samples from the data
