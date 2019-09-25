@@ -25,24 +25,22 @@ public class LineChart {
     }
 
     /**
-     * Plots a line given the chart title,
-     * data set in Table format,
+     * Plots a line given the chart options,
      * and two numeric columns
      * created from a numeric sample
      * of the data set.
      */
     public static void plotLine(NumericSample x, NumericSample y, LineChartOptions options){
 
-        DoubleColumn xcol = DoubleColumn.create(options.xAxisName, x.asArray());
-        DoubleColumn ycol = DoubleColumn.create(options.yAxisName, y.asArray());
-        Table table = Table.create(xcol, ycol);
+        DoubleColumn xCol = DoubleColumn.create(options.xAxisName, x.asArray());
+        DoubleColumn yCol = DoubleColumn.create(options.yAxisName, y.asArray());
+        Table table = Table.create(xCol, yCol);
         Plot.show(LinePlot.create(options.chartTitle, table, options.xAxisName, options.yAxisName));
     }
 
     /**
-     * Plots a line given the chart title,
-     * data set in Table format,
-     * and two numeric columns.
+     * Plots a line given the chart options,
+     * and data set in Table format.
      */
     public static void plotLine(LineChartOptions options, Table data) {
 
@@ -51,10 +49,8 @@ public class LineChart {
     }
 
     /**
-     * Plots a line given the chart title,
-     * data set in Table format,
-     * two numeric columns and custom
-     * smoothing.
+     * Plots a smooth line given the chart options,
+     * and data set in Table format.
      */
 
     public static void plotSmoothLine(LineChartOptions options, Table data) {
