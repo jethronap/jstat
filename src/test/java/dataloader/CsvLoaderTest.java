@@ -16,7 +16,7 @@ public class CsvLoaderTest {
 
 
     /**
-     * Test Scenario: The application wants to read a csv dataset
+     * Test Scenario: The application wants to read a csv data set
      * but the String is invalid(empty String).
      * Expected Output: csvDataLoader throws an IOException.
      */
@@ -39,8 +39,8 @@ public class CsvLoaderTest {
 
 
     /**
-     * Test Scenario: A csv file is provided
-     * Expected Output: The dataset is returned
+     * Test Scenario: A data set in csv format is provided
+     * Expected Output: The data set is returned
      * along with the correct column size and row count.
      */
 
@@ -56,7 +56,7 @@ public class CsvLoaderTest {
 
 
     /**
-     * Test Scenario: a csv file is provided
+     * Test Scenario: A data set in csv format is provided
      * Expected Output: the data set is returned
      * along with the correct column size and row count.
      */
