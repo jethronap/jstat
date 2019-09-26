@@ -23,14 +23,14 @@ public class ScatterChart {
     }
 
     /**
-     * Plots a scatter chart given the chart title,
+     * Plots a scatter chart given the chart options,
      * data set in Table format,
      * and two numeric columns
      * created from a numeric sample
      * of the data set.
      */
 
-    public static void plotScatter(NumericSample x, NumericSample y, ScatterChartOptions options){
+    public static void plotScatter(ScatterChartOptions options, NumericSample x, NumericSample y){
 
         DoubleColumn xCol = DoubleColumn.create(options.xAxisName, x.asArray());
         DoubleColumn yCol = DoubleColumn.create(options.yAxisName, y.asArray());
@@ -39,9 +39,8 @@ public class ScatterChart {
     }
 
     /**
-     * Plots a scatter chart given the chart title,
-     * data set in Table format,
-     * and two numeric variables.
+     * Plots a scatter chart given the chart options,
+     * and a data set in Table format,
      */
 
     public static void plotScatter(ScatterChartOptions options, Table data) {
@@ -50,10 +49,8 @@ public class ScatterChart {
     }
 
     /**
-     * Plots a scatter chart given the chart title,
-     * data set in Table format,
-     * two numeric variables and
-     * one categorical.
+     * Plots a scatter chart given the chart options,
+     * and data set in Table format,
      */
 
     public static void plotScatterWithCategorical(ScatterChartOptions options, Table data) {
@@ -64,9 +61,8 @@ public class ScatterChart {
     }
 
     /**
-     * Plots a bubble chart given the chart title,
-     * data set in Table format,
-     * and three numeric variables.
+     * Plots a bubble chart given the chart options,
+     * and a data set in Table format,
      */
 
     public static void plotScatter3D (ScatterChartOptions options, Table data) {
