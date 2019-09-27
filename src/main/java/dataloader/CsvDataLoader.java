@@ -7,22 +7,25 @@ import datastructs.NumericSample;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
-import sun.awt.ConstrainableGraphics;
 import tech.tablesaw.api.Table;
+import tech.tablesaw.columns.Column;
 import tech.tablesaw.io.csv.CsvReadOptions;
 
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 
 /**
  * Class that loads data from a
  * specific csv file
  * and creates datasets in two formats
- * TreeMap & Table from tablesaw.
+ * HashMap & Table from tablesaw.
  */
 
 public class CsvDataLoader {
@@ -34,53 +37,51 @@ public class CsvDataLoader {
         /**
          * Create a NumericsSample from the given column in the given Map
          */
-        public static NumericSample buildNumericSample(Map<String, List<String>> dataSet, String colName){
+        public static NumericSample buildNumericSample(Map<String, List<String>> dataSet, String colName) {
 
-            if(dataSet == null){
+            if (dataSet == null) {
 
                 throw new IllegalArgumentException("Null data set given");
             }
 
             NumericSample numericSample;
 
-            if(!dataSet.containsKey(colName)){
+            if (!dataSet.containsKey(colName)) {
 
-                if(Configuration.ENABLE_WARNINGS) {
+                if (Configuration.ENABLE_WARNINGS) {
                     Configuration.Logging.printWarning("Column " + colName + " not in dataset");
                 }
 
                 numericSample = new NumericSample(colName, 0);
 
-            }
-            else{
+            } else {
 
-                List<Double> data = ParseUtils.parseAsDouble( dataSet.get(colName) );
+                List<Double> data = ParseUtils.parseAsDouble(dataSet.get(colName));
                 numericSample = new NumericSample(colName, data);
             }
-            return  numericSample;
+            return numericSample;
         }
 
 
         /**
          * Create a CategoricalSample from the given column in the given Map
          */
-        public static CategoricalSample buildCategoricalSample(Map<String, List<String>> dataSet, String colName){
+        public static CategoricalSample buildCategoricalSample(Map<String, List<String>> dataSet, String colName) {
 
-            if(dataSet == null){
+            if (dataSet == null) {
                 throw new IllegalArgumentException("Null data set given");
             }
 
             CategoricalSample categoricalSample;
 
-            if(!dataSet.containsKey(colName)){
+            if (!dataSet.containsKey(colName)) {
 
-                if(Configuration.ENABLE_WARNINGS) {
+                if (Configuration.ENABLE_WARNINGS) {
                     Configuration.Logging.printWarning("Column " + colName + " not in dataset");
                 }
 
                 categoricalSample = new CategoricalSample(colName, 0);
-            }
-            else{
+            } else {
 
                 categoricalSample = new CategoricalSample(colName, dataSet.get(colName));
             }
@@ -88,7 +89,7 @@ public class CsvDataLoader {
             return categoricalSample;
         }
 
-        
+
         /**
          * Simple method that parses data set from a csv file
          * The CSV file should NOT have the last column ending with comma.
@@ -99,6 +100,7 @@ public class CsvDataLoader {
             Reader csvData = new FileReader(csvFile);
             Map<String, List<String>> dataSet = new HashMap<String, List<String>>();
 
+
             CSVParser parser = CSVParser.parse(csvData, CSVFormat.DEFAULT);
 
             int lineCounter = 0;
@@ -108,17 +110,16 @@ public class CsvDataLoader {
             for (CSVRecord record : parser) {
 
                 // the first record is the header
-                if(lineCounter == 0){
+                if (lineCounter == 0) {
 
-                    for (String field : record){
+                    for (String field : record) {
 
-                        if(dataSet.containsKey(field)){
+                        if (dataSet.containsKey(field)) {
 
-                            if(Configuration.ENABLE_WARNINGS){
-                                Configuration.Logging.printWarning("Column: "+field+" already exists");
+                            if (Configuration.ENABLE_WARNINGS) {
+                                Configuration.Logging.printWarning("Column: " + field + " already exists");
                             }
-                        }
-                        else{
+                        } else {
                             // add a new column
                             colNames.add(field);
                             dataSet.put(field, new ArrayList());
@@ -126,11 +127,10 @@ public class CsvDataLoader {
                     }
 
                     lineCounter++;
-                }
-                else{
+                } else {
 
                     int colCounter = 0;
-                    for (String field : record){
+                    for (String field : record) {
 
                         String colName = colNames.get(colCounter);
                         dataSet.get(colName).add(field);
@@ -143,9 +143,11 @@ public class CsvDataLoader {
             return dataSet;
         }
 
+
         /**
-         * Simple method that parses data set from a csv file
-         * without knowing the headers of the file
+         * Simple method that parses a
+         * data set from a csv file
+         * without headers
          */
         public static Map<String, List<String>> parseFile(String csvFile) throws IOException {
             File file = new File(csvFile);
@@ -154,7 +156,7 @@ public class CsvDataLoader {
     }
 
     /**
-     * Handles the loading for Tablesaw
+     * Handles the loading for tablesaw
      */
     public static class TableLoader {
 
@@ -182,6 +184,36 @@ public class CsvDataLoader {
             CsvReadOptions options = CsvReadOptions.builder(csvFile).missingValueIndicator("-").build();
             Table dataSet = Table.read().usingOptions(options);
             return dataSet;
+        }
+
+
+        /**
+         * Create a NumericsSample from the given column of the given Map
+         */
+        public static NumericSample buildNumericSample(Table dataSet, String colName) {
+
+            if (dataSet == null) {
+
+                throw new IllegalArgumentException("Null data set given");
+            }
+
+            NumericSample sample;
+            Column col = dataSet.column(colName);
+
+            if (col == null) {
+
+                if (Configuration.ENABLE_WARNINGS) {
+                    Configuration.Logging.printWarning("Column " + colName + " not in dataset");
+                }
+
+                sample = new NumericSample(colName, 0);
+            } else {
+
+                List<Double> data = ParseUtils.parseAsDouble(col);
+                sample = new NumericSample(colName, data);
+            }
+
+            return sample;
         }
     }
 }

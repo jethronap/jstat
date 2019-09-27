@@ -12,5 +12,6 @@
     <orderEntry type="library" name="Maven: org.apache.commons:commons-csv:1.7" level="project" />
     <orderEntry type="library" name="Maven: tech.tablesaw:tablesaw-core:0.34.2" level="project" />
     <orderEntry type="library" name="Maven: tech.tablesaw:tablesaw-json:0.34.2" level="project" />
+    <orderEntry type="library" name="Maven: tech.tablesaw:tablesaw-jsplot:0.35.0" level="project" />
   </component>
 </module>
