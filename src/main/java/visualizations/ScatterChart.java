@@ -23,8 +23,7 @@ public class ScatterChart {
     }
 
     /**
-     * Plots a scatter chart given the chart options,
-     * data set in Table format,
+     * Plots a scatter chart given the chart options
      * and two numeric columns
      * created from a numeric sample
      * of the data set.
