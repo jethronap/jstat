@@ -35,11 +35,7 @@ public class CsvDataLoader {
 
 
         /**
-         * <<<<<<< HEAD
-         * Create a NumericsSample from the given column of the given Map
-         * =======
          * Create a NumericsSample from the given column in the given Map
-         * >>>>>>> master
          */
         public static NumericSample buildNumericSample(Map<String, List<String>> dataSet, String colName) {
 
