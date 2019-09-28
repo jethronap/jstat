@@ -23,8 +23,5 @@ Basic statistics and data analysis with Java
 - <a href="#">PlotAScatter</a>: Plot a scatter
 - <a href="#">PlotAHistogram</a>: Plot a histogram 
 
-- <a href="#">PlotALine</a>: Plot a line
-- <a href="#">PlotAPie</a>: Plot a pie
-- <a href="#">PlotABar</a>: Plot a bar 
 - <a href="#">HypothesisTestingForMean</a>: Vanilla Hypothesis testing for the mean
  
