@@ -1,7 +1,6 @@
 package datastructs;
 
 import stats.Statistics;
-import utils.ArrayOperations;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -117,6 +116,22 @@ public class NumericSample implements ISample<Double> {
 
 
     /**
+     * Returns the kurtosis statistic
+     */
+    public final double getKurtosis() {
+        return getStatistics().kurtosis;
+    }
+
+
+    /**
+     * Returns the skewness statistic
+     */
+    public final double getSkewness() {
+        return getStatistics().skewness;
+    }
+
+
+    /**
      * Returns the held data as an array
      */
     public final double[] asArray() {
@@ -130,21 +145,6 @@ public class NumericSample implements ISample<Double> {
         }
 
         return data;
-    }
-
-    /**
-     * Returns the kurtosis statistic
-     */
-    public final double getKurtosis() {
-        return getStatistics().kurtosis;
-    }
-
-
-    /**
-     * Returns the skewness statistic
-     */
-    public final double getSkewness() {
-        return getStatistics().skewness;
     }
 
 
@@ -191,6 +191,7 @@ public class NumericSample implements ISample<Double> {
      */
     public void copy(final List<Double> data) {
 
+
         if (data.size() == 0) {
             throw new IllegalStateException("The input data set has zero size");
         }
@@ -223,7 +224,7 @@ public class NumericSample implements ISample<Double> {
      */
     protected void compute_sample_statistics() {
 
-        double[] arrayData = ArrayOperations.toArray(this.data_);
+        double[] arrayData = this.asArray();
         DescriptiveStatistics stats = new DescriptiveStatistics(arrayData);
 
         this.stats_.mean = stats.getMean();
