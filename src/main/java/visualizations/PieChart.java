@@ -17,8 +17,7 @@ public class PieChart {
 
     /**
      * Plots basic pie chart given
-     * chart title, data set in Table format,
-     * group column name, numeric column name.
+     * chart options and data set in Table format.
      */
     public static void plotPie(PieChartOptions options, Table data) {
 

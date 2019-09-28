@@ -191,6 +191,7 @@ public class NumericSample implements ISample<Double> {
      */
     public void copy(final List<Double> data) {
 
+
         if (data.size() == 0) {
             throw new IllegalStateException("The input data set has zero size");
         }

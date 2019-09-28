@@ -25,8 +25,7 @@ public class LineChart {
     }
 
     /**
-     * Plots a line given the chart title,
-     * data set in Table format,
+     * Plots a line given the chart options,
      * and two numeric columns
      * created from a numeric sample
      * of the data set.
@@ -40,9 +39,8 @@ public class LineChart {
     }
 
     /**
-     * Plots a line given the chart title,
-     * data set in Table format,
-     * and two numeric columns.
+     * Plots a line given the chart options,
+     * and data set in Table format.
      */
     public static void plotLine(LineChartOptions options, Table data) {
 
@@ -51,10 +49,8 @@ public class LineChart {
     }
 
     /**
-     * Plots a line given the chart title,
-     * data set in Table format,
-     * two numeric columns and custom
-     * smoothing.
+     * Plots a smooth line given the chart options,
+     * and data set in Table format.
      */
 
     public static void plotSmoothLine(LineChartOptions options, Table data) {
