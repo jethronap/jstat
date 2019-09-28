@@ -132,7 +132,6 @@ public class NumericSample implements ISample<Double> {
         return data;
     }
 
-
     /**
      * Returns the kurtosis statistic
      */
@@ -191,6 +190,7 @@ public class NumericSample implements ISample<Double> {
      * Copy the data from the given list
      */
     public void copy(final List<Double> data) {
+
 
         if (data.size() == 0) {
             throw new IllegalStateException("The input data set has zero size");
