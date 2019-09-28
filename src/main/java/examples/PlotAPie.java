@@ -16,7 +16,7 @@ public class PlotAPie {
 
     public static void main(String[] args) throws IOException {
 
-        File file = new File("test_data/humans_data.csv");
+        File file = new File("data/humans_data.csv");
         Table table = CsvDataLoader.TableLoader.parseFile(file);
 
         PieChart plotter = new PieChart();

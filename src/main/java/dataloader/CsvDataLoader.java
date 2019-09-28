@@ -207,7 +207,8 @@ public class CsvDataLoader {
                 }
 
                 sample = new NumericSample(colName, 0);
-            } else {
+            }
+            else {
 
                 List<Double> data = ParseUtils.parseAsDouble(col);
                 sample = new NumericSample(colName, data);
