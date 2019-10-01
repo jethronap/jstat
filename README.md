@@ -21,5 +21,5 @@ Basic statistics and data analysis with Java
 - <a href="#">PlotALine</a>: Shows how to plot a line using two numeric samples
 - <a href="#">PlotAPie</a>: Shows how to plot a pie chart
 - <a href="#">PlotABar</a>: Shows how to plot a horizontal bar chart
-- <a href="#">PlotAScatter</a>: Shows how to plot a scatter chart using three numeric values
+- <a href="#">PlotAScatter3D</a>: Shows how to plot a scatter chart using three numeric values
 - <a href="#">HypothesisTestingForMean</a>: Vanilla Hypothesis testing for the mean 
