@@ -17,9 +17,10 @@ Basic statistics and data analysis with Java
 - <a href="#">LoadCsvDataSetWithMap</a>: How to load  CSV data and extract a column in a ```NumericSample```
 - <a href="#">LoadCsvDataSetWithMapAndExtractCategoricalSample</a>: How to load  CSV data and extract a column in a ```CategoricalSample```
 - <a href="#">MeanBootstrapExample</a>: Vanilla Bootstrap for the mean
-
+- <a href="#">HypothesisTestingForMean</a>: Vanilla Hypothesis testing for the mean
+- <a href="#">LinearRegressionExample</a>: Linear Regression with one covariant
 - <a href="#">PlotALine</a>: Shows how to plot a line using two numeric samples
 - <a href="#">PlotAPie</a>: Shows how to plot a pie chart
 - <a href="#">PlotABar</a>: Shows how to plot a horizontal bar chart
 - <a href="#">PlotAScatter</a>: Shows how to plot a scatter chart using three numeric values
-- <a href="#">HypothesisTestingForMean</a>: Vanilla Hypothesis testing for the mean 
+ 
