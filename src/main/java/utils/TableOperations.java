@@ -14,18 +14,23 @@ public class TableOperations {
             matrix[i][0] = 1.0;
         }
 
-        int rowIdx = 0;
-        for(String name:names){
+        int colIdx = 1;
+        for(String name:names) {
 
-            DoubleColumn y = dataSet.doubleColumn(name);
+            DoubleColumn x = dataSet.doubleColumn(name);
 
             //matrix[colIdx] = new double[y.size()];
-            double[] vals = y.asDoubleArray();
+            double[] vals = x.asDoubleArray();
 
-            for(int c = 1; c < matrix[rowIdx].length; ++c)
+            if(vals.length != matrix.length){
+                throw new IllegalStateException("Invalid sizes");
+            }
 
-                matrix[rowIdx][c] = vals[c-1];
-                rowIdx++;
+            for (int rowIdx = 0; rowIdx < matrix.length; ++rowIdx) {
+                    matrix[rowIdx][colIdx] = vals[rowIdx];
+            }
+
+            colIdx++;
         }
 
         return matrix;
