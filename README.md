@@ -25,3 +25,4 @@ Basic statistics and data analysis with Java
 - <a href="#">PlotABar</a>: Shows how to plot a horizontal bar chart
 - <a href="#">PlotAScatter</a>: Shows how to plot a scatter chart using three numeric values
  
+
