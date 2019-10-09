@@ -25,10 +25,7 @@ public class LineChart {
     }
 
     /**
-     * Plots a line given the chart options,
-     * and two numeric columns
-     * created from a numeric sample
-     * of the data set.
+     * Plots a line given the chart options and two numeric columns
      */
     public static void plotLine(NumericSample x, NumericSample y, LineChartOptions options){
 
@@ -43,9 +40,7 @@ public class LineChart {
      * and data set in Table format.
      */
     public static void plotLine(LineChartOptions options, Table data) {
-
         Plot.show(LinePlot.create(options.chartTitle, data, options.xAxisName, options.yAxisName));
-
     }
 
     /**
