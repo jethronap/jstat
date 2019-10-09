@@ -7,19 +7,13 @@ public class TableOperations {
 
     public static double[][] getTableColumnsForRegressionMatrix(Table dataSet, String[] names, int nRows){
 
-        double[][] matrix = new double[nRows][names.length +1 ];
+        double[][] matrix = new double[nRows][names.length  ];
 
-        for(int i=0; i < matrix.length; ++i){
-
-            matrix[i][0] = 1.0;
-        }
-
-        int colIdx = 1;
+        int colIdx = 0;
         for(String name:names) {
 
             DoubleColumn x = dataSet.doubleColumn(name);
 
-            //matrix[colIdx] = new double[y.size()];
             double[] vals = x.asDoubleArray();
 
             if(vals.length != matrix.length){
