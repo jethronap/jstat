@@ -1,7 +1,12 @@
 package utils;
 
+import dataloader.utils.ParseUtils;
+import tech.tablesaw.api.ColumnType;
 import tech.tablesaw.api.DoubleColumn;
 import tech.tablesaw.api.Table;
+import tech.tablesaw.columns.Column;
+
+import java.util.List;
 
 public class TableOperations {
 
@@ -12,9 +17,9 @@ public class TableOperations {
         int colIdx = 0;
         for(String name:names) {
 
-            DoubleColumn x = dataSet.doubleColumn(name);
+            Column col = dataSet.column(name);
 
-            double[] vals = x.asDoubleArray();
+            double[] vals = ParseUtils.parseAsDoubleArray(col);
 
             if(vals.length != matrix.length){
                 throw new IllegalStateException("Invalid sizes");

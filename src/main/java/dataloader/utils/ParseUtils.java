@@ -49,6 +49,19 @@ public class ParseUtils {
         return data ;
     }
 
+
+    public static double[] parseAsDoubleArray(Column dataSet){
+
+        List<Double> listData = ParseUtils.parseAsDouble(dataSet);
+        double[] data = new double[listData.size()];
+
+        for (int i = 0; i < data.length; i++) {
+            data[i] = listData.get(i);
+        }
+
+        return data ;
+    }
+
     public static List< Double > parseIntegerToDouble(Column dataSet){
 
         List<Double> data = new ArrayList<Double>( dataSet.size());
