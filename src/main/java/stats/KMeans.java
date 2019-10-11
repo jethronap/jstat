@@ -21,6 +21,30 @@ public class KMeans {
 
 
     /**
+     * Finds the nearest centroid given a data set.
+     * @param record The data set
+     * @param centroids The list of centroids.
+     * @param distance The distance calculator
+     * @return A centroid.
+     */
+    public static Centroid nearestCentroid(Record record, List<Centroid> centroids, Distance distance) {
+
+        double minDistance = Double.MAX_VALUE;
+        Centroid nearest = null;
+
+        for (Centroid centroid: centroids) {
+            double currentDistance = distance.calculate(record.getFeatures(), centroid.getCoordinates());
+
+            if (currentDistance < minDistance) {
+                minDistance = currentDistance;
+                nearest = centroid;
+            }
+        }
+        return nearest;
+    }
+
+
+    /**
      * Generates k randomly placed centroids. First generate the possible value range
      * for each attribute. Then generate random coordinates in the [min, max] range
      * foe each attribute.
@@ -56,6 +80,7 @@ public class KMeans {
         }
         return centroids;
     }
+
 
     private static void applyPreconditions(List<Record> records, int k, Distance distance, int maxIterations) {
 
