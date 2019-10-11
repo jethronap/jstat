@@ -45,6 +45,24 @@ public class KMeans {
 
 
     /**
+     * Assign record to nearest centroid cluster.
+     * @param clusters The current cluster configuration.
+     * @param record The feature vector.
+     * @param centroid The centroid.
+     */
+    public static void assignToCluster(Map<Centroid, List<Record>> clusters, Record record, Centroid centroid) {
+
+        clusters.compute(centroid, (key, list) -> {
+            if (list == null) {
+                list = new ArrayList<>();
+            }
+            list.add(record);
+            return list;
+        });
+    }
+
+
+    /**
      * Generates k randomly placed centroids. First generate the possible value range
      * for each attribute. Then generate random coordinates in the [min, max] range
      * foe each attribute.
