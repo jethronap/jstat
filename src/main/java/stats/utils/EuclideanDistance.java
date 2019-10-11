@@ -21,6 +21,6 @@ public class EuclideanDistance implements Distance {
                 sum += Math.pow(s1 - s2, 2);
             }
         }
-        return sum;
+        return Math.sqrt(sum);
     }
 }
