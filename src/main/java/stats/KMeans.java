@@ -21,6 +21,44 @@ public class KMeans {
 
 
     /**
+     * Generates k randomly placed centroids. First generate the possible value range
+     * for each attribute. Then generate random coordinates in the [min, max] range
+     * foe each attribute.
+     * @param records The data set.
+     * @param k Number of clusters.
+     * @return Collection of randomly generated centroids.
+     */
+    public static List<Centroid> randomCentroids(List<Record> records, int k) {
+
+        List<Centroid> centroids = new ArrayList<>();
+        Map<String, Double> maxValues = new HashMap<>();
+        Map<String, Double> minValues = new HashMap<>();
+
+        for (Record record : records) {
+            record.getFeatures().forEach((key, value) ->{
+                // compares the value with the current max and choose the bigger value:
+                maxValues.compute(key, (k1, max) -> max == null || value > max ? value : max);
+
+                // compare the value with the current min and choose the smaller value:
+                minValues.compute(key, (k2, min) -> min == null || value < min ? value : min);
+            });
+        }
+
+        Set<String> attributes = records.stream().flatMap(e -> e.getFeatures().keySet().stream()).collect(toSet());
+        for (int i = 0; i < k; i++) {
+            Map<String, Double> coordinates = new HashMap<>();
+            for (String attribute: attributes) {
+                double max = maxValues.get(attribute);
+                double min = minValues.get(attribute);
+                coordinates.put(attribute, random.nextDouble() * (max - min) + min);
+            }
+            centroids.add(new Centroid(coordinates));
+        }
+        return centroids;
+    }
+
+
+    /**
      * Finds the nearest centroid given a data set.
      * @param record The data set
      * @param centroids The list of centroids.
@@ -63,40 +101,26 @@ public class KMeans {
 
 
     /**
-     * Generates k randomly placed centroids. First generate the possible value range
-     * for each attribute. Then generate random coordinates in the [min, max] range
-     * foe each attribute.
-     * @param records The data set.
-     * @param k Number of clusters.
-     * @return Collection of randomly generated centroids.
+     * The average location of all assigned records.
+     * @param centroid The centroid.
+     * @param records The given list of features.
+     * @return A Centroid.
      */
-    public static List<Centroid> randomCentroids(List<Record> records, int k) {
-
-        List<Centroid> centroids = new ArrayList<>();
-        Map<String, Double> maxValues = new HashMap<>();
-        Map<String, Double> minValues = new HashMap<>();
-
-        for (Record record : records) {
-            record.getFeatures().forEach((key, value) ->{
-                // compares the value with the current max and choose the bigger value:
-                maxValues.compute(key, (k1, max) -> max == null || value > max ? value : max);
-
-                // compare the value with the current min and choose the smaller value:
-                minValues.compute(key, (k2, min) -> min == null || value < min ? value : min);
-            });
+    public static Centroid average(Centroid centroid, List<Record> records) {
+        if (records == null || records.isEmpty()) {
+            return centroid;
         }
 
-        Set<String> attributes = records.stream().flatMap(e -> e.getFeatures().keySet().stream()).collect(toSet());
-        for (int i = 0; i < k; i++) {
-            Map<String, Double> coordinates = new HashMap<>();
-            for (String attribute: attributes) {
-                double max = maxValues.get(attribute);
-                double min = minValues.get(attribute);
-                coordinates.put(attribute, random.nextDouble() * (max - min) + min);
-            }
-            centroids.add(new Centroid(coordinates));
+        Map<String, Double> average = centroid.getCoordinates();
+        records.stream().flatMap(e -> e.getFeatures().keySet().stream()).forEach(k -> average.put(k, 0.0));
+
+        for (Record record: records) {
+            record.getFeatures().forEach((k, v) -> average.compute(k, (k1, currentValue) -> v + currentValue));
         }
-        return centroids;
+
+        average.forEach((k, v) -> average.put(k, v / records.size()));
+
+        return new Centroid(average);
     }
 
 
@@ -122,6 +146,7 @@ public class KMeans {
             throw new IllegalArgumentException("Max iterations should a positive number");
         }
     }
+
 
     /**
      * Will be used to generate random numbers.
