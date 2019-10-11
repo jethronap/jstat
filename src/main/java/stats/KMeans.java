@@ -7,6 +7,7 @@ import stats.utils.Record;
 import java.util.*;
 import java.util.stream.Collectors;
 
+import static java.util.stream.Collectors.toList;
 import static java.util.stream.Collectors.toSet;
 
 /**
@@ -121,6 +122,17 @@ public class KMeans {
         average.forEach((k, v) -> average.put(k, v / records.size()));
 
         return new Centroid(average);
+    }
+
+
+    /**
+     * Iterates through all centroids, relocates them and
+     * returns the new centroids.
+     * @param clusters The current cluster configuration.
+     * @return Collection of a new and relocated centroids.
+     */
+    public static List<Centroid> relocateCentroids(Map<Centroid, List<Record>> clusters) {
+        return clusters.entrySet().stream().map(e -> average(e.getKey(), e.getValue())).collect(toList());
     }
 
 
