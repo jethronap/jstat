@@ -20,6 +20,7 @@ public class Record {
     /**
      * Constructor for features with an empty
      * String for a description.
+     *
      * @param features
      */
     public Record(Map<String, Double> features) {

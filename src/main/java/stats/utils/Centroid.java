@@ -24,7 +24,7 @@ public class Centroid {
         if (this == other) {
             return true;
         }
-        if(!(other instanceof Centroid)) {
+        if (!(other instanceof Centroid)) {
             return false;
         }
         Centroid centroid = (Centroid) other;

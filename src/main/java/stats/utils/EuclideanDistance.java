@@ -13,7 +13,7 @@ public class EuclideanDistance implements Distance {
 
         double sum = 0;
 
-        for (String key: v1.keySet()) {
+        for (String key : v1.keySet()) {
             Double s1 = v1.get(key);
             Double s2 = v2.get(key);
 

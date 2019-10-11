@@ -8,7 +8,6 @@ import java.util.Map;
 public interface Distance {
 
     /**
-     *
      * @param v1 The first set.
      * @param v2 The second set.
      * @return The calculated distance.
