@@ -50,6 +50,7 @@ public class KMeans {
             for (String attribute: attributes) {
                 double max = maxValues.get(attribute);
                 double min = minValues.get(attribute);
+                coordinates.put(attribute, random.nextDouble() * (max - min) + min);
             }
             centroids.add(new Centroid(coordinates));
         }
@@ -71,4 +72,9 @@ public class KMeans {
             throw new IllegalArgumentException("Max iterations should a positive number");
         }
     }
+
+    /**
+     * Will be used to generate random numbers.
+     */
+    private static final Random random = new Random();
 }
