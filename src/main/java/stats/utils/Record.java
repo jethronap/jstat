@@ -16,6 +16,7 @@ public class Record {
         this.features = features;
     }
 
+
     /**
      * Constructor for features with an empty
      * String for a description.
@@ -54,15 +55,19 @@ public class Record {
         return Objects.hash(getDescription(), getFeatures());
     }
 
+
     @Override
     public String toString() {
         String prefix = description == null || description.trim().isEmpty() ? "Record" : description;
         return prefix + ": " + features;
     }
+
+
     /**
      * The record description.
      */
     private final String description;
+
 
     /**
      * Encapsulates all attributes and their corresponding values.
