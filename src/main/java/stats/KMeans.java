@@ -100,6 +100,13 @@ public class KMeans {
     }
 
 
+    /**
+     * Checks necessary for optimal algorithm execution.
+     * @param records The given data set.
+     * @param k The number of clusters.
+     * @param distance The distance calculator.
+     * @param maxIterations Maximum number of iterations.
+     */
     private static void applyPreconditions(List<Record> records, int k, Distance distance, int maxIterations) {
 
         if (records == null || records.isEmpty()) {
