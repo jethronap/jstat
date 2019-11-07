@@ -5,6 +5,14 @@ import java.util.List;
 public class Cluster {
 
     /**
+     * Clears the Cluster.
+     */
+    public void clear() {
+        points.clear();
+    }
+
+
+    /**
      * Adds points to Cluster.
      */
     public void addPoint(Point point) {
