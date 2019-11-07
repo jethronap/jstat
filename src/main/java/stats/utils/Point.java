@@ -1,6 +1,42 @@
 package stats.utils;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
 public class Point {
+
+    public static List createRandomPoints (int min, int max, int number) {
+
+        List points = new ArrayList(number);
+        for (int i = 0; i < number; i++) {
+            points.add(createRandomPoint(min, max));
+        }
+        return points;
+    }
+
+    /**
+     * Creates a random Point.
+     */
+    public static Point createRandomPoint(int min, int max) {
+
+        Random random = new Random();
+        double x = min + (max - min) * random.nextDouble();
+        double y = min + (max - min) * random.nextDouble();
+
+        return new Point(x, y);
+    }
+
+    /**
+     * Calculates the Euclidean distance between two Points.
+     *
+     * @param p        The first Point.
+     * @param centroid The second Point.
+     * @return The distance.
+     */
+    public static double distance(Point p, Point centroid) {
+        return new EuclideanDistance().calculateDistance(p, centroid);
+    }
 
     public Point(double x, double y) {
         this.x = x;
