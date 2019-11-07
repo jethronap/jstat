@@ -2,11 +2,17 @@ package stats.utils;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Random;
 
 public class Point {
 
-    public static List createRandomPoints (int min, int max, int number) {
+
+    /**
+     *
+     * Creates a List of random Points.
+     */
+    public static List createRandomPoints(int min, int max, int number) {
 
         List points = new ArrayList(number);
         for (int i = 0; i < number; i++) {
@@ -14,6 +20,7 @@ public class Point {
         }
         return points;
     }
+
 
     /**
      * Creates a random Point.
@@ -27,6 +34,7 @@ public class Point {
         return new Point(x, y);
     }
 
+
     /**
      * Calculates the Euclidean distance between two Points.
      *
@@ -38,34 +46,62 @@ public class Point {
         return new EuclideanDistance().calculateDistance(p, centroid);
     }
 
+
     public Point(double x, double y) {
         this.x = x;
         this.y = y;
     }
 
+
     public double getX() {
         return x;
     }
+
 
     public void setX(double x) {
         this.x = x;
     }
 
+
     public double getY() {
         return y;
     }
+
 
     public void setY(double y) {
         this.y = y;
     }
 
+
     public int getClusterNumber() {
         return clusterNumber;
     }
 
+
     public void setClusterNumber(int clusterNumber) {
         this.clusterNumber = clusterNumber;
     }
+
+
+    @Override
+    public final boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (!(obj instanceof Point)) {
+            return false;
+        }
+        else {
+            return this.getX() == ((Point) obj).getX() && this.getY() == ((Point) obj).getY();
+        }
+    }
+
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(x, y);
+    }
+
 
     /**
      * the x-coordinate of the Point.
