@@ -1,8 +1,20 @@
 package stats.utils;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Cluster {
+
+    /**
+     * Constructor for new Cluster.
+     * @param id
+     */
+    public Cluster(int id) {
+        this.id = id;
+        this.points = new ArrayList();
+        this.centroid = null;
+    }
+
 
     /**
      * Clears the Cluster.
