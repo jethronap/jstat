@@ -24,6 +24,9 @@ public class Point {
 
     /**
      * Creates a random Point.
+     * @param min minimum x coordinate.
+     * @param max maximum y coordinate.
+     * @return A random Point.
      */
     public static Point createRandomPoint(int min, int max) {
 
