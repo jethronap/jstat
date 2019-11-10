@@ -120,10 +120,6 @@ public class KMeans {
         this.maxIterations = maxIterations;
     }
 
-    public KMeans() {
-        this.points = new ArrayList();
-        this.clusters = new ArrayList();
-    }
 
     public int getK() {
         return k;
