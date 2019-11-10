@@ -1,7 +1,6 @@
 package stats;
 
 import stats.utils.Cluster;
-import stats.utils.EuclideanDistance;
 import stats.utils.Point;
 
 import java.util.ArrayList;
