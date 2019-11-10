@@ -101,16 +101,6 @@ public class Point {
     }
 
 
-    @Override
-    public String toString() {
-        return "Point{" +
-                "x=" + x +
-                ", y=" + y +
-                ", clusterNumber=" + clusterNumber +
-                '}';
-    }
-
-
     /**
      * the x-coordinate of the Point.
      */
