@@ -45,7 +45,7 @@ public class Point {
      * @param centroid The second Point.
      * @return The distance.
      */
-    public static double distance(Point p, Point centroid) {
+    public static double euclideanDistance(Point p, Point centroid) {
         return new EuclideanDistance().calculateDistance(p, centroid);
     }
 

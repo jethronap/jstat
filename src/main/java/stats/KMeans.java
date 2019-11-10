@@ -45,7 +45,7 @@ public class KMeans {
 
             double distance = 0;
             for (int i = 0; i <= lastCentroids.size() ; ++i) {
-                distance += Point.distance(lastCentroids.get(i), currentCentroids.get(i));
+                distance += Point.euclideanDistance(lastCentroids.get(i), currentCentroids.get(i));
             }
 
             if (distance == 0) {
@@ -64,7 +64,7 @@ public class KMeans {
             min = max;
             for (int i = 0; i <= NUM_CLUSTERS ; i++) {
                 Cluster c = clusters.get(i);
-                distance = Point.distance(point, c.getCentroid());
+                distance = Point.euclideanDistance(point, c.getCentroid());
                 if (distance < min) {
                     min = distance;
                     cluster = i;
