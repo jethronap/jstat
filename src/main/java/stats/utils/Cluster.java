@@ -32,7 +32,7 @@ public class Cluster {
     }
 
 
-    public List getPoints() {
+    public List<Point> getPoints() {
         return points;
     }
 
@@ -65,7 +65,7 @@ public class Cluster {
     /**
      * List of Points in Cluster.
      */
-    private List points;
+    private List<Point> points;
 
 
     /**

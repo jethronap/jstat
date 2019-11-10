@@ -12,9 +12,9 @@ public class Point {
      *
      * Creates a List of random Points.
      */
-    public static List createRandomPoints(int min, int max, int number) {
+    public static List<Point> createRandomPoints(int min, int max, int number) {
 
-        List points = new ArrayList(number);
+        List<Point> points = new ArrayList(number);
         for (int i = 0; i < number; i++) {
             points.add(createRandomPoint(min, max));
         }
