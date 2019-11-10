@@ -47,9 +47,6 @@ public class KMeans {
             for (int i = 0; i <= lastCentroids.size() ; ++i) {
                 distance += Point.distance(lastCentroids.get(i), currentCentroids.get(i));
             }
-            System.out.println("#################");
-            System.out.println("Iteration: " + iterations);
-            System.out.println("Centroid distances: " + distance);
 
             if (distance == 0) {
                 break;
