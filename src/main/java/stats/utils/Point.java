@@ -41,12 +41,12 @@ public class Point {
     /**
      * Calculates the Euclidean distance between two Points.
      *
-     * @param p        The first Point.
-     * @param centroid The second Point.
+     * @param p1   The first Point.
+     * @param p2   The second Point.
      * @return The distance.
      */
-    public static double euclideanDistance(Point p, Point centroid) {
-        return new EuclideanDistance().calculateDistance(p, centroid);
+    public static double euclideanDistance(Point p1, Point p2) {
+        return new EuclideanDistance().calculateDistance(p1, p2);
     }
 
 
