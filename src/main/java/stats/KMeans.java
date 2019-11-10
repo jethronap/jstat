@@ -62,7 +62,7 @@ public class KMeans {
 
         for (Point point: points) {
             min = max;
-            for (int i = 0; i <= NUM_CLUSTERS ; i++) {
+            for (int i = 0; i <= k ; i++) {
                 Cluster c = clusters.get(i);
                 distance = Point.euclideanDistance(point, c.getCentroid());
                 if (distance < min) {
@@ -99,7 +99,7 @@ public class KMeans {
 
 
     private List<Point> getCentroids() {
-        List<Point> centroids = new ArrayList<>(NUM_CLUSTERS);
+        List<Point> centroids = new ArrayList<>(k);
         for (Cluster cluster: clusters) {
             Point aux = cluster.getCentroid();
             Point point = new Point(aux.getX(), aux.getY());
@@ -148,7 +148,7 @@ public class KMeans {
      */
     private int maxIterations;
 
-    private int NUM_CLUSTERS;
+
     private int NUM_POINTS;
     private static int MIN_COORDINATE;
     private static int MAX_COORDINATE;
