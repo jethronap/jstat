@@ -81,11 +81,6 @@ public class Point {
     }
 
 
-    public void setClusterNumber(int clusterNumber) {
-        this.clusterNumber = clusterNumber;
-    }
-
-
     @Override
     public final boolean equals(Object obj) {
         if (obj == this) {
