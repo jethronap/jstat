@@ -1,4 +1,4 @@
-package examples;
+package examples.ml.linearregression.example1;
 
 import dataloader.CsvDataLoader;
 
@@ -9,7 +9,7 @@ import visualizations.ScatterChart;
 import java.io.File;
 import java.io.IOException;
 
-public class LinearRegressionExample {
+public class Example1 {
 
 
     public static  void main(String[] args ) throws IOException {
