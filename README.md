@@ -18,12 +18,14 @@ Basic statistics and data analysis with Java
 - <a href="#">LoadCsvDataSetWithMapAndExtractCategoricalSample</a>: How to load  CSV data and extract a column in a ```CategoricalSample```
 
 
-### Machine Learning & Statistics
+### Machine Learning 
 
-- <a href="src/main/java/examples/ml/linearregression/example1/example.md">Example 1</a>: Linear regression 
+- <a href="src/main/java/examples/ml/example1/example.md">Example 1</a>: Linear regression 
 - <a href="#">OLSMultipleLinearRegression</a>: Multiple OLS Linear Regression 
-- <a href="#">MeanBootstrapExample</a>: Vanilla Bootstrap for the mean
-- <a href="#">HypothesisTestingForMean</a>: Vanilla Hypothesis testing for the mean
+
+### Statistics
+- <a href="src/main/java/examples/stats/example1/example.md">Example 1</a>: Vanilla Bootstrap for the mean
+- <a href="src/main/java/examples/stats/example2/example.md">Example 2</a>: Vanilla Hypothesis testing for the mean
 
 ### Plotting
 

@@ -1,4 +1,4 @@
-package examples.ml.linearregression.example1;
+package examples.ml.example1;
 
 import dataloader.CsvDataLoader;
 

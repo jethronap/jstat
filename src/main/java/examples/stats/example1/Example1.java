@@ -1,4 +1,4 @@
-package examples;
+package examples.stats.example1;
 import datastructs.NumericSample;
 import org.apache.commons.math3.stat.StatUtils;
 import stats.utils.Resample;
@@ -13,7 +13,7 @@ import org.apache.commons.math3.distribution.NormalDistribution;
  */
 
 
-public class MeanBootstrap {
+public class Example1 {
 
 
     public static void main(String[] args){

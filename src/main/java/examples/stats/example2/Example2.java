@@ -1,4 +1,4 @@
-package examples;
+package examples.stats.example2;
 
 import dataloader.CsvDataLoader;
 import datastructs.NumericSample;
@@ -17,7 +17,7 @@ import java.util.Map;
  * a NumericSample from the data set. Use the sample for hypothesis testing
  */
 
-public class HypothesisTestingForMean {
+public class Example2 {
 
 
     public static void main(String[] args){
