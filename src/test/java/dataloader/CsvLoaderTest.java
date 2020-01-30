@@ -1,6 +1,7 @@
 package dataloader;
 
 import datastructs.NumericSample;
+import org.junit.Ignore;
 import org.junit.Test;
 import tech.tablesaw.api.Table;
 
@@ -45,6 +46,7 @@ public class CsvLoaderTest {
      */
 
     @Test
+    @Ignore
     public void testValidCsvFileForMap() throws IOException {
 
         File file = new File("test_data/dummy.csv");
