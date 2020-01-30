@@ -13,10 +13,6 @@ Basic statistics and data analysis with Java
 
 ## Examples Map
 
-- <a href="#">UseContinuousSample</a> Show cases how to create a ```NumericSample```
-- <a href="#">LoadCsvDataSetWithMap</a>: How to load  CSV data and extract a column in a ```NumericSample```
-- <a href="#">LoadCsvDataSetWithMapAndExtractCategoricalSample</a>: How to load  CSV data and extract a column in a ```CategoricalSample```
-
 
 ### Machine Learning 
 
@@ -24,14 +20,16 @@ Basic statistics and data analysis with Java
 - <a href="#">OLSMultipleLinearRegression</a>: Multiple OLS Linear Regression 
 
 ### Statistics
+
 - <a href="src/main/java/examples/stats/example1/example.md">Example 1</a>: Vanilla Bootstrap for the mean
 - <a href="src/main/java/examples/stats/example2/example.md">Example 2</a>: Vanilla Hypothesis testing for the mean
 
 ### Plotting
 
-- <a href="#">PlotALine</a>: Shows how to plot a line using two numeric samples
-- <a href="#">PlotAPie</a>: Shows how to plot a pie chart
-- <a href="#">PlotABar</a>: Shows how to plot a horizontal bar chart
-- <a href="#">PlotAScatter</a>: Shows how to plot a scatter chart using three numeric values
+- <a href="src/main/java/examples/plotting/example1/example.md">Example 1</a>: Bar plot
+- <a href="src/main/java/examples/plotting/example2/example.md">Example 2</a>: Histogram plot
+- <a href="src/main/java/examples/plotting/example3/example.md">Example 3</a>: Line plot
+- <a href="src/main/java/examples/plotting/example4/example.md">Example 4</a>: Pie plot
+- <a href="src/main/java/examples/plotting/example5/example.md">Example 5</a>: Scatter plot
  
 

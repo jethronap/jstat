@@ -1,4 +1,4 @@
-package examples;
+package examples.plotting.example2;
 
 import dataloader.CsvDataLoader;
 import datastructs.NumericSample;
@@ -15,7 +15,7 @@ import java.io.IOException;
  * Description: Load a CSV file and plot the distribution of a numeric sample
  */
 
-public class PlotAHistogram {
+public class Example2 {
 
     public static void main(String[] args) throws IOException {
         File file = new File("test_data/annual.csv");

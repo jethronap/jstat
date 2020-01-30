@@ -1,5 +1,17 @@
-package examples;
+# Example 3: Line Plot
 
+## Contents
+* [Overview](#overview) 
+* [Import files](#include_files)
+* [The main function](#m_func)
+* [Results](#results)
+* [Source Code](#source_code)
+
+## <a name="overview"></a> Overview
+
+## <a name="include_files"></a> Import files
+
+```
 import dataloader.CsvDataLoader;
 import datastructs.NumericSample;
 import tech.tablesaw.api.Table;
@@ -8,14 +20,12 @@ import visualizations.LineChart;
 import java.io.File;
 import java.io.IOException;
 
+```
 
-/**
- * Category: Plotting
- * ID: PlotALine
- * Description: Load a CSV file and plot two columns against each other
- */
+## <a name="m_func"></a> The main function
 
-public class PlotALine {
+```
+public class Example3 {
 
     public static void main(String[] args) throws IOException {
 
@@ -37,3 +47,15 @@ public class PlotALine {
     }
 
 }
+
+```
+
+## <a name="results"></a> Results
+
+```
+
+```
+
+## <a name="source_code"></a> Source Code
+
+<a href="Example3.java">Example3.java</a>

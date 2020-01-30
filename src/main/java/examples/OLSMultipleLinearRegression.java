@@ -3,7 +3,6 @@ package examples;
 import dataloader.CsvDataLoader;
 import stats.OLSLinearRegression;
 import tech.tablesaw.api.Table;
-import visualizations.ScatterChart;
 
 import java.io.File;
 import java.io.IOException;

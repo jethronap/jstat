@@ -1,4 +1,4 @@
-package examples;
+package examples.plotting.example5;
 
 import dataloader.CsvDataLoader;
 import tech.tablesaw.api.Table;
@@ -12,7 +12,7 @@ import java.io.IOException;
  * ID: PlotABar
  * Description: Load a CSV file and plot a scatter chart with 3 numeric variables
  */
-public class PlotAScatter {
+public class Example5 {
 
     public static void main(String[] args) throws IOException {
         File file = new File("data/humans_data.csv");
