@@ -2,6 +2,8 @@
 
 Basic statistics and data analysis with Java
 
+[![Build Status](https://travis-ci.org/jethronap/jstat?branch=master)](https://travis-ci.org/jethronap/jstat)
+
 ## Dependencies
 
 - <a href="https://github.com/FasterXML/jackson">Jackson Databind</a> 
