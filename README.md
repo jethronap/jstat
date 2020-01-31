@@ -2,7 +2,7 @@
 
 Basic statistics and data analysis with Java
 
-[![Build Status](https://travis-ci.org/jethronap/jstat?branch=master)](https://travis-ci.org/jethronap/jstat)
+[![Build Status](https://travis-ci.com/jethronap/jstat.svg?branch=master)](https://travis-ci.org/jethronap/jstat)
 
 ## Dependencies
 
