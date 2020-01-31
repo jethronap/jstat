@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/jethronap/jstat.svg?branch=master)](https://travis-ci.org/jethronap/jstat)
+
 # Java Data Analysis
 
 Basic statistics and data analysis with Java
