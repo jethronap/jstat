@@ -19,7 +19,12 @@ Basic statistics and data analysis with Java
 ### Machine Learning 
 
 - <a href="src/main/java/examples/ml/example1/example.md">Example 1</a>: Linear regression 
-- <a href="#">OLSMultipleLinearRegression</a>: Multiple OLS Linear Regression 
+
+
+### Optimization
+
+- <a href="src/main/java/examples/optimization/example1/example.md">Example 1</a>: Gradient descent with one feature 
+- <a href="src/main/java/examples/optimization/example2/example.md">Example 2</a>: Gradient descent with two features 
 
 ### Statistics
 
