@@ -18,7 +18,8 @@ Basic statistics and data analysis with Java
 
 ### Machine Learning 
 
-- <a href="src/main/java/examples/ml/example1/example.md">Example 1</a>: Linear regression 
+- <a href="src/main/java/examples/ml/example1/example.md">Example 1</a>: Linear regression
+- <a href="src/main/java/examples/ml/example2/example.md">Example 2</a>: Non-linear regression 
 
 
 ### Optimization
