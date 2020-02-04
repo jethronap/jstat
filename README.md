@@ -19,7 +19,10 @@ Basic statistics and data analysis with Java
 ### Machine Learning 
 
 - <a href="src/main/java/examples/ml/example1/example.md">Example 1</a>: Linear regression
-- <a href="src/main/java/examples/ml/example2/example.md">Example 2</a>: Non-linear regression 
+- <a href="src/main/java/examples/ml/example2/example.md">Example 2</a>: Non-linear regression
+- <a href="src/main/java/examples/ml/example3/example.md">Example 3</a>: Classification with vanilla KNN algorithm
+- <a href="src/main/java/examples/ml/example4/example.md">Example 4</a>: KNN Classification with multiple threads
+- <a href="src/main/java/examples/ml/example5/example.md">Example 5</a>: Clustering with KMeans
 
 
 ### Optimization
