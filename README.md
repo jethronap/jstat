@@ -23,6 +23,7 @@ Basic statistics and data analysis with Java
 - <a href="src/main/java/examples/ml/example3/example.md">Example 3</a>: Classification with vanilla KNN algorithm
 - <a href="src/main/java/examples/ml/example4/example.md">Example 4</a>: KNN Classification with multiple threads
 - <a href="src/main/java/examples/ml/example5/example.md">Example 5</a>: Clustering with KMeans
+- <a href="src/main/java/examples/ml/example6/example.md">Example 6</a>: Logistic classification
 
 
 ### Optimization
