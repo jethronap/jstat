@@ -2,7 +2,7 @@ package examples.optimization.example1;
 
 import utils.DefaultIterativeAlgorithmController;
 import utils.IterativeAlgorithmResult;
-import optimization.BatchGradientDescent;
+import optimization.GradientDescent;
 import optimization.GDInput;
 import maths.DenseMatrixSet;
 import maths.RowBuilder;
@@ -46,7 +46,7 @@ public class Example1 {
         gdInput.errF = new MSEVectorFunction(hypothesis);
         gdInput.iterationContorller = new DefaultIterativeAlgorithmController(10000,1.0e-8);
 
-        BatchGradientDescent gdSolver = new BatchGradientDescent(gdInput);
+        GradientDescent gdSolver = new GradientDescent(gdInput);
         IterativeAlgorithmResult result = gdSolver.optimize(denseMatrixSet, labels, hypothesis);
 
         System.out.println(result);

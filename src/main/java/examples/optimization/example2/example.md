@@ -20,7 +20,7 @@ package examples.optimization.example2;
 
 import utils.DefaultIterativeAlgorithmController;
 import utils.IterativeAlgorithmResult;
-import optimization.BatchGradientDescent;
+import optimization.GradientDescent;
 import optimization.GDInput;
 import maths.DenseMatrixSet;
 import maths.RowBuilder;

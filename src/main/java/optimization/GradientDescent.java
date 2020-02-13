@@ -6,12 +6,12 @@ import maths.IVector;
 import maths.Vector;
 import maths.functions.IVectorRealFunction;
 
-public class BatchGradientDescent implements ISupervisedOptimizer {
+public class GradientDescent implements ISupervisedOptimizer {
 
     /**
      * Constructor
      */
-    public BatchGradientDescent(GDInput input){
+    public GradientDescent(GDInput input){
 
         this.input = input;
     }

@@ -1,8 +1,8 @@
 package examples.optimization.example2;
 
+import optimization.GradientDescent;
 import utils.DefaultIterativeAlgorithmController;
 import utils.IterativeAlgorithmResult;
-import optimization.BatchGradientDescent;
 import optimization.GDInput;
 import maths.DenseMatrixSet;
 import maths.RowBuilder;
@@ -80,7 +80,7 @@ public class Example2 {
             gdInput.errF = new MSEVectorFunction(hypothesis);
             gdInput.iterationContorller = new DefaultIterativeAlgorithmController(10000,1.0e-8);
 
-            BatchGradientDescent gdSolver = new BatchGradientDescent(gdInput);
+            GradientDescent gdSolver = new GradientDescent(gdInput);
             IterativeAlgorithmResult result = (IterativeAlgorithmResult) gdSolver.optimize(dataSet.first, dataSet.second, hypothesis);
 
             System.out.println(" ");

@@ -21,7 +21,7 @@
 ```
 package examples.ml.example2;
 
-import optimization.BatchGradientDescent;
+import optimization.GradientDescent;
 import optimization.GDInput;
 import utils.DefaultIterativeAlgorithmController;
 import utils.IterativeAlgorithmResult;

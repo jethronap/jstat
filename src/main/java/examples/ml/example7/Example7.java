@@ -1,6 +1,6 @@
 package examples.ml.example7;
 
-import optimization.BatchGradientDescent;
+import optimization.GradientDescent;
 import optimization.GDInput;
 import utils.DefaultIterativeAlgorithmController;
 import utils.IterativeAlgorithmResult;
@@ -63,7 +63,7 @@ public class Example7 {
         gdInput.iterationContorller = new DefaultIterativeAlgorithmController(100000,1.0e-8);
 
         // the optimizer
-        BatchGradientDescent gdSolver = new BatchGradientDescent(gdInput);
+        GradientDescent gdSolver = new GradientDescent(gdInput);
 
         // the classifier
         LinearRegressor<DenseMatrixSet<Double>> regressor = new LinearRegressor(hypothesis);
@@ -91,7 +91,7 @@ public class Example7 {
         gdInput.iterationContorller = new DefaultIterativeAlgorithmController(100000,1.0e-8);
 
         // the optimizer
-        BatchGradientDescent gdSolver = new BatchGradientDescent(gdInput);
+        GradientDescent gdSolver = new GradientDescent(gdInput);
 
         // the classifier
         LinearRegressor<DenseMatrixSet<Double>> regressor = new LinearRegressor(hypothesis);
@@ -119,7 +119,7 @@ public class Example7 {
         gdInput.iterationContorller = new DefaultIterativeAlgorithmController(100000,1.0e-8);
 
         // the optimizer
-        BatchGradientDescent gdSolver = new BatchGradientDescent(gdInput);
+        GradientDescent gdSolver = new GradientDescent(gdInput);
 
         // the classifier
         LinearRegressor<DenseMatrixSet<Double>> regressor = new LinearRegressor(hypothesis);

@@ -1,6 +1,6 @@
 package examples.ml.example6;
 
-import optimization.BatchGradientDescent;
+import optimization.GradientDescent;
 import optimization.GDInput;
 import utils.DefaultIterativeAlgorithmController;
 import utils.IterativeAlgorithmResult;
@@ -82,7 +82,7 @@ public class Example6 {
         gdInput.iterationContorller = new DefaultIterativeAlgorithmController(100000,1.0e-8);
 
         // the optimizer
-        BatchGradientDescent gdSolver = new BatchGradientDescent(gdInput);
+        GradientDescent gdSolver = new GradientDescent(gdInput);
 
         // the classifier
         LogisticRegressionClassifier<DenseMatrixSet<Double>, LinearVectorPolynomial> classifier = new LogisticRegressionClassifier(hypothesis, gdSolver );

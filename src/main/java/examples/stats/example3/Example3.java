@@ -1,6 +1,6 @@
 package examples.stats.example3;
 
-import optimization.BatchGradientDescent;
+import optimization.GradientDescent;
 import optimization.GDInput;
 import utils.DefaultIterativeAlgorithmController;
 import utils.IterativeAlgorithmResult;
@@ -50,7 +50,7 @@ public class Example3 {
         gdInput.errF = new MSEVectorFunction(hypothesis);
         gdInput.iterationContorller = new DefaultIterativeAlgorithmController(10000,1.0e-8);
 
-        BatchGradientDescent gdSolver = new BatchGradientDescent(gdInput);
+        GradientDescent gdSolver = new GradientDescent(gdInput);
 
         IterativeAlgorithmResult result = (IterativeAlgorithmResult) regressor.train(denseMatrixSet, labels, gdSolver);
 
