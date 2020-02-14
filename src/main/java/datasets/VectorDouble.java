@@ -1,7 +1,13 @@
-package maths;
+package datasets;
 
 import base.CommonConstants;
 
+import datastructs.IVector;
+import datastructs.RowType;
+import maths.VectorOperations;
+import org.apache.commons.math3.stat.descriptive.DescriptiveStatistics;
+import org.apache.commons.math3.stat.descriptive.rank.Median;
+import stats.Statistics;
 import tech.tablesaw.api.DoubleColumn;
 import tech.tablesaw.api.Row;
 import tech.tablesaw.api.Table;
@@ -9,42 +15,45 @@ import tech.tablesaw.api.Table;
 import java.util.List;
 
 /**
- * Implements a Vector class in the mathematical sense
+ * Implements a Vector that holds doubles
  */
 
-public class Vector implements IVector<Double> {
+public class VectorDouble implements IVector<Double> {
 
 
     /**
      * Creates an vector with initial capacity of 10
      */
-    public Vector(){
-
+    public VectorDouble(){
         this.data = new VectorStorage<>(10, 0.0);
     }
-
 
     /**
      * Creates a vector of given size with entries initialized to val
      */
-    public Vector(int size, double val){
+    public VectorDouble(int size, double val){
 
         this.data = new VectorStorage<>(size, val);
     }
 
+    /**
+     * Create a vector from the given double values
+     */
+    public VectorDouble(Double... data){
+        this.data = new VectorStorage<>(data);
+    }
 
     /**
      * Create a vector from the given double values
      */
-    public Vector(Double... data){
-        this.data = new VectorStorage<>(data);
-
+    public VectorDouble(List<Double> data){
+        this.data = new VectorStorage<Double>(data);
     }
 
     /**
      * Creates a vector of given size with entries initialized to 0.0
      */
-    public Vector(int size){
+    public VectorDouble(int size){
         this(size, 0.0);
     }
 
@@ -52,7 +61,7 @@ public class Vector implements IVector<Double> {
     /**
      * Create a vector from another vector i.e. copy constructor
      */
-    public Vector(IVector<Double> data){
+    public VectorDouble(IVector<Double> data){
         this(data.size(), 0.0);
         this.set(data);
     }
@@ -60,14 +69,14 @@ public class Vector implements IVector<Double> {
     /**
      * Create from the given Table and the given column name
      */
-    public Vector(Table table, String columnName){
+    public VectorDouble(Table table, String columnName){
         this(table.doubleColumn(columnName));
     }
 
     /**
      * Create a vector from the given DoubleColumn
      */
-    public Vector(DoubleColumn column){
+    public VectorDouble(DoubleColumn column){
         this.data = new VectorStorage<>(column.size(), 0.0);
         this.set(column);
     }
@@ -88,7 +97,7 @@ public class Vector implements IVector<Double> {
      */
     @Override
     public IVector<Double> create(int size){
-        return new Vector(size, 0.0);
+        return new VectorDouble(size, 0.0);
     }
 
     /**
@@ -96,11 +105,11 @@ public class Vector implements IVector<Double> {
      */
     @Override
     public IVector<Double> create( Double... value){
-        return new Vector(value);
+        return new VectorDouble(value);
     }
 
     @Override
-    public IVector<Double> create(){return new Vector();}
+    public IVector<Double> create(){return new VectorDouble();}
 
     /**
       * Resize the vector
@@ -144,15 +153,7 @@ public class Vector implements IVector<Double> {
      */
     @Override
     public void excahnge(int i, int k){
-
         this.data.excahnge(i, k);
-    }
-
-    /**
-     * Push a new element in the ADT. This should throw
-     */
-    @Override
-    public void push(Double element){
     }
 
     /**
@@ -167,6 +168,82 @@ public class Vector implements IVector<Double> {
 
         return this.data.size();
     }
+
+    /**
+     * Compute the statistics of the sample
+     */
+    public final Statistics getStatistics() {
+
+        if (!this.stats_.isValid) {
+            compute_sample_statistics();
+        }
+
+        return this.stats_;
+    }
+
+    /**
+     * Returns true if the statistics have been calculated
+     */
+    public final boolean isStatisticsValid() {
+        return this.stats_.isValid;
+    }
+
+
+    /**
+     * Compute the mean of the sample
+     */
+    public final double getMean() {
+        return getStatistics().mean;
+    }
+
+
+    /**
+     * Compute the variance of the sample
+     */
+    public final double getVar() {
+        return getStatistics().variance;
+    }
+
+
+    /**
+     * Returns the median of the sample
+     */
+    public final double getMedian() {
+        return getStatistics().median;
+    }
+
+
+    /**
+     * Returns the maximum of the sample
+     */
+    public final double getMax() {
+        return getStatistics().max;
+    }
+
+
+    /**
+     * Returns the minimum of the sample
+     */
+    public final double getMin() {
+        return getStatistics().min;
+    }
+
+
+    /**
+     * Returns the kurtosis statistic
+     */
+    public final double getKurtosis() {
+        return getStatistics().kurtosis;
+    }
+
+
+    /**
+     * Returns the skewness statistic
+     */
+    public final double getSkewness() {
+        return getStatistics().skewness;
+    }
+
 
 
     /**
@@ -188,6 +265,8 @@ public class Vector implements IVector<Double> {
 
             this.data.set(i, 0.0);
         }
+
+        this.falsifyCalculations();
     }
 
     /**
@@ -216,6 +295,7 @@ public class Vector implements IVector<Double> {
         }
 
         this.data.set(i, val);
+        this.falsifyCalculations();
     }
 
     /**
@@ -231,6 +311,7 @@ public class Vector implements IVector<Double> {
         for(int i=0; i<this.size(); ++i){
             this.data.set(i, values.get(i));
         }
+        this.falsifyCalculations();
     }
 
     /**
@@ -245,6 +326,7 @@ public class Vector implements IVector<Double> {
         for (int i = 0; i < row.columnCount(); i++) {
             this.set(i, row.getDouble(i));
         }
+        this.falsifyCalculations();
     }
 
     /**
@@ -255,13 +337,16 @@ public class Vector implements IVector<Double> {
         for (int i = 0; i < column.size() ; i++) {
             this.set(i, column.getDouble(i));
         }
+        this.falsifyCalculations();
     }
 
     /**
      * Set the data from a simple array
      */
     public final void set(Double[] data){
+
         this.data.set(data);
+        this.falsifyCalculations();
     }
 
     /**
@@ -272,6 +357,8 @@ public class Vector implements IVector<Double> {
         for (int i = 0; i < data.length ; i++) {
             this.set(i, data[i]);
         }
+
+        this.falsifyCalculations();
     }
 
     @Override
@@ -292,14 +379,14 @@ public class Vector implements IVector<Double> {
     public final void scale(double factor){
 
         if(this.data.size() == 0){
-
             throw new IllegalStateException("Vector has not been initialized properly");
         }
 
         for(int i=0; i<this.data.size(); ++i){
-
             this.data.set(i, factor*this.data.get(i));
         }
+
+        this.falsifyCalculations();
     }
 
     /**
@@ -309,6 +396,7 @@ public class Vector implements IVector<Double> {
     public void add(int i, Double value){
         double val = this.data.get(i);
         this.data.set(i , val + value);
+        this.falsifyCalculations();
     }
 
     /**
@@ -323,6 +411,7 @@ public class Vector implements IVector<Double> {
         }
 
         this.scale(1.0/length);
+        this.falsifyCalculations();
     }
 
     /**
@@ -340,8 +429,41 @@ public class Vector implements IVector<Double> {
         return data.getRawData();
     }
 
+
+    /**
+     * Compute the sample statistics
+     */
+    protected void compute_sample_statistics() {
+
+        double[] arrayData = new double[this.data.size()];
+
+        for(int i=0; i<this.data.size(); ++i){
+            arrayData[i] = this.data.get(i);
+        }
+
+        DescriptiveStatistics stats = new DescriptiveStatistics(arrayData);
+
+        this.stats_.mean = stats.getMean();
+        this.stats_.variance = stats.getVariance();
+        this.stats_.min = stats.getMin();
+        this.stats_.max = stats.getMax();
+        this.stats_.kurtosis = stats.getKurtosis();
+        this.stats_.skewness = stats.getSkewness();
+        this.stats_.median = new Median().evaluate(arrayData);
+        this.stats_.isValid = true;
+    }
+
+    protected final void falsifyCalculations() {
+        this.stats_.isValid = false;
+    }
+
     /**
      * The vector data
      */
     VectorStorage<Double> data = null;
+
+    /**
+     * Object that holds the calculated statistics
+     */
+    protected Statistics stats_;
 }

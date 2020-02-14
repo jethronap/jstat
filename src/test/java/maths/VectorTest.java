@@ -1,11 +1,12 @@
 package maths;
+import datasets.VectorDouble;
 import org.junit.Ignore;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 
 /**
- * Unit test for the datastructs.maths.Vector class
+ * Unit test for the datastructs.datasets.Vector class
  */
 public class VectorTest {
 
@@ -17,7 +18,7 @@ public class VectorTest {
     @Test
     public void testVectorConstructor(){
 
-        Vector vec = new Vector(10, 0.0);
+        VectorDouble vec = new VectorDouble(10, 0.0);
         assertEquals(vec.size(), 10);
     }
 
@@ -28,7 +29,7 @@ public class VectorTest {
     @Test(expected = IllegalArgumentException.class)
     public void testVectorConstructorWithZeroSize(){
 
-        Vector vec = new Vector(0, 0.0);
+        VectorDouble vec = new VectorDouble(0, 0.0);
     }
 
     /**
@@ -38,7 +39,7 @@ public class VectorTest {
     @Test(expected = IllegalStateException.class)
     @Ignore
     public void testZeroNonInitializedVector(){
-        Vector vec = new Vector();
+        VectorDouble vec = new VectorDouble();
         vec.zero();
     }
 
@@ -48,7 +49,7 @@ public class VectorTest {
      */
     @Test
     public void testResizeVector(){
-        Vector vec = new Vector();
+        VectorDouble vec = new VectorDouble();
         vec.resize(10);
         assertEquals(vec.size(), 10);
     }
@@ -59,7 +60,7 @@ public class VectorTest {
      */
     @Test
     public void testResizeWithSmallerSizeVector(){
-        Vector vec = new Vector(10, 0.0);
+        VectorDouble vec = new VectorDouble(10, 0.0);
         vec.resize(5);
         assertEquals(vec.size(), 5);
     }
@@ -70,7 +71,7 @@ public class VectorTest {
      */
     @Test
     public void testResizeWithLargerSizeVector(){
-        Vector vec = new Vector(10, 0.0);
+        VectorDouble vec = new VectorDouble(10, 0.0);
         vec.resize(15);
         assertEquals(vec.size(), 15);
     }

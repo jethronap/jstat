@@ -1,5 +1,6 @@
 package datastructs;
 
+import datasets.VectorDouble;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -22,7 +23,7 @@ public class NumericSampleTest {
             list.add(new Double(i));
         }
 
-        NumericSample sample = new NumericSample("Test", list);
+        VectorDouble sample = new VectorDouble(list);
         assertEquals(sample.size(), list.size());
     }
 
@@ -42,7 +43,7 @@ public class NumericSampleTest {
         }
 
 
-        NumericSample sample = new NumericSample("Test", list);
+        VectorDouble sample = new VectorDouble(list);
 
         assertFalse(sample.isStatisticsValid());
 
@@ -52,7 +53,7 @@ public class NumericSampleTest {
         assertTrue(sample.isStatisticsValid());
 
         // trigger falsify
-        sample.add(100.0);
+        sample.add(2,100.0);
         assertFalse(sample.isStatisticsValid());
     }
 
@@ -72,7 +73,7 @@ public class NumericSampleTest {
         }
 
 
-        NumericSample sample = new NumericSample("Test", list);
+        VectorDouble sample = new VectorDouble(list);
 
         assertFalse(sample.isStatisticsValid());
 
@@ -85,6 +86,5 @@ public class NumericSampleTest {
         sample.set(2, 100.0);
         assertFalse(sample.isStatisticsValid());
 
-        sample.printInfo();
     }
 }

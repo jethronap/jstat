@@ -1,4 +1,4 @@
-package maths;
+package datastructs;
 
 import tech.tablesaw.api.Row;
 import java.util.List;
@@ -39,7 +39,7 @@ public interface IVector<E>{
 
 
     /**
-     * Set the data from Row
+     * Set the data from TableSaw Row
      */
     void set(Row row);
 
@@ -92,13 +92,6 @@ public interface IVector<E>{
      * Returns how many elements the ADT has
      */
     int size();
-
-
-    /**
-     * Push a new element in the ADT
-     */
-    void push(E element);
-
 
     /**
      * Returns true if the ADT contains the given element

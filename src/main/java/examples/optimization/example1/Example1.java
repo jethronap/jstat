@@ -1,13 +1,13 @@
 package examples.optimization.example1;
 
+import datasets.VectorDouble;
 import utils.DefaultIterativeAlgorithmController;
 import utils.IterativeAlgorithmResult;
 import optimization.GradientDescent;
 import optimization.GDInput;
-import maths.DenseMatrixSet;
-import maths.RowBuilder;
-import maths.Vector;
-import maths.RowType;
+import datasets.DenseMatrixSet;
+import datastructs.RowBuilder;
+import datastructs.RowType;
 import maths.functions.LinearVectorPolynomial;
 import maths.errorfunctions.MSEVectorFunction;
 import tech.tablesaw.api.Table;
@@ -32,7 +32,7 @@ public class Example1 {
         // load the data
         Table dataSet = TableDataSetLoader.loadDataSet(new File("src/main/resources/datasets/car_plant.csv"));
 
-        Vector labels = new Vector(dataSet, "Electricity Usage");
+        VectorDouble labels = new VectorDouble(dataSet, "Electricity Usage");
         Table reducedDataSet = dataSet.removeColumns("Electricity Usage").first(dataSet.rowCount());
 
         DenseMatrixSet<Double> denseMatrixSet = new DenseMatrixSet(RowType.Type.DOUBLE_VECTOR, new RowBuilder(), reducedDataSet.rowCount(), 2, 1.0);

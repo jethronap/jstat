@@ -1,4 +1,4 @@
-package maths;
+package datastructs;
 
 public interface RowType {
 

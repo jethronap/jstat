@@ -1,5 +1,9 @@
-package maths;
+package datasets;
 
+import datastructs.I2DDataSet;
+import datastructs.IVector;
+import datastructs.RowType;
+import datastructs.RowBuilder;
 import parallel.partitioners.IPartitionPolicy;
 import tech.tablesaw.api.DoubleColumn;
 import tech.tablesaw.api.Row;

@@ -1,9 +1,9 @@
 package examples.ml.example4;
 
-import maths.DenseMatrixSet;
-import maths.RowBuilder;
-import maths.Vector;
-import maths.RowType;
+import datasets.DenseMatrixSet;
+import datasets.VectorDouble;
+import datastructs.RowBuilder;
+import datastructs.RowType;
 import maths.functions.distances.EuclideanVectorCalculator;
 import ml.classifiers.ThreadedKNNClassifier;
 import parallel.partitioners.MatrixRowPartitionPolicy;
@@ -92,7 +92,7 @@ public class Example4 {
         classifier.setMajorityVoter(new ClassificationVoter());
 
         classifier.train(data.first, data.second);
-        Vector point = new Vector(5.9,3.0,5.1,1.8);
+        VectorDouble point = new VectorDouble(5.9,3.0,5.1,1.8);
         Integer classIdx = classifier.predict(point);
 
         System.out.println("Point "+ point +" has class index "+ classIdx);

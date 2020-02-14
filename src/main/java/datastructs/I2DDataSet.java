@@ -1,4 +1,4 @@
-package maths;
+package datastructs;
 
 import parallel.partitioners.IPartitionPolicy;
 

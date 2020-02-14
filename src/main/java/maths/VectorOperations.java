@@ -1,6 +1,8 @@
 package maths;
 
 
+import datasets.VectorDouble;
+import datastructs.IVector;
 import utils.ListMaths;
 
 /**
@@ -11,13 +13,13 @@ public class VectorOperations {
     /**
      * Adds the two vectors and returns a vector that contains the result
      */
-    public static Vector add(final Vector v1, final Vector v2){
+    public static VectorDouble add(final VectorDouble v1, final VectorDouble v2){
 
         if(v1.size() != v2.size()){
             throw new IllegalStateException("v1 size not equal to v2 size");
         }
 
-        Vector rslt = new Vector(v1.size(),0.0);
+        VectorDouble rslt = new VectorDouble(v1.size(),0.0);
 
         for(int i=0; i<v1.size(); ++i){
             rslt.set(i, v1.get(i) + v2.get(i));
@@ -29,13 +31,13 @@ public class VectorOperations {
     /**
      * Subtracts the two vectors and returns a vector that contains the result
      */
-    public static Vector subtract(final Vector v1, final Vector v2){
+    public static VectorDouble subtract(final VectorDouble v1, final VectorDouble v2){
 
         if(v1.size() != v2.size()){
             throw new IllegalStateException("v1 size not equal to v2 size");
         }
 
-        Vector rslt = new Vector(v1.size(),0.0);
+        VectorDouble rslt = new VectorDouble(v1.size(),0.0);
 
         for(int i=0; i<v1.size(); ++i){
             rslt.set(i, v1.get(i) - v2.get(i));
@@ -48,7 +50,7 @@ public class VectorOperations {
     /**
       * Computes the dot product of the two vectors
      */
-    public static double dotProduct(final Vector v1, final Vector v2){
+    public static double dotProduct(final VectorDouble v1, final VectorDouble v2){
 
         if(v1.size() != v2.size()){
             throw new IllegalStateException("v1 size not equal to v2 size");
@@ -85,7 +87,7 @@ public class VectorOperations {
     /**
       * Computes the L2 norm of the vector
      */
-    public static double l2Norm(final Vector v1){
+    public static double l2Norm(final VectorDouble v1){
         double dotProduct = VectorOperations.dotProduct(v1 ,v1);
         return StrictMath.sqrt(dotProduct);
     }
@@ -93,20 +95,20 @@ public class VectorOperations {
     /**
      * Computes the L1 norm of the vector
      */
-    public static double l1Norm(final Vector v1){
+    public static double l1Norm(final VectorDouble v1){
         return ListMaths.absSum(v1.getRawData());
     }
 
     /**
      * Compute x = f1*v1 + f2*v2
      */
-    public static final Vector scaleAndAdd(Vector v1, double f1, Vector v2, double f2){
+    public static final VectorDouble scaleAndAdd(VectorDouble v1, double f1, VectorDouble v2, double f2){
 
         if(v1.size() != v2.size()){
             throw new IllegalStateException("v1 size not equal to v2 size");
         }
 
-        Vector rslt = new Vector(v1.size(), 0.0);
+        VectorDouble rslt = new VectorDouble(v1.size(), 0.0);
 
         for(int i=0; i<rslt.size(); ++i){
 

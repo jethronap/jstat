@@ -1,7 +1,7 @@
 package maths.functions.generators;
 
-import maths.I2DDataSet;
-import maths.IVector;
+import datastructs.I2DDataSet;
+import datastructs.IVector;
 
 import java.util.List;
 

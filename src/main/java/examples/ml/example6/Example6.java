@@ -1,13 +1,13 @@
 package examples.ml.example6;
 
+import datasets.VectorDouble;
 import optimization.GradientDescent;
 import optimization.GDInput;
 import utils.DefaultIterativeAlgorithmController;
 import utils.IterativeAlgorithmResult;
-import maths.DenseMatrixSet;
-import maths.RowBuilder;
-import maths.Vector;
-import maths.RowType;
+import datasets.DenseMatrixSet;
+import datastructs.RowBuilder;
+import datastructs.RowType;
 import maths.errorfunctions.LogisticMSEVectorFunction;
 import maths.functions.LinearVectorPolynomial;
 import maths.functions.SigmoidFunction;
@@ -31,14 +31,14 @@ import java.io.IOException;
  */
 public class Example6 {
 
-    public static Pair<DenseMatrixSet, Vector> createDataSet() throws IOException, IllegalArgumentException {
+    public static Pair<DenseMatrixSet, VectorDouble> createDataSet() throws IOException, IllegalArgumentException {
 
         // load the data
         Table dataSetTable = TableDataSetLoader.loadDataSet(new File("src/main/resources/datasets/iris_dataset_reduced.csv"));
 
         Column species  = dataSetTable.column("species");
 
-        Vector labels = new Vector(species.size());
+        VectorDouble labels = new VectorDouble(species.size());
 
         for (int i = 0; i < species.size(); i++) {
 
@@ -68,7 +68,7 @@ public class Example6 {
 
     public static void main(String[] args) throws IOException, IllegalArgumentException{
 
-        Pair<DenseMatrixSet, Vector> data = Example6.createDataSet();
+        Pair<DenseMatrixSet, VectorDouble> data = Example6.createDataSet();
 
         System.out.println("Number of rows: "+data.first.m());
         System.out.println("Number of labels: "+data.second.size());
@@ -98,7 +98,7 @@ public class Example6 {
                 " slope3: "+hypothesis.getCoeff(3));
 
         // use 1.0 to account for the intercept term
-        Vector point = new Vector(1.0, 5.7,2.8,4.1,1.3);
+        VectorDouble point = new VectorDouble(1.0, 5.7,2.8,4.1,1.3);
         Integer classIdx = classifier.predict(point);
 
         System.out.println("Point "+ point +" has class index "+ classIdx);

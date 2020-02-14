@@ -1,13 +1,13 @@
 package examples.ml.example7;
 
+import datasets.VectorDouble;
 import optimization.GradientDescent;
 import optimization.GDInput;
 import utils.DefaultIterativeAlgorithmController;
 import utils.IterativeAlgorithmResult;
-import maths.DenseMatrixSet;
-import maths.RowBuilder;
-import maths.Vector;
-import maths.RowType;
+import datasets.DenseMatrixSet;
+import datastructs.RowBuilder;
+import datastructs.RowType;
 import maths.errorfunctions.MSEVectorFunction;
 import maths.functions.LinearVectorPolynomial;
 
@@ -35,14 +35,14 @@ import java.io.IOException;
 
 public class Example7 {
 
-    public static Pair<DenseMatrixSet, Vector> createDataSet() throws IOException, IllegalArgumentException {
+    public static Pair<DenseMatrixSet, VectorDouble> createDataSet() throws IOException, IllegalArgumentException {
 
         // load the data
         Table dataSetTable = TableDataSetLoader.loadDataSet(new File("src/main/resources/datasets/X_Y_Sinusoid_Data.csv"));
 
         DoubleColumn y  = dataSetTable.doubleColumn("y");
 
-        Vector labels = new Vector(y);
+        VectorDouble labels = new VectorDouble(y);
 
         Table reducedDataSet = dataSetTable.removeColumns("y").first(dataSetTable.rowCount());
         DenseMatrixSet dataSet = new DenseMatrixSet(RowType.Type.DOUBLE_VECTOR, new RowBuilder(), reducedDataSet.rowCount(), reducedDataSet.columnCount() + 1, 1.0);
@@ -50,7 +50,7 @@ public class Example7 {
         return PairBuilder.makePair(dataSet, labels);
     }
 
-    public static void linearRegression(DenseMatrixSet data, Vector labels){
+    public static void linearRegression(DenseMatrixSet data, VectorDouble labels){
 
         System.out.println("Doing LinearRegression");
 
@@ -78,7 +78,7 @@ public class Example7 {
 
     }
 
-    public static void ridgeRegression(DenseMatrixSet data, Vector labels){
+    public static void ridgeRegression(DenseMatrixSet data, VectorDouble labels){
 
         System.out.println("Doing Ridge LinearRegression");
         LinearVectorPolynomial hypothesis = new LinearVectorPolynomial(1);
@@ -106,7 +106,7 @@ public class Example7 {
 
     }
 
-    public static void lassoRegression(DenseMatrixSet data, Vector labels){
+    public static void lassoRegression(DenseMatrixSet data, VectorDouble labels){
 
         System.out.println("Doing Lasso LinearRegression");
         LinearVectorPolynomial hypothesis = new LinearVectorPolynomial(1);
@@ -137,7 +137,7 @@ public class Example7 {
 
     public static void main(String[] args) throws IOException, IllegalArgumentException{
 
-        Pair<DenseMatrixSet, Vector> data = Example7.createDataSet();
+        Pair<DenseMatrixSet, VectorDouble> data = Example7.createDataSet();
 
         System.out.println("Number of rows: "+data.first.m());
         System.out.println("Number of labels: "+data.second.size());

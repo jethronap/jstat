@@ -1,6 +1,6 @@
 package dataloader;
 
-import datastructs.NumericSample;
+import datastructs.IVector;
 import org.junit.Ignore;
 import org.junit.Test;
 import tech.tablesaw.api.Table;
@@ -84,7 +84,7 @@ public class CsvLoaderTest {
         Map<String, List<String>> dataSet = CsvDataLoader.MapLoader.parseFile(file);
         assertNotNull(dataSet);
 
-        NumericSample sample = CsvDataLoader.MapLoader.buildNumericSample(dataSet, "DummyColumn");
+        IVector<Double> sample = CsvDataLoader.MapLoader.buildNumericSample(dataSet, "DummyColumn");
         assertEquals(sample.size(), 0);
     }
 
@@ -99,7 +99,7 @@ public class CsvLoaderTest {
         Map<String, List<String>> dataSet = CsvDataLoader.MapLoader.parseFile(file);
         assertNotNull(dataSet);
 
-        NumericSample sample = CsvDataLoader.MapLoader.buildNumericSample(dataSet, "X");
+        IVector<Double> sample = CsvDataLoader.MapLoader.buildNumericSample(dataSet, "X");
         assertEquals(sample.size(), 25);
     }
 }

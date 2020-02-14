@@ -1,9 +1,9 @@
 package maths.errorfunctions;
 
 
-import maths.I2DDataSet;
-import maths.IVector;
-import maths.Vector;
+import datasets.VectorDouble;
+import datastructs.I2DDataSet;
+import datastructs.IVector;
 import maths.functions.IRegularizerFunction;
 import maths.functions.IVectorRealFunction;
 
@@ -19,7 +19,7 @@ public class SSEVectorFunction implements IVectorErrorRealFunction {
     /**
      * Compute the SSE error over the two vectors
      */
-    static public double error(Vector y, Vector yhat){
+    static public double error(VectorDouble y, VectorDouble yhat){
 
         if(y.size() != yhat.size()){
             throw new IllegalArgumentException("Invalid size of vectors ");
@@ -62,7 +62,7 @@ public class SSEVectorFunction implements IVectorErrorRealFunction {
      * Evaluate the error function using the given data, labels
      */
     @Override
-    public <DataSetType extends I2DDataSet> double evaluate(DataSetType data, Vector labels){
+    public <DataSetType extends I2DDataSet> double evaluate(DataSetType data, VectorDouble labels){
 
         if(data.m() != labels.size()){
             throw new IllegalArgumentException("Invalid number of data points and labels vector size");
@@ -72,7 +72,7 @@ public class SSEVectorFunction implements IVectorErrorRealFunction {
 
         for(int rowIdx=0; rowIdx<data.m(); ++rowIdx){
 
-            Vector row = (Vector) data.getRow(rowIdx);
+            VectorDouble row = (VectorDouble) data.getRow(rowIdx);
             double diff = labels.get(rowIdx) - this.hypothesis.evaluate(row);
             diff *= diff;
             result += diff;
@@ -89,14 +89,14 @@ public class SSEVectorFunction implements IVectorErrorRealFunction {
      * Returns the gradients on the given data
      */
     @Override
-    public <DataSetType extends I2DDataSet> Vector gradients(DataSetType data, Vector labels){
+    public <DataSetType extends I2DDataSet> VectorDouble gradients(DataSetType data, VectorDouble labels){
 
 
-        Vector gradients = new Vector(this.hypothesis.numCoeffs(), 0.0);
+        VectorDouble gradients = new VectorDouble(this.hypothesis.numCoeffs(), 0.0);
 
         for(int rowIdx=0; rowIdx<data.m(); ++rowIdx){
 
-            Vector row = (Vector) data.getRow(rowIdx);
+            VectorDouble row = (VectorDouble) data.getRow(rowIdx);
 
             double diff = (labels.get(rowIdx) - this.hypothesis.evaluate(row));
 

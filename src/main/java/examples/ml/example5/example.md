@@ -21,10 +21,10 @@ package examples.ml.example5;
 
 import utils.DefaultIterativeAlgorithmController;
 import base.CommonConstants;
-import maths.IVector;
-import maths.DenseMatrixSet;
-import maths.RowBuilder;
-import maths.RowType;
+import datastructs.IVector;
+import datasets.DenseMatrixSet;
+import datastructs.RowBuilder;
+import datastructs.RowType;
 import maths.functions.distances.DistanceCalculator;
 import maths.functions.distances.EuclideanVectorCalculator;
 import maths.functions.generators.IRandomGenerator;

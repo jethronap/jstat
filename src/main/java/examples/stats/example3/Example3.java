@@ -4,10 +4,10 @@ import optimization.GradientDescent;
 import optimization.GDInput;
 import utils.DefaultIterativeAlgorithmController;
 import utils.IterativeAlgorithmResult;
-import maths.DenseMatrixSet;
-import maths.RowBuilder;
-import maths.Vector;
-import maths.RowType;
+import datasets.DenseMatrixSet;
+import datastructs.RowBuilder;
+import datasets.VectorDouble;
+import datastructs.RowType;
 import maths.errorfunctions.MSEVectorFunction;
 import maths.errorfunctions.SSEVectorFunction;
 import maths.functions.LinearVectorPolynomial;
@@ -35,7 +35,7 @@ public class Example3 {
         // load the data
         Table dataSet = TableDataSetLoader.loadDataSet(new File("src/main/resources/datasets/car_plant.csv"));
 
-        Vector labels = new Vector(dataSet, "Electricity Usage");
+        VectorDouble labels = new VectorDouble(dataSet, "Electricity Usage");
         Table reducedDataSet = dataSet.removeColumns("Electricity Usage").first(dataSet.rowCount());
 
         DenseMatrixSet<Double> denseMatrixSet = new DenseMatrixSet(RowType.Type.DOUBLE_VECTOR, new RowBuilder(), reducedDataSet.rowCount(), 2, 1.0);
@@ -58,7 +58,7 @@ public class Example3 {
         System.out.println("Intercept: "+hypothesis.getCoeff(0)+" slope: "+hypothesis.getCoeff(1));
 
         // let's see the max error over the dateset
-        Vector errors = regressor.getErrors(denseMatrixSet, labels);
+        VectorDouble errors = regressor.getErrors(denseMatrixSet, labels);
         double maxError = ListMaths.max(errors.getRawData());
 
         System.out.println("Maximum error over dataset: "+maxError);
@@ -67,7 +67,7 @@ public class Example3 {
         //The error variance sigma^2 can be estimated by considering the deviations between the observed
         //data values y_i and their fitted values \hat(y)_i . Specifically, the sum of squares for error SSE is defined
         //to be the sum of the squares of these deviations
-        Vector yhat = regressor.predict(denseMatrixSet);
+        VectorDouble yhat = regressor.predict(denseMatrixSet);
 
         double sseError = SSEVectorFunction.error(labels, yhat);
         double sigma2_hat = sseError/ (yhat.size()-2);

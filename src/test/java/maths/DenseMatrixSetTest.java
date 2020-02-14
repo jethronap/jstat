@@ -1,6 +1,9 @@
 package maths;
 
 
+import datasets.DenseMatrixSet;
+import datastructs.RowBuilder;
+import datastructs.RowType;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

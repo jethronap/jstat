@@ -1,5 +1,7 @@
-package maths;
+package datastructs;
 
+
+import datasets.VectorInt;
 
 public class IntegerVectorBuilder implements IRowBuilder<VectorInt> {
 

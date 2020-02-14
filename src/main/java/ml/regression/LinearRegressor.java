@@ -1,6 +1,6 @@
 package ml.regression;
 
-import maths.DenseMatrixSet;
+import datasets.DenseMatrixSet;
 import maths.functions.LinearVectorPolynomial;
 
 /**

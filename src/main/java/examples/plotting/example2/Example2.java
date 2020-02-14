@@ -1,7 +1,7 @@
 package examples.plotting.example2;
 
 import dataloader.CsvDataLoader;
-import datastructs.NumericSample;
+import datastructs.IVector;
 import tech.tablesaw.api.Table;
 import visualizations.Histograms;
 
@@ -22,7 +22,7 @@ public class Example2 {
         Table data = CsvDataLoader.TableLoader.parseFile(file);
 
         // Extract numeric samples from the data
-        NumericSample X = CsvDataLoader.TableLoader.buildNumericSample(data, "Mean");
+        IVector<Double> X = CsvDataLoader.TableLoader.buildNumericSample(data, "Mean");
 
         Histograms plotter = new Histograms();
         Histograms.HistogramOptions options = plotter.new HistogramOptions();

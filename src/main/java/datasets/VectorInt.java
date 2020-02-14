@@ -1,7 +1,7 @@
-package maths;
+package datasets;
 
-import base.CommonConstants;
-
+import datastructs.IVector;
+import datastructs.RowType;
 import tech.tablesaw.api.DoubleColumn;
 import tech.tablesaw.api.Row;
 import tech.tablesaw.api.Table;
@@ -142,12 +142,6 @@ public class VectorInt implements IVector<Integer> {
         this.data.excahnge(i, k);
     }
 
-    /**
-     * Push a new element in the ADT. This should throw
-     */
-    @Override
-    public void push(Integer element){
-    }
 
     /**
      * Returns the size of the vector

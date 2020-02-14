@@ -1,7 +1,7 @@
 package maths.functions;
 
-import maths.IVector;
-import maths.Vector;
+import datastructs.IVector;
+import datasets.VectorDouble;
 
 public class SigmoidFunction implements IVectorRealFunction<IVector<Double>> {
 
@@ -64,8 +64,8 @@ public class SigmoidFunction implements IVectorRealFunction<IVector<Double>> {
      * Returns the gradients with respect to the coefficients at the given data point
      */
     @Override
-    public Vector gradidents(IVector<Double> data){
-        Vector rslt = new Vector(data);
+    public VectorDouble gradidents(IVector<Double> data){
+        VectorDouble rslt = new VectorDouble(data);
         rslt.set(0, 1.0);
         return rslt;
     }
@@ -102,8 +102,8 @@ public class SigmoidFunction implements IVectorRealFunction<IVector<Double>> {
      * Compute the gradients with respect to the coefficients
      */
     @Override
-    public Vector coeffGradients(IVector<Double> data){
-        Vector grads = new Vector(this.function.numCoeffs(), 0.0);
+    public VectorDouble coeffGradients(IVector<Double> data){
+        VectorDouble grads = new VectorDouble(this.function.numCoeffs(), 0.0);
 
         for (int i = 0; i < grads.size(); i++) {
             grads.set(i, this.coeffGradient(i, data));

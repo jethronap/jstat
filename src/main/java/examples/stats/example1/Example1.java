@@ -1,5 +1,6 @@
 package examples.stats.example1;
-import datastructs.NumericSample;
+import datasets.VectorDouble;
+import datastructs.IVector;
 import org.apache.commons.math3.stat.StatUtils;
 import stats.utils.Resample;
 import org.apache.commons.math3.distribution.NormalDistribution;
@@ -31,15 +32,14 @@ public class Example1 {
         final double SD = 0.1;
 
         // create a sample
-        NumericSample sample = new NumericSample("Sample", SIZE);
+        VectorDouble sample = new VectorDouble(SIZE);
 
         // normal distribution:
         // see https://commons.apache.org/proper/commons-math/javadocs/api-3.5/org/apache/commons/math3/distribution/NormalDistribution.html
         NormalDistribution dist = new NormalDistribution(MU, SD);
 
         for(int i=0; i<SIZE; ++i){
-
-            sample.add(dist.sample());
+            sample.add(i, dist.sample());
         }
 
         System.out.println("Sample mean: "+sample.getMean());
@@ -51,8 +51,8 @@ public class Example1 {
         // Iterate
         for(int itr=0; itr<BOOST_ITRS; ++itr){
 
-            NumericSample resample = Resample.resample(sample, RESAMPLE_SIZE, 3);
-            means[itr] = resample.getMean();
+            IVector<Double> resample = Resample.resample(sample, RESAMPLE_SIZE, 3);
+            means[itr] = ((VectorDouble)resample).getMean();
         }
 
         // compute the mean of means

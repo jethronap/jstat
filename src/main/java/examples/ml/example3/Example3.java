@@ -1,9 +1,9 @@
 package examples.ml.example3;
 
-import maths.DenseMatrixSet;
-import maths.RowBuilder;
-import maths.Vector;
-import maths.RowType;
+import datasets.DenseMatrixSet;
+import datasets.VectorDouble;
+import datastructs.RowBuilder;
+import datastructs.RowType;
 import maths.functions.distances.EuclideanVectorCalculator;
 import ml.classifiers.KNNClassifier;
 import ml.classifiers.utils.ClassificationVoter;
@@ -62,12 +62,12 @@ public class Example3 {
 
         classifier.train(dataSet, labels);
 
-        Vector r = new Vector(3.1, 2.2);
+        VectorDouble r = new VectorDouble(3.1, 2.2);
         Integer classIdx = classifier.predict(r);
 
         System.out.println("Point " + r + " has class index " + classIdx);
 
-        r = new Vector(9.1, 6.2);
+        r = new VectorDouble(9.1, 6.2);
         classIdx = classifier.predict(r);
     }
 }

@@ -1,8 +1,8 @@
 package maths;
 
-import maths.DenseMatrixSet;
-import maths.RowBuilder;
-import maths.RowType;
+import datasets.DenseMatrixSet;
+import datastructs.RowBuilder;
+import datastructs.RowType;
 import utils.Pair;
 
 import javax.swing.*;
@@ -10,8 +10,6 @@ import javax.swing.table.TableModel;
 import javax.swing.event.*;
 import java.awt.*;
 
-import java.awt.print.PrinterException;
-import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;

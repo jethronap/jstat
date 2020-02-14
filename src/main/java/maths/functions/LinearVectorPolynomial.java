@@ -1,7 +1,7 @@
 package maths.functions;
 
-import maths.IVector;
-import maths.Vector;
+import datasets.VectorDouble;
+import datastructs.IVector;
 import maths.VectorOperations;
 
 /**
@@ -16,24 +16,24 @@ public class LinearVectorPolynomial implements IVectorRealFunction<IVector<Doubl
     public LinearVectorPolynomial(int order){
 
         // we also need the constant coefficient
-        this.coeffs = new Vector(order + 1, 0.0);
+        this.coeffs = new VectorDouble(order + 1, 0.0);
     }
 
 
-    public Double evaluate(Vector input){
+    public Double evaluate(VectorDouble input){
         return VectorOperations.dotProduct(this.coeffs, input);
     }
 
 
     @Override
     public Double evaluate(IVector<Double> input){
-        return this.evaluate((Vector) input);
+        return this.evaluate((VectorDouble) input);
     }
 
     /**
      * Set the coefficients of the Polynomial
      */
-    public final void setCoeffs(Vector coeffs){
+    public final void setCoeffs(VectorDouble coeffs){
         this.coeffs = coeffs;
     }
 
@@ -57,7 +57,7 @@ public class LinearVectorPolynomial implements IVectorRealFunction<IVector<Doubl
      * Returns the coefficients of the vector function
      */
     @Override
-    public final Vector getCoeffs(){
+    public final VectorDouble getCoeffs(){
         return this.coeffs;
     }
 
@@ -73,8 +73,8 @@ public class LinearVectorPolynomial implements IVectorRealFunction<IVector<Doubl
      * Returns the gradients with respect to the coefficients at the given data point
      */
     @Override
-    public Vector gradidents(IVector<Double> data){
-        Vector rslt = new Vector(data);
+    public VectorDouble gradidents(IVector<Double> data){
+        VectorDouble rslt = new VectorDouble(data);
         rslt.set(0, 1.0);
         return rslt;
     }
@@ -116,8 +116,8 @@ public class LinearVectorPolynomial implements IVectorRealFunction<IVector<Doubl
      * Compute the gradients with respect to the coefficients
      */
     @Override
-    public Vector coeffGradients(IVector<Double> data){
-        Vector grads = new Vector(this.coeffs.size(), 0.0);
+    public VectorDouble coeffGradients(IVector<Double> data){
+        VectorDouble grads = new VectorDouble(this.coeffs.size(), 0.0);
 
         for (int i = 0; i < grads.size(); i++) {
             grads.set(i, this.coeffGradient(i, data));
@@ -138,6 +138,6 @@ public class LinearVectorPolynomial implements IVectorRealFunction<IVector<Doubl
     /**
      * The coefficients of the vector
      */
-    private Vector coeffs;
+    private VectorDouble coeffs;
 
 }

@@ -1,9 +1,9 @@
 package ml.regression;
 
+import datasets.VectorDouble;
 import optimization.ISupervisedOptimizer;
-import maths.IVector;
-import maths.DenseMatrixSet;
-import maths.Vector;
+import datastructs.IVector;
+import datasets.DenseMatrixSet;
 import maths.functions.IVectorRealFunction;
 
 public class RegressorBase<DataSetType extends DenseMatrixSet<Double>, HypothesisType extends IVectorRealFunction<IVector<Double>>> {
@@ -13,23 +13,23 @@ public class RegressorBase<DataSetType extends DenseMatrixSet<Double>, Hypothesi
     /**
      * Train the regressor on the given dataset
      */
-    public <OutputType> OutputType train(DataSetType dataSet, Vector y, ISupervisedOptimizer optimizer){
+    public <OutputType> OutputType train(DataSetType dataSet, VectorDouble y, ISupervisedOptimizer optimizer){
         return optimizer.optimize(dataSet, y, this.hypothesisType);
     }
 
     /**
      * Predict the value for the given input
      */
-    public double predict(Vector y){
+    public double predict(VectorDouble y){
         return (double) this.hypothesisType.evaluate(y);
     }
 
     /**
      * Predict the outputs over the given dataset
      */
-    public Vector predict(DataSetType dataSetType){
+    public VectorDouble predict(DataSetType dataSetType){
 
-        Vector predictions = new Vector(dataSetType.m(), 0.0);
+        VectorDouble predictions = new VectorDouble(dataSetType.m(), 0.0);
 
         for(int idx=0; idx<dataSetType.m(); ++idx){
             predictions.set(idx, this.hypothesisType.evaluate(dataSetType.getRow(idx)));
@@ -42,13 +42,13 @@ public class RegressorBase<DataSetType extends DenseMatrixSet<Double>, Hypothesi
     /**
      * Returns the errors over the given dataset with respect to the given labels
      */
-    public Vector getErrors(final DataSetType dataSet, final Vector y){
+    public VectorDouble getErrors(final DataSetType dataSet, final VectorDouble y){
 
         if(y.size() != dataSet.m()){
             throw new IllegalArgumentException("Dataset number of rows: "+dataSet.m()+" not equal to "+y.size());
         }
 
-        Vector errs = new Vector(y.size(), 0.0);
+        VectorDouble errs = new VectorDouble(y.size(), 0.0);
 
         for(int row = 0; row<dataSet.m(); ++row){
 

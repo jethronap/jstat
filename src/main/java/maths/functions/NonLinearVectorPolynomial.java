@@ -1,8 +1,8 @@
 package maths.functions;
 
 
-import maths.IVector;
-import maths.Vector;
+import datastructs.IVector;
+import datasets.VectorDouble;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -85,9 +85,9 @@ public class NonLinearVectorPolynomial implements IVectorRealFunction<IVector<Do
      * Returns the coefficients of the vector function
      */
     @Override
-    public final Vector getCoeffs(){
+    public final VectorDouble getCoeffs(){
 
-        Vector rslt = new Vector(this.terms.size(), 0.0);
+        VectorDouble rslt = new VectorDouble(this.terms.size(), 0.0);
 
         for (int i = 0; i < rslt.size() ; i++) {
 
@@ -109,13 +109,13 @@ public class NonLinearVectorPolynomial implements IVectorRealFunction<IVector<Do
      * Returns the gradients with respect to the coefficients at the given data point
      */
     @Override
-    public Vector gradidents(IVector<Double> data){
+    public VectorDouble gradidents(IVector<Double> data){
 
         if(data.size() != this.terms.size()){
             throw new IllegalArgumentException("Invalid data size "+data.size()+" should be equal to: "+this.terms.size());
         }
 
-        Vector rslt = new Vector(data.size(), 0.0);
+        VectorDouble rslt = new VectorDouble(data.size(), 0.0);
 
         for (int i = 0; i < rslt.size() ; i++) {
 
@@ -129,9 +129,9 @@ public class NonLinearVectorPolynomial implements IVectorRealFunction<IVector<Do
      * Compute the gradients with respect to the coefficients
      */
     @Override
-    public Vector coeffGradients(IVector<Double> data){
+    public VectorDouble coeffGradients(IVector<Double> data){
 
-        Vector grads = new Vector(this.terms.size(), 0.0);
+        VectorDouble grads = new VectorDouble(this.terms.size(), 0.0);
 
         for (int i = 0; i < grads.size(); i++) {
             grads.set(i, this.coeffGradient(i, data));

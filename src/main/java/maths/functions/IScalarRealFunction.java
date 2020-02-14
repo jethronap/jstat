@@ -1,7 +1,7 @@
 package maths.functions;
 
 
-import maths.Vector;
+import datasets.VectorDouble;
 
 public interface IScalarRealFunction extends IRealFunction<Double>  {
 
@@ -13,7 +13,7 @@ public interface IScalarRealFunction extends IRealFunction<Double>  {
     /**
      * Returns the coefficients of the vector function
      */
-    Vector getCoeffs();
+    VectorDouble getCoeffs();
 
     /**
      * Set the coefficients of the function

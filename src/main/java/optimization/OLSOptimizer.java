@@ -1,9 +1,9 @@
 package optimization;
 
 import utils.IterativeAlgorithmResult;
-import maths.I2DDataSet;
-import maths.IVector;
-import maths.Vector;
+import datastructs.I2DDataSet;
+import datastructs.IVector;
+import datasets.VectorDouble;
 import maths.functions.IVectorRealFunction;
 import org.apache.commons.math3.stat.regression.OLSMultipleLinearRegression;
 import utils.ArrayUtils;
@@ -17,7 +17,7 @@ public class OLSOptimizer implements ISupervisedOptimizer {
     /**
      * Optimize f on the given data
      */
-    public <OutPutType, DataSetType extends I2DDataSet<IVector<Double>>> OutPutType optimize(final DataSetType data, final Vector y, IVectorRealFunction f){
+    public <OutPutType, DataSetType extends I2DDataSet<IVector<Double>>> OutPutType optimize(final DataSetType data, final VectorDouble y, IVectorRealFunction f){
 
         IterativeAlgorithmResult reslt = new IterativeAlgorithmResult();
         reslt.numThreadsUsed = 1;

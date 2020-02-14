@@ -1,6 +1,6 @@
 package maths.functions;
 
-import maths.Vector;
+import datasets.VectorDouble;
 
 /**
  * Class that models a function of the form f = a*X^order
@@ -35,7 +35,7 @@ public class ScalarMonomial implements IScalarRealFunction {
      * Returns the coefficients of the vector function
      */
     @Override
-    public Vector getCoeffs(){return new Vector(1, this.a);}
+    public VectorDouble getCoeffs(){return new VectorDouble(1, this.a);}
 
     /**
      * Set the coefficients of the function

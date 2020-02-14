@@ -1,13 +1,13 @@
 package examples.optimization.example2;
 
+import datasets.VectorDouble;
 import optimization.GradientDescent;
 import utils.DefaultIterativeAlgorithmController;
 import utils.IterativeAlgorithmResult;
 import optimization.GDInput;
-import maths.DenseMatrixSet;
-import maths.RowBuilder;
-import maths.Vector;
-import maths.RowType;
+import datasets.DenseMatrixSet;
+import datastructs.RowBuilder;
+import datastructs.RowType;
 import maths.functions.LinearVectorPolynomial;
 import maths.errorfunctions.MSEVectorFunction;
 import org.apache.commons.math3.stat.regression.OLSMultipleLinearRegression;
@@ -29,14 +29,14 @@ import java.util.List;
 
 public class Example2 {
 
-        public static Pair<DenseMatrixSet, Vector> loadNormalizedDataSet(File file)throws IOException{
+        public static Pair<DenseMatrixSet, VectorDouble> loadNormalizedDataSet(File file)throws IOException{
 
             // load the data
             Table dataSet = TableDataSetLoader.loadDataSet(file);
 
             DoubleColumn y = dataSet.doubleColumn("Electricity Usage");
             ListMaths.normalize(y);
-            Vector labels = new Vector(y);
+            VectorDouble labels = new VectorDouble(y);
 
             Table reducedDataSet = dataSet.removeColumns("Electricity Usage").first(dataSet.rowCount());
             ListMaths.normalize(reducedDataSet.doubleColumn(0));
@@ -51,7 +51,7 @@ public class Example2 {
 
         }
 
-        public static void apacheOLS(DenseMatrixSet denseMatrixSet, Vector labels)throws IOException{
+        public static void apacheOLS(DenseMatrixSet denseMatrixSet, VectorDouble labels)throws IOException{
 
             // the object that will do the fitting for us
             OLSMultipleLinearRegression regression = new OLSMultipleLinearRegression();
@@ -67,7 +67,7 @@ public class Example2 {
 
         public static void main(String[] args)throws IOException {
 
-            Pair<DenseMatrixSet, Vector> dataSet = Example2.loadNormalizedDataSet(new File("src/main/resources/datasets/car_plant_multi.csv"));
+            Pair<DenseMatrixSet, VectorDouble> dataSet = Example2.loadNormalizedDataSet(new File("src/main/resources/datasets/car_plant_multi.csv"));
 
             System.out.println(" ");
             // compute with Apache OLS for reference

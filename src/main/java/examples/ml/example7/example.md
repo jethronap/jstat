@@ -23,10 +23,10 @@ import optimization.GradientDescent;
 import optimization.GDInput;
 import utils.DefaultIterativeAlgorithmController;
 import utils.IterativeAlgorithmResult;
-import maths.DenseMatrixSet;
-import maths.RowBuilder;
-import maths.Vector;
-import maths.RowType;
+import datasets.DenseMatrixSet;
+import datastructs.RowBuilder;
+import datasets.VectorDouble;
+import datastructs.RowType;
 import maths.errorfunctions.MSEVectorFunction;
 import maths.functions.LinearVectorPolynomial;
 

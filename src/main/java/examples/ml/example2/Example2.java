@@ -1,13 +1,13 @@
 package examples.ml.example2;
 
+import datasets.VectorDouble;
 import optimization.GradientDescent;
 import optimization.GDInput;
 import utils.DefaultIterativeAlgorithmController;
 import utils.IterativeAlgorithmResult;
-import maths.DenseMatrixSet;
-import maths.RowBuilder;
-import maths.Vector;
-import maths.RowType;
+import datasets.DenseMatrixSet;
+import datastructs.RowBuilder;
+import datastructs.RowType;
 import maths.errorfunctions.MSEVectorFunction;
 import maths.functions.NonLinearVectorPolynomial;
 import maths.functions.ScalarMonomial;
@@ -33,7 +33,7 @@ public class Example2 {
             // load the data
             Table dataSet = TableDataSetLoader.loadDataSet(new File("src/main/resources/datasets/car_plant.csv"));
 
-            Vector labels = new Vector(dataSet, "Electricity Usage");
+            VectorDouble labels = new VectorDouble(dataSet, "Electricity Usage");
             Table reducedDataSet = dataSet.removeColumns("Electricity Usage").first(dataSet.rowCount());
 
             DenseMatrixSet denseMatrixSet = new DenseMatrixSet(RowType.Type.DOUBLE_VECTOR, new RowBuilder(), reducedDataSet.rowCount(), 2, 1.0);

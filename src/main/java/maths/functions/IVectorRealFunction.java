@@ -1,7 +1,6 @@
 package maths.functions;
 
-import maths.IVector;
-import maths.Vector;
+import datastructs.IVector;
 
 public interface IVectorRealFunction<VectorType> extends IRealFunction<VectorType> {
 

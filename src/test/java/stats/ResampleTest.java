@@ -1,6 +1,7 @@
 package stats;
 
-import datastructs.NumericSample;
+import datasets.VectorDouble;
+import datastructs.IVector;
 import org.junit.Ignore;
 import org.junit.Test;
 import stats.utils.Resample;
@@ -10,9 +11,9 @@ import static org.junit.Assert.assertFalse;
 public class ResampleTest {
 
 
-    static final NumericSample getNumericSample(int size){
+    static final VectorDouble getNumericSample(int size){
 
-        NumericSample inSample = new NumericSample("TestIn", size);
+        VectorDouble inSample = new VectorDouble(size);
 
         for(int i=0; i<inSample.size(); ++i){
             inSample.set(i, new Double(i));
@@ -30,8 +31,8 @@ public class ResampleTest {
     @Test
     public void testResampleEqualSize(){
 
-        NumericSample inSample = ResampleTest.getNumericSample(10);
-        NumericSample outSample = Resample.resample(inSample, 10, 3);
+        VectorDouble inSample = ResampleTest.getNumericSample(10);
+        IVector<Double> outSample = Resample.resample(inSample, 10, 3);
         assertEquals(outSample.size(), 10);
     }
 
@@ -43,8 +44,8 @@ public class ResampleTest {
     @Test
     public void testResampleSmallerSize(){
 
-        NumericSample inSample = ResampleTest.getNumericSample(10);
-        NumericSample outSample = Resample.resample(inSample, 5, 3);
+        VectorDouble inSample = ResampleTest.getNumericSample(10);
+        IVector<Double> outSample = Resample.resample(inSample, 5, 3);
         assertEquals(outSample.size(),5 );
     }
 

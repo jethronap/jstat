@@ -21,10 +21,10 @@
 ```
 package examples.ml.example4;
 
-import maths.DenseMatrixSet;
-import maths.RowBuilder;
-import maths.Vector;
-import maths.RowType;
+import datasets.DenseMatrixSet;
+import datastructs.RowBuilder;
+import datasets.VectorDouble;
+import datastructs.RowType;
 import maths.functions.distances.EuclideanVectorCalculator;
 import ml.classifiers.ThreadedKNNClassifier;
 import parallel.partitioners.MatrixRowPartitionPolicy;

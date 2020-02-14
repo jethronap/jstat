@@ -1,12 +1,10 @@
 package ml.classifiers;
 
+import datasets.VectorDouble;
 import optimization.ISupervisedOptimizer;
-import maths.I2DDataSet;
-import maths.IVector;
-import maths.Vector;
+import datastructs.I2DDataSet;
+import datastructs.IVector;
 import maths.functions.IVectorRealFunction;
-
-import java.util.List;
 
 public class LogisticRegressionClassifier<DataSetType extends I2DDataSet<IVector<Double>>,
                                 HypothesisType extends IVectorRealFunction<IVector<Double>>> extends ClassifierBase<DataSetType> {
@@ -24,7 +22,7 @@ public class LogisticRegressionClassifier<DataSetType extends I2DDataSet<IVector
      * Train the model using the provided dataset
      */
     @Override
-    public <OutputType> OutputType train(final DataSetType dataSet, final Vector labels){
+    public <OutputType> OutputType train(final DataSetType dataSet, final VectorDouble labels){
         return this.optimizer.optimize(dataSet, labels, this.hypothesis);
     }
 
@@ -33,7 +31,7 @@ public class LogisticRegressionClassifier<DataSetType extends I2DDataSet<IVector
      */
     @Override
     public <PointType> Integer  predict(PointType point){
-        Vector vec = (Vector) point;
+        VectorDouble vec = (VectorDouble) point;
         double hypothesisVal = this.hypothesis.evaluate(vec);
 
         if(hypothesisVal >= 0.5){

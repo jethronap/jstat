@@ -3,7 +3,6 @@ import org.junit.runner.Result;
 import dataloader.CsvLoaderTestRunner;
 import testutils.ITestRunnerBase;
 import dataloader.JsonLoaderTestRunner;
-import datastructs.CategoricalSampleTestRunner;
 import datastructs.NumericSampleTestRunner;
 import stats.ResampleTestRunner;
 import utils.ArrayOperationsTestRunner;
@@ -36,14 +35,6 @@ public class AllTestsRunner {
         totalTime += result.getRunTime();
 
         runner = new NumericSampleTestRunner();
-        result = runner.run(args);
-
-        totalNumTests += result.getRunCount();
-        totalFailureCount += result.getFailureCount();
-        totalIgnoredCount += result.getIgnoreCount();
-        totalTime += result.getRunTime();
-
-        runner = new CategoricalSampleTestRunner();
         result = runner.run(args);
 
         totalNumTests += result.getRunCount();

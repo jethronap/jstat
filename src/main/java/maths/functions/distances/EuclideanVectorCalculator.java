@@ -1,6 +1,6 @@
 package maths.functions.distances;
 
-import maths.IVector;
+import datastructs.IVector;
 
 /**
  * Compute Euclidean distance for vector-like datastructs

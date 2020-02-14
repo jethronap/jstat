@@ -1,7 +1,7 @@
 package examples.plotting.example3;
 
 import dataloader.CsvDataLoader;
-import datastructs.NumericSample;
+import datastructs.IVector;
 import tech.tablesaw.api.Table;
 import visualizations.LineChart;
 
@@ -24,8 +24,8 @@ public class Example3 {
         Table table = CsvDataLoader.TableLoader.parseFile(file);
 
         // extract numeric samples from the data
-        NumericSample X = CsvDataLoader.TableLoader.buildNumericSample(table, "Year");
-        NumericSample Y = CsvDataLoader.TableLoader.buildNumericSample(table, "Mean");
+        IVector<Double> X = CsvDataLoader.TableLoader.buildNumericSample(table, "Year");
+        IVector<Double> Y = CsvDataLoader.TableLoader.buildNumericSample(table, "Mean");
 
         LineChart plotter = new LineChart();
         LineChart.LineChartOptions options = plotter.new LineChartOptions();

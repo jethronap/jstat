@@ -38,6 +38,17 @@ public class ListUtils {
         return array;
     }
 
+    public static  <T> double[] toDoubleArray(final T[] list){
+
+        double[] array = new double[list.length];
+
+        for(int i=0; i<list.length; ++i){
+            array[i] = ((Double)list[i]).doubleValue();
+        }
+
+        return array;
+    }
+
     /**
      * Swap the elements in the list
      */

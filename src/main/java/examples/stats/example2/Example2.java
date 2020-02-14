@@ -1,8 +1,10 @@
 package examples.stats.example2;
 
 import dataloader.CsvDataLoader;
-import datastructs.NumericSample;
+import datasets.VectorDouble;
+import datastructs.IVector;
 import org.apache.commons.math3.stat.inference.TestUtils;
+import utils.ListUtils;
 
 import java.io.File;
 import java.io.IOException;
@@ -25,13 +27,13 @@ public class Example2 {
         try {
             // load data set
             Map<String, List<String>> dataSet = CsvDataLoader.MapLoader.parseFile(new File("data/robot_state.csv"));
-            NumericSample sample = CsvDataLoader.MapLoader.buildNumericSample(dataSet, "X");
+            IVector<Double> sample = CsvDataLoader.MapLoader.buildNumericSample(dataSet, "X");
 
             // the mean value we assume
             double mu = 2.85;
             double level = 0.05;
-            boolean rejectH0 = TestUtils.tTest(mu, sample.asArray(), level );
-            double pLevel = TestUtils.tTest(mu, sample.asArray());
+            boolean rejectH0 = TestUtils.tTest(mu, ListUtils.toDoubleArray(sample.toArray()), level );
+            double pLevel = TestUtils.tTest(mu, ListUtils.toDoubleArray(sample.toArray()));
 
             System.out.println("p-level is: "+pLevel);
             if(rejectH0){
@@ -42,10 +44,10 @@ public class Example2 {
             }
 
             // now we should not reject
-            mu = sample.getMean();
+            mu = ((VectorDouble)sample).getMean();
 
-            rejectH0 = TestUtils.tTest(mu, sample.asArray(), level );
-            pLevel = TestUtils.tTest(mu, sample.asArray());
+            rejectH0 = TestUtils.tTest(mu, ListUtils.toDoubleArray(sample.toArray()), level );
+            pLevel = TestUtils.tTest(mu, ListUtils.toDoubleArray(sample.toArray()));
 
             System.out.println("p-level is: "+pLevel);
             if(rejectH0){

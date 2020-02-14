@@ -1,9 +1,9 @@
 package ml.classifiers;
 
-import maths.IVector;
+import datastructs.IVector;
 import maths.functions.distances.DistanceCalculator;
 import ml.classifiers.utils.ClassificationVoter;
-import maths.I2DDataSet;
+import datastructs.I2DDataSet;
 import utils.Pair;
 
 import java.util.*;

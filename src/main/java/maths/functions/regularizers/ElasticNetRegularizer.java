@@ -1,7 +1,6 @@
 package maths.functions.regularizers;
 
-import maths.IVector;
-import maths.Vector;
+import datastructs.IVector;
 import maths.functions.IRegularizerFunction;
 import maths.functions.IVectorRealFunction;
 

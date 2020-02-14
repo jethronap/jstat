@@ -1,7 +1,7 @@
 package visualizations;
 
 
-import datastructs.NumericSample;
+import datastructs.IVector;
 import tech.tablesaw.api.DoubleColumn;
 import tech.tablesaw.api.Table;
 import tech.tablesaw.plotly.Plot;
@@ -29,10 +29,10 @@ public class ScatterChart {
      * of the data set.
      */
 
-    public static void plotScatter(ScatterChartOptions options, NumericSample x, NumericSample y){
+    public static void plotScatter(ScatterChartOptions options, IVector<Double> x, IVector<Double> y){
 
-        DoubleColumn xCol = DoubleColumn.create(options.xAxisName, x.asArray());
-        DoubleColumn yCol = DoubleColumn.create(options.yAxisName, y.asArray());
+        DoubleColumn xCol = DoubleColumn.create(options.xAxisName, x.toArray());
+        DoubleColumn yCol = DoubleColumn.create(options.yAxisName, y.toArray());
         Table table = Table.create(xCol, yCol);
         Plot.show(ScatterPlot.create(options.chartTitle, table, options.xAxisName, options.yAxisName));
     }

@@ -1,8 +1,8 @@
 package maths.errorfunctions;
 
-import maths.I2DDataSet;
-import maths.IVector;
-import maths.Vector;
+import datastructs.I2DDataSet;
+import datastructs.IVector;
+import datasets.VectorDouble;
 import maths.functions.IRegularizerFunction;
 import maths.functions.IVectorRealFunction;
 
@@ -40,7 +40,7 @@ public class MSEVectorFunction implements IVectorErrorRealFunction {
      * @return
      */
     @Override
-    public <DataSetType extends I2DDataSet> double evaluate(DataSetType data, Vector labels){
+    public <DataSetType extends I2DDataSet> double evaluate(DataSetType data, VectorDouble labels){
 
         if(data.m() != labels.size()){
             throw new IllegalArgumentException("Invalid number of data points and labels vector size");
@@ -49,7 +49,7 @@ public class MSEVectorFunction implements IVectorErrorRealFunction {
         double result = 0.0;
 
         for(int rowIdx=0; rowIdx<data.m(); ++rowIdx){
-            Vector row = (Vector) data.getRow(rowIdx);
+            VectorDouble row = (VectorDouble) data.getRow(rowIdx);
             double diff = labels.get(rowIdx) - this.hypothesis.evaluate(row);
             diff *= diff;
             result += diff;
@@ -68,14 +68,14 @@ public class MSEVectorFunction implements IVectorErrorRealFunction {
      * Returns the gradients on the given data
      */
     @Override
-    public <DataSetType extends I2DDataSet> Vector gradients(DataSetType data, Vector labels){
+    public <DataSetType extends I2DDataSet> VectorDouble gradients(DataSetType data, VectorDouble labels){
 
 
-        Vector gradients = new Vector(this.hypothesis.numCoeffs(), 0.0);
+        VectorDouble gradients = new VectorDouble(this.hypothesis.numCoeffs(), 0.0);
 
         for(int rowIdx=0; rowIdx<data.m(); ++rowIdx){
 
-            Vector row = (Vector) data.getRow(rowIdx);
+            VectorDouble row = (VectorDouble) data.getRow(rowIdx);
 
             double diff = (labels.get(rowIdx) - this.hypothesis.evaluate(row));
 

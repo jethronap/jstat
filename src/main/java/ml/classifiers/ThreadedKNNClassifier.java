@@ -1,7 +1,7 @@
 package ml.classifiers;
 
-import maths.I2DDataSet;
-import maths.IVector;
+import datastructs.I2DDataSet;
+import datastructs.IVector;
 import maths.functions.distances.DistanceCalculator;
 import parallel.partitioners.IPartitionPolicy;
 import parallel.tasks.TaskBase;

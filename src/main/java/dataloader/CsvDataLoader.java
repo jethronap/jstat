@@ -2,8 +2,8 @@ package dataloader;
 
 import base.Configuration;
 import dataloader.utils.ParseUtils;
-import datastructs.CategoricalSample;
-import datastructs.NumericSample;
+import datasets.VectorDouble;
+import datastructs.IVector;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
@@ -37,14 +37,14 @@ public class CsvDataLoader {
         /**
          * Create a NumericsSample from the given column in the given Map
          */
-        public static NumericSample buildNumericSample(Map<String, List<String>> dataSet, String colName) {
+        public static IVector<Double> buildNumericSample(Map<String, List<String>> dataSet, String colName) {
 
             if (dataSet == null) {
 
                 throw new IllegalArgumentException("Null data set given");
             }
 
-            NumericSample numericSample;
+            VectorDouble numericSample;
 
             if (!dataSet.containsKey(colName)) {
 
@@ -52,42 +52,17 @@ public class CsvDataLoader {
                     Configuration.Logging.printWarning("Column " + colName + " not in dataset");
                 }
 
-                numericSample = new NumericSample(colName, 0);
+                numericSample = new VectorDouble(0);
 
             } else {
 
                 List<Double> data = ParseUtils.parseAsDouble(dataSet.get(colName));
-                numericSample = new NumericSample(colName, data);
+                numericSample = new VectorDouble(data);
             }
             return numericSample;
         }
 
 
-        /**
-         * Create a CategoricalSample from the given column in the given Map
-         */
-        public static CategoricalSample buildCategoricalSample(Map<String, List<String>> dataSet, String colName) {
-
-            if (dataSet == null) {
-                throw new IllegalArgumentException("Null data set given");
-            }
-
-            CategoricalSample categoricalSample;
-
-            if (!dataSet.containsKey(colName)) {
-
-                if (Configuration.ENABLE_WARNINGS) {
-                    Configuration.Logging.printWarning("Column " + colName + " not in dataset");
-                }
-
-                categoricalSample = new CategoricalSample(colName, 0);
-            } else {
-
-                categoricalSample = new CategoricalSample(colName, dataSet.get(colName));
-            }
-
-            return categoricalSample;
-        }
 
 
         /**
@@ -190,14 +165,14 @@ public class CsvDataLoader {
         /**
          * Create a NumericsSample from the given column of the given Map
          */
-        public static NumericSample buildNumericSample(Table dataSet, String colName) {
+        public static IVector<Double> buildNumericSample(Table dataSet, String colName) {
 
             if (dataSet == null) {
 
                 throw new IllegalArgumentException("Null data set given");
             }
 
-            NumericSample sample;
+            VectorDouble sample;
             Column col = dataSet.column(colName);
 
             if (col == null) {
@@ -206,12 +181,12 @@ public class CsvDataLoader {
                     Configuration.Logging.printWarning("Column " + colName + " not in dataset");
                 }
 
-                sample = new NumericSample(colName, 0);
+                sample = new VectorDouble(0);
             }
             else {
 
                 List<Double> data = ParseUtils.parseAsDouble(col);
-                sample = new NumericSample(colName, data);
+                sample = new VectorDouble(data);
             }
 
             return sample;

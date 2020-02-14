@@ -1,6 +1,6 @@
 package visualizations;
 
-import datastructs.NumericSample;
+import datastructs.IVector;
 import tech.tablesaw.api.DoubleColumn;
 import tech.tablesaw.api.Table;
 import tech.tablesaw.plotly.Plot;
@@ -27,10 +27,10 @@ public class LineChart {
     /**
      * Plots a line given the chart options and two numeric columns
      */
-    public static void plotLine(NumericSample x, NumericSample y, LineChartOptions options){
+    public static void plotLine(IVector<Double> x, IVector<Double> y, LineChartOptions options){
 
-        DoubleColumn xCol = DoubleColumn.create(options.xAxisName, x.asArray());
-        DoubleColumn yCol = DoubleColumn.create(options.yAxisName, y.asArray());
+        DoubleColumn xCol = DoubleColumn.create(options.xAxisName, x.toArray());
+        DoubleColumn yCol = DoubleColumn.create(options.yAxisName, y.toArray());
         Table table = Table.create(xCol, yCol);
         Plot.show(LinePlot.create(options.chartTitle, table, options.xAxisName, options.yAxisName));
     }

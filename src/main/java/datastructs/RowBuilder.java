@@ -1,5 +1,10 @@
-package maths;
+package datastructs;
 
+
+import datastructs.DoubleVectorBuilder;
+import datastructs.IRowBuilder;
+import datastructs.IntegerVectorBuilder;
+import datastructs.RowType;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -15,17 +20,17 @@ public class RowBuilder {
         elementBuilder.put(RowType.Type.INTEGER_VECTOR, new IntegerVectorBuilder());
     }
 
-    <Row> Row build(RowType.Type type){
+    public <Row> Row build(RowType.Type type){
 
         return (Row) elementBuilder.get(type).create();
     }
 
-    <Row> Row build(RowType.Type type, int n){
+    public <Row> Row build(RowType.Type type, int n){
 
         return (Row) elementBuilder.get(type).create(n);
     }
 
-    <Row, T> Row build(RowType.Type type, T... vals){
+    public <Row, T> Row build(RowType.Type type, T... vals){
 
         return (Row) elementBuilder.get(type).create(vals);
     }

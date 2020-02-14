@@ -1,8 +1,8 @@
 package ml.clustering;
 
 import utils.IterativeAlgorithmResult;
-import maths.I2DDataSet;
-import maths.IVector;
+import datastructs.I2DDataSet;
+import datastructs.IVector;
 import maths.functions.distances.DistanceCalculator;
 import maths.functions.generators.IRandomGenerator;
 

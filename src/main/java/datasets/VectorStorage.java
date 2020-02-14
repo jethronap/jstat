@@ -1,4 +1,4 @@
-package maths;
+package datasets;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +10,6 @@ public class VectorStorage<T> {
      * Creates a vector of given size with entries initialized to val
      */
     public VectorStorage(int size, T val){
-
         create(size, val);
     }
 
@@ -19,6 +18,17 @@ public class VectorStorage<T> {
      * Create a vector from the given double values
      */
     public VectorStorage(T... data){
+        this.data = new ArrayList<>();
+
+        for(T val: data){
+            this.data.add(val);
+        }
+    }
+
+    /**
+     * Create a vector from the given double values
+     */
+    public VectorStorage(List<T> data){
         this.data = new ArrayList<>();
 
         for(T val: data){
