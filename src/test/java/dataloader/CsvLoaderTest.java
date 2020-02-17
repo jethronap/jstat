@@ -73,11 +73,11 @@ public class CsvLoaderTest {
     }
 
     /**
-     * TestScenario Application wants to build a NumericSample from a column of the data set that
+     * TestScenario Application wants to build a VectorDouble from a column of the data set that
      * does not exist
-     * Expected Output: A NumericSample is returned with zero capacity
+     * Expected Output: An IllegalArgumentException is thrown
      */
-    @Test
+    @Test(expected = IllegalArgumentException.class)
     public void testBuildNumericSampleFromCsvWithNoExistingColumn()throws IOException{
 
         File file = new File("test_data/dummy.csv");
@@ -85,12 +85,11 @@ public class CsvLoaderTest {
         assertNotNull(dataSet);
 
         IVector<Double> sample = CsvDataLoader.MapLoader.buildNumericSample(dataSet, "DummyColumn");
-        assertEquals(sample.size(), 0);
     }
 
     /**
-     * TestScenario Application wants to build a NumericSample from a column of the data set
-     * Expected Output: A NumericSample should be  returned populated with the data
+     * TestScenario Application wants to build a VectorDouble from a column of the data set
+     * Expected Output: A VectorDouble should be  returned populated with the data
      **/
     @Test
     public void testBuildNumericSampleFromCsvWithExistingColumn()throws IOException{

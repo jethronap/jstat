@@ -40,7 +40,7 @@ public class VectorStorage<T> {
     /**
      * Exchange the i-th entry with the j-th
      */
-    public void excahnge(int i, int k){
+    public void exchange(int i, int k){
 
         if( (i>=this.size() || k>=this.size()) || (i < 0 || k < 0)){
             throw new IllegalArgumentException("Invalid entry index given");

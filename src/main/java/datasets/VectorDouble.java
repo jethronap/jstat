@@ -34,20 +34,25 @@ public class VectorDouble implements IVector<Double> {
     public VectorDouble(int size, double val){
 
         this.data = new VectorStorage<>(size, val);
+        this.stats_ = new Statistics();
     }
 
     /**
      * Create a vector from the given double values
      */
     public VectorDouble(Double... data){
+
         this.data = new VectorStorage<>(data);
+        this.stats_ = new Statistics();
     }
 
     /**
      * Create a vector from the given double values
      */
     public VectorDouble(List<Double> data){
+
         this.data = new VectorStorage<Double>(data);
+        this.stats_ = new Statistics();
     }
 
     /**
@@ -79,6 +84,7 @@ public class VectorDouble implements IVector<Double> {
     public VectorDouble(DoubleColumn column){
         this.data = new VectorStorage<>(column.size(), 0.0);
         this.set(column);
+        this.stats_ = new Statistics();
     }
 
     @Override
@@ -153,7 +159,7 @@ public class VectorDouble implements IVector<Double> {
      */
     @Override
     public void excahnge(int i, int k){
-        this.data.excahnge(i, k);
+        this.data.exchange(i, k);
     }
 
     /**

@@ -139,7 +139,7 @@ public class VectorInt implements IVector<Integer> {
      */
     @Override
     public void excahnge(int i, int k){
-        this.data.excahnge(i, k);
+        this.data.exchange(i, k);
     }
 
 

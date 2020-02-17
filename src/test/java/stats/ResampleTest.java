@@ -5,8 +5,8 @@ import datastructs.IVector;
 import org.junit.Ignore;
 import org.junit.Test;
 import stats.utils.Resample;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
+
+import static org.junit.Assert.*;
 
 public class ResampleTest {
 
@@ -33,6 +33,7 @@ public class ResampleTest {
 
         VectorDouble inSample = ResampleTest.getNumericSample(10);
         IVector<Double> outSample = Resample.resample(inSample, 10, 3);
+        assertNotNull(outSample);
         assertEquals(outSample.size(), 10);
     }
 
@@ -46,6 +47,7 @@ public class ResampleTest {
 
         VectorDouble inSample = ResampleTest.getNumericSample(10);
         IVector<Double> outSample = Resample.resample(inSample, 5, 3);
+        assertNotNull(outSample);
         assertEquals(outSample.size(),5 );
     }
 
