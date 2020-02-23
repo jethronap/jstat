@@ -26,11 +26,13 @@
             <name>Ioannis Efthymiou</name>
             <email>efthioa@gmail.com</email>
             <organization>Jstat</organization>
+            <organizationUrl>https://github.com/jethronap</organizationUrl>
         </developer>
         <developer>
             <name>Alexandros Giavaras</name>
             <email>a.giavaras@gmail.com</email>
             <organization>Jstat</organization>
+            <organizationUrl>https://github.com/pockerman</organizationUrl>
         </developer>
     </developers>
 
@@ -41,6 +43,16 @@
         <url>https://github.com/jethronap/jstat/tree/master</url>
     </scm>
 
+    <distributionManagement>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
