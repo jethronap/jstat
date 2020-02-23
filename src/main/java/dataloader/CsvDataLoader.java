@@ -25,7 +25,7 @@ import java.util.Map;
  * Class that loads data from a
  * specific csv file
  * and creates datasets in two formats
- * HashMap & Table from tablesaw.
+ * HashMap and Table from tablesaw.
  */
 
 public class CsvDataLoader {
@@ -36,6 +36,10 @@ public class CsvDataLoader {
 
         /**
          * Create a NumericsSample from the given column in the given Map
+         *
+         * @param dataSet The name of the data set
+         * @param colName The column name
+         * @return A numeric sample
          */
         public static IVector<Double> buildNumericSample(Map<String, List<String>> dataSet, String colName) {
 
@@ -69,6 +73,10 @@ public class CsvDataLoader {
          * Simple method that parses data set from a csv file
          * The CSV file should NOT have the last column ending with comma.
          * The CSV column names should NOT have white space
+         *
+         * @param csvFile A given csv file
+         * @return a data set
+         * @throws IOException When invalid file is given
          */
         public static Map<String, List<String>> parseFile(File csvFile) throws IOException {
 
@@ -123,6 +131,10 @@ public class CsvDataLoader {
          * Simple method that parses a
          * data set from a csv file
          * without headers
+         *
+         * @param csvFile A given csv file
+         * @return a data set
+         * @throws IOException When invalid file is given
          */
         public static Map<String, List<String>> parseFile(String csvFile) throws IOException {
             File file = new File(csvFile);
@@ -141,6 +153,10 @@ public class CsvDataLoader {
          * and the file has a header row.
          * Missing values are treated with an indicator.
          * A Table dataSet is returned
+         *
+         * @param csvFile A given csv file
+         * @return A data set
+         * @throws IOException When invalid file is given
          */
         public static Table parseFile(String csvFile) throws IOException {
 
@@ -153,6 +169,10 @@ public class CsvDataLoader {
          * and the file has a header row.
          * Missing values are treated with an indicator.
          * A Table dataSet is returned
+         *
+         * @param csvFile A given csv file
+         * @return A data set
+         * @throws IOException When invalid file is given
          */
         public static Table parseFile(File csvFile) throws IOException {
 
@@ -164,6 +184,10 @@ public class CsvDataLoader {
 
         /**
          * Create a NumericsSample from the given column of the given Map
+         *
+         * @param dataSet A given data set in Tablesaw format
+         * @param colName The name of the column
+         * @return A numeric sample
          */
         public static IVector<Double> buildNumericSample(Table dataSet, String colName) {
 
