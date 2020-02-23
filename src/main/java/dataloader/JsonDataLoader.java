@@ -19,7 +19,7 @@ import java.util.Map;
  * Class that loads data from a
  * specific json file
  * and creates datasets in two formats
- * HashMap & Table from tablesaw.
+ * HashMap and Table from tablesaw.
  */
 
 public class JsonDataLoader {
@@ -28,8 +28,12 @@ public class JsonDataLoader {
         /**
          * Method that parses data set from a json file
          * without knowing the file's format
-         * & gets the key value pairs.
+         * and gets the key value pairs.
          * Doesn't accept json in array format.
+         *
+         * @param jsonFile A json file
+         * @return A data set
+         * @throws IOException For wrong file given
          */
         public static HashMap parseFile(File jsonFile) throws IOException {
 
@@ -52,8 +56,12 @@ public class JsonDataLoader {
         /**
          * Method that parses data set from a json file
          * without knowing the file's format
-         * & gets the key value pairs.
+         * and gets the key value pairs.
          * Doesn't accept json in array format.
+         *
+         * @param jsonFile A json file
+         * @return A data set
+         * @throws IOException For wrong file given
          */
         public static HashMap parseFile(String jsonFile) throws IOException {
             File file = new File(jsonFile);
@@ -73,6 +81,10 @@ public class JsonDataLoader {
          * Accepts json format as arrays,
          * with or without headers, array of objects.
          * A dataSet in tablesaw format is returned.
+         *
+         * @param jsonFile A json file
+         * @return A data set
+         * @throws IOException For wrong file given
          */
         public static Table parseFile(String jsonFile) throws IOException {
             File file = new File(jsonFile);
@@ -84,6 +96,10 @@ public class JsonDataLoader {
          * Accepts json format as arrays,
          * with or without headers, array of objects.
          * A dataSet in tablesaw format is returned.
+         *
+         * @param jsonFile A json file
+         * @return A data set
+         * @throws IOException For wrong file given
          */
         public static Table parseFile(File jsonFile) throws IOException {
             JsonReadOptions options = JsonReadOptions.builder(jsonFile).build();

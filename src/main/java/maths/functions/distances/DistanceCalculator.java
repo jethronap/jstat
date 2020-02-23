@@ -35,9 +35,9 @@ public interface DistanceCalculator<PointType, ResultType> {
 
     /**
      * Returns
-     * -1 if r1 < r2
+     * -1 if r1 less than r2
      * 0  if r1 == r2
-     * 1 if  r1 > r2
+     * 1 if  r1 greater than r2
      */
     int compare(ResultType r1, ResultType r2);
 }

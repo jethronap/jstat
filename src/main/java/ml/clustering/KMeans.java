@@ -26,7 +26,9 @@ public class KMeans<PointType, DistanceType>{
     }
 
     /**
-      * Constructor
+     * Constructor
+     *
+     * @param input The given input
      */
     public KMeans(KMeansInput input){
 

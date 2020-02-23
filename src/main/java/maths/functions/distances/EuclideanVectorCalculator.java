@@ -60,9 +60,9 @@ public class EuclideanVectorCalculator<T> implements DistanceCalculator<IVector<
 
     /**
      * Returns
-     * -1 if r1 < r2
+     * -1 if r1 less than r2
      * 0  if r1 == r2
-     * 1 if  r1 > r2
+     * 1 if  r1 greater than r2
      */
     @Override
     public int compare(Double r1, Double r2){

@@ -14,9 +14,11 @@ import static org.junit.Assert.assertNotNull;
 public class JsonLoaderTest {
 
     /**
-     * Test Scenario: The application wants to read a json dataset
+     * Test Scenario: The application wants to read a json data set
      * but the String is invalid(empty String).
      * Expected Output: JsonDataLoader throws an IOException.
+     *
+     * @throws IOException For wrong file given
      */
 
     @Test(expected = IOException.class)
@@ -27,6 +29,8 @@ public class JsonLoaderTest {
     /**
      * This is the same test as above
      * but for type Table.
+     *
+     * @throws IOException For wrong file given
      */
 
     @Test(expected = IOException.class)
@@ -36,8 +40,10 @@ public class JsonLoaderTest {
 
     /**
      * Test Scenario: a json file is provided
-     * Expected Output: the dataset is returned
+     * Expected Output: the data set is returned
      * along with the correct column size and row count.
+     *
+     * @throws IOException For wrong file given
      */
 
     @Test
@@ -56,7 +62,9 @@ public class JsonLoaderTest {
      * in array format.
      * Expected Output: The application read the json file and
      * return a data set with the correct key-value pairs.
-     * */
+     *
+     * @throws IOException For wrong file given
+     */
     @Test
     public void testValidJsonFileForHashMap() throws IOException {
 

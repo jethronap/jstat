@@ -18,6 +18,9 @@ public class DenseMatrixSet<T> implements I2DDataSet<IVector<T>> {
 
     /**
      * Constructor
+     *
+     * @param rowType The row type
+     * @param rowBuilder The row builder
      */
     public DenseMatrixSet(RowType.Type rowType, RowBuilder rowBuilder){
         this.rowType = rowType;
@@ -26,6 +29,12 @@ public class DenseMatrixSet<T> implements I2DDataSet<IVector<T>> {
 
     /**
      * Constructor
+     *
+     * @param rowType The row type
+     * @param builder The row builder
+     * @param n N
+     * @param m M
+     * @param val The value
      */
     public DenseMatrixSet(RowType.Type rowType, RowBuilder builder, int m, int n, T val){
         this(rowType, builder);
@@ -39,6 +48,10 @@ public class DenseMatrixSet<T> implements I2DDataSet<IVector<T>> {
 
     /**
      * Constructor
+     *
+     * @param rowType The row type
+     * @param builder The row builder
+     * @param data A data set in tablesaw format
      */
     public DenseMatrixSet(RowType.Type rowType, RowBuilder builder, Table data){
         this(rowType, builder);
@@ -47,6 +60,8 @@ public class DenseMatrixSet<T> implements I2DDataSet<IVector<T>> {
 
     /**
      * Copy constructors
+     *
+     * @param other A matrix set
      */
     public DenseMatrixSet(final DenseMatrixSet<T> other){
         this.initializeFrom(other);
@@ -85,7 +100,9 @@ public class DenseMatrixSet<T> implements I2DDataSet<IVector<T>> {
     public final int n(){return this.data.get(0).size();}
 
     /**
-     * Initialize the matrix from the given Table dataset
+     * Initialize the matrix from the given Table data set
+     *
+     * @param table A data set in tablesaw format
      */
     public void initializeFrom(final Table table){
 
@@ -110,6 +127,8 @@ public class DenseMatrixSet<T> implements I2DDataSet<IVector<T>> {
 
     /**
      * Initialize the matrix from the given DenseMatrix
+     *
+     * @param other The given dense matrix
      */
     public void initializeFrom(final DenseMatrixSet<T> other){
 
@@ -135,7 +154,7 @@ public class DenseMatrixSet<T> implements I2DDataSet<IVector<T>> {
     @Override
     public final <E> void getSubMatrix(E[][] subMatix, int numColsToInclude, int... includeCols){
 
-        //T[][] subMatix = new T[this.m()][numColsToInclude];
+        //T[][] subMatrix = new T[this.m()][numColsToInclude];
 
         for(int i=0; i<this.m(); ++i){
 
@@ -149,6 +168,8 @@ public class DenseMatrixSet<T> implements I2DDataSet<IVector<T>> {
     /**
      * Given the number of columns to include and the column indices
      * create a submatrix that has all the rows and columns specified
+     *
+     * @param column The given column
      */
     public final void duplicateColumn(int column){
 
@@ -165,6 +186,10 @@ public class DenseMatrixSet<T> implements I2DDataSet<IVector<T>> {
 
     /**
      * Set the (i,j) entry of the matrix
+     *
+     * @param i The i-th entry
+     * @param j The j-th entry
+     * @param value The value of the entry
      */
     public final void set(int i, int j, T value){
 
@@ -181,6 +206,9 @@ public class DenseMatrixSet<T> implements I2DDataSet<IVector<T>> {
 
     /**
      * Set the i-th row
+     *
+     * @param i The number of the row
+     * @param value The value of the vector
      */
     public final void set(int i, IVector<T> value){
 
@@ -197,6 +225,9 @@ public class DenseMatrixSet<T> implements I2DDataSet<IVector<T>> {
 
     /**
      * Set the i-th row
+     *
+     * @param i The number of the row
+     * @param value The values
      */
     public final void set(int i, Double... value){
 
@@ -205,6 +236,9 @@ public class DenseMatrixSet<T> implements I2DDataSet<IVector<T>> {
 
     /**
      * Set the c-th column from the DoubleColumn data
+     *
+     * @param c The number of the column
+     * @param col The data
      */
     public final void setColumn(int c, DoubleColumn col){
 
@@ -225,6 +259,9 @@ public class DenseMatrixSet<T> implements I2DDataSet<IVector<T>> {
 
     /**
      * Set the c-th column from the List data
+     *
+     * @param c The number of the column
+     * @param col A list of columns
      */
     public final void setColumn(int c, List<Double> col){
 
@@ -245,6 +282,8 @@ public class DenseMatrixSet<T> implements I2DDataSet<IVector<T>> {
 
     /**
      * Returns a copy of the values of the column-th column
+     *
+     * @param column The c-th column
      */
     public final IVector<T> getColumn(int column){
 
@@ -302,7 +341,7 @@ public class DenseMatrixSet<T> implements I2DDataSet<IVector<T>> {
      * Exchange the i-th row with the j-th row
      */
     @Override
-    public void excahngeRows(int i, int k){
+    public void exchangeRows(int i, int k){
 
         if( (i>=this.m() || k>=this.m()) || (i < 0 || k < 0)){
             throw new IllegalArgumentException("Invalid row index given");
@@ -317,13 +356,15 @@ public class DenseMatrixSet<T> implements I2DDataSet<IVector<T>> {
 
     /**
      * Set the partition policy for this matrix
+     *
+     * @param policy The policy
      */
     public void setPartitionPolicy(IPartitionPolicy policy){
         this.partitionePolicy = policy;
     }
 
     /**
-     * Returns the partiton policy
+     * Returns the partition policy
      */
     @Override
     public IPartitionPolicy getPartitionPolicy(){

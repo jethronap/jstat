@@ -20,6 +20,8 @@ public class CsvLoaderTest {
      * Test Scenario: The application wants to read a csv data set
      * but the String is invalid(empty String).
      * Expected Output: csvDataLoader throws an IOException.
+     *
+     * @throws IOException For wrong file
      */
 
     @Test(expected = IOException.class)
@@ -31,6 +33,8 @@ public class CsvLoaderTest {
     /**
      * This is the same test as above
      * but for type Table.
+     *
+     * @throws IOException For wrong file given
      */
 
     @Test(expected = IOException.class)
@@ -43,6 +47,8 @@ public class CsvLoaderTest {
      * Test Scenario: A data set in csv format is provided
      * Expected Output: The data set is returned
      * along with the correct column size and row count.
+     *
+     * @throws IOException For wrong file given
      */
 
     @Test
@@ -61,6 +67,8 @@ public class CsvLoaderTest {
      * Test Scenario: A data set in csv format is provided
      * Expected Output: the data set is returned
      * along with the correct column size and row count.
+     *
+     * @throws IOException For wrong file given
      */
     @Test
     public void testValidCsvFileForTable() throws IOException {
@@ -76,6 +84,8 @@ public class CsvLoaderTest {
      * TestScenario Application wants to build a VectorDouble from a column of the data set that
      * does not exist
      * Expected Output: An IllegalArgumentException is thrown
+     *
+     * @throws IOException For wrong file given
      */
     @Test(expected = IllegalArgumentException.class)
     public void testBuildNumericSampleFromCsvWithNoExistingColumn()throws IOException{
@@ -90,6 +100,8 @@ public class CsvLoaderTest {
     /**
      * TestScenario Application wants to build a VectorDouble from a column of the data set
      * Expected Output: A VectorDouble should be  returned populated with the data
+     *
+     * @throws IOException For wrong file given
      **/
     @Test
     public void testBuildNumericSampleFromCsvWithExistingColumn()throws IOException{

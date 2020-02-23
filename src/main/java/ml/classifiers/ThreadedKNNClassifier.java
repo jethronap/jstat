@@ -18,6 +18,10 @@ public class ThreadedKNNClassifier<DataType, DataSetType extends I2DDataSet<IVec
 
     /**
      * Constructor
+     *
+     * @param k The number of iterations
+     * @param copyDataset The copied data set
+     * @param executorService The service executed
      */
     public ThreadedKNNClassifier(int k, boolean copyDataset, ExecutorService executorService){
         super(k, copyDataset);

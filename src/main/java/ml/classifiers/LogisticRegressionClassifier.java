@@ -11,6 +11,9 @@ public class LogisticRegressionClassifier<DataSetType extends I2DDataSet<IVector
 
     /**
      * Constructor.
+     *
+     * @param hypothesis A hypothesis type
+     * @param optimizer An optimizer
      */
     public LogisticRegressionClassifier(HypothesisType hypothesis, ISupervisedOptimizer optimizer){
         super();

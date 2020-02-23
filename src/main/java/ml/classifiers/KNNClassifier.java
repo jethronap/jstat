@@ -18,6 +18,9 @@ public class KNNClassifier< DataType, DataSetType extends I2DDataSet<IVector<Dat
 
     /**
      * Constructor
+     *
+     * @param k The cluster numbers
+     * @param copyDataset Boolean for detecting the copied data set
      */
     public KNNClassifier(int k, boolean copyDataset){
         this.k = k;
@@ -26,7 +29,7 @@ public class KNNClassifier< DataType, DataSetType extends I2DDataSet<IVector<Dat
 
     /**
      * How many neighbors the algorithm is using
-     * @return
+     * @return The number of neighbours
      */
     public int nNeighbors() {
         return this.k;
@@ -34,7 +37,7 @@ public class KNNClassifier< DataType, DataSetType extends I2DDataSet<IVector<Dat
 
     /**
      * Set the object that calculates the distance between instances in the dataset
-     * @param distanceCalculator
+     * @param distanceCalculator The chosen distance calculator
      */
     public void setDistanceCalculator(DistanceType distanceCalculator){
         this.distanceCalculator = distanceCalculator;
@@ -42,14 +45,17 @@ public class KNNClassifier< DataType, DataSetType extends I2DDataSet<IVector<Dat
 
     /**
      * Set the object that calculates the class
-     * @param voter
+     * @param voter Class calculator
      */
     public void setMajorityVoter(VoterType voter){
         this.majorityVoter = voter;
     }
 
     /**
-     * Train the model using the provided dataset
+     * Train the model using the provided data set
+     *
+     * @param dataSet The given data set
+     * @param labels The given labels
      */
     public void train(DataSetType dataSet, List<Integer> labels){
 
@@ -66,6 +72,10 @@ public class KNNClassifier< DataType, DataSetType extends I2DDataSet<IVector<Dat
 
     /**
      * Predict the class of the given data point
+     *
+     * @param <PointType> A generic point type
+     * @param point The given point
+     * @return A point
      */
     public <PointType> Integer  predict(PointType point){
 
@@ -77,7 +87,7 @@ public class KNNClassifier< DataType, DataSetType extends I2DDataSet<IVector<Dat
             throw new IllegalStateException("Distance calculator has not been set");
         }
 
-        // loop over the items in the dataset and compute distances
+        // loop over the items in the data set and compute distances
         for (int i = 0; i < this.dataSet.m(); i++) {
             this.majorityVoter.addItem(i, this.distanceCalculator.calculate(this.dataSet.getRow(i), point));
         }
