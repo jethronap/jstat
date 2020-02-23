@@ -7,6 +7,40 @@
     <groupId>org.jstat</groupId>
     <artifactId>jstat</artifactId>
     <version>1.0.0</version>
+    <packaging>jar</packaging>
+    <name>${project.groupId}:${project.artifactId}</name>
+    <description>Java Library for Statistical Analysis.</description>
+    <url>https://github.com/jethronap/jstat</url>
+
+    <!--LICENSE-->
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>https://github.com/jethronap/jstat/blob/master/LICENSE</url>
+        </license>
+    </licenses>
+
+    <!--DEVELOPERS-->
+    <developers>
+        <developer>
+            <name>Ioannis Efthymiou</name>
+            <email>efthioa@gmail.com</email>
+            <organization>Jstat</organization>
+        </developer>
+        <developer>
+            <name>Alexandros Giavaras</name>
+            <email>a.giavaras@gmail.com</email>
+            <organization>Jstat</organization>
+        </developer>
+    </developers>
+
+    <!--Source Code Management Details-->
+    <scm>
+        <connection>scm:git:git://github.com/SeunMatt/mysql-backup4j.git</connection>
+        <developerConnection>scm:git:ssh://github.com:jethronap/jstat.git</developerConnection>
+        <url>https://github.com/jethronap/jstat/tree/master</url>
+    </scm>
+
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
