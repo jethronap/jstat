@@ -9,7 +9,9 @@ public interface I2DDataSet<RowType> {
      *
      * @return A data set
      */
-    I2DDataSet copy();
+    default I2DDataSet copy(){
+        throw new IllegalArgumentException("Not implemented");
+    }
 
     /**
      * Build a new instance of this class
@@ -18,7 +20,9 @@ public interface I2DDataSet<RowType> {
      * @param n The columns
      * @return A 2D data set
      */
-    I2DDataSet create(int m, int n);
+    default I2DDataSet create(int m, int n){
+        throw new IllegalCallerException("No implemented");
+    }
 
 
     /**
@@ -72,7 +76,7 @@ public interface I2DDataSet<RowType> {
     void exchangeRows(int i, int k);
 
     /**
-     * Return the i-th partition of the data set
+     * Return the partition of the data set
      *
      * @return The partition
      */
