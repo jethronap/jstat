@@ -281,6 +281,22 @@ public class DenseMatrixSet<T> implements I2DDataSet<IVector<T>> {
     }
 
     /**
+     * Increment the (i, j) entry by the given value
+     */
+    public void add(int i, int j, T val){
+
+        if(i <0 || i >= this.m()){
+            throw new IllegalArgumentException("Invalid row index: " + i +" should be in [0,"+this.m()+")");
+        }
+
+        if(j <0 || j >= this.n()){
+            throw new IllegalArgumentException("Invalid column index: " + j +" should be in [0,"+this.n()+")");
+        }
+
+        this.data.get(i).add(j, val);
+    }
+
+    /**
      * Returns a copy of the values of the column-th column
      *
      * @param column The c-th column

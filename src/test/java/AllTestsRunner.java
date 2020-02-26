@@ -1,3 +1,4 @@
+import maths.ConfusionMatrixTestRunner;
 import org.junit.runner.Result;
 
 import dataloader.CsvLoaderTestRunner;
@@ -51,6 +52,14 @@ public class AllTestsRunner {
         totalTime += result.getRunTime();
 
         runner = new CsvLoaderTestRunner();
+        result = runner.run(args);
+
+        totalNumTests += result.getRunCount();
+        totalFailureCount += result.getFailureCount();
+        totalIgnoredCount += result.getIgnoreCount();
+        totalTime += result.getRunTime();
+
+        runner = new ConfusionMatrixTestRunner();
         result = runner.run(args);
 
         totalNumTests += result.getRunCount();
