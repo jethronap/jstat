@@ -46,5 +46,8 @@ Basic statistics and data analysis with Java
 - <a href="src/main/java/examples/plotting/example3/example.md">Example 3</a>: Line plot
 - <a href="src/main/java/examples/plotting/example4/example.md">Example 4</a>: Pie plot
 - <a href="src/main/java/examples/plotting/example5/example.md">Example 5</a>: Scatter plot
+
+### Miscellaneous
+- <a href="src/main/java/examples/es/example1/example.md">Example 1</a>: Load data from an Elasticsearch index
  
 
