@@ -10,12 +10,29 @@
 ## <a name="overview"></a> Overview
 
 This example shows you how to load data from <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?ultron=[EL]-[B]-[EMEA]-UK+Nordics-Exact&blade=adwords-s&Device=c&thor=elasticsearch&gclid=Cj0KCQiAqNPyBRCjARIsAKA-WFxWxPb0Z_VeyhPFisUxJhVPgMVFqh_M-bnljx9Rtd7dmOJHEc8O_LkaApzEEALw_wcB">Elasticsearch</a>
-Thus, this example requires you to have Elasticsearch installed on your machine and also to
- compile ```jstat``` with  _elastic_search_ profile enabled. 
+Thus, this example requires you to have Elasticsearch installed on your machine. 
+You also need to add in the ```pom.xml``` file of the project the following
+dependencies
 
+```
+        <!-- https://mvnrepository.com/artifact/org.elasticsearch/elasticsearch -->
+        <dependency>
+            <groupId>org.elasticsearch</groupId>
+            <artifactId>elasticsearch</artifactId>
+            <version>6.6.1</version>
+        </dependency>
+
+
+        <!-- https://mvnrepository.com/artifact/org.elasticsearch.client/elasticsearch-rest-high-level-client -->
+        <dependency>
+            <groupId>org.elasticsearch.client</groupId>
+            <artifactId>elasticsearch-rest-high-level-client</artifactId>
+            <version>6.6.1</version>
+        </dependency>
+```
+ 
 Elasticsearch listens to the 9200 port for upcoming HTTP queries by default. Start the Elasticsearch server and point your
-browser to http://localhost:9200/ URL in your browser. You should be able to
-see something like the following:
+browser to http://localhost:9200/ URL. You should be able to see something like the following:
 
 ```
 {
@@ -38,14 +55,11 @@ see something like the following:
 
 ```
 
-
 We will assume that there are no indexes in Elasticsearch. Change accordingly if this is not true.
 Since there are no indices we need to create a new index and insert some documents into it.
 After doing this, it's easy to retrieve the documents by issuing a ```SearchRequest```.
 We will store the data into a ```MapDataSet``` however this is not compulsory.
 
-
- 
 ## <a name="m_func"></a> The main function
 
 ```
@@ -187,5 +201,3 @@ WARNING: request [POST http://localhost:9200/jstat_es_example_1/es_exe1?timeout=
 ```
 
 ## <a name="source_code"></a> Source Code
-
-<a href="Example1.java">Example1.java</a>
