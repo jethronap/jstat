@@ -92,8 +92,24 @@ public class KNNClassifier< DataType, DataSetType extends I2DDataSet<IVector<Dat
             this.majorityVoter.addItem(i, this.distanceCalculator.calculate(this.dataSet.getRow(i), point));
         }
 
+        return this.getTopResult();
+    }
 
-        return this.getTopResult(); //maxEntry.getKey();
+    public List<Integer> predict(DataSetType dataSet){
+
+        List<Integer> predictions = new ArrayList<>(dataSet.m());
+
+        // invalidate the predictions
+        for(int i=0; i<dataSet.m(); ++i){
+            predictions.add(-1);
+        }
+
+        // loop over all points in the dataset and make a prediction
+        for(int r=0; r<dataSet.m(); ++r){
+            predictions.set(r, this.predict(dataSet.getRow(r)));
+        }
+
+        return predictions;
     }
 
     protected int getTopResult(){
