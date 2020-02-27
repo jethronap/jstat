@@ -20,6 +20,13 @@ public class ConfusionMatrix {
     }
 
     /**
+     * Constructor
+     */
+    public ConfusionMatrix(List<Integer> actual, List<Integer> predicted, int nClasses){
+        this.buildFrom(actual, predicted, nClasses);
+    }
+
+    /**
      * Given the actual and the predicted classes and the total number
      * of different classes construct the confusion matrix
      * @param actual
@@ -71,7 +78,7 @@ public class ConfusionMatrix {
      * Returns the accuracy of the classifier
      */
     public double accuracy(){
-        return 0;
+        return (double)truePositives()/(double)totalCount();
     }
 
     /**
@@ -85,7 +92,14 @@ public class ConfusionMatrix {
      * Recall also known as sensitivity or true positive rate for class c
      */
     public double recallClass(int c){
-        return 0;
+
+        // how many times did we predicted the class
+        int classCounts = getClassCounts(c);
+
+        // how many times we missed it overall
+        int classIncorrectCounts = this.getClassIncorrectCounts(c);
+
+        return classCounts/ (classIncorrectCounts + classCounts);
     }
 
     /**
@@ -106,6 +120,15 @@ public class ConfusionMatrix {
      * @return
      */
     public int getClassCounts(int c){
+
+        if( c >= this.data.m() || c < 0){
+            throw new IllegalArgumentException("Invalid class index. Index "+
+                    c+
+                    " not in [0, "+
+                    this.data.n()+
+                    ")");
+        }
+
         return this.data.getEntry(c,c);
     }
 
@@ -115,7 +138,23 @@ public class ConfusionMatrix {
      * @return
      */
     public int getClassIncorrectCounts(int c){
-        return 0;
+        if( c >= this.data.m() || c < 0){
+            throw new IllegalArgumentException("Invalid class index. Index "+
+                    c+
+                    " not in [0, "+
+                    this.data.n()+
+                    ")");
+        }
+
+        int result = 0;
+
+        for(int r = 0; r<this.data.m(); ++r){
+            if( r != c){
+                result +=  this.data.getEntry(c , r);
+            }
+        }
+
+        return result;
     }
 
     /**
@@ -126,7 +165,23 @@ public class ConfusionMatrix {
      * @return
      */
     public int getClassCountsAsOtherClass(int c, int other){
-        return 0;
+        if( c >= this.data.m()){
+            throw new IllegalArgumentException("Invalid class index. Index "+
+                    c+
+                    " not in [0, "+
+                    this.data.m()+
+                    ")");
+        }
+
+        if( other >= this.data.m()){
+            throw new IllegalArgumentException("Invalid class index. Index "+
+                    other+
+                    " not in [0, "+
+                    this.data.n()+
+                    ")");
+        }
+
+        return this.data.getEntry(c, other);
     }
 
     /**
@@ -135,7 +190,6 @@ public class ConfusionMatrix {
     public int totalCount(){return totalCount;}
 
 
-    private List<String> names;
     private DenseMatrixSet<Integer> data;
     private int totalCount;
 

@@ -23,7 +23,7 @@ public class ConfusionMatrixTestRunner implements ITestRunnerBase {
             System.out.println("\tAll tests passed: "+ result.getRunCount());
         }
 
-        System.out.println("\tTest run time: "+ result.getRunTime());
+        System.out.println("\tTest run time: "+ result.getRunTime() + " secs");
         System.out.println("Done....");
         System.out.println("============================");
 
