@@ -2,14 +2,20 @@ package dataloader;
 
 import base.Configuration;
 import dataloader.utils.ParseUtils;
+import datasets.DenseMatrixSet;
 import datasets.VectorDouble;
+import datasets.VectorInt;
 import datastructs.IVector;
+import datastructs.RowBuilder;
+import datastructs.RowType;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
 import tech.tablesaw.api.Table;
 import tech.tablesaw.columns.Column;
 import tech.tablesaw.io.csv.CsvReadOptions;
+import utils.Pair;
+import utils.PairBuilder;
 
 import java.io.File;
 import java.io.FileReader;
@@ -65,9 +71,6 @@ public class CsvDataLoader {
             }
             return numericSample;
         }
-
-
-
 
         /**
          * Simple method that parses data set from a csv file
@@ -216,4 +219,54 @@ public class CsvDataLoader {
             return sample;
         }
     }
+
+
+    /**
+     * Load the Iris dataset
+     * @return
+     */
+    public static Pair<DenseMatrixSet<Double>, VectorInt> loadIrisDataSet()throws IOException{
+
+            String path= "src/main/resources/datasets/iris_dataset.csv";
+
+            // load the data
+            Table dataSetTable = CsvDataLoader.TableLoader.parseFile(new File(path));
+
+            Column species  = dataSetTable.column("species");
+
+            VectorInt labels = new VectorInt(species.size());
+
+            for (int i = 0; i < species.size(); i++) {
+
+                String label = (String) species.get(i);
+
+                if(label.equals("Iris-setosa")){
+
+                    labels.set(i, 0);
+                }
+                else if(label.equals("Iris-versicolor")){
+
+                    labels.set(i, 1);
+                }
+                else if(label.equals("Iris-virginica")){
+                    labels.set(i, 2);
+                }
+                else{
+                    throw new IllegalArgumentException("Unknown class");
+                }
+            }
+
+            Table reducedDataSet = dataSetTable.removeColumns("species").first(dataSetTable.rowCount());
+            DenseMatrixSet dataSet = new DenseMatrixSet(RowType.Type.DOUBLE_VECTOR, new RowBuilder(),
+                                                        reducedDataSet.rowCount(), reducedDataSet.columnCount(), 0.);
+            dataSet.setColumn(0, reducedDataSet.doubleColumn(0));
+            dataSet.setColumn(1, reducedDataSet.doubleColumn(1));
+            dataSet.setColumn(2, reducedDataSet.doubleColumn(2));
+            dataSet.setColumn(3, reducedDataSet.doubleColumn(3));
+            return PairBuilder.makePair(dataSet, labels);
+
+
+
+    }
+
 }
