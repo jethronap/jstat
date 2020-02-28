@@ -1,46 +1,64 @@
 package examples.ml.example8;
 
-import dataloader.CsvDataLoader;
-import datasets.DenseMatrixSet;
-import datasets.VectorInt;
 import maths.ConfusionMatrix;
-import maths.functions.distances.EuclideanVectorCalculator;
-import ml.classifiers.KNNClassifier;
-import ml.classifiers.utils.ClassificationVoter;
-import utils.Pair;
-
-import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Example8 {
 
     public static void main(String[] args){
 
-        try {
+            final int SIZE = 165;
+            final int N_CLASSES = 2;
 
-            // load the dataset
-            Pair<DenseMatrixSet<Double>, VectorInt> irisDataSet = CsvDataLoader.loadIrisDataSet();
+            List<Integer> actual = new ArrayList<>();
 
-            KNNClassifier<Double, DenseMatrixSet<Double>,
-                    EuclideanVectorCalculator<Double>,
-                    ClassificationVoter> classifier = new KNNClassifier<Double, DenseMatrixSet<Double>,
-                                        EuclideanVectorCalculator<Double>, ClassificationVoter>(2, false);
+            for(int i=0; i< SIZE; ++i){
 
-            classifier.setDistanceCalculator(new EuclideanVectorCalculator<Double>());
-            classifier.setMajorityVoter(new ClassificationVoter());
-            classifier.train(irisDataSet.first, irisDataSet.second.getRawData());
+                if(i < 60){
+                    actual.add(0);
+                }
+                else{
+                    actual.add(1);
+                }
+            }
 
-            // we want to get a classification over all points in
-            // the data set
-            List<Integer> predictions = classifier.predict(irisDataSet.first);
-            ConfusionMatrix confusionMatrix = new ConfusionMatrix(irisDataSet.second.getRawData(), predictions, 3);
+            List<Integer> predicted = new ArrayList<>();
 
-            // let's compute some metrics
+            for(int i=0; i< SIZE; ++i){
 
-        }
-        catch(IOException e){
+                if(i < 50){
+                    predicted.add(0);
+                }
+                else if(i>=50 && i<65){
+                    predicted.add(1);
+                }
+                else if(i>=65 && i<70){
+                    predicted.add(0);
+                }
+                else{
+                    predicted.add(1);
+                }
+            }
 
-        }
+        ConfusionMatrix confusionMatrix = new ConfusionMatrix(actual, predicted, N_CLASSES);
+
+        // let's compute some metrics
+        System.out.println("TP: "+confusionMatrix.getClassCounts(1));
+        System.out.println("TN: "+confusionMatrix.getClassCounts(0));
+        System.out.println("FP: "+confusionMatrix.getClassCountsAsOtherClass(0,1));
+        System.out.println("FN: "+confusionMatrix.getClassCountsAsOtherClass(1,0));
+        System.out.println("Accuracy is: " + confusionMatrix.accuracy());
+        System.out.println("Misclassification Rate: " + confusionMatrix.misclassificationRate());
+        System.out.println("TP Rate or Recall: " + confusionMatrix.recallClass(1));
+        System.out.println("TN Rate or Specificity: " + confusionMatrix.recallClass(0));
+        System.out.println("False Positive Rate: " + (double)confusionMatrix.getClassCountsAsOtherClass(0,1)/60.0);
+        System.out.println("Precision: " + (double)confusionMatrix.getClassCounts(1)/
+                (double) (confusionMatrix.getClassCountsAsOtherClass(0,1) + confusionMatrix.getClassCounts(1)));
+        System.out.println("Prevalence: " + (double)(confusionMatrix.getClassCountsAsOtherClass(1,0) +
+                confusionMatrix.getClassCounts(1))/(double) confusionMatrix.totalCount());
+
+
     }
 
 

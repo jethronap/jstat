@@ -99,7 +99,7 @@ public class ConfusionMatrix {
         // how many times we missed it overall
         int classIncorrectCounts = this.getClassIncorrectCounts(c);
 
-        return classCounts/ (classIncorrectCounts + classCounts);
+        return (double) classCounts/ (double) (classIncorrectCounts + classCounts);
     }
 
     /**
