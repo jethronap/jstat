@@ -15,7 +15,7 @@
  
  ## <a name="overview"></a> Overview
  
- <a href="../example3/example.md">Example 3</a> introduced the K-Nearest Neighbors and <a href="../example8/example.md">Example 8</a> discussed logistic regression.
+ <a href="../example3/example.md">Example 3</a> introduced the K-Nearest Neighbors and <a href="../example6/example.md">Example 6</a> discussed logistic regression.
  More often than not we want to be able to quantify the performance of a classifier.
  This example introduces various metrics one can do so.
  
