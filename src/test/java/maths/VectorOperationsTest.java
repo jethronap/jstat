@@ -21,7 +21,7 @@ public class VectorOperationsTest {
     }
 
     /**
-     * Test Scenarion: The application adds two vectors of different size
+     * Test Scenario: The application adds two vectors of different size
      * Expected Output: VectorOperations should throw IllegalStateException
      */
     @Test(expected = IllegalStateException.class)
