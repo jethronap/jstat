@@ -16,6 +16,7 @@ Basic statistics and data analysis with Java
 ## Examples Map
 
 
+
 ### Machine Learning 
 
 - <a href="src/main/java/examples/ml/example1/example.md">Example 1</a>: Linear regression
