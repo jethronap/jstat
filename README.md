@@ -25,7 +25,7 @@ Basic statistics and data analysis with Java
 - <a href="src/main/java/examples/ml/example5/example.md">Example 5</a>: Clustering with KMeans
 - <a href="src/main/java/examples/ml/example6/example.md">Example 6</a>: Logistic classification
 - <a href="src/main/java/examples/ml/Example7/example.md">Example 7</a>: Linear regression with regularization ```LassoRegularizer``` and ```RidgeRegularizer```
-
+- <a href="src/main/java/examples/ml/example8/example.md">Example 8</a>: Classification performance assessment using the ```ConfusionMatrix``` class
 
 ### Optimization
 
@@ -46,5 +46,8 @@ Basic statistics and data analysis with Java
 - <a href="src/main/java/examples/plotting/example3/example.md">Example 3</a>: Line plot
 - <a href="src/main/java/examples/plotting/example4/example.md">Example 4</a>: Pie plot
 - <a href="src/main/java/examples/plotting/example5/example.md">Example 5</a>: Scatter plot
+
+### Miscellaneous
+- <a href="src/main/java/examples/es/example1/example.md">Example 1</a>: Load data from an Elasticsearch index
  
 

@@ -3,140 +3,194 @@ package maths;
 import datasets.DenseMatrixSet;
 import datastructs.RowBuilder;
 import datastructs.RowType;
-import utils.Pair;
-
-import javax.swing.*;
-import javax.swing.table.TableModel;
-import javax.swing.event.*;
-import java.awt.*;
-
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
-
-
 
 
 
 /**
  * ConfusionMatrix
  */
-public class ConfusionMatrix extends JFrame {
+public class ConfusionMatrix {
 
-    public ConfusionMatrix(List<Pair<Integer, Integer>> classes, List<String> names){
+    /**
+     * Default constructor
+     */
+    public ConfusionMatrix(){
 
-        super("Confusion Matrix");
+    }
 
-        if(classes == null){
-            throw new IllegalArgumentException("Classes should not be null");
+    /**
+     * Constructor
+     */
+    public ConfusionMatrix(List<Integer> actual, List<Integer> predicted, int nClasses){
+        this.buildFrom(actual, predicted, nClasses);
+    }
+
+    /**
+     * Given the actual and the predicted classes and the total number
+     * of different classes construct the confusion matrix
+     * @param actual
+     * @param predicted
+     * @param nClasses
+     */
+    void buildFrom(List<Integer> actual, List<Integer> predicted, int nClasses){
+
+        if(nClasses<2){
+            throw new IllegalArgumentException("Number of classes should be at least 2. Got "+nClasses);
         }
 
-        this.names = names;
+        if(actual.size() == 0){
+            throw new IllegalArgumentException("Cannot construct ConfusionMatrix from empty actual data");
+        }
 
-        data = new DenseMatrixSet<>(RowType.Type.INTEGER_VECTOR, new RowBuilder(), names.size(), names.size(), -1);
+        if(actual.size() != predicted.size()){
+            throw new IllegalArgumentException("A ConfusionMatrix is a square matrix but the given data are: "+
+                     actual.size()+
+                    " and columns: "+
+                    predicted.size());
+        }
 
-        Map<Integer, List<Integer>> result = new HashMap<>();
+        this.data = new DenseMatrixSet<>(RowType.Type.INTEGER_VECTOR, new RowBuilder(),
+                                        nClasses, nClasses, 0);
 
-        for(int i=0; i<classes.size(); ++i){
+        // construct the matrix row-wise
+        for(int r=0; r<actual.size(); ++r){
 
-            Pair<Integer, Integer> pair = classes.get(i);
-            Integer classIdx = pair.first;
+            int row_idx = actual.get(r);
 
-            if(result.containsKey(classIdx)){
-                    result.get(classIdx).add(classIdx, 1);
+            if(row_idx >= nClasses){
+                throw new IllegalArgumentException("Invalid class index. Index not in [0, " + nClasses +")");
+            }
 
+            if(row_idx == predicted.get(r)){
+                this.data.add(row_idx ,row_idx, 1);
             }
             else{
-
-                List<Integer> values = new ArrayList<>(names.size());
-
-                for(int j=0; j<names.size(); ++j){
-                    values.add(0);
-                }
-
-                result.put(classIdx, values);
+                this.data.add(row_idx , predicted.get(r), 1);
             }
         }
 
+        // set the total count of observations
+        this.totalCount = actual.size();
     }
 
-
-    public void print(){
-
-
-        gradesLabel = new JLabel("Confusion Matrix");
-        gradesLabel.setFont(new Font("Dialog", Font.BOLD, 16));
-
-        this.gradesTable = createTable(new MatrixModel(this.names, this.data));
-
-        this.gradesTable.setFillsViewportHeight(true);
-        this.gradesTable.setRowHeight(24);
-
-        scroll = new JScrollPane(gradesTable);
-
-        this.contentPane = new JPanel();
-
-        super.setContentPane(this.contentPane);
-        super.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        super.setSize(700, 600);
-        super.setLocationRelativeTo(null);
-        super.setVisible(true);
+    /**
+     * Returns the accuracy of the classifier
+     */
+    public double accuracy(){
+        return (double)truePositives()/(double)totalCount();
     }
 
-    protected JTable createTable(TableModel model) {
-        return new JTable(model);
+    /**
+     * Returns the misclassification rate
+     */
+    public double misclassificationRate(){
+        return 1.0 - accuracy();
     }
 
+    /**
+     * Recall also known as sensitivity or true positive rate for class c
+     */
+    public double recallClass(int c){
 
-    private List<String> names;
+        // how many times did we predicted the class
+        int classCounts = getClassCounts(c);
+
+        // how many times we missed it overall
+        int classIncorrectCounts = this.getClassIncorrectCounts(c);
+
+        return (double) classCounts/ (double) (classIncorrectCounts + classCounts);
+    }
+
+    /**
+     * Return the true positives. This is simply the sum of the diagonal elements
+     */
+    public int truePositives(){
+        int result = 0;
+        for(int r=0; r < this.data.m(); ++r){
+
+            result += this.getClassCounts(r);
+        }
+        return result;
+    }
+
+    /**
+     * Get the class counts
+     * @param c
+     * @return
+     */
+    public int getClassCounts(int c){
+
+        if( c >= this.data.m() || c < 0){
+            throw new IllegalArgumentException("Invalid class index. Index "+
+                    c+
+                    " not in [0, "+
+                    this.data.n()+
+                    ")");
+        }
+
+        return this.data.getEntry(c,c);
+    }
+
+    /**
+     * Get class incorrect counts
+     * @param c
+     * @return
+     */
+    public int getClassIncorrectCounts(int c){
+        if( c >= this.data.m() || c < 0){
+            throw new IllegalArgumentException("Invalid class index. Index "+
+                    c+
+                    " not in [0, "+
+                    this.data.n()+
+                    ")");
+        }
+
+        int result = 0;
+
+        for(int r = 0; r<this.data.m(); ++r){
+            if( r != c){
+                result +=  this.data.getEntry(c , r);
+            }
+        }
+
+        return result;
+    }
+
+    /**
+     * Returns the counts that class c was predicted as other class
+     *
+     * @param c
+     * @param other
+     * @return
+     */
+    public int getClassCountsAsOtherClass(int c, int other){
+        if( c >= this.data.m()){
+            throw new IllegalArgumentException("Invalid class index. Index "+
+                    c+
+                    " not in [0, "+
+                    this.data.m()+
+                    ")");
+        }
+
+        if( other >= this.data.m()){
+            throw new IllegalArgumentException("Invalid class index. Index "+
+                    other+
+                    " not in [0, "+
+                    this.data.n()+
+                    ")");
+        }
+
+        return this.data.getEntry(c, other);
+    }
+
+    /**
+     *  Returns the total number of observations
+     */
+    public int totalCount(){return totalCount;}
+
+
     private DenseMatrixSet<Integer> data;
-    private JPanel contentPane;
-    private JLabel gradesLabel;
-    private JTable gradesTable;
-    private JScrollPane scroll;
-
-    private static class MatrixModel implements TableModel
-    {
-        MatrixModel(List<String> names, DenseMatrixSet<Integer> data){
-            this.names = names;
-            this.data = data;
-        }
-
-        public void setValueAt(Object aValue, int rowIndex, int columnIndex) {}
-        public void addTableModelListener(TableModelListener l) {}
-        public void removeTableModelListener(TableModelListener l) {}
-
-        public boolean isCellEditable(int rowIndex, int columnIndex) {
-            return false;
-        }
-
-        public Class<?> getColumnClass(int col) {
-            return Integer.class;
-
-        }
-
-        public int getRowCount() {
-            return data.m();
-        }
-
-        public int getColumnCount() {
-            return names.size();
-        }
-
-        public String getColumnName(int col) {
-            return names.get(col);
-        }
-
-        public Object getValueAt(int row, int col) {
-            return data.getEntry(row, col);
-        }
-
-        private List<String> names;
-        private DenseMatrixSet<Integer> data;
-    }
-
-
+    private int totalCount;
 
 }
