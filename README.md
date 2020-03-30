@@ -12,7 +12,14 @@ Basic statistics and data analysis with Java
 - <a href="https://jtablesaw.github.io/tablesaw/">Tablesaw Java Dataframe and Visualization Library</a> 
 
 ## Installation
-
+You can start using Jstat by adding the following dependency to your project:
+> 
+    <dependency>
+        <groupId>io.github.jethronap</groupId>
+        <artifactId>jstat</artifactId>
+        <version>1.0.0</version>
+    </dependency>
+  
 ## Examples Map
 
 
