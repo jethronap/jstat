@@ -1,5 +1,7 @@
 package utils;
 
+import org.apache.commons.math3.distribution.AbstractRealDistribution;
+
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -66,6 +68,23 @@ public class ListUtils {
 
         return ListUtils.doPartition(list, comparator, 0, list.size()-1);
 
+    }
+
+    /**
+     * Generate a random sample from the given distribution
+     * @param size the size of the sample
+     * @param dist the distribution to create the sample from
+     * @return sample list of values sampled from AbstractRealDistribution
+     */
+    public static List<Double> randomSample(int size, AbstractRealDistribution dist){
+        List<Double> sample = new ArrayList<>(size);
+
+        for(int i=0; i<size; ++i){
+
+            sample.add(dist.sample());
+        }
+
+        return sample;
     }
 
 
