@@ -4,8 +4,6 @@ import org.apache.commons.math3.distribution.AbstractRealDistribution;
 import org.apache.commons.math3.distribution.NormalDistribution;
 import org.apache.commons.math3.stat.descriptive.DescriptiveStatistics;
 import utils.ListUtils;
-
-import java.util.ArrayList;
 import java.util.List;
 
 public class Example5 {
@@ -27,8 +25,5 @@ public class Example5 {
         System.out.println("Median is: "+stats.getPercentile(50));
         System.out.println("Min is: "+stats.getMin());
         System.out.println("Max is: "+stats.getMax());
-
-
-
     }
 }

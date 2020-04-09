@@ -39,6 +39,10 @@ Basic statistics and data analysis with Java
 - <a href="src/main/java/examples/stats/example2/example.md">Example 2</a>: Vanilla Hypothesis testing for the mean
 - <a href="src/main/java/examples/stats/example3/example.md">Example 3</a>: Goodness of fit of regression line
 - <a href="src/main/java/examples/stats/example4/example.md">Example 4</a>: Simulate the standard error for the mean
+- <a href="src/main/java/examples/stats/example5/example.md">Example 5</a>: Calculate descriptive statistics metrics
+
+### Monte Carlo 
+- <a href="src/main/java/examples/mc/example1/example.md">Example 1</a>: Monte Carlo Simulation for the Monty Hall Problem
 
 ### Plotting
 
@@ -50,5 +54,7 @@ Basic statistics and data analysis with Java
 
 ### Miscellaneous
 - <a href="src/main/java/examples/es/example1/example.md">Example 1</a>: Load data from an Elasticsearch index
+
+
  
 
