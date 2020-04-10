@@ -14,11 +14,8 @@ public class Example5 {
         final double MU = 1.0;
         final double STD = 0.3;
 
-        /// populate the list using the NormalDistribution
         AbstractRealDistribution normalDistribution = new NormalDistribution(MU, STD);
-
         List<Double> values = ListUtils.randomSample(SIZE, normalDistribution);
-
         DescriptiveStatistics stats = new DescriptiveStatistics(ListUtils.toDoubleArray(values));
 
         System.out.println("Mean is: "+ stats.getMean());
