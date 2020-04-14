@@ -48,6 +48,7 @@ You can start using Jstat by adding the following dependency to your project:
 - <a href="src/main/java/examples/stats/example4/example.md">Example 4</a>: Simulate the standard error for the mean
 - <a href="src/main/java/examples/stats/example5/example.md">Example 5</a>: Calculate descriptive statistics metrics
 - <a href="src/main/java/examples/stats/example6/example.md">Example 6</a>: Hypothesis tests on the mean of a normal distribution with known variance
+- <a href="src/main/java/examples/stats/example7/example.md">Example 7</a>: Type II error and the sample size
 
 ### Monte Carlo 
 - <a href="src/main/java/examples/mc/example1/example.md">Example 1</a>: Monte Carlo Simulation for the Monty Hall Problem
