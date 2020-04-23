@@ -22,10 +22,17 @@ public class Statistics {
     public double kurtosis=0.0;
 	public boolean isValid =false;
 
+    /**
+     * Prints the computed Statistics
+     */
 	public final void printInfo(){
 	    System.out.println(this.toString());
     }
 
+    /**
+     * Convert the computed metrics aggregated into a string
+     * @return String
+     */
     @Override
     public final String toString(){
 
@@ -46,14 +53,15 @@ public class Statistics {
      * @param data The data to calculate the statistics
      * @return Statistics instance
      */
-    public static Statistics calculate(List<Double> data){
+    public static Statistics calculate(double[] data){
 
-	    if(data.isEmpty()){
-	        throw new IllegalArgumentException("The data set given is empty");
+
+        if(data.length == 0){
+            throw new IllegalArgumentException("The data set given is empty");
         }
 
-	    Statistics statistics = new Statistics();
-        DescriptiveStatistics descriptiveStatistics = new DescriptiveStatistics(ListUtils.toDoubleArray(data));
+        Statistics statistics = new Statistics();
+        DescriptiveStatistics descriptiveStatistics = new DescriptiveStatistics(data);
         statistics.mean = descriptiveStatistics.getMean();
         statistics.median = descriptiveStatistics.getPercentile(50.0);
         statistics.variance = descriptiveStatistics.getVariance();
@@ -63,7 +71,20 @@ public class Statistics {
         statistics.skewness = descriptiveStatistics.getSkewness();
         statistics.isValid = true;
         return  statistics;
+    }
 
+    /**
+     *
+     * @param data The data to calculate the statistics
+     * @return Statistics instance
+     */
+    public static Statistics calculate(List<Double> data){
+
+	    if(data.isEmpty()){
+	        throw new IllegalArgumentException("The data set given is empty");
+        }
+
+        return Statistics.calculate(ListUtils.toDoubleArray(data));
     }
 
     /**
@@ -77,17 +98,6 @@ public class Statistics {
             throw new IllegalArgumentException("The data set given is empty");
         }
 
-        Statistics statistics = new Statistics();
-        DescriptiveStatistics descriptiveStatistics = new DescriptiveStatistics(ListUtils.toDoubleArray(data.toArray()));
-        statistics.mean = descriptiveStatistics.getMean();
-        statistics.median = descriptiveStatistics.getPercentile(50.0);
-        statistics.variance = descriptiveStatistics.getVariance();
-        statistics.max = descriptiveStatistics.getMax();
-        statistics.min = descriptiveStatistics.getMin();
-        statistics.kurtosis = descriptiveStatistics.getKurtosis();
-        statistics.skewness = descriptiveStatistics.getSkewness();
-        statistics.isValid = true;
-        return  statistics;
-
+        return Statistics.calculate(data.getRawData());
     }
 }
