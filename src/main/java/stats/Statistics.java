@@ -13,6 +13,20 @@ import java.util.List;
  */
 public class Statistics {
 
+    /**
+     * Enumeration of the various metrics
+     */
+    public enum Metrics{
+        MEAN,
+        MEADIAN,
+        VAR,
+        MAX,
+        MIN,
+        SKEWNESS,
+        KURTOSIS,
+        INVALID_METRIC
+    }
+
     public double mean=0.0;
     public double variance=0.0;
     public double median=0.0;
@@ -46,6 +60,70 @@ public class Statistics {
         str += "Kurtosis:  "+new Double(kurtosis).toString()+"\n";
         str += "Valid:     "+new Boolean(isValid).toString()+"\n";
 	    return str;
+    }
+
+    /**
+     * Calculate the given metric from the given data
+     * @param data The data to calculate the metric
+     * @param metric The metric to calculate
+     * @return double
+     */
+    public static double calculate(double[] data, Metrics metric){
+
+        if(data.length == 0){
+            throw new IllegalArgumentException("The data set given is empty");
+        }
+
+        DescriptiveStatistics descriptiveStatistics = new DescriptiveStatistics(data);
+
+        switch (metric){
+            case MEAN:
+                return descriptiveStatistics.getMean();
+            case MEADIAN:
+                return descriptiveStatistics.getPercentile(50.0);
+            case VAR:
+                return descriptiveStatistics.getVariance();
+            case MAX:
+                return descriptiveStatistics.getMax();
+            case MIN:
+                return descriptiveStatistics.getMin();
+            case KURTOSIS:
+                return descriptiveStatistics.getKurtosis();
+            case SKEWNESS:
+                return descriptiveStatistics.getSkewness();
+            default:
+                throw new IllegalArgumentException("Invalid Metric type");
+        }
+    }
+
+    /**
+     * Calculate the given metric from the given data
+     * @param data The data to calculate the metric
+     * @param metric The metric to calculate
+     * @return double
+     */
+    public static double calculate(List<Double> data, Metrics metric){
+
+        if(data.isEmpty()){
+            throw new IllegalArgumentException("The data set given is empty");
+        }
+
+        return Statistics.calculate(ListUtils.toDoubleArray(data), metric);
+    }
+
+    /**
+     * Calculate the given metric from the given data
+     * @param data The data to calculate the metric
+     * @param metric The metric to calculate
+     * @return double
+     */
+    public static double calculate(VectorDouble data, Metrics metric){
+
+        if(data.empty()){
+            throw new IllegalArgumentException("The data set given is empty");
+        }
+
+        return Statistics.calculate(data.getRawData(), metric);
     }
 
     /**
