@@ -1,5 +1,6 @@
 package utils;
 
+import org.apache.commons.math3.distribution.AbstractIntegerDistribution;
 import org.apache.commons.math3.distribution.AbstractRealDistribution;
 
 import java.util.ArrayList;
@@ -11,7 +12,8 @@ public class ListUtils {
 
 
     /**
-     * Create  pairs of consisting of one element from list1 (Pair.first) and one element from list 2 (Pair.second)
+     * Create  pairs of consisting of one element from list1 (Pair.first)
+     * and one element from list 2 (Pair.second)
      */
     public static <T, U> List<Pair<T,U>> zip(List<T> lst1, List<U> lst2){
 
@@ -29,12 +31,12 @@ public class ListUtils {
         return result;
     }
 
-    public static  <T> double[] toDoubleArray(final List<T> list){
+    public static  <T extends Number> double[] toDoubleArray(final List<T> list){
 
         double[] array = new double[list.size()];
 
         for(int i=0; i<list.size(); ++i){
-            array[i] = ((Double)list.get(i)).doubleValue();
+            array[i] = (list.get(i)).doubleValue();
         }
 
         return array;
@@ -78,6 +80,23 @@ public class ListUtils {
      */
     public static List<Double> randomSample(int size, AbstractRealDistribution dist){
         List<Double> sample = new ArrayList<>(size);
+
+        for(int i=0; i<size; ++i){
+
+            sample.add(dist.sample());
+        }
+
+        return sample;
+    }
+
+    /**
+     * Generate a random sample from the given distribution
+     * @param size the size of the sample
+     * @param dist the distribution to create the sample from
+     * @return sample list of values sampled from AbstractRealDistribution
+     */
+    public static List<Integer> randomSample(int size, AbstractIntegerDistribution dist){
+        List<Integer> sample = new ArrayList<>(size);
 
         for(int i=0; i<size; ++i){
 
