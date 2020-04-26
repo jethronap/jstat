@@ -1,7 +1,5 @@
 # Type II error and the sample size
 
-# Calculate Calculate the area of a circle using Monte Carlo integration
-
 ## Contents
  * [Overview](#overview) 
  * [Import files](#include_files)

@@ -2,7 +2,7 @@ package examples.ml.example1;
 
 import dataloader.CsvDataLoader;
 
-import stats.Simple1DLinearRegression;
+
 import tech.tablesaw.api.Table;
 import visualizations.ScatterChart;
 
@@ -14,7 +14,7 @@ public class Example1 {
 
     public static  void main(String[] args ) throws IOException {
 
-        File file = new File("data/car_plant.csv");
+        /*File file = new File("data/car_plant.csv");
         Table table = CsvDataLoader.TableLoader.parseFile(file);
 
         // let's plot the data
@@ -34,6 +34,6 @@ public class Example1 {
         System.out.println("Regression coefficients. Intercept: "+intercept+" Slope: "+coeffs[0]);
 
 
-        //TODO embed the regression line into the Scatter plot somehow
+        //TODO embed the regression line into the Scatter plot somehow*/
     }
 }
