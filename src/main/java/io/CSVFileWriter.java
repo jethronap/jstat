@@ -4,35 +4,69 @@ import tech.tablesaw.io.csv.CsvWriter;
 
 import java.io.File;
 import java.io.FileWriter;
+import java.io.IOException;
+import java.util.List;
 
 public class CSVFileWriter {
 
     public static final char DEFUALT_DELIMITER = ',';
     public static final char DEFAULT_COMMENT = '#';
+
     public CSVFileWriter(String filename){
 
         this.filename = filename;
         this.delimiter = CSVFileWriter.DEFUALT_DELIMITER;
         this.commentDelimiter = CSVFileWriter.DEFAULT_COMMENT;
-
-    }
-
-    public void writeColumnNames(String... names){
-
-        // first create file object for file placed at location
-        // specified by filepath
         File file = new File(filename);
 
+        try {
+            this.outputfile = new FileWriter(file);
+        }
+        catch(IOException e){
+
+        }
+    }
+
+    /**
+     *
+     * @param names List of strings representing the column names
+     */
+    public void writeColumnNames(String... names){
+
         try{
-
-            // create FileWriter object with file as parameter
-            FileWriter outputfile = new FileWriter(file);
-            outputfile.write(this.createColumns(names));
-            outputfile.close();
+            this.outputfile.write(this.createColumns(names));
+            this.outputfile.close();
         }
-        catch (Exception e){
+        catch (IOException e){
 
         }
+    }
+
+    /**
+     *
+     * @param row Write a row of doubles
+     */
+    public void writeRow(Double...row){
+
+        try{
+            this.outputfile.write(this.createRow(row));
+            this.outputfile.close();
+        }
+        catch (IOException e){
+
+        }
+    }
+
+    public void writeDoubleRow(List<Double> row){
+
+        try{
+            this.outputfile.write(this.createDoubleRow(row));
+            this.outputfile.close();
+        }
+        catch (IOException e){
+
+        }
+
     }
 
     /**
@@ -52,6 +86,45 @@ public class CSVFileWriter {
             if(counter != names.length - 1){
                 builder.append(this.delimiter);
             }
+            counter++;
+        }
+
+        return builder.toString();
+    }
+
+    private String createRow(Double... row){
+
+        StringBuilder builder = new StringBuilder(row.length);
+
+        int counter = 0;
+        for(Double item:row){
+
+            builder.append(item.toString());
+
+            if(counter != row.length - 1){
+                builder.append(this.delimiter);
+            }
+            counter++;
+
+        }
+
+        return builder.toString();
+    }
+
+    private String createDoubleRow(List<Double> row){
+
+        StringBuilder builder = new StringBuilder(row.size());
+
+        int counter = 0;
+        for(Double item:row){
+
+            builder.append(item.toString());
+
+            if(counter != row.size() - 1){
+                builder.append(this.delimiter);
+            }
+            counter++;
+
         }
 
         return builder.toString();
@@ -60,5 +133,6 @@ public class CSVFileWriter {
     private char delimiter;
     private char commentDelimiter;
     private String filename;
+    private FileWriter outputfile;
 
 }
