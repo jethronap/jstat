@@ -6,6 +6,9 @@ import tech.tablesaw.api.Table;
 import tech.tablesaw.plotly.Plot;
 import tech.tablesaw.plotly.api.Histogram;
 import tech.tablesaw.plotly.api.Histogram2D;
+import utils.ListUtils;
+
+import java.util.List;
 
 /**
  * Class that plots basic Histograms.
@@ -17,6 +20,7 @@ public class Histograms {
         public String chartTitle;
         public String xAxisName;
         public String yAxisName;
+        public int numBins;
     }
 
     /**
@@ -31,6 +35,13 @@ public class Histograms {
 
         DoubleColumn xCol = DoubleColumn.create(options.xAxisName, x.toArray());
 
+        Table table = Table.create(xCol);
+        Plot.show(Histogram.create(options.chartTitle, table, options.xAxisName));
+    }
+
+    public static void plot(List<Double> data,  HistogramOptions options){
+
+        DoubleColumn xCol = DoubleColumn.create(options.xAxisName, ListUtils.toDoubleArray(data));
         Table table = Table.create(xCol);
         Plot.show(Histogram.create(options.chartTitle, table, options.xAxisName));
     }
