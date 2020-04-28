@@ -32,8 +32,10 @@ public class Example8 {
 
             avg.add(mean);
 
-            CSVFileWriter writer = new CSVFileWriter(new String( path +"/" + "averages" + i + ".csv"));
-            writer.writeDoubleRow(avg);
+            if(i==10 || i == 100 || i == 500 || i==999) {
+                CSVFileWriter writer = new CSVFileWriter(new String(path + "/" + "averages" + i + ".csv"));
+                writer.writeDoubleRow(avg);
+            }
         }
     }
 }
