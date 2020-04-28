@@ -1,6 +1,7 @@
 package io;
 import tech.tablesaw.io.csv.CsvWriteOptions;
 import tech.tablesaw.io.csv.CsvWriter;
+import utils.Pair;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -35,7 +36,7 @@ public class CSVFileWriter {
 
         try{
             this.outputfile.write(this.createColumns(names));
-            this.outputfile.close();
+            //this.outputfile.close();
         }
         catch (IOException e){
 
@@ -50,6 +51,32 @@ public class CSVFileWriter {
 
         try{
             this.outputfile.write(this.createRow(row));
+            this.outputfile.close();
+        }
+        catch (IOException e){
+
+        }
+    }
+
+    public void writeRow(Integer idx, Double value){
+
+        try{
+
+            String rowVal = idx.toString() + this.delimiter + value.toString() + "\n";
+            this.outputfile.write(rowVal);
+            //this.outputfile.close();
+        }
+        catch (IOException e){
+
+        }
+    }
+
+    public void writeRow(Pair<Integer, Double> row){
+
+        try{
+
+            String rowVal = row.first.toString() + this.delimiter + row.second.toString();
+            this.outputfile.write(rowVal);
             this.outputfile.close();
         }
         catch (IOException e){
@@ -89,7 +116,7 @@ public class CSVFileWriter {
             counter++;
         }
 
-        return builder.toString();
+        return builder.toString() + "\n";
     }
 
     private String createRow(Double... row){
