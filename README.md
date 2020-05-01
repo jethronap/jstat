@@ -49,10 +49,13 @@ You can start using Jstat by adding the following dependency to your project:
 - <a href="src/main/java/examples/stats/example5/example.md">Example 5</a>: Calculate descriptive statistics metrics
 - <a href="src/main/java/examples/stats/example6/example.md">Example 6</a>: Hypothesis tests on the mean of a normal distribution with known variance
 - <a href="src/main/java/examples/stats/example7/example.md">Example 7</a>: Type II error and the sample size
+- <a href="src/main/java/examples/stats/example8/example.md">Example 8</a>: Simulate the Central Limit Theorem
 
 ### Monte Carlo 
 - <a href="src/main/java/examples/mc/example1/example.md">Example 1</a>: Monte Carlo Simulation for the Monty Hall Problem
 - <a href="src/main/java/examples/mc/example2/example.md">Example 2</a>: Calculate the area of a circle using Monte Carlo integration
+- <a href="src/main/java/examples/mc/example3/example.md">Example 3</a>: Markov chain Monte Carlo for pi calculation
+- <a href="src/main/java/examples/mc/example4/example.md">Example 4</a>: The Metropolis algorithm
 
 ### Plotting
 
@@ -64,6 +67,7 @@ You can start using Jstat by adding the following dependency to your project:
 
 ### Miscellaneous
 - <a href="src/main/java/examples/es/example1/example.md">Example 1</a>: Load data from an Elasticsearch index
+
 
 
  
