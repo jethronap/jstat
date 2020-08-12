@@ -1,4 +1,4 @@
-package ml;
+package ml.models;
 import org.nd4j.linalg.api.ndarray.INDArray;
 
 import java.util.List;
