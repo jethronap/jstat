@@ -10,9 +10,9 @@
 <link rel="stylesheet" type="text/css" href="../../jquery/jquery-ui.css" title="Style">
 <script type="text/javascript" src="../../script.js"></script>
 <script type="text/javascript" src="../../jquery/jszip/dist/jszip.min.js"></script>
-<script type="text/javascript" src="../../jquery/jszip-utils/dist/jszip-utils.min.js"></script>
+<script type="text/javascript" src="../../jquery/jszip-jstat.utils/dist/jszip-jstat.utils.min.js"></script>
 <!--[if IE]>
-<script type="text/javascript" src="../../jquery/jszip-utils/dist/jszip-utils-ie.min.js"></script>
+<script type="text/javascript" src="../../jquery/jszip-jstat.utils/dist/jszip-jstat.utils-ie.min.js"></script>
 <![endif]-->
 <script type="text/javascript" src="../../jquery/jquery-3.3.1.js"></script>
 <script type="text/javascript" src="../../jquery/jquery-migrate-3.0.1.js"></script>
@@ -116,7 +116,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <!-- ======== START OF CLASS DATA ======== -->
 <main role="main">
 <div class="header">
-<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">maths.errorfunctions</a></div>
+<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">jstat.maths.errorfunctions</a></div>
 <h2 title="Interface IVectorErrorRealFunction" class="title">Interface IVectorErrorRealFunction</h2>
 </div>
 <div class="contentContainer">
@@ -125,7 +125,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="blockList">
 <dl>
 <dt>All Known Implementing Classes:</dt>
-<dd><code><a href="LogisticMSEVectorFunction.html" title="class in maths.errorfunctions">LogisticMSEVectorFunction</a></code>, <code><a href="LogisticSSEVectorFunction.html" title="class in maths.errorfunctions">LogisticSSEVectorFunction</a></code>, <code><a href="MSEVectorFunction.html" title="class in maths.errorfunctions">MSEVectorFunction</a></code>, <code><a href="SSEVectorFunction.html" title="class in maths.errorfunctions">SSEVectorFunction</a></code></dd>
+<dd><code><a href="LogisticMSEVectorFunction.html" title="class in jstat.maths.errorfunctions">LogisticMSEVectorFunction</a></code>, <code><a href="LogisticSSEVectorFunction.html" title="class in jstat.maths.errorfunctions">LogisticSSEVectorFunction</a></code>, <code><a href="MSEVectorFunction.html" title="class in jstat.maths.errorfunctions">MSEVectorFunction</a></code>, <code><a href="SSEVectorFunction.html" title="class in jstat.maths.errorfunctions">SSEVectorFunction</a></code></dd>
 </dl>
 <hr>
 <pre>public interface <span class="typeNameLabel">IVectorErrorRealFunction</span></pre>
@@ -150,17 +150,17 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>&lt;DataSetType extends <a href="../../datastructs/I2DDataSet.html" title="interface in datastructs">I2DDataSet</a>&gt;<br>double</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#evaluate(DataSetType,datasets.VectorDouble)">evaluate</a></span>&#8203;(DataSetType&nbsp;data,
-        <a href="../../datasets/VectorDouble.html" title="class in datasets">VectorDouble</a>&nbsp;labels)</code></th>
+<td class="colFirst"><code>&lt;DataSetType extends <a href="../../jstat.datastructs/I2DDataSet.html" title="interface in jstat.datastructs">I2DDataSet</a>&gt;<br>double</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#evaluate(DataSetType,jstat.datasets.VectorDouble)">evaluate</a></span>&#8203;(DataSetType&nbsp;data,
+        <a href="../../jstat.datasets/VectorDouble.html" title="class in jstat.datasets">VectorDouble</a>&nbsp;labels)</code></th>
 <td class="colLast">
 <div class="block">Evaluate the error function using the given data, labels</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code>&lt;DataSetType extends <a href="../../datastructs/I2DDataSet.html" title="interface in datastructs">I2DDataSet</a>&gt;<br><a href="../../datasets/VectorDouble.html" title="class in datasets">VectorDouble</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#gradients(DataSetType,datasets.VectorDouble)">gradients</a></span>&#8203;(DataSetType&nbsp;data,
-         <a href="../../datasets/VectorDouble.html" title="class in datasets">VectorDouble</a>&nbsp;labels)</code></th>
+<td class="colFirst"><code>&lt;DataSetType extends <a href="../../jstat.datastructs/I2DDataSet.html" title="interface in jstat.datastructs">I2DDataSet</a>&gt;<br><a href="../../jstat.datasets/VectorDouble.html" title="class in jstat.datasets">VectorDouble</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#gradients(DataSetType,jstat.datasets.VectorDouble)">gradients</a></span>&#8203;(DataSetType&nbsp;data,
+         <a href="../../jstat.datasets/VectorDouble.html" title="class in jstat.datasets">VectorDouble</a>&nbsp;labels)</code></th>
 <td class="colLast">
 <div class="block">Returns the gradients on the given data</div>
 </td>
@@ -182,16 +182,16 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a id="evaluate(datastructs.I2DDataSet,datasets.VectorDouble)">
+<a id="evaluate(jstat.datastructs.I2DDataSet,jstat.datasets.VectorDouble)">
 <!--   -->
-</a><a id="evaluate(DataSetType,datasets.VectorDouble)">
+</a><a id="evaluate(DataSetType,jstat.datasets.VectorDouble)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>evaluate</h4>
-<pre class="methodSignature">&lt;DataSetType extends <a href="../../datastructs/I2DDataSet.html" title="interface in datastructs">I2DDataSet</a>&gt;&nbsp;double&nbsp;evaluate&#8203;(DataSetType&nbsp;data,
-                                                 <a href="../../datasets/VectorDouble.html" title="class in datasets">VectorDouble</a>&nbsp;labels)</pre>
+<pre class="methodSignature">&lt;DataSetType extends <a href="../../jstat.datastructs/I2DDataSet.html" title="interface in jstat.datastructs">I2DDataSet</a>&gt;&nbsp;double&nbsp;evaluate&#8203;(DataSetType&nbsp;data,
+                                                 <a href="../../jstat.datasets/VectorDouble.html" title="class in jstat.datasets">VectorDouble</a>&nbsp;labels)</pre>
 <div class="block">Evaluate the error function using the given data, labels</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -201,16 +201,16 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </dl>
 </li>
 </ul>
-<a id="gradients(datastructs.I2DDataSet,datasets.VectorDouble)">
+<a id="gradients(jstat.datastructs.I2DDataSet,jstat.datasets.VectorDouble)">
 <!--   -->
-</a><a id="gradients(DataSetType,datasets.VectorDouble)">
+</a><a id="gradients(DataSetType,jstat.datasets.VectorDouble)">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>gradients</h4>
-<pre class="methodSignature">&lt;DataSetType extends <a href="../../datastructs/I2DDataSet.html" title="interface in datastructs">I2DDataSet</a>&gt;&nbsp;<a href="../../datasets/VectorDouble.html" title="class in datasets">VectorDouble</a>&nbsp;gradients&#8203;(DataSetType&nbsp;data,
-                                                        <a href="../../datasets/VectorDouble.html" title="class in datasets">VectorDouble</a>&nbsp;labels)</pre>
+<pre class="methodSignature">&lt;DataSetType extends <a href="../../jstat.datastructs/I2DDataSet.html" title="interface in jstat.datastructs">I2DDataSet</a>&gt;&nbsp;<a href="../../jstat.datasets/VectorDouble.html" title="class in jstat.datasets">VectorDouble</a>&nbsp;gradients&#8203;(DataSetType&nbsp;data,
+                                                        <a href="../../jstat.datasets/VectorDouble.html" title="class in jstat.datasets">VectorDouble</a>&nbsp;labels)</pre>
 <div class="block">Returns the gradients on the given data</div>
 </li>
 </ul>

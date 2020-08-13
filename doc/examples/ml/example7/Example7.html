@@ -10,9 +10,9 @@
 <link rel="stylesheet" type="text/css" href="../../../jquery/jquery-ui.css" title="Style">
 <script type="text/javascript" src="../../../script.js"></script>
 <script type="text/javascript" src="../../../jquery/jszip/dist/jszip.min.js"></script>
-<script type="text/javascript" src="../../../jquery/jszip-utils/dist/jszip-utils.min.js"></script>
+<script type="text/javascript" src="../../../jquery/jszip-jstat.utils/dist/jszip-jstat.utils.min.js"></script>
 <!--[if IE]>
-<script type="text/javascript" src="../../../jquery/jszip-utils/dist/jszip-utils-ie.min.js"></script>
+<script type="text/javascript" src="../../../jquery/jszip-jstat.utils/dist/jszip-jstat.utils-ie.min.js"></script>
 <![endif]-->
 <script type="text/javascript" src="../../../jquery/jquery-3.3.1.js"></script>
 <script type="text/javascript" src="../../../jquery/jquery-migrate-3.0.1.js"></script>
@@ -116,7 +116,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <!-- ======== START OF CLASS DATA ======== -->
 <main role="main">
 <div class="header">
-<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">examples.ml.example7</a></div>
+<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">examples.jstat.ml.example7</a></div>
 <h2 title="Class Example7" class="title">Class Example7</h2>
 </div>
 <div class="contentContainer">
@@ -124,7 +124,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li>java.lang.Object</li>
 <li>
 <ul class="inheritance">
-<li>examples.ml.example7.Example7</li>
+<li>examples.jstat.ml.example7.Example7</li>
 </ul>
 </li>
 </ul>
@@ -182,20 +182,20 @@ extends java.lang.Object</pre>
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>static <a href="../../../utils/Pair.html" title="class in utils">Pair</a>&lt;<a href="../../../datasets/DenseMatrixSet.html" title="class in datasets">DenseMatrixSet</a>,&#8203;<a href="../../../datasets/VectorDouble.html" title="class in datasets">VectorDouble</a>&gt;</code></td>
+<td class="colFirst"><code>static <a href="../../../jstat.utils/Pair.html" title="class in jstat.utils">Pair</a>&lt;<a href="../../../jstat.datasets/DenseMatrixSet.html" title="class in jstat.datasets">DenseMatrixSet</a>,&#8203;<a href="../../../jstat.datasets/VectorDouble.html" title="class in jstat.datasets">VectorDouble</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#createDataSet()">createDataSet</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>static void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#lassoRegression(datasets.DenseMatrixSet,datasets.VectorDouble)">lassoRegression</a></span>&#8203;(<a href="../../../datasets/DenseMatrixSet.html" title="class in datasets">DenseMatrixSet</a>&nbsp;data,
-               <a href="../../../datasets/VectorDouble.html" title="class in datasets">VectorDouble</a>&nbsp;labels)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#lassoRegression(jstat.datasets.DenseMatrixSet,jstat.datasets.VectorDouble)">lassoRegression</a></span>&#8203;(<a href="../../../jstat.datasets/DenseMatrixSet.html" title="class in jstat.datasets">DenseMatrixSet</a>&nbsp;data,
+               <a href="../../../jstat.datasets/VectorDouble.html" title="class in jstat.datasets">VectorDouble</a>&nbsp;labels)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>static void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#linearRegression(datasets.DenseMatrixSet,datasets.VectorDouble)">linearRegression</a></span>&#8203;(<a href="../../../datasets/DenseMatrixSet.html" title="class in datasets">DenseMatrixSet</a>&nbsp;data,
-                <a href="../../../datasets/VectorDouble.html" title="class in datasets">VectorDouble</a>&nbsp;labels)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#linearRegression(jstat.datasets.DenseMatrixSet,jstat.datasets.VectorDouble)">linearRegression</a></span>&#8203;(<a href="../../../jstat.datasets/DenseMatrixSet.html" title="class in jstat.datasets">DenseMatrixSet</a>&nbsp;data,
+                <a href="../../../jstat.datasets/VectorDouble.html" title="class in jstat.datasets">VectorDouble</a>&nbsp;labels)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i3" class="rowColor">
@@ -205,8 +205,8 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code>static void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#ridgeRegression(datasets.DenseMatrixSet,datasets.VectorDouble)">ridgeRegression</a></span>&#8203;(<a href="../../../datasets/DenseMatrixSet.html" title="class in datasets">DenseMatrixSet</a>&nbsp;data,
-               <a href="../../../datasets/VectorDouble.html" title="class in datasets">VectorDouble</a>&nbsp;labels)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#ridgeRegression(jstat.datasets.DenseMatrixSet,jstat.datasets.VectorDouble)">ridgeRegression</a></span>&#8203;(<a href="../../../jstat.datasets/DenseMatrixSet.html" title="class in jstat.datasets">DenseMatrixSet</a>&nbsp;data,
+               <a href="../../../jstat.datasets/VectorDouble.html" title="class in jstat.datasets">VectorDouble</a>&nbsp;labels)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 </table>
@@ -258,7 +258,7 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>createDataSet</h4>
-<pre class="methodSignature">public static&nbsp;<a href="../../../utils/Pair.html" title="class in utils">Pair</a>&lt;<a href="../../../datasets/DenseMatrixSet.html" title="class in datasets">DenseMatrixSet</a>,&#8203;<a href="../../../datasets/VectorDouble.html" title="class in datasets">VectorDouble</a>&gt;&nbsp;createDataSet()
+<pre class="methodSignature">public static&nbsp;<a href="../../../jstat.utils/Pair.html" title="class in jstat.utils">Pair</a>&lt;<a href="../../../jstat.datasets/DenseMatrixSet.html" title="class in jstat.datasets">DenseMatrixSet</a>,&#8203;<a href="../../../jstat.datasets/VectorDouble.html" title="class in jstat.datasets">VectorDouble</a>&gt;&nbsp;createDataSet()
                                                              throws java.io.IOException,
                                                                     java.lang.IllegalArgumentException</pre>
 <dl>
@@ -268,34 +268,34 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
-<a id="linearRegression(datasets.DenseMatrixSet,datasets.VectorDouble)">
+<a id="linearRegression(jstat.datasets.DenseMatrixSet,jstat.datasets.VectorDouble)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>linearRegression</h4>
-<pre class="methodSignature">public static&nbsp;void&nbsp;linearRegression&#8203;(<a href="../../../datasets/DenseMatrixSet.html" title="class in datasets">DenseMatrixSet</a>&nbsp;data,
-                                    <a href="../../../datasets/VectorDouble.html" title="class in datasets">VectorDouble</a>&nbsp;labels)</pre>
+<pre class="methodSignature">public static&nbsp;void&nbsp;linearRegression&#8203;(<a href="../../../jstat.datasets/DenseMatrixSet.html" title="class in jstat.datasets">DenseMatrixSet</a>&nbsp;data,
+                                    <a href="../../../jstat.datasets/VectorDouble.html" title="class in jstat.datasets">VectorDouble</a>&nbsp;labels)</pre>
 </li>
 </ul>
-<a id="ridgeRegression(datasets.DenseMatrixSet,datasets.VectorDouble)">
+<a id="ridgeRegression(jstat.datasets.DenseMatrixSet,jstat.datasets.VectorDouble)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>ridgeRegression</h4>
-<pre class="methodSignature">public static&nbsp;void&nbsp;ridgeRegression&#8203;(<a href="../../../datasets/DenseMatrixSet.html" title="class in datasets">DenseMatrixSet</a>&nbsp;data,
-                                   <a href="../../../datasets/VectorDouble.html" title="class in datasets">VectorDouble</a>&nbsp;labels)</pre>
+<pre class="methodSignature">public static&nbsp;void&nbsp;ridgeRegression&#8203;(<a href="../../../jstat.datasets/DenseMatrixSet.html" title="class in jstat.datasets">DenseMatrixSet</a>&nbsp;data,
+                                   <a href="../../../jstat.datasets/VectorDouble.html" title="class in jstat.datasets">VectorDouble</a>&nbsp;labels)</pre>
 </li>
 </ul>
-<a id="lassoRegression(datasets.DenseMatrixSet,datasets.VectorDouble)">
+<a id="lassoRegression(jstat.datasets.DenseMatrixSet,jstat.datasets.VectorDouble)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>lassoRegression</h4>
-<pre class="methodSignature">public static&nbsp;void&nbsp;lassoRegression&#8203;(<a href="../../../datasets/DenseMatrixSet.html" title="class in datasets">DenseMatrixSet</a>&nbsp;data,
-                                   <a href="../../../datasets/VectorDouble.html" title="class in datasets">VectorDouble</a>&nbsp;labels)</pre>
+<pre class="methodSignature">public static&nbsp;void&nbsp;lassoRegression&#8203;(<a href="../../../jstat.datasets/DenseMatrixSet.html" title="class in jstat.datasets">DenseMatrixSet</a>&nbsp;data,
+                                   <a href="../../../jstat.datasets/VectorDouble.html" title="class in jstat.datasets">VectorDouble</a>&nbsp;labels)</pre>
 </li>
 </ul>
 <a id="main(java.lang.String[])">

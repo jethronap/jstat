@@ -1,12 +1,12 @@
-import maths.ConfusionMatrixTestRunner;
+import jstat.maths.ConfusionMatrixTestRunner;
 import org.junit.runner.Result;
 
-import dataloader.CsvLoaderTestRunner;
+import jstat.dataloader.CsvLoaderTestRunner;
 import testutils.ITestRunnerBase;
-import dataloader.JsonLoaderTestRunner;
-import datastructs.NumericSampleTestRunner;
-import stats.ResampleTestRunner;
-import utils.ArrayOperationsTestRunner;
+import jstat.dataloader.JsonLoaderTestRunner;
+import jstat.datastructs.NumericSampleTestRunner;
+import jstat.stats.ResampleTestRunner;
+import jstat.utils.ArrayOperationsTestRunner;
 
 
 public class AllTestsRunner {

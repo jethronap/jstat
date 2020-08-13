@@ -10,9 +10,9 @@
 <link rel="stylesheet" type="text/css" href="../../jquery/jquery-ui.css" title="Style">
 <script type="text/javascript" src="../../script.js"></script>
 <script type="text/javascript" src="../../jquery/jszip/dist/jszip.min.js"></script>
-<script type="text/javascript" src="../../jquery/jszip-utils/dist/jszip-utils.min.js"></script>
+<script type="text/javascript" src="../../jquery/jszip-jstat.utils/dist/jszip-jstat.utils.min.js"></script>
 <!--[if IE]>
-<script type="text/javascript" src="../../jquery/jszip-utils/dist/jszip-utils-ie.min.js"></script>
+<script type="text/javascript" src="../../jquery/jszip-jstat.utils/dist/jszip-jstat.utils-ie.min.js"></script>
 <![endif]-->
 <script type="text/javascript" src="../../jquery/jquery-3.3.1.js"></script>
 <script type="text/javascript" src="../../jquery/jquery-migrate-3.0.1.js"></script>
@@ -116,18 +116,18 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <!-- ======== START OF CLASS DATA ======== -->
 <main role="main">
 <div class="header">
-<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">ml.classifiers</a></div>
-<h2 title="Class LogisticRegressionClassifier" class="title">Class LogisticRegressionClassifier&lt;DataSetType extends <a href="../../datastructs/I2DDataSet.html" title="interface in datastructs">I2DDataSet</a>&lt;<a href="../../datastructs/IVector.html" title="interface in datastructs">IVector</a>&lt;java.lang.Double&gt;&gt;,&#8203;HypothesisType extends <a href="../../maths/functions/IVectorRealFunction.html" title="interface in maths.functions">IVectorRealFunction</a>&lt;<a href="../../datastructs/IVector.html" title="interface in datastructs">IVector</a>&lt;java.lang.Double&gt;&gt;&gt;</h2>
+<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">jstat.ml.classifiers</a></div>
+<h2 title="Class LogisticRegressionClassifier" class="title">Class LogisticRegressionClassifier&lt;DataSetType extends <a href="../../jstat.datastructs/I2DDataSet.html" title="interface in jstat.datastructs">I2DDataSet</a>&lt;<a href="../../jstat.datastructs/IVector.html" title="interface in jstat.datastructs">IVector</a>&lt;java.lang.Double&gt;&gt;,&#8203;HypothesisType extends <a href="../../jstat.maths/functions/IVectorRealFunction.html" title="interface in jstat.maths.functions">IVectorRealFunction</a>&lt;<a href="../../jstat.datastructs/IVector.html" title="interface in jstat.datastructs">IVector</a>&lt;java.lang.Double&gt;&gt;&gt;</h2>
 </div>
 <div class="contentContainer">
 <ul class="inheritance">
 <li>java.lang.Object</li>
 <li>
 <ul class="inheritance">
-<li><a href="ClassifierBase.html" title="class in ml.classifiers">ml.classifiers.ClassifierBase</a>&lt;DataSetType&gt;</li>
+<li><a href="ClassifierBase.html" title="class in jstat.ml.classifiers">jstat.ml.classifiers.ClassifierBase</a>&lt;DataSetType&gt;</li>
 <li>
 <ul class="inheritance">
-<li>ml.classifiers.LogisticRegressionClassifier&lt;DataSetType,&#8203;HypothesisType&gt;</li>
+<li>jstat.ml.classifiers.LogisticRegressionClassifier&lt;DataSetType,&#8203;HypothesisType&gt;</li>
 </ul>
 </li>
 </ul>
@@ -137,8 +137,8 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <ul class="blockList">
 <li class="blockList">
 <hr>
-<pre>public class <span class="typeNameLabel">LogisticRegressionClassifier&lt;DataSetType extends <a href="../../datastructs/I2DDataSet.html" title="interface in datastructs">I2DDataSet</a>&lt;<a href="../../datastructs/IVector.html" title="interface in datastructs">IVector</a>&lt;java.lang.Double&gt;&gt;,&#8203;HypothesisType extends <a href="../../maths/functions/IVectorRealFunction.html" title="interface in maths.functions">IVectorRealFunction</a>&lt;<a href="../../datastructs/IVector.html" title="interface in datastructs">IVector</a>&lt;java.lang.Double&gt;&gt;&gt;</span>
-extends <a href="ClassifierBase.html" title="class in ml.classifiers">ClassifierBase</a>&lt;DataSetType&gt;</pre>
+<pre>public class <span class="typeNameLabel">LogisticRegressionClassifier&lt;DataSetType extends <a href="../../jstat.datastructs/I2DDataSet.html" title="interface in jstat.datastructs">I2DDataSet</a>&lt;<a href="../../jstat.datastructs/IVector.html" title="interface in jstat.datastructs">IVector</a>&lt;java.lang.Double&gt;&gt;,&#8203;HypothesisType extends <a href="../../jstat.maths/functions/IVectorRealFunction.html" title="interface in jstat.maths.functions">IVectorRealFunction</a>&lt;<a href="../../jstat.datastructs/IVector.html" title="interface in jstat.datastructs">IVector</a>&lt;java.lang.Double&gt;&gt;&gt;</span>
+extends <a href="ClassifierBase.html" title="class in jstat.ml.classifiers">ClassifierBase</a>&lt;DataSetType&gt;</pre>
 </li>
 </ul>
 </div>
@@ -167,7 +167,7 @@ extends <a href="ClassifierBase.html" title="class in ml.classifiers">Classifier
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><code>protected <a href="../../optimization/ISupervisedOptimizer.html" title="interface in optimization">ISupervisedOptimizer</a></code></td>
+<td class="colFirst"><code>protected <a href="../../jstat.optimization/ISupervisedOptimizer.html" title="interface in jstat.optimization">ISupervisedOptimizer</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#optimizer">optimizer</a></span></code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
@@ -189,8 +189,8 @@ extends <a href="ClassifierBase.html" title="class in ml.classifiers">Classifier
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr class="altColor">
-<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(HypothesisType,optimization.ISupervisedOptimizer)">LogisticRegressionClassifier</a></span>&#8203;(<a href="LogisticRegressionClassifier.html" title="type parameter in LogisticRegressionClassifier">HypothesisType</a>&nbsp;hypothesis,
-                            <a href="../../optimization/ISupervisedOptimizer.html" title="interface in optimization">ISupervisedOptimizer</a>&nbsp;optimizer)</code></th>
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(HypothesisType,jstat.optimization.ISupervisedOptimizer)">LogisticRegressionClassifier</a></span>&#8203;(<a href="LogisticRegressionClassifier.html" title="type parameter in LogisticRegressionClassifier">HypothesisType</a>&nbsp;hypothesis,
+                            <a href="../../jstat.optimization/ISupervisedOptimizer.html" title="interface in jstat.optimization">ISupervisedOptimizer</a>&nbsp;optimizer)</code></th>
 <td class="colLast">
 <div class="block">Constructor.</div>
 </td>
@@ -222,8 +222,8 @@ extends <a href="ClassifierBase.html" title="class in ml.classifiers">Classifier
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>&lt;OutputType&gt;<br>OutputType</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#train(DataSetType,datasets.VectorDouble)">train</a></span>&#8203;(<a href="LogisticRegressionClassifier.html" title="type parameter in LogisticRegressionClassifier">DataSetType</a>&nbsp;dataSet,
-     <a href="../../datasets/VectorDouble.html" title="class in datasets">VectorDouble</a>&nbsp;labels)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#train(DataSetType,jstat.datasets.VectorDouble)">train</a></span>&#8203;(<a href="LogisticRegressionClassifier.html" title="type parameter in LogisticRegressionClassifier">DataSetType</a>&nbsp;dataSet,
+     <a href="../../jstat.datasets/VectorDouble.html" title="class in jstat.datasets">VectorDouble</a>&nbsp;labels)</code></th>
 <td class="colLast">
 <div class="block">Train the model using the provided dataset</div>
 </td>
@@ -258,7 +258,7 @@ extends <a href="ClassifierBase.html" title="class in ml.classifiers">Classifier
 <ul class="blockList">
 <li class="blockList">
 <h4>hypothesis</h4>
-<pre>protected&nbsp;<a href="LogisticRegressionClassifier.html" title="type parameter in LogisticRegressionClassifier">HypothesisType</a> extends <a href="../../maths/functions/IVectorRealFunction.html" title="interface in maths.functions">IVectorRealFunction</a>&lt;<a href="../../datastructs/IVector.html" title="interface in datastructs">IVector</a>&lt;java.lang.Double&gt;&gt; hypothesis</pre>
+<pre>protected&nbsp;<a href="LogisticRegressionClassifier.html" title="type parameter in LogisticRegressionClassifier">HypothesisType</a> extends <a href="../../jstat.maths/functions/IVectorRealFunction.html" title="interface in jstat.maths.functions">IVectorRealFunction</a>&lt;<a href="../../jstat.datastructs/IVector.html" title="interface in jstat.datastructs">IVector</a>&lt;java.lang.Double&gt;&gt; hypothesis</pre>
 <div class="block">The hypothesis function assumed by the regressor</div>
 </li>
 </ul>
@@ -268,7 +268,7 @@ extends <a href="ClassifierBase.html" title="class in ml.classifiers">Classifier
 <ul class="blockListLast">
 <li class="blockList">
 <h4>optimizer</h4>
-<pre>protected&nbsp;<a href="../../optimization/ISupervisedOptimizer.html" title="interface in optimization">ISupervisedOptimizer</a> optimizer</pre>
+<pre>protected&nbsp;<a href="../../jstat.optimization/ISupervisedOptimizer.html" title="interface in jstat.optimization">ISupervisedOptimizer</a> optimizer</pre>
 </li>
 </ul>
 </li>
@@ -281,16 +281,16 @@ extends <a href="ClassifierBase.html" title="class in ml.classifiers">Classifier
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a id="&lt;init&gt;(maths.functions.IVectorRealFunction,optimization.ISupervisedOptimizer)">
+<a id="&lt;init&gt;(jstat.maths.functions.IVectorRealFunction,jstat.optimization.ISupervisedOptimizer)">
 <!--   -->
-</a><a id="&lt;init&gt;(HypothesisType,optimization.ISupervisedOptimizer)">
+</a><a id="&lt;init&gt;(HypothesisType,jstat.optimization.ISupervisedOptimizer)">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>LogisticRegressionClassifier</h4>
 <pre>public&nbsp;LogisticRegressionClassifier&#8203;(<a href="LogisticRegressionClassifier.html" title="type parameter in LogisticRegressionClassifier">HypothesisType</a>&nbsp;hypothesis,
-                                    <a href="../../optimization/ISupervisedOptimizer.html" title="interface in optimization">ISupervisedOptimizer</a>&nbsp;optimizer)</pre>
+                                    <a href="../../jstat.optimization/ISupervisedOptimizer.html" title="interface in jstat.optimization">ISupervisedOptimizer</a>&nbsp;optimizer)</pre>
 <div class="block">Constructor.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -309,20 +309,20 @@ extends <a href="ClassifierBase.html" title="class in ml.classifiers">Classifier
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a id="train(datastructs.I2DDataSet,datasets.VectorDouble)">
+<a id="train(jstat.datastructs.I2DDataSet,jstat.datasets.VectorDouble)">
 <!--   -->
-</a><a id="train(DataSetType,datasets.VectorDouble)">
+</a><a id="train(DataSetType,jstat.datasets.VectorDouble)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>train</h4>
 <pre class="methodSignature">public&nbsp;&lt;OutputType&gt;&nbsp;OutputType&nbsp;train&#8203;(<a href="LogisticRegressionClassifier.html" title="type parameter in LogisticRegressionClassifier">DataSetType</a>&nbsp;dataSet,
-                                     <a href="../../datasets/VectorDouble.html" title="class in datasets">VectorDouble</a>&nbsp;labels)</pre>
+                                     <a href="../../jstat.datasets/VectorDouble.html" title="class in jstat.datasets">VectorDouble</a>&nbsp;labels)</pre>
 <div class="block">Train the model using the provided dataset</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="ClassifierBase.html#train(DataSetType,datasets.VectorDouble)">train</a></code>&nbsp;in class&nbsp;<code><a href="ClassifierBase.html" title="class in ml.classifiers">ClassifierBase</a>&lt;<a href="LogisticRegressionClassifier.html" title="type parameter in LogisticRegressionClassifier">DataSetType</a> extends <a href="../../datastructs/I2DDataSet.html" title="interface in datastructs">I2DDataSet</a>&lt;<a href="../../datastructs/IVector.html" title="interface in datastructs">IVector</a>&lt;java.lang.Double&gt;&gt;&gt;</code></dd>
+<dd><code><a href="ClassifierBase.html#train(DataSetType,jstat.datasets.VectorDouble)">train</a></code>&nbsp;in class&nbsp;<code><a href="ClassifierBase.html" title="class in jstat.ml.classifiers">ClassifierBase</a>&lt;<a href="LogisticRegressionClassifier.html" title="type parameter in LogisticRegressionClassifier">DataSetType</a> extends <a href="../../jstat.datastructs/I2DDataSet.html" title="interface in jstat.datastructs">I2DDataSet</a>&lt;<a href="../../jstat.datastructs/IVector.html" title="interface in jstat.datastructs">IVector</a>&lt;java.lang.Double&gt;&gt;&gt;</code></dd>
 <dt><span class="paramLabel">Type Parameters:</span></dt>
 <dd><code>OutputType</code> - A generic output type</dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -345,7 +345,7 @@ extends <a href="ClassifierBase.html" title="class in ml.classifiers">Classifier
 <div class="block">Predict the class of the given data point</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="ClassifierBase.html#predict(PointType)">predict</a></code>&nbsp;in class&nbsp;<code><a href="ClassifierBase.html" title="class in ml.classifiers">ClassifierBase</a>&lt;<a href="LogisticRegressionClassifier.html" title="type parameter in LogisticRegressionClassifier">DataSetType</a> extends <a href="../../datastructs/I2DDataSet.html" title="interface in datastructs">I2DDataSet</a>&lt;<a href="../../datastructs/IVector.html" title="interface in datastructs">IVector</a>&lt;java.lang.Double&gt;&gt;&gt;</code></dd>
+<dd><code><a href="ClassifierBase.html#predict(PointType)">predict</a></code>&nbsp;in class&nbsp;<code><a href="ClassifierBase.html" title="class in jstat.ml.classifiers">ClassifierBase</a>&lt;<a href="LogisticRegressionClassifier.html" title="type parameter in LogisticRegressionClassifier">DataSetType</a> extends <a href="../../jstat.datastructs/I2DDataSet.html" title="interface in jstat.datastructs">I2DDataSet</a>&lt;<a href="../../jstat.datastructs/IVector.html" title="interface in jstat.datastructs">IVector</a>&lt;java.lang.Double&gt;&gt;&gt;</code></dd>
 <dt><span class="paramLabel">Type Parameters:</span></dt>
 <dd><code>PointType</code> - A generic point type</dd>
 <dt><span class="paramLabel">Parameters:</span></dt>

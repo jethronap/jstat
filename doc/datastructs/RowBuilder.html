@@ -10,9 +10,9 @@
 <link rel="stylesheet" type="text/css" href="../jquery/jquery-ui.css" title="Style">
 <script type="text/javascript" src="../script.js"></script>
 <script type="text/javascript" src="../jquery/jszip/dist/jszip.min.js"></script>
-<script type="text/javascript" src="../jquery/jszip-utils/dist/jszip-utils.min.js"></script>
+<script type="text/javascript" src="../jquery/jszip-jstat.utils/dist/jszip-jstat.utils.min.js"></script>
 <!--[if IE]>
-<script type="text/javascript" src="../jquery/jszip-utils/dist/jszip-utils-ie.min.js"></script>
+<script type="text/javascript" src="../jquery/jszip-jstat.utils/dist/jszip-jstat.utils-ie.min.js"></script>
 <![endif]-->
 <script type="text/javascript" src="../jquery/jquery-3.3.1.js"></script>
 <script type="text/javascript" src="../jquery/jquery-migrate-3.0.1.js"></script>
@@ -116,7 +116,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <!-- ======== START OF CLASS DATA ======== -->
 <main role="main">
 <div class="header">
-<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">datastructs</a></div>
+<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">jstat.datastructs</a></div>
 <h2 title="Class RowBuilder" class="title">Class RowBuilder</h2>
 </div>
 <div class="contentContainer">
@@ -124,7 +124,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li>java.lang.Object</li>
 <li>
 <ul class="inheritance">
-<li>datastructs.RowBuilder</li>
+<li>jstat.datastructs.RowBuilder</li>
 </ul>
 </li>
 </ul>
@@ -177,18 +177,18 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>&lt;Row&gt;&nbsp;Row</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#build(datastructs.RowType.Type)">build</a></span>&#8203;(<a href="RowType.Type.html" title="enum in datastructs">RowType.Type</a>&nbsp;type)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#build(jstat.datastructs.RowType.Type)">build</a></span>&#8203;(<a href="RowType.Type.html" title="enum in jstat.datastructs">RowType.Type</a>&nbsp;type)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>&lt;Row&gt;&nbsp;Row</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#build(datastructs.RowType.Type,int)">build</a></span>&#8203;(<a href="RowType.Type.html" title="enum in datastructs">RowType.Type</a>&nbsp;type,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#build(jstat.datastructs.RowType.Type,int)">build</a></span>&#8203;(<a href="RowType.Type.html" title="enum in jstat.datastructs">RowType.Type</a>&nbsp;type,
      int&nbsp;n)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>&lt;Row,&#8203;T&gt;<br>Row</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#build(datastructs.RowType.Type,T...)">build</a></span>&#8203;(<a href="RowType.Type.html" title="enum in datastructs">RowType.Type</a>&nbsp;type,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#build(jstat.datastructs.RowType.Type,T...)">build</a></span>&#8203;(<a href="RowType.Type.html" title="enum in jstat.datastructs">RowType.Type</a>&nbsp;type,
      T...&nbsp;vals)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
@@ -235,34 +235,34 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a id="build(datastructs.RowType.Type)">
+<a id="build(jstat.datastructs.RowType.Type)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>build</h4>
-<pre class="methodSignature">public&nbsp;&lt;Row&gt;&nbsp;Row&nbsp;build&#8203;(<a href="RowType.Type.html" title="enum in datastructs">RowType.Type</a>&nbsp;type)</pre>
+<pre class="methodSignature">public&nbsp;&lt;Row&gt;&nbsp;Row&nbsp;build&#8203;(<a href="RowType.Type.html" title="enum in jstat.datastructs">RowType.Type</a>&nbsp;type)</pre>
 </li>
 </ul>
-<a id="build(datastructs.RowType.Type,int)">
+<a id="build(jstat.datastructs.RowType.Type,int)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>build</h4>
-<pre class="methodSignature">public&nbsp;&lt;Row&gt;&nbsp;Row&nbsp;build&#8203;(<a href="RowType.Type.html" title="enum in datastructs">RowType.Type</a>&nbsp;type,
+<pre class="methodSignature">public&nbsp;&lt;Row&gt;&nbsp;Row&nbsp;build&#8203;(<a href="RowType.Type.html" title="enum in jstat.datastructs">RowType.Type</a>&nbsp;type,
                        int&nbsp;n)</pre>
 </li>
 </ul>
-<a id="build(datastructs.RowType.Type,java.lang.Object[])">
+<a id="build(jstat.datastructs.RowType.Type,java.lang.Object[])">
 <!--   -->
-</a><a id="build(datastructs.RowType.Type,T...)">
+</a><a id="build(jstat.datastructs.RowType.Type,T...)">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>build</h4>
-<pre class="methodSignature">public&nbsp;&lt;Row,&#8203;T&gt;&nbsp;Row&nbsp;build&#8203;(<a href="RowType.Type.html" title="enum in datastructs">RowType.Type</a>&nbsp;type,
+<pre class="methodSignature">public&nbsp;&lt;Row,&#8203;T&gt;&nbsp;Row&nbsp;build&#8203;(<a href="RowType.Type.html" title="enum in jstat.datastructs">RowType.Type</a>&nbsp;type,
                                T...&nbsp;vals)</pre>
 </li>
 </ul>

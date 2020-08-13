@@ -10,9 +10,9 @@
 <link rel="stylesheet" type="text/css" href="../../jquery/jquery-ui.css" title="Style">
 <script type="text/javascript" src="../../script.js"></script>
 <script type="text/javascript" src="../../jquery/jszip/dist/jszip.min.js"></script>
-<script type="text/javascript" src="../../jquery/jszip-utils/dist/jszip-utils.min.js"></script>
+<script type="text/javascript" src="../../jquery/jszip-jstat.utils/dist/jszip-jstat.utils.min.js"></script>
 <!--[if IE]>
-<script type="text/javascript" src="../../jquery/jszip-utils/dist/jszip-utils-ie.min.js"></script>
+<script type="text/javascript" src="../../jquery/jszip-jstat.utils/dist/jszip-jstat.utils-ie.min.js"></script>
 <![endif]-->
 <script type="text/javascript" src="../../jquery/jquery-3.3.1.js"></script>
 <script type="text/javascript" src="../../jquery/jquery-migrate-3.0.1.js"></script>
@@ -116,18 +116,18 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <!-- ======== START OF CLASS DATA ======== -->
 <main role="main">
 <div class="header">
-<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">ml.classifiers</a></div>
-<h2 title="Class ThreadedKNNClassifier" class="title">Class ThreadedKNNClassifier&lt;DataType,&#8203;DataSetType extends <a href="../../datastructs/I2DDataSet.html" title="interface in datastructs">I2DDataSet</a>&lt;<a href="../../datastructs/IVector.html" title="interface in datastructs">IVector</a>&lt;DataType&gt;&gt;,&#8203;DistanceType extends <a href="../../maths/functions/distances/DistanceCalculator.html" title="interface in maths.functions.distances">DistanceCalculator</a>,&#8203;VoterType extends <a href="utils/ClassificationVoter.html" title="class in ml.classifiers.utils">ClassificationVoter</a>&gt;</h2>
+<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">jstat.ml.classifiers</a></div>
+<h2 title="Class ThreadedKNNClassifier" class="title">Class ThreadedKNNClassifier&lt;DataType,&#8203;DataSetType extends <a href="../../jstat.datastructs/I2DDataSet.html" title="interface in jstat.datastructs">I2DDataSet</a>&lt;<a href="../../jstat.datastructs/IVector.html" title="interface in jstat.datastructs">IVector</a>&lt;DataType&gt;&gt;,&#8203;DistanceType extends <a href="../../jstat.maths/functions/distances/DistanceCalculator.html" title="interface in jstat.maths.functions.distances">DistanceCalculator</a>,&#8203;VoterType extends <a href="jstat.utils/ClassificationVoter.html" title="class in jstat.ml.classifiers.jstat.utils">ClassificationVoter</a>&gt;</h2>
 </div>
 <div class="contentContainer">
 <ul class="inheritance">
 <li>java.lang.Object</li>
 <li>
 <ul class="inheritance">
-<li><a href="KNNClassifier.html" title="class in ml.classifiers">ml.classifiers.KNNClassifier</a>&lt;DataType,&#8203;DataSetType,&#8203;DistanceType,&#8203;VoterType&gt;</li>
+<li><a href="KNNClassifier.html" title="class in jstat.ml.classifiers">jstat.ml.classifiers.KNNClassifier</a>&lt;DataType,&#8203;DataSetType,&#8203;DistanceType,&#8203;VoterType&gt;</li>
 <li>
 <ul class="inheritance">
-<li>ml.classifiers.ThreadedKNNClassifier&lt;DataType,&#8203;DataSetType,&#8203;DistanceType,&#8203;VoterType&gt;</li>
+<li>jstat.ml.classifiers.ThreadedKNNClassifier&lt;DataType,&#8203;DataSetType,&#8203;DistanceType,&#8203;VoterType&gt;</li>
 </ul>
 </li>
 </ul>
@@ -137,8 +137,8 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <ul class="blockList">
 <li class="blockList">
 <hr>
-<pre>public class <span class="typeNameLabel">ThreadedKNNClassifier&lt;DataType,&#8203;DataSetType extends <a href="../../datastructs/I2DDataSet.html" title="interface in datastructs">I2DDataSet</a>&lt;<a href="../../datastructs/IVector.html" title="interface in datastructs">IVector</a>&lt;DataType&gt;&gt;,&#8203;DistanceType extends <a href="../../maths/functions/distances/DistanceCalculator.html" title="interface in maths.functions.distances">DistanceCalculator</a>,&#8203;VoterType extends <a href="utils/ClassificationVoter.html" title="class in ml.classifiers.utils">ClassificationVoter</a>&gt;</span>
-extends <a href="KNNClassifier.html" title="class in ml.classifiers">KNNClassifier</a>&lt;DataType,&#8203;DataSetType,&#8203;DistanceType,&#8203;VoterType&gt;</pre>
+<pre>public class <span class="typeNameLabel">ThreadedKNNClassifier&lt;DataType,&#8203;DataSetType extends <a href="../../jstat.datastructs/I2DDataSet.html" title="interface in jstat.datastructs">I2DDataSet</a>&lt;<a href="../../jstat.datastructs/IVector.html" title="interface in jstat.datastructs">IVector</a>&lt;DataType&gt;&gt;,&#8203;DistanceType extends <a href="../../jstat.maths/functions/distances/DistanceCalculator.html" title="interface in jstat.maths.functions.distances">DistanceCalculator</a>,&#8203;VoterType extends <a href="jstat.utils/ClassificationVoter.html" title="class in jstat.ml.classifiers.jstat.utils">ClassificationVoter</a>&gt;</span>
+extends <a href="KNNClassifier.html" title="class in jstat.ml.classifiers">KNNClassifier</a>&lt;DataType,&#8203;DataSetType,&#8203;DistanceType,&#8203;VoterType&gt;</pre>
 </li>
 </ul>
 </div>
@@ -153,10 +153,10 @@ extends <a href="KNNClassifier.html" title="class in ml.classifiers">KNNClassifi
 </a>
 <h3>Field Summary</h3>
 <ul class="blockList">
-<li class="blockList"><a id="fields.inherited.from.class.ml.classifiers.KNNClassifier">
+<li class="blockList"><a id="fields.inherited.from.class.jstat.ml.classifiers.KNNClassifier">
 <!--   -->
 </a>
-<h3>Fields inherited from class&nbsp;ml.classifiers.<a href="KNNClassifier.html" title="class in ml.classifiers">KNNClassifier</a></h3>
+<h3>Fields inherited from class&nbsp;jstat.ml.classifiers.<a href="KNNClassifier.html" title="class in jstat.ml.classifiers">KNNClassifier</a></h3>
 <code><a href="KNNClassifier.html#copyDataset">copyDataset</a>, <a href="KNNClassifier.html#dataSet">dataSet</a>, <a href="KNNClassifier.html#k">k</a>, <a href="KNNClassifier.html#labels">labels</a></code></li>
 </ul>
 </li>
@@ -210,10 +210,10 @@ extends <a href="KNNClassifier.html" title="class in ml.classifiers">KNNClassifi
 </tr>
 </table>
 <ul class="blockList">
-<li class="blockList"><a id="methods.inherited.from.class.ml.classifiers.KNNClassifier">
+<li class="blockList"><a id="methods.inherited.from.class.jstat.ml.classifiers.KNNClassifier">
 <!--   -->
 </a>
-<h3>Methods inherited from class&nbsp;ml.classifiers.<a href="KNNClassifier.html" title="class in ml.classifiers">KNNClassifier</a></h3>
+<h3>Methods inherited from class&nbsp;jstat.ml.classifiers.<a href="KNNClassifier.html" title="class in jstat.ml.classifiers">KNNClassifier</a></h3>
 <code><a href="KNNClassifier.html#getTopResult()">getTopResult</a>, <a href="KNNClassifier.html#nNeighbors()">nNeighbors</a>, <a href="KNNClassifier.html#setDistanceCalculator(DistanceType)">setDistanceCalculator</a>, <a href="KNNClassifier.html#setMajorityVoter(VoterType)">setMajorityVoter</a>, <a href="KNNClassifier.html#train(DataSetType,java.util.List)">train</a></code></li>
 </ul>
 <ul class="blockList">
@@ -280,7 +280,7 @@ extends <a href="KNNClassifier.html" title="class in ml.classifiers">KNNClassifi
  computations are completed</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code><a href="KNNClassifier.html#predict(PointType)">predict</a></code>&nbsp;in class&nbsp;<code><a href="KNNClassifier.html" title="class in ml.classifiers">KNNClassifier</a>&lt;<a href="ThreadedKNNClassifier.html" title="type parameter in ThreadedKNNClassifier">DataType</a>,&#8203;<a href="ThreadedKNNClassifier.html" title="type parameter in ThreadedKNNClassifier">DataSetType</a> extends <a href="../../datastructs/I2DDataSet.html" title="interface in datastructs">I2DDataSet</a>&lt;<a href="../../datastructs/IVector.html" title="interface in datastructs">IVector</a>&lt;<a href="ThreadedKNNClassifier.html" title="type parameter in ThreadedKNNClassifier">DataType</a>&gt;&gt;,&#8203;<a href="ThreadedKNNClassifier.html" title="type parameter in ThreadedKNNClassifier">DistanceType</a> extends <a href="../../maths/functions/distances/DistanceCalculator.html" title="interface in maths.functions.distances">DistanceCalculator</a>,&#8203;<a href="ThreadedKNNClassifier.html" title="type parameter in ThreadedKNNClassifier">VoterType</a> extends <a href="utils/ClassificationVoter.html" title="class in ml.classifiers.utils">ClassificationVoter</a>&gt;</code></dd>
+<dd><code><a href="KNNClassifier.html#predict(PointType)">predict</a></code>&nbsp;in class&nbsp;<code><a href="KNNClassifier.html" title="class in jstat.ml.classifiers">KNNClassifier</a>&lt;<a href="ThreadedKNNClassifier.html" title="type parameter in ThreadedKNNClassifier">DataType</a>,&#8203;<a href="ThreadedKNNClassifier.html" title="type parameter in ThreadedKNNClassifier">DataSetType</a> extends <a href="../../jstat.datastructs/I2DDataSet.html" title="interface in jstat.datastructs">I2DDataSet</a>&lt;<a href="../../jstat.datastructs/IVector.html" title="interface in jstat.datastructs">IVector</a>&lt;<a href="ThreadedKNNClassifier.html" title="type parameter in ThreadedKNNClassifier">DataType</a>&gt;&gt;,&#8203;<a href="ThreadedKNNClassifier.html" title="type parameter in ThreadedKNNClassifier">DistanceType</a> extends <a href="../../jstat.maths/functions/distances/DistanceCalculator.html" title="interface in jstat.maths.functions.distances">DistanceCalculator</a>,&#8203;<a href="ThreadedKNNClassifier.html" title="type parameter in ThreadedKNNClassifier">VoterType</a> extends <a href="jstat.utils/ClassificationVoter.html" title="class in jstat.ml.classifiers.jstat.utils">ClassificationVoter</a>&gt;</code></dd>
 <dt><span class="paramLabel">Type Parameters:</span></dt>
 <dd><code>PointType</code> - A generic point type</dd>
 <dt><span class="paramLabel">Parameters:</span></dt>

@@ -10,9 +10,9 @@
 <link rel="stylesheet" type="text/css" href="../jquery/jquery-ui.css" title="Style">
 <script type="text/javascript" src="../script.js"></script>
 <script type="text/javascript" src="../jquery/jszip/dist/jszip.min.js"></script>
-<script type="text/javascript" src="../jquery/jszip-utils/dist/jszip-utils.min.js"></script>
+<script type="text/javascript" src="../jquery/jszip-jstat.utils/dist/jszip-jstat.utils.min.js"></script>
 <!--[if IE]>
-<script type="text/javascript" src="../jquery/jszip-utils/dist/jszip-utils-ie.min.js"></script>
+<script type="text/javascript" src="../jquery/jszip-jstat.utils/dist/jszip-jstat.utils-ie.min.js"></script>
 <![endif]-->
 <script type="text/javascript" src="../jquery/jquery-3.3.1.js"></script>
 <script type="text/javascript" src="../jquery/jquery-migrate-3.0.1.js"></script>
@@ -116,7 +116,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <!-- ======== START OF CLASS DATA ======== -->
 <main role="main">
 <div class="header">
-<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">datastructs</a></div>
+<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">jstat.datastructs</a></div>
 <h2 title="Interface IVector" class="title">Interface IVector&lt;E&gt;</h2>
 </div>
 <div class="contentContainer">
@@ -125,7 +125,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="blockList">
 <dl>
 <dt>All Known Implementing Classes:</dt>
-<dd><code><a href="../datasets/VectorDouble.html" title="class in datasets">VectorDouble</a></code>, <code><a href="../datasets/VectorInt.html" title="class in datasets">VectorInt</a></code></dd>
+<dd><code><a href="../jstat.datasets/VectorDouble.html" title="class in jstat.datasets">VectorDouble</a></code>, <code><a href="../jstat.datasets/VectorInt.html" title="class in jstat.datasets">VectorInt</a></code></dd>
 </dl>
 <hr>
 <pre>public interface <span class="typeNameLabel">IVector&lt;E&gt;</span></pre>
@@ -166,21 +166,21 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </td>
 </tr>
 <tr id="i2" class="altColor">
-<td class="colFirst"><code><a href="IVector.html" title="interface in datastructs">IVector</a>&lt;<a href="IVector.html" title="type parameter in IVector">E</a>&gt;</code></td>
+<td class="colFirst"><code><a href="IVector.html" title="interface in jstat.datastructs">IVector</a>&lt;<a href="IVector.html" title="type parameter in IVector">E</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#create()">create</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Create a default vector</div>
 </td>
 </tr>
 <tr id="i3" class="rowColor">
-<td class="colFirst"><code><a href="IVector.html" title="interface in datastructs">IVector</a>&lt;<a href="IVector.html" title="type parameter in IVector">E</a>&gt;</code></td>
+<td class="colFirst"><code><a href="IVector.html" title="interface in jstat.datastructs">IVector</a>&lt;<a href="IVector.html" title="type parameter in IVector">E</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#create(int)">create</a></span>&#8203;(int&nbsp;size)</code></th>
 <td class="colLast">
 <div class="block">Build a new instance of this class</div>
 </td>
 </tr>
 <tr id="i4" class="altColor">
-<td class="colFirst"><code><a href="IVector.html" title="interface in datastructs">IVector</a>&lt;<a href="IVector.html" title="type parameter in IVector">E</a>&gt;</code></td>
+<td class="colFirst"><code><a href="IVector.html" title="interface in jstat.datastructs">IVector</a>&lt;<a href="IVector.html" title="type parameter in IVector">E</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#create(E...)">create</a></span>&#8203;(<a href="IVector.html" title="type parameter in IVector">E</a>...&nbsp;value)</code></th>
 <td class="colLast">
 <div class="block">Build a new instance of this class</div>
@@ -216,7 +216,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </td>
 </tr>
 <tr id="i9" class="rowColor">
-<td class="colFirst"><code><a href="RowType.Type.html" title="enum in datastructs">RowType.Type</a></code></td>
+<td class="colFirst"><code><a href="RowType.Type.html" title="enum in jstat.datastructs">RowType.Type</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getType()">getType</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns the type of the vector</div>
@@ -239,7 +239,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </tr>
 <tr id="i12" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#set(datastructs.IVector)">set</a></span>&#8203;(<a href="IVector.html" title="interface in datastructs">IVector</a>&lt;<a href="IVector.html" title="type parameter in IVector">E</a>&gt;&nbsp;other)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#set(jstat.datastructs.IVector)">set</a></span>&#8203;(<a href="IVector.html" title="interface in jstat.datastructs">IVector</a>&lt;<a href="IVector.html" title="type parameter in IVector">E</a>&gt;&nbsp;other)</code></th>
 <td class="colLast">
 <div class="block">Set the data from the other IVector</div>
 </td>
@@ -288,7 +288,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <ul class="blockList">
 <li class="blockList">
 <h4>create</h4>
-<pre class="methodSignature"><a href="IVector.html" title="interface in datastructs">IVector</a>&lt;<a href="IVector.html" title="type parameter in IVector">E</a>&gt;&nbsp;create&#8203;(int&nbsp;size)</pre>
+<pre class="methodSignature"><a href="IVector.html" title="interface in jstat.datastructs">IVector</a>&lt;<a href="IVector.html" title="type parameter in IVector">E</a>&gt;&nbsp;create&#8203;(int&nbsp;size)</pre>
 <div class="block">Build a new instance of this class</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -306,7 +306,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <ul class="blockList">
 <li class="blockList">
 <h4>create</h4>
-<pre class="methodSignature"><a href="IVector.html" title="interface in datastructs">IVector</a>&lt;<a href="IVector.html" title="type parameter in IVector">E</a>&gt;&nbsp;create&#8203;(<a href="IVector.html" title="type parameter in IVector">E</a>...&nbsp;value)</pre>
+<pre class="methodSignature"><a href="IVector.html" title="interface in jstat.datastructs">IVector</a>&lt;<a href="IVector.html" title="type parameter in IVector">E</a>&gt;&nbsp;create&#8203;(<a href="IVector.html" title="type parameter in IVector">E</a>...&nbsp;value)</pre>
 <div class="block">Build a new instance of this class</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -322,7 +322,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <ul class="blockList">
 <li class="blockList">
 <h4>create</h4>
-<pre class="methodSignature"><a href="IVector.html" title="interface in datastructs">IVector</a>&lt;<a href="IVector.html" title="type parameter in IVector">E</a>&gt;&nbsp;create()</pre>
+<pre class="methodSignature"><a href="IVector.html" title="interface in jstat.datastructs">IVector</a>&lt;<a href="IVector.html" title="type parameter in IVector">E</a>&gt;&nbsp;create()</pre>
 <div class="block">Create a default vector</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -344,13 +344,13 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </dl>
 </li>
 </ul>
-<a id="set(datastructs.IVector)">
+<a id="set(jstat.datastructs.IVector)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>set</h4>
-<pre class="methodSignature">void&nbsp;set&#8203;(<a href="IVector.html" title="interface in datastructs">IVector</a>&lt;<a href="IVector.html" title="type parameter in IVector">E</a>&gt;&nbsp;other)</pre>
+<pre class="methodSignature">void&nbsp;set&#8203;(<a href="IVector.html" title="interface in jstat.datastructs">IVector</a>&lt;<a href="IVector.html" title="type parameter in IVector">E</a>&gt;&nbsp;other)</pre>
 <div class="block">Set the data from the other IVector</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -453,7 +453,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <ul class="blockList">
 <li class="blockList">
 <h4>getType</h4>
-<pre class="methodSignature"><a href="RowType.Type.html" title="enum in datastructs">RowType.Type</a>&nbsp;getType()</pre>
+<pre class="methodSignature"><a href="RowType.Type.html" title="enum in jstat.datastructs">RowType.Type</a>&nbsp;getType()</pre>
 <div class="block">Returns the type of the vector</div>
 </li>
 </ul>

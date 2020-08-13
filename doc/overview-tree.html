@@ -10,9 +10,9 @@
 <link rel="stylesheet" type="text/css" href="jquery/jquery-ui.css" title="Style">
 <script type="text/javascript" src="script.js"></script>
 <script type="text/javascript" src="jquery/jszip/dist/jszip.min.js"></script>
-<script type="text/javascript" src="jquery/jszip-utils/dist/jszip-utils.min.js"></script>
+<script type="text/javascript" src="jquery/jszip-jstat.utils/dist/jszip-jstat.utils.min.js"></script>
 <!--[if IE]>
-<script type="text/javascript" src="jquery/jszip-utils/dist/jszip-utils-ie.min.js"></script>
+<script type="text/javascript" src="jquery/jszip-jstat.utils/dist/jszip-jstat.utils-ie.min.js"></script>
 <![endif]-->
 <script type="text/javascript" src="jquery/jquery-3.3.1.js"></script>
 <script type="text/javascript" src="jquery/jquery-migrate-3.0.1.js"></script>
@@ -97,48 +97,48 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <h1 class="title">Hierarchy For All Packages</h1>
 <span class="packageHierarchyLabel">Package Hierarchies:</span>
 <ul class="horizontal">
-<li><a href="base/package-tree.html">base</a>, </li>
-<li><a href="dataloader/package-tree.html">dataloader</a>, </li>
-<li><a href="dataloader/utils/package-tree.html">dataloader.utils</a>, </li>
-<li><a href="datasets/package-tree.html">datasets</a>, </li>
-<li><a href="datastructs/package-tree.html">datastructs</a>, </li>
+<li><a href="jstat.base/package-tree.html">jstat.base</a>, </li>
+<li><a href="jstat.dataloader/package-tree.html">jstat.dataloader</a>, </li>
+<li><a href="jstat.dataloader/jstat.utils/package-tree.html">jstat.dataloader.jstat.utils</a>, </li>
+<li><a href="jstat.datasets/package-tree.html">jstat.datasets</a>, </li>
+<li><a href="jstat.datastructs/package-tree.html">jstat.datastructs</a>, </li>
 <li><a href="examples/package-tree.html">examples</a>, </li>
-<li><a href="examples/ml/example1/package-tree.html">examples.ml.example1</a>, </li>
-<li><a href="examples/ml/example2/package-tree.html">examples.ml.example2</a>, </li>
-<li><a href="examples/ml/example3/package-tree.html">examples.ml.example3</a>, </li>
-<li><a href="examples/ml/example4/package-tree.html">examples.ml.example4</a>, </li>
-<li><a href="examples/ml/example5/package-tree.html">examples.ml.example5</a>, </li>
-<li><a href="examples/ml/example6/package-tree.html">examples.ml.example6</a>, </li>
-<li><a href="examples/ml/example7/package-tree.html">examples.ml.example7</a>, </li>
-<li><a href="examples/optimization/example1/package-tree.html">examples.optimization.example1</a>, </li>
-<li><a href="examples/optimization/example2/package-tree.html">examples.optimization.example2</a>, </li>
+<li><a href="examples/jstat.ml/example1/package-tree.html">examples.jstat.ml.example1</a>, </li>
+<li><a href="examples/jstat.ml/example2/package-tree.html">examples.jstat.ml.example2</a>, </li>
+<li><a href="examples/jstat.ml/example3/package-tree.html">examples.jstat.ml.example3</a>, </li>
+<li><a href="examples/jstat.ml/example4/package-tree.html">examples.jstat.ml.example4</a>, </li>
+<li><a href="examples/jstat.ml/example5/package-tree.html">examples.jstat.ml.example5</a>, </li>
+<li><a href="examples/jstat.ml/example6/package-tree.html">examples.jstat.ml.example6</a>, </li>
+<li><a href="examples/jstat.ml/example7/package-tree.html">examples.jstat.ml.example7</a>, </li>
+<li><a href="examples/jstat.optimization/example1/package-tree.html">examples.jstat.optimization.example1</a>, </li>
+<li><a href="examples/jstat.optimization/example2/package-tree.html">examples.jstat.optimization.example2</a>, </li>
 <li><a href="examples/plotting/example1/package-tree.html">examples.plotting.example1</a>, </li>
 <li><a href="examples/plotting/example2/package-tree.html">examples.plotting.example2</a>, </li>
 <li><a href="examples/plotting/example3/package-tree.html">examples.plotting.example3</a>, </li>
 <li><a href="examples/plotting/example4/package-tree.html">examples.plotting.example4</a>, </li>
 <li><a href="examples/plotting/example5/package-tree.html">examples.plotting.example5</a>, </li>
-<li><a href="examples/stats/example1/package-tree.html">examples.stats.example1</a>, </li>
-<li><a href="examples/stats/example2/package-tree.html">examples.stats.example2</a>, </li>
-<li><a href="examples/stats/example3/package-tree.html">examples.stats.example3</a>, </li>
-<li><a href="examples/stats/example4/package-tree.html">examples.stats.example4</a>, </li>
-<li><a href="maths/package-tree.html">maths</a>, </li>
-<li><a href="maths/errorfunctions/package-tree.html">maths.errorfunctions</a>, </li>
-<li><a href="maths/functions/package-tree.html">maths.functions</a>, </li>
-<li><a href="maths/functions/distances/package-tree.html">maths.functions.distances</a>, </li>
-<li><a href="maths/functions/generators/package-tree.html">maths.functions.generators</a>, </li>
-<li><a href="maths/functions/regularizers/package-tree.html">maths.functions.regularizers</a>, </li>
-<li><a href="ml/classifiers/package-tree.html">ml.classifiers</a>, </li>
-<li><a href="ml/classifiers/utils/package-tree.html">ml.classifiers.utils</a>, </li>
-<li><a href="ml/clustering/package-tree.html">ml.clustering</a>, </li>
-<li><a href="ml/regression/package-tree.html">ml.regression</a>, </li>
-<li><a href="optimization/package-tree.html">optimization</a>, </li>
-<li><a href="parallel/partitioners/package-tree.html">parallel.partitioners</a>, </li>
-<li><a href="parallel/tasks/package-tree.html">parallel.tasks</a>, </li>
-<li><a href="stats/package-tree.html">stats</a>, </li>
-<li><a href="stats/utils/package-tree.html">stats.utils</a>, </li>
+<li><a href="examples/jstat.stats/example1/package-tree.html">examples.jstat.stats.example1</a>, </li>
+<li><a href="examples/jstat.stats/example2/package-tree.html">examples.jstat.stats.example2</a>, </li>
+<li><a href="examples/jstat.stats/example3/package-tree.html">examples.jstat.stats.example3</a>, </li>
+<li><a href="examples/jstat.stats/example4/package-tree.html">examples.jstat.stats.example4</a>, </li>
+<li><a href="jstat.maths/package-tree.html">jstat.maths</a>, </li>
+<li><a href="jstat.maths/errorfunctions/package-tree.html">jstat.maths.errorfunctions</a>, </li>
+<li><a href="jstat.maths/functions/package-tree.html">jstat.maths.functions</a>, </li>
+<li><a href="jstat.maths/functions/distances/package-tree.html">jstat.maths.functions.distances</a>, </li>
+<li><a href="jstat.maths/functions/generators/package-tree.html">jstat.maths.functions.generators</a>, </li>
+<li><a href="jstat.maths/functions/regularizers/package-tree.html">jstat.maths.functions.regularizers</a>, </li>
+<li><a href="jstat.ml/classifiers/package-tree.html">jstat.ml.classifiers</a>, </li>
+<li><a href="jstat.ml/classifiers/jstat.utils/package-tree.html">jstat.ml.classifiers.jstat.utils</a>, </li>
+<li><a href="jstat.ml/clustering/package-tree.html">jstat.ml.clustering</a>, </li>
+<li><a href="jstat.ml/regression/package-tree.html">jstat.ml.regression</a>, </li>
+<li><a href="jstat.optimization/package-tree.html">jstat.optimization</a>, </li>
+<li><a href="jstat.parallel/partitioners/package-tree.html">jstat.parallel.partitioners</a>, </li>
+<li><a href="jstat.parallel/tasks/package-tree.html">jstat.parallel.tasks</a>, </li>
+<li><a href="jstat.stats/package-tree.html">jstat.stats</a>, </li>
+<li><a href="jstat.stats/jstat.utils/package-tree.html">jstat.stats.jstat.utils</a>, </li>
 <li><a href="testutils/package-tree.html">testutils</a>, </li>
-<li><a href="utils/package-tree.html">utils</a>, </li>
-<li><a href="visualizations/package-tree.html">visualizations</a></li>
+<li><a href="jstat.utils/package-tree.html">jstat.utils</a>, </li>
+<li><a href="jstat.visualizations/package-tree.html">jstat.visualizations</a></li>
 </ul>
 </div>
 <div class="contentContainer">
@@ -147,21 +147,21 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <ul>
 <li class="circle">java.lang.Object
 <ul>
-<li class="circle">utils.<a href="utils/AlgorithmInput.html" title="class in utils"><span class="typeNameLink">AlgorithmInput</span></a></li>
+<li class="circle">jstat.utils.<a href="jstat.utils/AlgorithmInput.html" title="class in jstat.utils"><span class="typeNameLink">AlgorithmInput</span></a></li>
 <li class="circle"><a href="AllTestsRunner.html" title="class in &lt;Unnamed&gt;"><span class="typeNameLink">AllTestsRunner</span></a></li>
-<li class="circle">utils.<a href="utils/ArrayOperations.html" title="class in utils"><span class="typeNameLink">ArrayOperations</span></a></li>
-<li class="circle">utils.<a href="utils/ArrayOperationsTest.html" title="class in utils"><span class="typeNameLink">ArrayOperationsTest</span></a></li>
-<li class="circle">utils.<a href="utils/ArrayOperationsTestRunner.html" title="class in utils"><span class="typeNameLink">ArrayOperationsTestRunner</span></a> (implements testutils.<a href="testutils/ITestRunnerBase.html" title="interface in testutils">ITestRunnerBase</a>)</li>
-<li class="circle">utils.<a href="utils/ArrayUtils.html" title="class in utils"><span class="typeNameLink">ArrayUtils</span></a></li>
-<li class="circle">visualizations.<a href="visualizations/BarChart.html" title="class in visualizations"><span class="typeNameLink">BarChart</span></a></li>
-<li class="circle">visualizations.<a href="visualizations/BarChart.BarChartOptions.html" title="class in visualizations"><span class="typeNameLink">BarChart.BarChartOptions</span></a></li>
-<li class="circle">ml.classifiers.utils.<a href="ml/classifiers/utils/ClassificationVoter.html" title="class in ml.classifiers.utils"><span class="typeNameLink">ClassificationVoter</span></a> (implements ml.classifiers.utils.<a href="ml/classifiers/utils/IVoter.html" title="interface in ml.classifiers.utils">IVoter</a>&lt;ItemType,&#8203;CriterionType,&#8203;ResultType&gt;)</li>
-<li class="circle">ml.classifiers.<a href="ml/classifiers/ClassifierBase.html" title="class in ml.classifiers"><span class="typeNameLink">ClassifierBase</span></a>&lt;DataSetType&gt;
+<li class="circle">jstat.utils.<a href="jstat.utils/ArrayOperations.html" title="class in jstat.utils"><span class="typeNameLink">ArrayOperations</span></a></li>
+<li class="circle">jstat.utils.<a href="jstat.utils/ArrayOperationsTest.html" title="class in jstat.utils"><span class="typeNameLink">ArrayOperationsTest</span></a></li>
+<li class="circle">jstat.utils.<a href="jstat.utils/ArrayOperationsTestRunner.html" title="class in jstat.utils"><span class="typeNameLink">ArrayOperationsTestRunner</span></a> (implements testutils.<a href="testutils/ITestRunnerBase.html" title="interface in testutils">ITestRunnerBase</a>)</li>
+<li class="circle">jstat.utils.<a href="jstat.utils/ArrayUtils.html" title="class in jstat.utils"><span class="typeNameLink">ArrayUtils</span></a></li>
+<li class="circle">jstat.visualizations.<a href="jstat.visualizations/BarChart.html" title="class in jstat.visualizations"><span class="typeNameLink">BarChart</span></a></li>
+<li class="circle">jstat.visualizations.<a href="jstat.visualizations/BarChart.BarChartOptions.html" title="class in jstat.visualizations"><span class="typeNameLink">BarChart.BarChartOptions</span></a></li>
+<li class="circle">jstat.ml.classifiers.jstat.utils.<a href="jstat.ml/classifiers/jstat.utils/ClassificationVoter.html" title="class in jstat.ml.classifiers.jstat.utils"><span class="typeNameLink">ClassificationVoter</span></a> (implements jstat.ml.classifiers.jstat.utils.<a href="jstat.ml/classifiers/jstat.utils/IVoter.html" title="interface in jstat.ml.classifiers.jstat.utils">IVoter</a>&lt;ItemType,&#8203;CriterionType,&#8203;ResultType&gt;)</li>
+<li class="circle">jstat.ml.classifiers.<a href="jstat.ml/classifiers/ClassifierBase.html" title="class in jstat.ml.classifiers"><span class="typeNameLink">ClassifierBase</span></a>&lt;DataSetType&gt;
 <ul>
-<li class="circle">ml.classifiers.<a href="ml/classifiers/LogisticRegressionClassifier.html" title="class in ml.classifiers"><span class="typeNameLink">LogisticRegressionClassifier</span></a>&lt;DataSetType,&#8203;HypothesisType&gt;</li>
+<li class="circle">jstat.ml.classifiers.<a href="jstat.ml/classifiers/LogisticRegressionClassifier.html" title="class in jstat.ml.classifiers"><span class="typeNameLink">LogisticRegressionClassifier</span></a>&lt;DataSetType,&#8203;HypothesisType&gt;</li>
 </ul>
 </li>
-<li class="circle">base.<a href="base/CommonConstants.html" title="class in base"><span class="typeNameLink">CommonConstants</span></a></li>
+<li class="circle">jstat.base.<a href="jstat.base/CommonConstants.html" title="class in jstat.base"><span class="typeNameLink">CommonConstants</span></a></li>
 <li class="circle">java.awt.Component (implements java.awt.image.ImageObserver, java.awt.MenuContainer, java.io.Serializable)
 <ul>
 <li class="circle">java.awt.Container
@@ -172,7 +172,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <ul>
 <li class="circle">javax.swing.JFrame (implements javax.accessibility.Accessible, javax.swing.RootPaneContainer, javax.swing.WindowConstants)
 <ul>
-<li class="circle">maths.<a href="maths/ConfusionMatrix.html" title="class in maths"><span class="typeNameLink">ConfusionMatrix</span></a></li>
+<li class="circle">jstat.maths.<a href="jstat.maths/ConfusionMatrix.html" title="class in jstat.maths"><span class="typeNameLink">ConfusionMatrix</span></a></li>
 </ul>
 </li>
 </ul>
@@ -183,124 +183,124 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </li>
 </ul>
 </li>
-<li class="circle">base.<a href="base/Configuration.html" title="class in base"><span class="typeNameLink">Configuration</span></a></li>
-<li class="circle">base.<a href="base/Configuration.Logging.html" title="class in base"><span class="typeNameLink">Configuration.Logging</span></a></li>
-<li class="circle">maths.<a href="maths/Constants.html" title="class in maths"><span class="typeNameLink">Constants</span></a></li>
-<li class="circle">dataloader.<a href="dataloader/CsvDataLoader.html" title="class in dataloader"><span class="typeNameLink">CsvDataLoader</span></a></li>
-<li class="circle">dataloader.<a href="dataloader/CsvDataLoader.MapLoader.html" title="class in dataloader"><span class="typeNameLink">CsvDataLoader.MapLoader</span></a></li>
-<li class="circle">dataloader.<a href="dataloader/CsvDataLoader.TableLoader.html" title="class in dataloader"><span class="typeNameLink">CsvDataLoader.TableLoader</span></a></li>
-<li class="circle">dataloader.<a href="dataloader/CsvLoaderTest.html" title="class in dataloader"><span class="typeNameLink">CsvLoaderTest</span></a></li>
-<li class="circle">dataloader.<a href="dataloader/CsvLoaderTestRunner.html" title="class in dataloader"><span class="typeNameLink">CsvLoaderTestRunner</span></a> (implements testutils.<a href="testutils/ITestRunnerBase.html" title="interface in testutils">ITestRunnerBase</a>)</li>
-<li class="circle">utils.<a href="utils/DefaultIterativeAlgorithmController.html" title="class in utils"><span class="typeNameLink">DefaultIterativeAlgorithmController</span></a> (implements utils.<a href="utils/IterativAlgorithmController.html" title="interface in utils">IterativAlgorithmController</a>)</li>
-<li class="circle">datasets.<a href="datasets/DenseMatrixSet.html" title="class in datasets"><span class="typeNameLink">DenseMatrixSet</span></a>&lt;T&gt; (implements datastructs.<a href="datastructs/I2DDataSet.html" title="interface in datastructs">I2DDataSet</a>&lt;RowType&gt;)</li>
-<li class="circle">maths.<a href="maths/DenseMatrixSetTest.html" title="class in maths"><span class="typeNameLink">DenseMatrixSetTest</span></a></li>
-<li class="circle">maths.<a href="maths/DenseMatrixTestRunner.html" title="class in maths"><span class="typeNameLink">DenseMatrixTestRunner</span></a></li>
-<li class="circle">datastructs.<a href="datastructs/DoubleVectorBuilder.html" title="class in datastructs"><span class="typeNameLink">DoubleVectorBuilder</span></a> (implements datastructs.<a href="datastructs/IRowBuilder.html" title="interface in datastructs">IRowBuilder</a>&lt;RowType&gt;)</li>
-<li class="circle">maths.functions.regularizers.<a href="maths/functions/regularizers/ElasticNetRegularizer.html" title="class in maths.functions.regularizers"><span class="typeNameLink">ElasticNetRegularizer</span></a> (implements maths.functions.<a href="maths/functions/IRegularizerFunction.html" title="interface in maths.functions">IRegularizerFunction</a>)</li>
-<li class="circle">maths.functions.distances.<a href="maths/functions/distances/EuclideanVectorCalculator.html" title="class in maths.functions.distances"><span class="typeNameLink">EuclideanVectorCalculator</span></a>&lt;T&gt; (implements maths.functions.distances.<a href="maths/functions/distances/DistanceCalculator.html" title="interface in maths.functions.distances">DistanceCalculator</a>&lt;PointType,&#8203;ResultType&gt;)</li>
-<li class="circle">examples.ml.example1.<a href="examples/ml/example1/Example1.html" title="class in examples.ml.example1"><span class="typeNameLink">Example1</span></a></li>
-<li class="circle">examples.optimization.example1.<a href="examples/optimization/example1/Example1.html" title="class in examples.optimization.example1"><span class="typeNameLink">Example1</span></a></li>
+<li class="circle">jstat.base.<a href="jstat.base/Configuration.html" title="class in jstat.base"><span class="typeNameLink">Configuration</span></a></li>
+<li class="circle">jstat.base.<a href="jstat.base/Configuration.Logging.html" title="class in jstat.base"><span class="typeNameLink">Configuration.Logging</span></a></li>
+<li class="circle">jstat.maths.<a href="jstat.maths/Constants.html" title="class in jstat.maths"><span class="typeNameLink">Constants</span></a></li>
+<li class="circle">jstat.dataloader.<a href="jstat.dataloader/CsvDataLoader.html" title="class in jstat.dataloader"><span class="typeNameLink">CsvDataLoader</span></a></li>
+<li class="circle">jstat.dataloader.<a href="jstat.dataloader/CsvDataLoader.MapLoader.html" title="class in jstat.dataloader"><span class="typeNameLink">CsvDataLoader.MapLoader</span></a></li>
+<li class="circle">jstat.dataloader.<a href="jstat.dataloader/CsvDataLoader.TableLoader.html" title="class in jstat.dataloader"><span class="typeNameLink">CsvDataLoader.TableLoader</span></a></li>
+<li class="circle">jstat.dataloader.<a href="jstat.dataloader/CsvLoaderTest.html" title="class in jstat.dataloader"><span class="typeNameLink">CsvLoaderTest</span></a></li>
+<li class="circle">jstat.dataloader.<a href="jstat.dataloader/CsvLoaderTestRunner.html" title="class in jstat.dataloader"><span class="typeNameLink">CsvLoaderTestRunner</span></a> (implements testutils.<a href="testutils/ITestRunnerBase.html" title="interface in testutils">ITestRunnerBase</a>)</li>
+<li class="circle">jstat.utils.<a href="jstat.utils/DefaultIterativeAlgorithmController.html" title="class in jstat.utils"><span class="typeNameLink">DefaultIterativeAlgorithmController</span></a> (implements jstat.utils.<a href="jstat.utils/IterativAlgorithmController.html" title="interface in jstat.utils">IterativAlgorithmController</a>)</li>
+<li class="circle">jstat.datasets.<a href="jstat.datasets/DenseMatrixSet.html" title="class in jstat.datasets"><span class="typeNameLink">DenseMatrixSet</span></a>&lt;T&gt; (implements jstat.datastructs.<a href="jstat.datastructs/I2DDataSet.html" title="interface in jstat.datastructs">I2DDataSet</a>&lt;RowType&gt;)</li>
+<li class="circle">jstat.maths.<a href="jstat.maths/DenseMatrixSetTest.html" title="class in jstat.maths"><span class="typeNameLink">DenseMatrixSetTest</span></a></li>
+<li class="circle">jstat.maths.<a href="jstat.maths/DenseMatrixTestRunner.html" title="class in jstat.maths"><span class="typeNameLink">DenseMatrixTestRunner</span></a></li>
+<li class="circle">jstat.datastructs.<a href="jstat.datastructs/DoubleVectorBuilder.html" title="class in jstat.datastructs"><span class="typeNameLink">DoubleVectorBuilder</span></a> (implements jstat.datastructs.<a href="jstat.datastructs/IRowBuilder.html" title="interface in jstat.datastructs">IRowBuilder</a>&lt;RowType&gt;)</li>
+<li class="circle">jstat.maths.functions.regularizers.<a href="jstat.maths/functions/regularizers/ElasticNetRegularizer.html" title="class in jstat.maths.functions.regularizers"><span class="typeNameLink">ElasticNetRegularizer</span></a> (implements jstat.maths.functions.<a href="jstat.maths/functions/IRegularizerFunction.html" title="interface in jstat.maths.functions">IRegularizerFunction</a>)</li>
+<li class="circle">jstat.maths.functions.distances.<a href="jstat.maths/functions/distances/EuclideanVectorCalculator.html" title="class in jstat.maths.functions.distances"><span class="typeNameLink">EuclideanVectorCalculator</span></a>&lt;T&gt; (implements jstat.maths.functions.distances.<a href="jstat.maths/functions/distances/DistanceCalculator.html" title="interface in jstat.maths.functions.distances">DistanceCalculator</a>&lt;PointType,&#8203;ResultType&gt;)</li>
+<li class="circle">examples.jstat.ml.example1.<a href="examples/jstat.ml/example1/Example1.html" title="class in examples.jstat.ml.example1"><span class="typeNameLink">Example1</span></a></li>
+<li class="circle">examples.jstat.optimization.example1.<a href="examples/jstat.optimization/example1/Example1.html" title="class in examples.jstat.optimization.example1"><span class="typeNameLink">Example1</span></a></li>
 <li class="circle">examples.plotting.example1.<a href="examples/plotting/example1/Example1.html" title="class in examples.plotting.example1"><span class="typeNameLink">Example1</span></a></li>
-<li class="circle">examples.stats.example1.<a href="examples/stats/example1/Example1.html" title="class in examples.stats.example1"><span class="typeNameLink">Example1</span></a></li>
-<li class="circle">examples.ml.example2.<a href="examples/ml/example2/Example2.html" title="class in examples.ml.example2"><span class="typeNameLink">Example2</span></a></li>
-<li class="circle">examples.optimization.example2.<a href="examples/optimization/example2/Example2.html" title="class in examples.optimization.example2"><span class="typeNameLink">Example2</span></a></li>
+<li class="circle">examples.jstat.stats.example1.<a href="examples/jstat.stats/example1/Example1.html" title="class in examples.jstat.stats.example1"><span class="typeNameLink">Example1</span></a></li>
+<li class="circle">examples.jstat.ml.example2.<a href="examples/jstat.ml/example2/Example2.html" title="class in examples.jstat.ml.example2"><span class="typeNameLink">Example2</span></a></li>
+<li class="circle">examples.jstat.optimization.example2.<a href="examples/jstat.optimization/example2/Example2.html" title="class in examples.jstat.optimization.example2"><span class="typeNameLink">Example2</span></a></li>
 <li class="circle">examples.plotting.example2.<a href="examples/plotting/example2/Example2.html" title="class in examples.plotting.example2"><span class="typeNameLink">Example2</span></a></li>
-<li class="circle">examples.stats.example2.<a href="examples/stats/example2/Example2.html" title="class in examples.stats.example2"><span class="typeNameLink">Example2</span></a></li>
-<li class="circle">examples.ml.example3.<a href="examples/ml/example3/Example3.html" title="class in examples.ml.example3"><span class="typeNameLink">Example3</span></a></li>
+<li class="circle">examples.jstat.stats.example2.<a href="examples/jstat.stats/example2/Example2.html" title="class in examples.jstat.stats.example2"><span class="typeNameLink">Example2</span></a></li>
+<li class="circle">examples.jstat.ml.example3.<a href="examples/jstat.ml/example3/Example3.html" title="class in examples.jstat.ml.example3"><span class="typeNameLink">Example3</span></a></li>
 <li class="circle">examples.plotting.example3.<a href="examples/plotting/example3/Example3.html" title="class in examples.plotting.example3"><span class="typeNameLink">Example3</span></a></li>
-<li class="circle">examples.stats.example3.<a href="examples/stats/example3/Example3.html" title="class in examples.stats.example3"><span class="typeNameLink">Example3</span></a></li>
-<li class="circle">examples.ml.example4.<a href="examples/ml/example4/Example4.html" title="class in examples.ml.example4"><span class="typeNameLink">Example4</span></a></li>
+<li class="circle">examples.jstat.stats.example3.<a href="examples/jstat.stats/example3/Example3.html" title="class in examples.jstat.stats.example3"><span class="typeNameLink">Example3</span></a></li>
+<li class="circle">examples.jstat.ml.example4.<a href="examples/jstat.ml/example4/Example4.html" title="class in examples.jstat.ml.example4"><span class="typeNameLink">Example4</span></a></li>
 <li class="circle">examples.plotting.example4.<a href="examples/plotting/example4/Example4.html" title="class in examples.plotting.example4"><span class="typeNameLink">Example4</span></a></li>
-<li class="circle">examples.stats.example4.<a href="examples/stats/example4/Example4.html" title="class in examples.stats.example4"><span class="typeNameLink">Example4</span></a></li>
-<li class="circle">examples.ml.example5.<a href="examples/ml/example5/Example5.html" title="class in examples.ml.example5"><span class="typeNameLink">Example5</span></a></li>
+<li class="circle">examples.jstat.stats.example4.<a href="examples/jstat.stats/example4/Example4.html" title="class in examples.jstat.stats.example4"><span class="typeNameLink">Example4</span></a></li>
+<li class="circle">examples.jstat.ml.example5.<a href="examples/jstat.ml/example5/Example5.html" title="class in examples.jstat.ml.example5"><span class="typeNameLink">Example5</span></a></li>
 <li class="circle">examples.plotting.example5.<a href="examples/plotting/example5/Example5.html" title="class in examples.plotting.example5"><span class="typeNameLink">Example5</span></a></li>
-<li class="circle">examples.ml.example6.<a href="examples/ml/example6/Example6.html" title="class in examples.ml.example6"><span class="typeNameLink">Example6</span></a></li>
-<li class="circle">examples.ml.example7.<a href="examples/ml/example7/Example7.html" title="class in examples.ml.example7"><span class="typeNameLink">Example7</span></a></li>
-<li class="circle">optimization.<a href="optimization/GDInput.html" title="class in optimization"><span class="typeNameLink">GDInput</span></a></li>
-<li class="circle">stats.<a href="stats/GLSLinearRegression.html" title="class in stats"><span class="typeNameLink">GLSLinearRegression</span></a></li>
-<li class="circle">optimization.<a href="optimization/GradientDescent.html" title="class in optimization"><span class="typeNameLink">GradientDescent</span></a> (implements optimization.<a href="optimization/ISupervisedOptimizer.html" title="interface in optimization">ISupervisedOptimizer</a>)</li>
-<li class="circle">visualizations.<a href="visualizations/Histograms.html" title="class in visualizations"><span class="typeNameLink">Histograms</span></a></li>
-<li class="circle">visualizations.<a href="visualizations/Histograms.HistogramOptions.html" title="class in visualizations"><span class="typeNameLink">Histograms.HistogramOptions</span></a></li>
-<li class="circle">datastructs.<a href="datastructs/IntegerVectorBuilder.html" title="class in datastructs"><span class="typeNameLink">IntegerVectorBuilder</span></a> (implements datastructs.<a href="datastructs/IRowBuilder.html" title="interface in datastructs">IRowBuilder</a>&lt;RowType&gt;)</li>
-<li class="circle">utils.<a href="utils/IterativeAlgorithmResult.html" title="class in utils"><span class="typeNameLink">IterativeAlgorithmResult</span></a></li>
-<li class="circle">dataloader.<a href="dataloader/JsonDataLoader.html" title="class in dataloader"><span class="typeNameLink">JsonDataLoader</span></a></li>
-<li class="circle">dataloader.<a href="dataloader/JsonDataLoader.MapLoader.html" title="class in dataloader"><span class="typeNameLink">JsonDataLoader.MapLoader</span></a></li>
-<li class="circle">dataloader.<a href="dataloader/JsonDataLoader.TableLoader.html" title="class in dataloader"><span class="typeNameLink">JsonDataLoader.TableLoader</span></a></li>
-<li class="circle">dataloader.<a href="dataloader/JsonLoaderTest.html" title="class in dataloader"><span class="typeNameLink">JsonLoaderTest</span></a></li>
-<li class="circle">dataloader.<a href="dataloader/JsonLoaderTestRunner.html" title="class in dataloader"><span class="typeNameLink">JsonLoaderTestRunner</span></a> (implements testutils.<a href="testutils/ITestRunnerBase.html" title="interface in testutils">ITestRunnerBase</a>)</li>
-<li class="circle">ml.clustering.<a href="ml/clustering/KMeans.html" title="class in ml.clustering"><span class="typeNameLink">KMeans</span></a>&lt;PointType,&#8203;DistanceType&gt;</li>
-<li class="circle">ml.clustering.<a href="ml/clustering/KMeans.Cluster.html" title="class in ml.clustering"><span class="typeNameLink">KMeans.Cluster</span></a></li>
-<li class="circle">ml.clustering.<a href="ml/clustering/KMeansInput.html" title="class in ml.clustering"><span class="typeNameLink">KMeansInput</span></a></li>
-<li class="circle">ml.classifiers.<a href="ml/classifiers/KNNClassifier.html" title="class in ml.classifiers"><span class="typeNameLink">KNNClassifier</span></a>&lt;DataType,&#8203;DataSetType,&#8203;DistanceType,&#8203;VoterType&gt;
+<li class="circle">examples.jstat.ml.example6.<a href="examples/jstat.ml/example6/Example6.html" title="class in examples.jstat.ml.example6"><span class="typeNameLink">Example6</span></a></li>
+<li class="circle">examples.jstat.ml.example7.<a href="examples/jstat.ml/example7/Example7.html" title="class in examples.jstat.ml.example7"><span class="typeNameLink">Example7</span></a></li>
+<li class="circle">jstat.optimization.<a href="jstat.optimization/GDInput.html" title="class in jstat.optimization"><span class="typeNameLink">GDInput</span></a></li>
+<li class="circle">jstat.stats.<a href="jstat.stats/GLSLinearRegression.html" title="class in jstat.stats"><span class="typeNameLink">GLSLinearRegression</span></a></li>
+<li class="circle">jstat.optimization.<a href="jstat.optimization/GradientDescent.html" title="class in jstat.optimization"><span class="typeNameLink">GradientDescent</span></a> (implements jstat.optimization.<a href="jstat.optimization/ISupervisedOptimizer.html" title="interface in jstat.optimization">ISupervisedOptimizer</a>)</li>
+<li class="circle">jstat.visualizations.<a href="jstat.visualizations/Histograms.html" title="class in jstat.visualizations"><span class="typeNameLink">Histograms</span></a></li>
+<li class="circle">jstat.visualizations.<a href="jstat.visualizations/Histograms.HistogramOptions.html" title="class in jstat.visualizations"><span class="typeNameLink">Histograms.HistogramOptions</span></a></li>
+<li class="circle">jstat.datastructs.<a href="jstat.datastructs/IntegerVectorBuilder.html" title="class in jstat.datastructs"><span class="typeNameLink">IntegerVectorBuilder</span></a> (implements jstat.datastructs.<a href="jstat.datastructs/IRowBuilder.html" title="interface in jstat.datastructs">IRowBuilder</a>&lt;RowType&gt;)</li>
+<li class="circle">jstat.utils.<a href="jstat.utils/IterativeAlgorithmResult.html" title="class in jstat.utils"><span class="typeNameLink">IterativeAlgorithmResult</span></a></li>
+<li class="circle">jstat.dataloader.<a href="jstat.dataloader/JsonDataLoader.html" title="class in jstat.dataloader"><span class="typeNameLink">JsonDataLoader</span></a></li>
+<li class="circle">jstat.dataloader.<a href="jstat.dataloader/JsonDataLoader.MapLoader.html" title="class in jstat.dataloader"><span class="typeNameLink">JsonDataLoader.MapLoader</span></a></li>
+<li class="circle">jstat.dataloader.<a href="jstat.dataloader/JsonDataLoader.TableLoader.html" title="class in jstat.dataloader"><span class="typeNameLink">JsonDataLoader.TableLoader</span></a></li>
+<li class="circle">jstat.dataloader.<a href="jstat.dataloader/JsonLoaderTest.html" title="class in jstat.dataloader"><span class="typeNameLink">JsonLoaderTest</span></a></li>
+<li class="circle">jstat.dataloader.<a href="jstat.dataloader/JsonLoaderTestRunner.html" title="class in jstat.dataloader"><span class="typeNameLink">JsonLoaderTestRunner</span></a> (implements testutils.<a href="testutils/ITestRunnerBase.html" title="interface in testutils">ITestRunnerBase</a>)</li>
+<li class="circle">jstat.ml.clustering.<a href="jstat.ml/clustering/KMeans.html" title="class in jstat.ml.clustering"><span class="typeNameLink">KMeans</span></a>&lt;PointType,&#8203;DistanceType&gt;</li>
+<li class="circle">jstat.ml.clustering.<a href="jstat.ml/clustering/KMeans.Cluster.html" title="class in jstat.ml.clustering"><span class="typeNameLink">KMeans.Cluster</span></a></li>
+<li class="circle">jstat.ml.clustering.<a href="jstat.ml/clustering/KMeansInput.html" title="class in jstat.ml.clustering"><span class="typeNameLink">KMeansInput</span></a></li>
+<li class="circle">jstat.ml.classifiers.<a href="jstat.ml/classifiers/KNNClassifier.html" title="class in jstat.ml.classifiers"><span class="typeNameLink">KNNClassifier</span></a>&lt;DataType,&#8203;DataSetType,&#8203;DistanceType,&#8203;VoterType&gt;
 <ul>
-<li class="circle">ml.classifiers.<a href="ml/classifiers/ThreadedKNNClassifier.html" title="class in ml.classifiers"><span class="typeNameLink">ThreadedKNNClassifier</span></a>&lt;DataType,&#8203;DataSetType,&#8203;DistanceType,&#8203;VoterType&gt;</li>
+<li class="circle">jstat.ml.classifiers.<a href="jstat.ml/classifiers/ThreadedKNNClassifier.html" title="class in jstat.ml.classifiers"><span class="typeNameLink">ThreadedKNNClassifier</span></a>&lt;DataType,&#8203;DataSetType,&#8203;DistanceType,&#8203;VoterType&gt;</li>
 </ul>
 </li>
-<li class="circle">maths.functions.regularizers.<a href="maths/functions/regularizers/LassoRegularizer.html" title="class in maths.functions.regularizers"><span class="typeNameLink">LassoRegularizer</span></a> (implements maths.functions.<a href="maths/functions/IRegularizerFunction.html" title="interface in maths.functions">IRegularizerFunction</a>)</li>
-<li class="circle">maths.functions.<a href="maths/functions/LinearVectorPolynomial.html" title="class in maths.functions"><span class="typeNameLink">LinearVectorPolynomial</span></a> (implements maths.functions.<a href="maths/functions/IVectorRealFunction.html" title="interface in maths.functions">IVectorRealFunction</a>&lt;VectorType&gt;)</li>
-<li class="circle">visualizations.<a href="visualizations/LineChart.html" title="class in visualizations"><span class="typeNameLink">LineChart</span></a></li>
-<li class="circle">visualizations.<a href="visualizations/LineChart.LineChartOptions.html" title="class in visualizations"><span class="typeNameLink">LineChart.LineChartOptions</span></a></li>
-<li class="circle">utils.<a href="utils/ListMaths.html" title="class in utils"><span class="typeNameLink">ListMaths</span></a></li>
-<li class="circle">utils.<a href="utils/ListUtils.html" title="class in utils"><span class="typeNameLink">ListUtils</span></a></li>
-<li class="circle">maths.errorfunctions.<a href="maths/errorfunctions/LogisticMSEVectorFunction.html" title="class in maths.errorfunctions"><span class="typeNameLink">LogisticMSEVectorFunction</span></a> (implements maths.errorfunctions.<a href="maths/errorfunctions/IVectorErrorRealFunction.html" title="interface in maths.errorfunctions">IVectorErrorRealFunction</a>)</li>
-<li class="circle">maths.errorfunctions.<a href="maths/errorfunctions/LogisticSSEVectorFunction.html" title="class in maths.errorfunctions"><span class="typeNameLink">LogisticSSEVectorFunction</span></a> (implements maths.errorfunctions.<a href="maths/errorfunctions/IVectorErrorRealFunction.html" title="interface in maths.errorfunctions">IVectorErrorRealFunction</a>)</li>
-<li class="circle">parallel.partitioners.<a href="parallel/partitioners/MatrixRowPartitionPolicy.html" title="class in parallel.partitioners"><span class="typeNameLink">MatrixRowPartitionPolicy</span></a> (implements parallel.partitioners.<a href="parallel/partitioners/IPartitionPolicy.html" title="interface in parallel.partitioners">IPartitionPolicy</a>)</li>
-<li class="circle">maths.<a href="maths/MatrixVectorOperations.html" title="class in maths"><span class="typeNameLink">MatrixVectorOperations</span></a></li>
-<li class="circle">maths.<a href="maths/MatrixVectorOperationsTest.html" title="class in maths"><span class="typeNameLink">MatrixVectorOperationsTest</span></a></li>
-<li class="circle">maths.<a href="maths/MatrixVectorOperationsTestRunner.html" title="class in maths"><span class="typeNameLink">MatrixVectorOperationsTestRunner</span></a></li>
-<li class="circle">maths.errorfunctions.<a href="maths/errorfunctions/MSEVectorFunction.html" title="class in maths.errorfunctions"><span class="typeNameLink">MSEVectorFunction</span></a> (implements maths.errorfunctions.<a href="maths/errorfunctions/IVectorErrorRealFunction.html" title="interface in maths.errorfunctions">IVectorErrorRealFunction</a>)</li>
-<li class="circle">maths.functions.<a href="maths/functions/NonLinearVectorPolynomial.html" title="class in maths.functions"><span class="typeNameLink">NonLinearVectorPolynomial</span></a> (implements maths.functions.<a href="maths/functions/IVectorRealFunction.html" title="interface in maths.functions">IVectorRealFunction</a>&lt;VectorType&gt;)</li>
-<li class="circle">datastructs.<a href="datastructs/NumericSampleTest.html" title="class in datastructs"><span class="typeNameLink">NumericSampleTest</span></a></li>
-<li class="circle">datastructs.<a href="datastructs/NumericSampleTestRunner.html" title="class in datastructs"><span class="typeNameLink">NumericSampleTestRunner</span></a> (implements testutils.<a href="testutils/ITestRunnerBase.html" title="interface in testutils">ITestRunnerBase</a>)</li>
-<li class="circle">stats.<a href="stats/OLSLinearRegression.html" title="class in stats"><span class="typeNameLink">OLSLinearRegression</span></a></li>
+<li class="circle">jstat.maths.functions.regularizers.<a href="jstat.maths/functions/regularizers/LassoRegularizer.html" title="class in jstat.maths.functions.regularizers"><span class="typeNameLink">LassoRegularizer</span></a> (implements jstat.maths.functions.<a href="jstat.maths/functions/IRegularizerFunction.html" title="interface in jstat.maths.functions">IRegularizerFunction</a>)</li>
+<li class="circle">jstat.maths.functions.<a href="jstat.maths/functions/LinearVectorPolynomial.html" title="class in jstat.maths.functions"><span class="typeNameLink">LinearVectorPolynomial</span></a> (implements jstat.maths.functions.<a href="jstat.maths/functions/IVectorRealFunction.html" title="interface in jstat.maths.functions">IVectorRealFunction</a>&lt;VectorType&gt;)</li>
+<li class="circle">jstat.visualizations.<a href="jstat.visualizations/LineChart.html" title="class in jstat.visualizations"><span class="typeNameLink">LineChart</span></a></li>
+<li class="circle">jstat.visualizations.<a href="jstat.visualizations/LineChart.LineChartOptions.html" title="class in jstat.visualizations"><span class="typeNameLink">LineChart.LineChartOptions</span></a></li>
+<li class="circle">jstat.utils.<a href="jstat.utils/ListMaths.html" title="class in jstat.utils"><span class="typeNameLink">ListMaths</span></a></li>
+<li class="circle">jstat.utils.<a href="jstat.utils/ListUtils.html" title="class in jstat.utils"><span class="typeNameLink">ListUtils</span></a></li>
+<li class="circle">jstat.maths.errorfunctions.<a href="jstat.maths/errorfunctions/LogisticMSEVectorFunction.html" title="class in jstat.maths.errorfunctions"><span class="typeNameLink">LogisticMSEVectorFunction</span></a> (implements jstat.maths.errorfunctions.<a href="jstat.maths/errorfunctions/IVectorErrorRealFunction.html" title="interface in jstat.maths.errorfunctions">IVectorErrorRealFunction</a>)</li>
+<li class="circle">jstat.maths.errorfunctions.<a href="jstat.maths/errorfunctions/LogisticSSEVectorFunction.html" title="class in jstat.maths.errorfunctions"><span class="typeNameLink">LogisticSSEVectorFunction</span></a> (implements jstat.maths.errorfunctions.<a href="jstat.maths/errorfunctions/IVectorErrorRealFunction.html" title="interface in jstat.maths.errorfunctions">IVectorErrorRealFunction</a>)</li>
+<li class="circle">jstat.parallel.partitioners.<a href="jstat.parallel/partitioners/MatrixRowPartitionPolicy.html" title="class in jstat.parallel.partitioners"><span class="typeNameLink">MatrixRowPartitionPolicy</span></a> (implements jstat.parallel.partitioners.<a href="jstat.parallel/partitioners/IPartitionPolicy.html" title="interface in jstat.parallel.partitioners">IPartitionPolicy</a>)</li>
+<li class="circle">jstat.maths.<a href="jstat.maths/MatrixVectorOperations.html" title="class in jstat.maths"><span class="typeNameLink">MatrixVectorOperations</span></a></li>
+<li class="circle">jstat.maths.<a href="jstat.maths/MatrixVectorOperationsTest.html" title="class in jstat.maths"><span class="typeNameLink">MatrixVectorOperationsTest</span></a></li>
+<li class="circle">jstat.maths.<a href="jstat.maths/MatrixVectorOperationsTestRunner.html" title="class in jstat.maths"><span class="typeNameLink">MatrixVectorOperationsTestRunner</span></a></li>
+<li class="circle">jstat.maths.errorfunctions.<a href="jstat.maths/errorfunctions/MSEVectorFunction.html" title="class in jstat.maths.errorfunctions"><span class="typeNameLink">MSEVectorFunction</span></a> (implements jstat.maths.errorfunctions.<a href="jstat.maths/errorfunctions/IVectorErrorRealFunction.html" title="interface in jstat.maths.errorfunctions">IVectorErrorRealFunction</a>)</li>
+<li class="circle">jstat.maths.functions.<a href="jstat.maths/functions/NonLinearVectorPolynomial.html" title="class in jstat.maths.functions"><span class="typeNameLink">NonLinearVectorPolynomial</span></a> (implements jstat.maths.functions.<a href="jstat.maths/functions/IVectorRealFunction.html" title="interface in jstat.maths.functions">IVectorRealFunction</a>&lt;VectorType&gt;)</li>
+<li class="circle">jstat.datastructs.<a href="jstat.datastructs/NumericSampleTest.html" title="class in jstat.datastructs"><span class="typeNameLink">NumericSampleTest</span></a></li>
+<li class="circle">jstat.datastructs.<a href="jstat.datastructs/NumericSampleTestRunner.html" title="class in jstat.datastructs"><span class="typeNameLink">NumericSampleTestRunner</span></a> (implements testutils.<a href="testutils/ITestRunnerBase.html" title="interface in testutils">ITestRunnerBase</a>)</li>
+<li class="circle">jstat.stats.<a href="jstat.stats/OLSLinearRegression.html" title="class in jstat.stats"><span class="typeNameLink">OLSLinearRegression</span></a></li>
 <li class="circle">examples.<a href="examples/OLSMultipleLinearRegression.html" title="class in examples"><span class="typeNameLink">OLSMultipleLinearRegression</span></a></li>
-<li class="circle">optimization.<a href="optimization/OLSOptimizer.html" title="class in optimization"><span class="typeNameLink">OLSOptimizer</span></a> (implements optimization.<a href="optimization/ISupervisedOptimizer.html" title="interface in optimization">ISupervisedOptimizer</a>)</li>
-<li class="circle">utils.<a href="utils/Pair.html" title="class in utils"><span class="typeNameLink">Pair</span></a>&lt;T1,&#8203;T2&gt;</li>
-<li class="circle">utils.<a href="utils/PairBuilder.html" title="class in utils"><span class="typeNameLink">PairBuilder</span></a></li>
-<li class="circle">dataloader.utils.<a href="dataloader/utils/ParseUtils.html" title="class in dataloader.utils"><span class="typeNameLink">ParseUtils</span></a></li>
-<li class="circle">utils.<a href="utils/ParseUtils.html" title="class in utils"><span class="typeNameLink">ParseUtils</span></a></li>
-<li class="circle">visualizations.<a href="visualizations/PieChart.html" title="class in visualizations"><span class="typeNameLink">PieChart</span></a></li>
-<li class="circle">visualizations.<a href="visualizations/PieChart.PieChartOptions.html" title="class in visualizations"><span class="typeNameLink">PieChart.PieChartOptions</span></a></li>
-<li class="circle">parallel.partitioners.<a href="parallel/partitioners/RangePartitioner.html" title="class in parallel.partitioners"><span class="typeNameLink">RangePartitioner</span></a></li>
-<li class="circle">ml.regression.<a href="ml/regression/RegressorBase.html" title="class in ml.regression"><span class="typeNameLink">RegressorBase</span></a>&lt;DataSetType,&#8203;HypothesisType&gt;
+<li class="circle">jstat.optimization.<a href="jstat.optimization/OLSOptimizer.html" title="class in jstat.optimization"><span class="typeNameLink">OLSOptimizer</span></a> (implements jstat.optimization.<a href="jstat.optimization/ISupervisedOptimizer.html" title="interface in jstat.optimization">ISupervisedOptimizer</a>)</li>
+<li class="circle">jstat.utils.<a href="jstat.utils/Pair.html" title="class in jstat.utils"><span class="typeNameLink">Pair</span></a>&lt;T1,&#8203;T2&gt;</li>
+<li class="circle">jstat.utils.<a href="jstat.utils/PairBuilder.html" title="class in jstat.utils"><span class="typeNameLink">PairBuilder</span></a></li>
+<li class="circle">jstat.dataloader.jstat.utils.<a href="jstat.dataloader/jstat.utils/ParseUtils.html" title="class in jstat.dataloader.jstat.utils"><span class="typeNameLink">ParseUtils</span></a></li>
+<li class="circle">jstat.utils.<a href="jstat.utils/ParseUtils.html" title="class in jstat.utils"><span class="typeNameLink">ParseUtils</span></a></li>
+<li class="circle">jstat.visualizations.<a href="jstat.visualizations/PieChart.html" title="class in jstat.visualizations"><span class="typeNameLink">PieChart</span></a></li>
+<li class="circle">jstat.visualizations.<a href="jstat.visualizations/PieChart.PieChartOptions.html" title="class in jstat.visualizations"><span class="typeNameLink">PieChart.PieChartOptions</span></a></li>
+<li class="circle">jstat.parallel.partitioners.<a href="jstat.parallel/partitioners/RangePartitioner.html" title="class in jstat.parallel.partitioners"><span class="typeNameLink">RangePartitioner</span></a></li>
+<li class="circle">jstat.ml.regression.<a href="jstat.ml/regression/RegressorBase.html" title="class in jstat.ml.regression"><span class="typeNameLink">RegressorBase</span></a>&lt;DataSetType,&#8203;HypothesisType&gt;
 <ul>
-<li class="circle">ml.regression.<a href="ml/regression/LinearRegressor.html" title="class in ml.regression"><span class="typeNameLink">LinearRegressor</span></a>&lt;DataSetType&gt;</li>
-<li class="circle">ml.regression.<a href="ml/regression/NonLinearRegressor.html" title="class in ml.regression"><span class="typeNameLink">NonLinearRegressor</span></a>&lt;DataSetType&gt;</li>
+<li class="circle">jstat.ml.regression.<a href="jstat.ml/regression/LinearRegressor.html" title="class in jstat.ml.regression"><span class="typeNameLink">LinearRegressor</span></a>&lt;DataSetType&gt;</li>
+<li class="circle">jstat.ml.regression.<a href="jstat.ml/regression/NonLinearRegressor.html" title="class in jstat.ml.regression"><span class="typeNameLink">NonLinearRegressor</span></a>&lt;DataSetType&gt;</li>
 </ul>
 </li>
-<li class="circle">stats.utils.<a href="stats/utils/Resample.html" title="class in stats.utils"><span class="typeNameLink">Resample</span></a></li>
-<li class="circle">stats.<a href="stats/ResampleTest.html" title="class in stats"><span class="typeNameLink">ResampleTest</span></a></li>
-<li class="circle">stats.<a href="stats/ResampleTestRunner.html" title="class in stats"><span class="typeNameLink">ResampleTestRunner</span></a> (implements testutils.<a href="testutils/ITestRunnerBase.html" title="interface in testutils">ITestRunnerBase</a>)</li>
-<li class="circle">maths.functions.regularizers.<a href="maths/functions/regularizers/RidgeRegularizer.html" title="class in maths.functions.regularizers"><span class="typeNameLink">RidgeRegularizer</span></a> (implements maths.functions.<a href="maths/functions/IRegularizerFunction.html" title="interface in maths.functions">IRegularizerFunction</a>)</li>
-<li class="circle">datastructs.<a href="datastructs/RowBuilder.html" title="class in datastructs"><span class="typeNameLink">RowBuilder</span></a></li>
-<li class="circle">maths.functions.<a href="maths/functions/ScalarMonomial.html" title="class in maths.functions"><span class="typeNameLink">ScalarMonomial</span></a> (implements maths.functions.<a href="maths/functions/IScalarRealFunction.html" title="interface in maths.functions">IScalarRealFunction</a>)</li>
-<li class="circle">visualizations.<a href="visualizations/ScatterChart.html" title="class in visualizations"><span class="typeNameLink">ScatterChart</span></a></li>
-<li class="circle">visualizations.<a href="visualizations/ScatterChart.ScatterChartOptions.html" title="class in visualizations"><span class="typeNameLink">ScatterChart.ScatterChartOptions</span></a></li>
-<li class="circle">maths.functions.<a href="maths/functions/SigmoidFunction.html" title="class in maths.functions"><span class="typeNameLink">SigmoidFunction</span></a> (implements maths.functions.<a href="maths/functions/IVectorRealFunction.html" title="interface in maths.functions">IVectorRealFunction</a>&lt;VectorType&gt;)</li>
-<li class="circle">stats.<a href="stats/Simple1DLinearRegression.html" title="class in stats"><span class="typeNameLink">Simple1DLinearRegression</span></a></li>
-<li class="circle">maths.errorfunctions.<a href="maths/errorfunctions/SSEVectorFunction.html" title="class in maths.errorfunctions"><span class="typeNameLink">SSEVectorFunction</span></a> (implements maths.errorfunctions.<a href="maths/errorfunctions/IVectorErrorRealFunction.html" title="interface in maths.errorfunctions">IVectorErrorRealFunction</a>)</li>
-<li class="circle">stats.<a href="stats/Statistics.html" title="class in stats"><span class="typeNameLink">Statistics</span></a></li>
-<li class="circle">utils.<a href="utils/TableDataSetLoader.html" title="class in utils"><span class="typeNameLink">TableDataSetLoader</span></a></li>
-<li class="circle">utils.<a href="utils/TableOperations.html" title="class in utils"><span class="typeNameLink">TableOperations</span></a></li>
-<li class="circle">parallel.tasks.<a href="parallel/tasks/TaskBase.html" title="class in parallel.tasks"><span class="typeNameLink">TaskBase</span></a>&lt;T&gt; (implements java.util.concurrent.Callable&lt;V&gt;, java.lang.Runnable)
+<li class="circle">jstat.stats.jstat.utils.<a href="jstat.stats/jstat.utils/Resample.html" title="class in jstat.stats.jstat.utils"><span class="typeNameLink">Resample</span></a></li>
+<li class="circle">jstat.stats.<a href="jstat.stats/ResampleTest.html" title="class in jstat.stats"><span class="typeNameLink">ResampleTest</span></a></li>
+<li class="circle">jstat.stats.<a href="jstat.stats/ResampleTestRunner.html" title="class in jstat.stats"><span class="typeNameLink">ResampleTestRunner</span></a> (implements testutils.<a href="testutils/ITestRunnerBase.html" title="interface in testutils">ITestRunnerBase</a>)</li>
+<li class="circle">jstat.maths.functions.regularizers.<a href="jstat.maths/functions/regularizers/RidgeRegularizer.html" title="class in jstat.maths.functions.regularizers"><span class="typeNameLink">RidgeRegularizer</span></a> (implements jstat.maths.functions.<a href="jstat.maths/functions/IRegularizerFunction.html" title="interface in jstat.maths.functions">IRegularizerFunction</a>)</li>
+<li class="circle">jstat.datastructs.<a href="jstat.datastructs/RowBuilder.html" title="class in jstat.datastructs"><span class="typeNameLink">RowBuilder</span></a></li>
+<li class="circle">jstat.maths.functions.<a href="jstat.maths/functions/ScalarMonomial.html" title="class in jstat.maths.functions"><span class="typeNameLink">ScalarMonomial</span></a> (implements jstat.maths.functions.<a href="jstat.maths/functions/IScalarRealFunction.html" title="interface in jstat.maths.functions">IScalarRealFunction</a>)</li>
+<li class="circle">jstat.visualizations.<a href="jstat.visualizations/ScatterChart.html" title="class in jstat.visualizations"><span class="typeNameLink">ScatterChart</span></a></li>
+<li class="circle">jstat.visualizations.<a href="jstat.visualizations/ScatterChart.ScatterChartOptions.html" title="class in jstat.visualizations"><span class="typeNameLink">ScatterChart.ScatterChartOptions</span></a></li>
+<li class="circle">jstat.maths.functions.<a href="jstat.maths/functions/SigmoidFunction.html" title="class in jstat.maths.functions"><span class="typeNameLink">SigmoidFunction</span></a> (implements jstat.maths.functions.<a href="jstat.maths/functions/IVectorRealFunction.html" title="interface in jstat.maths.functions">IVectorRealFunction</a>&lt;VectorType&gt;)</li>
+<li class="circle">jstat.stats.<a href="jstat.stats/Simple1DLinearRegression.html" title="class in jstat.stats"><span class="typeNameLink">Simple1DLinearRegression</span></a></li>
+<li class="circle">jstat.maths.errorfunctions.<a href="jstat.maths/errorfunctions/SSEVectorFunction.html" title="class in jstat.maths.errorfunctions"><span class="typeNameLink">SSEVectorFunction</span></a> (implements jstat.maths.errorfunctions.<a href="jstat.maths/errorfunctions/IVectorErrorRealFunction.html" title="interface in jstat.maths.errorfunctions">IVectorErrorRealFunction</a>)</li>
+<li class="circle">jstat.stats.<a href="jstat.stats/Statistics.html" title="class in jstat.stats"><span class="typeNameLink">Statistics</span></a></li>
+<li class="circle">jstat.utils.<a href="jstat.utils/TableDataSetLoader.html" title="class in jstat.utils"><span class="typeNameLink">TableDataSetLoader</span></a></li>
+<li class="circle">jstat.utils.<a href="jstat.utils/TableOperations.html" title="class in jstat.utils"><span class="typeNameLink">TableOperations</span></a></li>
+<li class="circle">jstat.parallel.tasks.<a href="jstat.parallel/tasks/TaskBase.html" title="class in jstat.parallel.tasks"><span class="typeNameLink">TaskBase</span></a>&lt;T&gt; (implements java.util.concurrent.Callable&lt;V&gt;, java.lang.Runnable)
 <ul>
-<li class="circle">parallel.tasks.<a href="parallel/tasks/SumSqrTask.html" title="class in parallel.tasks"><span class="typeNameLink">SumSqrTask</span></a>&lt;ContainerType&gt;
+<li class="circle">jstat.parallel.tasks.<a href="jstat.parallel/tasks/SumSqrTask.html" title="class in jstat.parallel.tasks"><span class="typeNameLink">SumSqrTask</span></a>&lt;ContainerType&gt;
 <ul>
-<li class="circle">parallel.tasks.<a href="parallel/tasks/SumSqrDiffTask.html" title="class in parallel.tasks"><span class="typeNameLink">SumSqrDiffTask</span></a>&lt;ContainerType&gt;</li>
+<li class="circle">jstat.parallel.tasks.<a href="jstat.parallel/tasks/SumSqrDiffTask.html" title="class in jstat.parallel.tasks"><span class="typeNameLink">SumSqrDiffTask</span></a>&lt;ContainerType&gt;</li>
 </ul>
 </li>
-<li class="circle">parallel.tasks.<a href="parallel/tasks/SumTask.html" title="class in parallel.tasks"><span class="typeNameLink">SumTask</span></a>&lt;ContainerType&gt;</li>
+<li class="circle">jstat.parallel.tasks.<a href="jstat.parallel/tasks/SumTask.html" title="class in jstat.parallel.tasks"><span class="typeNameLink">SumTask</span></a>&lt;ContainerType&gt;</li>
 </ul>
 </li>
-<li class="circle">maths.functions.generators.<a href="maths/functions/generators/UniformRandomGenerator.html" title="class in maths.functions.generators"><span class="typeNameLink">UniformRandomGenerator</span></a>&lt;T&gt; (implements maths.functions.generators.<a href="maths/functions/generators/IRandomGenerator.html" title="interface in maths.functions.generators">IRandomGenerator</a>&lt;PointType&gt;)</li>
-<li class="circle">datasets.<a href="datasets/VectorDouble.html" title="class in datasets"><span class="typeNameLink">VectorDouble</span></a> (implements datastructs.<a href="datastructs/IVector.html" title="interface in datastructs">IVector</a>&lt;E&gt;)</li>
-<li class="circle">datasets.<a href="datasets/VectorInt.html" title="class in datasets"><span class="typeNameLink">VectorInt</span></a> (implements datastructs.<a href="datastructs/IVector.html" title="interface in datastructs">IVector</a>&lt;E&gt;)</li>
-<li class="circle">maths.<a href="maths/VectorOperations.html" title="class in maths"><span class="typeNameLink">VectorOperations</span></a></li>
-<li class="circle">maths.<a href="maths/VectorOperationsTest.html" title="class in maths"><span class="typeNameLink">VectorOperationsTest</span></a></li>
-<li class="circle">maths.<a href="maths/VectorOperationsTestRunner.html" title="class in maths"><span class="typeNameLink">VectorOperationsTestRunner</span></a></li>
-<li class="circle">datasets.<a href="datasets/VectorStorage.html" title="class in datasets"><span class="typeNameLink">VectorStorage</span></a>&lt;T&gt;</li>
-<li class="circle">maths.<a href="maths/VectorTest.html" title="class in maths"><span class="typeNameLink">VectorTest</span></a></li>
-<li class="circle">maths.<a href="maths/VectorTestRunner.html" title="class in maths"><span class="typeNameLink">VectorTestRunner</span></a></li>
+<li class="circle">jstat.maths.functions.generators.<a href="jstat.maths/functions/generators/UniformRandomGenerator.html" title="class in jstat.maths.functions.generators"><span class="typeNameLink">UniformRandomGenerator</span></a>&lt;T&gt; (implements jstat.maths.functions.generators.<a href="jstat.maths/functions/generators/IRandomGenerator.html" title="interface in jstat.maths.functions.generators">IRandomGenerator</a>&lt;PointType&gt;)</li>
+<li class="circle">jstat.datasets.<a href="jstat.datasets/VectorDouble.html" title="class in jstat.datasets"><span class="typeNameLink">VectorDouble</span></a> (implements jstat.datastructs.<a href="jstat.datastructs/IVector.html" title="interface in jstat.datastructs">IVector</a>&lt;E&gt;)</li>
+<li class="circle">jstat.datasets.<a href="jstat.datasets/VectorInt.html" title="class in jstat.datasets"><span class="typeNameLink">VectorInt</span></a> (implements jstat.datastructs.<a href="jstat.datastructs/IVector.html" title="interface in jstat.datastructs">IVector</a>&lt;E&gt;)</li>
+<li class="circle">jstat.maths.<a href="jstat.maths/VectorOperations.html" title="class in jstat.maths"><span class="typeNameLink">VectorOperations</span></a></li>
+<li class="circle">jstat.maths.<a href="jstat.maths/VectorOperationsTest.html" title="class in jstat.maths"><span class="typeNameLink">VectorOperationsTest</span></a></li>
+<li class="circle">jstat.maths.<a href="jstat.maths/VectorOperationsTestRunner.html" title="class in jstat.maths"><span class="typeNameLink">VectorOperationsTestRunner</span></a></li>
+<li class="circle">jstat.datasets.<a href="jstat.datasets/VectorStorage.html" title="class in jstat.datasets"><span class="typeNameLink">VectorStorage</span></a>&lt;T&gt;</li>
+<li class="circle">jstat.maths.<a href="jstat.maths/VectorTest.html" title="class in jstat.maths"><span class="typeNameLink">VectorTest</span></a></li>
+<li class="circle">jstat.maths.<a href="jstat.maths/VectorTestRunner.html" title="class in jstat.maths"><span class="typeNameLink">VectorTestRunner</span></a></li>
 </ul>
 </li>
 </ul>
@@ -308,30 +308,30 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <section role="region">
 <h2 title="Interface Hierarchy">Interface Hierarchy</h2>
 <ul>
-<li class="circle">maths.functions.distances.<a href="maths/functions/distances/DistanceCalculator.html" title="interface in maths.functions.distances"><span class="typeNameLink">DistanceCalculator</span></a>&lt;PointType,&#8203;ResultType&gt;</li>
-<li class="circle">datastructs.<a href="datastructs/I2DDataSet.html" title="interface in datastructs"><span class="typeNameLink">I2DDataSet</span></a>&lt;RowType&gt;</li>
-<li class="circle">ml.clustering.<a href="ml/clustering/ICentroidInitializerType.html" title="interface in ml.clustering"><span class="typeNameLink">ICentroidInitializerType</span></a></li>
-<li class="circle">maths.functions.<a href="maths/functions/IFunction.html" title="interface in maths.functions"><span class="typeNameLink">IFunction</span></a>&lt;InputType,&#8203;OutputType&gt;
+<li class="circle">jstat.maths.functions.distances.<a href="jstat.maths/functions/distances/DistanceCalculator.html" title="interface in jstat.maths.functions.distances"><span class="typeNameLink">DistanceCalculator</span></a>&lt;PointType,&#8203;ResultType&gt;</li>
+<li class="circle">jstat.datastructs.<a href="jstat.datastructs/I2DDataSet.html" title="interface in jstat.datastructs"><span class="typeNameLink">I2DDataSet</span></a>&lt;RowType&gt;</li>
+<li class="circle">jstat.ml.clustering.<a href="jstat.ml/clustering/ICentroidInitializerType.html" title="interface in jstat.ml.clustering"><span class="typeNameLink">ICentroidInitializerType</span></a></li>
+<li class="circle">jstat.maths.functions.<a href="jstat.maths/functions/IFunction.html" title="interface in jstat.maths.functions"><span class="typeNameLink">IFunction</span></a>&lt;InputType,&#8203;OutputType&gt;
 <ul>
-<li class="circle">maths.functions.<a href="maths/functions/IRealFunction.html" title="interface in maths.functions"><span class="typeNameLink">IRealFunction</span></a>&lt;InputType&gt;
+<li class="circle">jstat.maths.functions.<a href="jstat.maths/functions/IRealFunction.html" title="interface in jstat.maths.functions"><span class="typeNameLink">IRealFunction</span></a>&lt;InputType&gt;
 <ul>
-<li class="circle">maths.functions.<a href="maths/functions/IScalarRealFunction.html" title="interface in maths.functions"><span class="typeNameLink">IScalarRealFunction</span></a></li>
-<li class="circle">maths.functions.<a href="maths/functions/IVectorRealFunction.html" title="interface in maths.functions"><span class="typeNameLink">IVectorRealFunction</span></a>&lt;VectorType&gt;</li>
+<li class="circle">jstat.maths.functions.<a href="jstat.maths/functions/IScalarRealFunction.html" title="interface in jstat.maths.functions"><span class="typeNameLink">IScalarRealFunction</span></a></li>
+<li class="circle">jstat.maths.functions.<a href="jstat.maths/functions/IVectorRealFunction.html" title="interface in jstat.maths.functions"><span class="typeNameLink">IVectorRealFunction</span></a>&lt;VectorType&gt;</li>
 </ul>
 </li>
-<li class="circle">maths.functions.<a href="maths/functions/IRegularizerFunction.html" title="interface in maths.functions"><span class="typeNameLink">IRegularizerFunction</span></a></li>
+<li class="circle">jstat.maths.functions.<a href="jstat.maths/functions/IRegularizerFunction.html" title="interface in jstat.maths.functions"><span class="typeNameLink">IRegularizerFunction</span></a></li>
 </ul>
 </li>
-<li class="circle">parallel.partitioners.<a href="parallel/partitioners/IPartitionPolicy.html" title="interface in parallel.partitioners"><span class="typeNameLink">IPartitionPolicy</span></a></li>
-<li class="circle">maths.functions.generators.<a href="maths/functions/generators/IRandomGenerator.html" title="interface in maths.functions.generators"><span class="typeNameLink">IRandomGenerator</span></a>&lt;PointType&gt;</li>
-<li class="circle">datastructs.<a href="datastructs/IRowBuilder.html" title="interface in datastructs"><span class="typeNameLink">IRowBuilder</span></a>&lt;RowType&gt;</li>
-<li class="circle">optimization.<a href="optimization/ISupervisedOptimizer.html" title="interface in optimization"><span class="typeNameLink">ISupervisedOptimizer</span></a></li>
-<li class="circle">utils.<a href="utils/IterativAlgorithmController.html" title="interface in utils"><span class="typeNameLink">IterativAlgorithmController</span></a></li>
+<li class="circle">jstat.parallel.partitioners.<a href="jstat.parallel/partitioners/IPartitionPolicy.html" title="interface in jstat.parallel.partitioners"><span class="typeNameLink">IPartitionPolicy</span></a></li>
+<li class="circle">jstat.maths.functions.generators.<a href="jstat.maths/functions/generators/IRandomGenerator.html" title="interface in jstat.maths.functions.generators"><span class="typeNameLink">IRandomGenerator</span></a>&lt;PointType&gt;</li>
+<li class="circle">jstat.datastructs.<a href="jstat.datastructs/IRowBuilder.html" title="interface in jstat.datastructs"><span class="typeNameLink">IRowBuilder</span></a>&lt;RowType&gt;</li>
+<li class="circle">jstat.optimization.<a href="jstat.optimization/ISupervisedOptimizer.html" title="interface in jstat.optimization"><span class="typeNameLink">ISupervisedOptimizer</span></a></li>
+<li class="circle">jstat.utils.<a href="jstat.utils/IterativAlgorithmController.html" title="interface in jstat.utils"><span class="typeNameLink">IterativAlgorithmController</span></a></li>
 <li class="circle">testutils.<a href="testutils/ITestRunnerBase.html" title="interface in testutils"><span class="typeNameLink">ITestRunnerBase</span></a></li>
-<li class="circle">datastructs.<a href="datastructs/IVector.html" title="interface in datastructs"><span class="typeNameLink">IVector</span></a>&lt;E&gt;</li>
-<li class="circle">maths.errorfunctions.<a href="maths/errorfunctions/IVectorErrorRealFunction.html" title="interface in maths.errorfunctions"><span class="typeNameLink">IVectorErrorRealFunction</span></a></li>
-<li class="circle">ml.classifiers.utils.<a href="ml/classifiers/utils/IVoter.html" title="interface in ml.classifiers.utils"><span class="typeNameLink">IVoter</span></a>&lt;ItemType,&#8203;CriterionType,&#8203;ResultType&gt;</li>
-<li class="circle">datastructs.<a href="datastructs/RowType.html" title="interface in datastructs"><span class="typeNameLink">RowType</span></a></li>
+<li class="circle">jstat.datastructs.<a href="jstat.datastructs/IVector.html" title="interface in jstat.datastructs"><span class="typeNameLink">IVector</span></a>&lt;E&gt;</li>
+<li class="circle">jstat.maths.errorfunctions.<a href="jstat.maths/errorfunctions/IVectorErrorRealFunction.html" title="interface in jstat.maths.errorfunctions"><span class="typeNameLink">IVectorErrorRealFunction</span></a></li>
+<li class="circle">jstat.ml.classifiers.jstat.utils.<a href="jstat.ml/classifiers/jstat.utils/IVoter.html" title="interface in jstat.ml.classifiers.jstat.utils"><span class="typeNameLink">IVoter</span></a>&lt;ItemType,&#8203;CriterionType,&#8203;ResultType&gt;</li>
+<li class="circle">jstat.datastructs.<a href="jstat.datastructs/RowType.html" title="interface in jstat.datastructs"><span class="typeNameLink">RowType</span></a></li>
 </ul>
 </section>
 <section role="region">
@@ -341,8 +341,8 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <ul>
 <li class="circle">java.lang.Enum&lt;E&gt; (implements java.lang.Comparable&lt;T&gt;, java.io.Serializable)
 <ul>
-<li class="circle">datastructs.<a href="datastructs/RowType.Type.html" title="enum in datastructs"><span class="typeNameLink">RowType.Type</span></a></li>
-<li class="circle">stats.<a href="stats/StatisticsType.html" title="enum in stats"><span class="typeNameLink">StatisticsType</span></a></li>
+<li class="circle">jstat.datastructs.<a href="jstat.datastructs/RowType.Type.html" title="enum in jstat.datastructs"><span class="typeNameLink">RowType.Type</span></a></li>
+<li class="circle">jstat.stats.<a href="jstat.stats/StatisticsType.html" title="enum in jstat.stats"><span class="typeNameLink">StatisticsType</span></a></li>
 </ul>
 </li>
 </ul>

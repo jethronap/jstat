@@ -10,9 +10,9 @@
 <link rel="stylesheet" type="text/css" href="../../jquery/jquery-ui.css" title="Style">
 <script type="text/javascript" src="../../script.js"></script>
 <script type="text/javascript" src="../../jquery/jszip/dist/jszip.min.js"></script>
-<script type="text/javascript" src="../../jquery/jszip-utils/dist/jszip-utils.min.js"></script>
+<script type="text/javascript" src="../../jquery/jszip-jstat.utils/dist/jszip-jstat.utils.min.js"></script>
 <!--[if IE]>
-<script type="text/javascript" src="../../jquery/jszip-utils/dist/jszip-utils-ie.min.js"></script>
+<script type="text/javascript" src="../../jquery/jszip-jstat.utils/dist/jszip-jstat.utils-ie.min.js"></script>
 <![endif]-->
 <script type="text/javascript" src="../../jquery/jquery-3.3.1.js"></script>
 <script type="text/javascript" src="../../jquery/jquery-migrate-3.0.1.js"></script>
@@ -116,15 +116,15 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <!-- ======== START OF CLASS DATA ======== -->
 <main role="main">
 <div class="header">
-<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">ml.classifiers</a></div>
-<h2 title="Class ClassifierBase" class="title">Class ClassifierBase&lt;DataSetType extends <a href="../../datastructs/I2DDataSet.html" title="interface in datastructs">I2DDataSet</a>&gt;</h2>
+<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">jstat.ml.classifiers</a></div>
+<h2 title="Class ClassifierBase" class="title">Class ClassifierBase&lt;DataSetType extends <a href="../../jstat.datastructs/I2DDataSet.html" title="interface in jstat.datastructs">I2DDataSet</a>&gt;</h2>
 </div>
 <div class="contentContainer">
 <ul class="inheritance">
 <li>java.lang.Object</li>
 <li>
 <ul class="inheritance">
-<li>ml.classifiers.ClassifierBase&lt;DataSetType&gt;</li>
+<li>jstat.ml.classifiers.ClassifierBase&lt;DataSetType&gt;</li>
 </ul>
 </li>
 </ul>
@@ -133,10 +133,10 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="blockList">
 <dl>
 <dt>Direct Known Subclasses:</dt>
-<dd><code><a href="LogisticRegressionClassifier.html" title="class in ml.classifiers">LogisticRegressionClassifier</a></code></dd>
+<dd><code><a href="LogisticRegressionClassifier.html" title="class in jstat.ml.classifiers">LogisticRegressionClassifier</a></code></dd>
 </dl>
 <hr>
-<pre>public abstract class <span class="typeNameLabel">ClassifierBase&lt;DataSetType extends <a href="../../datastructs/I2DDataSet.html" title="interface in datastructs">I2DDataSet</a>&gt;</span>
+<pre>public abstract class <span class="typeNameLabel">ClassifierBase&lt;DataSetType extends <a href="../../jstat.datastructs/I2DDataSet.html" title="interface in jstat.datastructs">I2DDataSet</a>&gt;</span>
 extends java.lang.Object</pre>
 </li>
 </ul>
@@ -192,8 +192,8 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>abstract &lt;OutputType&gt;<br>OutputType</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#train(DataSetType,datasets.VectorDouble)">train</a></span>&#8203;(<a href="ClassifierBase.html" title="type parameter in ClassifierBase">DataSetType</a>&nbsp;dataSet,
-     <a href="../../datasets/VectorDouble.html" title="class in datasets">VectorDouble</a>&nbsp;labels)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#train(DataSetType,jstat.datasets.VectorDouble)">train</a></span>&#8203;(<a href="ClassifierBase.html" title="type parameter in ClassifierBase">DataSetType</a>&nbsp;dataSet,
+     <a href="../../jstat.datasets/VectorDouble.html" title="class in jstat.datasets">VectorDouble</a>&nbsp;labels)</code></th>
 <td class="colLast">
 <div class="block">Train the model using the provided dataset</div>
 </td>
@@ -242,16 +242,16 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a id="train(datastructs.I2DDataSet,datasets.VectorDouble)">
+<a id="train(jstat.datastructs.I2DDataSet,jstat.datasets.VectorDouble)">
 <!--   -->
-</a><a id="train(DataSetType,datasets.VectorDouble)">
+</a><a id="train(DataSetType,jstat.datasets.VectorDouble)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>train</h4>
 <pre class="methodSignature">public abstract&nbsp;&lt;OutputType&gt;&nbsp;OutputType&nbsp;train&#8203;(<a href="ClassifierBase.html" title="type parameter in ClassifierBase">DataSetType</a>&nbsp;dataSet,
-                                              <a href="../../datasets/VectorDouble.html" title="class in datasets">VectorDouble</a>&nbsp;labels)</pre>
+                                              <a href="../../jstat.datasets/VectorDouble.html" title="class in jstat.datasets">VectorDouble</a>&nbsp;labels)</pre>
 <div class="block">Train the model using the provided dataset</div>
 <dl>
 <dt><span class="paramLabel">Type Parameters:</span></dt>
