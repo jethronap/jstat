@@ -10,9 +10,9 @@
 <link rel="stylesheet" type="text/css" href="../jquery/jquery-ui.css" title="Style">
 <script type="text/javascript" src="../script.js"></script>
 <script type="text/javascript" src="../jquery/jszip/dist/jszip.min.js"></script>
-<script type="text/javascript" src="../jquery/jszip-utils/dist/jszip-utils.min.js"></script>
+<script type="text/javascript" src="../jquery/jszip-jstat.utils/dist/jszip-jstat.utils.min.js"></script>
 <!--[if IE]>
-<script type="text/javascript" src="../jquery/jszip-utils/dist/jszip-utils-ie.min.js"></script>
+<script type="text/javascript" src="../jquery/jszip-jstat.utils/dist/jszip-jstat.utils-ie.min.js"></script>
 <![endif]-->
 <script type="text/javascript" src="../jquery/jquery-3.3.1.js"></script>
 <script type="text/javascript" src="../jquery/jquery-migrate-3.0.1.js"></script>
@@ -116,7 +116,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <!-- ======== START OF CLASS DATA ======== -->
 <main role="main">
 <div class="header">
-<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">optimization</a></div>
+<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">jstat.optimization</a></div>
 <h2 title="Class OLSOptimizer" class="title">Class OLSOptimizer</h2>
 </div>
 <div class="contentContainer">
@@ -124,7 +124,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li>java.lang.Object</li>
 <li>
 <ul class="inheritance">
-<li>optimization.OLSOptimizer</li>
+<li>jstat.optimization.OLSOptimizer</li>
 </ul>
 </li>
 </ul>
@@ -133,12 +133,12 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd><code><a href="ISupervisedOptimizer.html" title="interface in optimization">ISupervisedOptimizer</a></code></dd>
+<dd><code><a href="ISupervisedOptimizer.html" title="interface in jstat.optimization">ISupervisedOptimizer</a></code></dd>
 </dl>
 <hr>
 <pre>public class <span class="typeNameLabel">OLSOptimizer</span>
 extends java.lang.Object
-implements <a href="ISupervisedOptimizer.html" title="interface in optimization">ISupervisedOptimizer</a></pre>
+implements <a href="ISupervisedOptimizer.html" title="interface in jstat.optimization">ISupervisedOptimizer</a></pre>
 <div class="block">Ordinary Least Squares optimizer for a real vector function</div>
 </li>
 </ul>
@@ -182,10 +182,10 @@ implements <a href="ISupervisedOptimizer.html" title="interface in optimization"
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>&lt;OutPutType,&#8203;DataSetType extends <a href="../datastructs/I2DDataSet.html" title="interface in datastructs">I2DDataSet</a>&lt;<a href="../datastructs/IVector.html" title="interface in datastructs">IVector</a>&lt;java.lang.Double&gt;&gt;&gt;<br>OutPutType</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#optimize(DataSetType,datasets.VectorDouble,maths.functions.IVectorRealFunction)">optimize</a></span>&#8203;(DataSetType&nbsp;data,
-        <a href="../datasets/VectorDouble.html" title="class in datasets">VectorDouble</a>&nbsp;y,
-        <a href="../maths/functions/IVectorRealFunction.html" title="interface in maths.functions">IVectorRealFunction</a>&nbsp;f)</code></th>
+<td class="colFirst"><code>&lt;OutPutType,&#8203;DataSetType extends <a href="../jstat.datastructs/I2DDataSet.html" title="interface in jstat.datastructs">I2DDataSet</a>&lt;<a href="../jstat.datastructs/IVector.html" title="interface in jstat.datastructs">IVector</a>&lt;java.lang.Double&gt;&gt;&gt;<br>OutPutType</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#optimize(DataSetType,jstat.datasets.VectorDouble,jstat.maths.functions.IVectorRealFunction)">optimize</a></span>&#8203;(DataSetType&nbsp;data,
+        <a href="../jstat.datasets/VectorDouble.html" title="class in jstat.datasets">VectorDouble</a>&nbsp;y,
+        <a href="../jstat.maths/functions/IVectorRealFunction.html" title="interface in jstat.maths.functions">IVectorRealFunction</a>&nbsp;f)</code></th>
 <td class="colLast">
 <div class="block">Optimize f on the given data</div>
 </td>
@@ -233,21 +233,21 @@ implements <a href="ISupervisedOptimizer.html" title="interface in optimization"
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a id="optimize(datastructs.I2DDataSet,datasets.VectorDouble,maths.functions.IVectorRealFunction)">
+<a id="optimize(jstat.datastructs.I2DDataSet,jstat.datasets.VectorDouble,jstat.maths.functions.IVectorRealFunction)">
 <!--   -->
-</a><a id="optimize(DataSetType,datasets.VectorDouble,maths.functions.IVectorRealFunction)">
+</a><a id="optimize(DataSetType,jstat.datasets.VectorDouble,jstat.maths.functions.IVectorRealFunction)">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>optimize</h4>
-<pre class="methodSignature">public&nbsp;&lt;OutPutType,&#8203;DataSetType extends <a href="../datastructs/I2DDataSet.html" title="interface in datastructs">I2DDataSet</a>&lt;<a href="../datastructs/IVector.html" title="interface in datastructs">IVector</a>&lt;java.lang.Double&gt;&gt;&gt;&nbsp;OutPutType&nbsp;optimize&#8203;(DataSetType&nbsp;data,
-                                                                                                        <a href="../datasets/VectorDouble.html" title="class in datasets">VectorDouble</a>&nbsp;y,
-                                                                                                        <a href="../maths/functions/IVectorRealFunction.html" title="interface in maths.functions">IVectorRealFunction</a>&nbsp;f)</pre>
+<pre class="methodSignature">public&nbsp;&lt;OutPutType,&#8203;DataSetType extends <a href="../jstat.datastructs/I2DDataSet.html" title="interface in jstat.datastructs">I2DDataSet</a>&lt;<a href="../jstat.datastructs/IVector.html" title="interface in jstat.datastructs">IVector</a>&lt;java.lang.Double&gt;&gt;&gt;&nbsp;OutPutType&nbsp;optimize&#8203;(DataSetType&nbsp;data,
+                                                                                                        <a href="../jstat.datasets/VectorDouble.html" title="class in jstat.datasets">VectorDouble</a>&nbsp;y,
+                                                                                                        <a href="../jstat.maths/functions/IVectorRealFunction.html" title="interface in jstat.maths.functions">IVectorRealFunction</a>&nbsp;f)</pre>
 <div class="block">Optimize f on the given data</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="ISupervisedOptimizer.html#optimize(DataSetType,datasets.VectorDouble,maths.functions.IVectorRealFunction)">optimize</a></code>&nbsp;in interface&nbsp;<code><a href="ISupervisedOptimizer.html" title="interface in optimization">ISupervisedOptimizer</a></code></dd>
+<dd><code><a href="ISupervisedOptimizer.html#optimize(DataSetType,jstat.datasets.VectorDouble,jstat.maths.functions.IVectorRealFunction)">optimize</a></code>&nbsp;in interface&nbsp;<code><a href="ISupervisedOptimizer.html" title="interface in jstat.optimization">ISupervisedOptimizer</a></code></dd>
 </dl>
 </li>
 </ul>

@@ -10,9 +10,9 @@
 <link rel="stylesheet" type="text/css" href="../../jquery/jquery-ui.css" title="Style">
 <script type="text/javascript" src="../../script.js"></script>
 <script type="text/javascript" src="../../jquery/jszip/dist/jszip.min.js"></script>
-<script type="text/javascript" src="../../jquery/jszip-utils/dist/jszip-utils.min.js"></script>
+<script type="text/javascript" src="../../jquery/jszip-jstat.utils/dist/jszip-jstat.utils.min.js"></script>
 <!--[if IE]>
-<script type="text/javascript" src="../../jquery/jszip-utils/dist/jszip-utils-ie.min.js"></script>
+<script type="text/javascript" src="../../jquery/jszip-jstat.utils/dist/jszip-jstat.utils-ie.min.js"></script>
 <![endif]-->
 <script type="text/javascript" src="../../jquery/jquery-3.3.1.js"></script>
 <script type="text/javascript" src="../../jquery/jquery-migrate-3.0.1.js"></script>
@@ -116,7 +116,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <!-- ======== START OF CLASS DATA ======== -->
 <main role="main">
 <div class="header">
-<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">maths.functions</a></div>
+<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">jstat.maths.functions</a></div>
 <h2 title="Interface IScalarRealFunction" class="title">Interface IScalarRealFunction</h2>
 </div>
 <div class="contentContainer">
@@ -125,15 +125,15 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="blockList">
 <dl>
 <dt>All Superinterfaces:</dt>
-<dd><code><a href="IFunction.html" title="interface in maths.functions">IFunction</a>&lt;java.lang.Double,&#8203;java.lang.Double&gt;</code>, <code><a href="IRealFunction.html" title="interface in maths.functions">IRealFunction</a>&lt;java.lang.Double&gt;</code></dd>
+<dd><code><a href="IFunction.html" title="interface in jstat.maths.functions">IFunction</a>&lt;java.lang.Double,&#8203;java.lang.Double&gt;</code>, <code><a href="IRealFunction.html" title="interface in jstat.maths.functions">IRealFunction</a>&lt;java.lang.Double&gt;</code></dd>
 </dl>
 <dl>
 <dt>All Known Implementing Classes:</dt>
-<dd><code><a href="ScalarMonomial.html" title="class in maths.functions">ScalarMonomial</a></code></dd>
+<dd><code><a href="ScalarMonomial.html" title="class in jstat.maths.functions">ScalarMonomial</a></code></dd>
 </dl>
 <hr>
 <pre>public interface <span class="typeNameLabel">IScalarRealFunction</span>
-extends <a href="IRealFunction.html" title="interface in maths.functions">IRealFunction</a>&lt;java.lang.Double&gt;</pre>
+extends <a href="IRealFunction.html" title="interface in jstat.maths.functions">IRealFunction</a>&lt;java.lang.Double&gt;</pre>
 </li>
 </ul>
 </div>
@@ -155,7 +155,7 @@ extends <a href="IRealFunction.html" title="interface in maths.functions">IRealF
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code><a href="../../datasets/VectorDouble.html" title="class in datasets">VectorDouble</a></code></td>
+<td class="colFirst"><code><a href="../../jstat.datasets/VectorDouble.html" title="class in jstat.datasets">VectorDouble</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getCoeffs()">getCoeffs</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns the coefficients of the vector function</div>
@@ -184,18 +184,18 @@ extends <a href="IRealFunction.html" title="interface in maths.functions">IRealF
 </tr>
 </table>
 <ul class="blockList">
-<li class="blockList"><a id="methods.inherited.from.class.maths.functions.IFunction">
+<li class="blockList"><a id="methods.inherited.from.class.jstat.maths.functions.IFunction">
 <!--   -->
 </a>
-<h3>Methods inherited from interface&nbsp;maths.functions.<a href="IFunction.html" title="interface in maths.functions">IFunction</a></h3>
+<h3>Methods inherited from interface&nbsp;jstat.maths.functions.<a href="IFunction.html" title="interface in jstat.maths.functions">IFunction</a></h3>
 <code><a href="IFunction.html#evaluate(InputType)">evaluate</a></code></li>
 </ul>
 <ul class="blockList">
-<li class="blockList"><a id="methods.inherited.from.class.maths.functions.IRealFunction">
+<li class="blockList"><a id="methods.inherited.from.class.jstat.maths.functions.IRealFunction">
 <!--   -->
 </a>
-<h3>Methods inherited from interface&nbsp;maths.functions.<a href="IRealFunction.html" title="interface in maths.functions">IRealFunction</a></h3>
-<code><a href="IRealFunction.html#getCoeff(int)">getCoeff</a>, <a href="IRealFunction.html#setCoeffs(double%5B%5D)">setCoeffs</a>, <a href="IRealFunction.html#setCoeffs(datastructs.IVector)">setCoeffs</a>, <a href="IRealFunction.html#setCoeffs(java.lang.Double%5B%5D)">setCoeffs</a></code></li>
+<h3>Methods inherited from interface&nbsp;jstat.maths.functions.<a href="IRealFunction.html" title="interface in jstat.maths.functions">IRealFunction</a></h3>
+<code><a href="IRealFunction.html#getCoeff(int)">getCoeff</a>, <a href="IRealFunction.html#setCoeffs(double%5B%5D)">setCoeffs</a>, <a href="IRealFunction.html#setCoeffs(jstat.datastructs.IVector)">setCoeffs</a>, <a href="IRealFunction.html#setCoeffs(java.lang.Double%5B%5D)">setCoeffs</a></code></li>
 </ul>
 </li>
 </ul>
@@ -223,7 +223,7 @@ extends <a href="IRealFunction.html" title="interface in maths.functions">IRealF
 <div class="block">Returns the number of coefficients</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="IRealFunction.html#numCoeffs()">numCoeffs</a></code>&nbsp;in interface&nbsp;<code><a href="IRealFunction.html" title="interface in maths.functions">IRealFunction</a>&lt;java.lang.Double&gt;</code></dd>
+<dd><code><a href="IRealFunction.html#numCoeffs()">numCoeffs</a></code>&nbsp;in interface&nbsp;<code><a href="IRealFunction.html" title="interface in jstat.maths.functions">IRealFunction</a>&lt;java.lang.Double&gt;</code></dd>
 </dl>
 </li>
 </ul>
@@ -233,11 +233,11 @@ extends <a href="IRealFunction.html" title="interface in maths.functions">IRealF
 <ul class="blockList">
 <li class="blockList">
 <h4>getCoeffs</h4>
-<pre class="methodSignature"><a href="../../datasets/VectorDouble.html" title="class in datasets">VectorDouble</a>&nbsp;getCoeffs()</pre>
+<pre class="methodSignature"><a href="../../jstat.datasets/VectorDouble.html" title="class in jstat.datasets">VectorDouble</a>&nbsp;getCoeffs()</pre>
 <div class="block">Returns the coefficients of the vector function</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="IRealFunction.html#getCoeffs()">getCoeffs</a></code>&nbsp;in interface&nbsp;<code><a href="IRealFunction.html" title="interface in maths.functions">IRealFunction</a>&lt;java.lang.Double&gt;</code></dd>
+<dd><code><a href="IRealFunction.html#getCoeffs()">getCoeffs</a></code>&nbsp;in interface&nbsp;<code><a href="IRealFunction.html" title="interface in jstat.maths.functions">IRealFunction</a>&lt;java.lang.Double&gt;</code></dd>
 </dl>
 </li>
 </ul>

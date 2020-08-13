@@ -10,9 +10,9 @@
 <link rel="stylesheet" type="text/css" href="../jquery/jquery-ui.css" title="Style">
 <script type="text/javascript" src="../script.js"></script>
 <script type="text/javascript" src="../jquery/jszip/dist/jszip.min.js"></script>
-<script type="text/javascript" src="../jquery/jszip-utils/dist/jszip-utils.min.js"></script>
+<script type="text/javascript" src="../jquery/jszip-jstat.utils/dist/jszip-jstat.utils.min.js"></script>
 <!--[if IE]>
-<script type="text/javascript" src="../jquery/jszip-utils/dist/jszip-utils-ie.min.js"></script>
+<script type="text/javascript" src="../jquery/jszip-jstat.utils/dist/jszip-jstat.utils-ie.min.js"></script>
 <![endif]-->
 <script type="text/javascript" src="../jquery/jquery-3.3.1.js"></script>
 <script type="text/javascript" src="../jquery/jquery-migrate-3.0.1.js"></script>
@@ -116,7 +116,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <!-- ======== START OF CLASS DATA ======== -->
 <main role="main">
 <div class="header">
-<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">datastructs</a></div>
+<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">jstat.datastructs</a></div>
 <h2 title="Interface I2DDataSet" class="title">Interface I2DDataSet&lt;RowType&gt;</h2>
 </div>
 <div class="contentContainer">
@@ -125,7 +125,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="blockList">
 <dl>
 <dt>All Known Implementing Classes:</dt>
-<dd><code><a href="../datasets/DenseMatrixSet.html" title="class in datasets">DenseMatrixSet</a></code></dd>
+<dd><code><a href="../jstat.datasets/DenseMatrixSet.html" title="class in jstat.datasets">DenseMatrixSet</a></code></dd>
 </dl>
 <hr>
 <pre>public interface <span class="typeNameLabel">I2DDataSet&lt;RowType&gt;</span></pre>
@@ -150,14 +150,14 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code><a href="I2DDataSet.html" title="interface in datastructs">I2DDataSet</a></code></td>
+<td class="colFirst"><code><a href="I2DDataSet.html" title="interface in jstat.datastructs">I2DDataSet</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#copy()">copy</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Copy from the given IDataSetWrapper</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code><a href="I2DDataSet.html" title="interface in datastructs">I2DDataSet</a></code></td>
+<td class="colFirst"><code><a href="I2DDataSet.html" title="interface in jstat.datastructs">I2DDataSet</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#create(int,int)">create</a></span>&#8203;(int&nbsp;m,
       int&nbsp;n)</code></th>
 <td class="colLast">
@@ -173,7 +173,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </td>
 </tr>
 <tr id="i3" class="rowColor">
-<td class="colFirst"><code>default <a href="../parallel/partitioners/IPartitionPolicy.html" title="interface in parallel.partitioners">IPartitionPolicy</a></code></td>
+<td class="colFirst"><code>default <a href="../jstat.parallel/partitioners/IPartitionPolicy.html" title="interface in jstat.parallel.partitioners">IPartitionPolicy</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getPartitionPolicy()">getPartitionPolicy</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Return the i-th partition of the data set</div>
@@ -240,7 +240,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <ul class="blockList">
 <li class="blockList">
 <h4>copy</h4>
-<pre class="methodSignature"><a href="I2DDataSet.html" title="interface in datastructs">I2DDataSet</a>&nbsp;copy()</pre>
+<pre class="methodSignature"><a href="I2DDataSet.html" title="interface in jstat.datastructs">I2DDataSet</a>&nbsp;copy()</pre>
 <div class="block">Copy from the given IDataSetWrapper</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -254,7 +254,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <ul class="blockList">
 <li class="blockList">
 <h4>create</h4>
-<pre class="methodSignature"><a href="I2DDataSet.html" title="interface in datastructs">I2DDataSet</a>&nbsp;create&#8203;(int&nbsp;m,
+<pre class="methodSignature"><a href="I2DDataSet.html" title="interface in jstat.datastructs">I2DDataSet</a>&nbsp;create&#8203;(int&nbsp;m,
                   int&nbsp;n)</pre>
 <div class="block">Build a new instance of this class</div>
 <dl>
@@ -372,7 +372,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <ul class="blockListLast">
 <li class="blockList">
 <h4>getPartitionPolicy</h4>
-<pre class="methodSignature">default&nbsp;<a href="../parallel/partitioners/IPartitionPolicy.html" title="interface in parallel.partitioners">IPartitionPolicy</a>&nbsp;getPartitionPolicy()</pre>
+<pre class="methodSignature">default&nbsp;<a href="../jstat.parallel/partitioners/IPartitionPolicy.html" title="interface in jstat.parallel.partitioners">IPartitionPolicy</a>&nbsp;getPartitionPolicy()</pre>
 <div class="block">Return the i-th partition of the data set</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>

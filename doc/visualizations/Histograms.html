@@ -10,9 +10,9 @@
 <link rel="stylesheet" type="text/css" href="../jquery/jquery-ui.css" title="Style">
 <script type="text/javascript" src="../script.js"></script>
 <script type="text/javascript" src="../jquery/jszip/dist/jszip.min.js"></script>
-<script type="text/javascript" src="../jquery/jszip-utils/dist/jszip-utils.min.js"></script>
+<script type="text/javascript" src="../jquery/jszip-jstat.utils/dist/jszip-jstat.utils.min.js"></script>
 <!--[if IE]>
-<script type="text/javascript" src="../jquery/jszip-utils/dist/jszip-utils-ie.min.js"></script>
+<script type="text/javascript" src="../jquery/jszip-jstat.utils/dist/jszip-jstat.utils-ie.min.js"></script>
 <![endif]-->
 <script type="text/javascript" src="../jquery/jquery-3.3.1.js"></script>
 <script type="text/javascript" src="../jquery/jquery-migrate-3.0.1.js"></script>
@@ -116,7 +116,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <!-- ======== START OF CLASS DATA ======== -->
 <main role="main">
 <div class="header">
-<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">visualizations</a></div>
+<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">jstat.visualizations</a></div>
 <h2 title="Class Histograms" class="title">Class Histograms</h2>
 </div>
 <div class="contentContainer">
@@ -124,7 +124,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li>java.lang.Object</li>
 <li>
 <ul class="inheritance">
-<li>visualizations.Histograms</li>
+<li>jstat.visualizations.Histograms</li>
 </ul>
 </li>
 </ul>
@@ -157,7 +157,7 @@ extends java.lang.Object</pre>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>class&nbsp;</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="Histograms.HistogramOptions.html" title="class in visualizations">Histograms.HistogramOptions</a></span></code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="Histograms.HistogramOptions.html" title="class in jstat.visualizations">Histograms.HistogramOptions</a></span></code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 </table>
@@ -201,8 +201,8 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>static void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#plotHistogram(datastructs.IVector,visualizations.Histograms.HistogramOptions)">plotHistogram</a></span>&#8203;(<a href="../datastructs/IVector.html" title="interface in datastructs">IVector</a>&lt;java.lang.Double&gt;&nbsp;x,
-             <a href="Histograms.HistogramOptions.html" title="class in visualizations">Histograms.HistogramOptions</a>&nbsp;options)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#plotHistogram(jstat.datastructs.IVector,jstat.visualizations.Histograms.HistogramOptions)">plotHistogram</a></span>&#8203;(<a href="../jstat.datastructs/IVector.html" title="interface in jstat.datastructs">IVector</a>&lt;java.lang.Double&gt;&nbsp;x,
+             <a href="Histograms.HistogramOptions.html" title="class in jstat.visualizations">Histograms.HistogramOptions</a>&nbsp;options)</code></th>
 <td class="colLast">
 <div class="block">Plots a scatter chart given the chart title,
  data set in Table format,
@@ -213,7 +213,7 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>static void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#plotHistogram(visualizations.Histograms.HistogramOptions,tech.tablesaw.api.Table)">plotHistogram</a></span>&#8203;(<a href="Histograms.HistogramOptions.html" title="class in visualizations">Histograms.HistogramOptions</a>&nbsp;options,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#plotHistogram(jstat.visualizations.Histograms.HistogramOptions,tech.tablesaw.api.Table)">plotHistogram</a></span>&#8203;(<a href="Histograms.HistogramOptions.html" title="class in jstat.visualizations">Histograms.HistogramOptions</a>&nbsp;options,
              tech.tablesaw.api.Table&nbsp;data)</code></th>
 <td class="colLast">
 <div class="block">Plots a histogram given the chart title,
@@ -223,7 +223,7 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>static void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#plotHistogram2D(visualizations.Histograms.HistogramOptions,tech.tablesaw.api.Table)">plotHistogram2D</a></span>&#8203;(<a href="Histograms.HistogramOptions.html" title="class in visualizations">Histograms.HistogramOptions</a>&nbsp;options,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#plotHistogram2D(jstat.visualizations.Histograms.HistogramOptions,tech.tablesaw.api.Table)">plotHistogram2D</a></span>&#8203;(<a href="Histograms.HistogramOptions.html" title="class in jstat.visualizations">Histograms.HistogramOptions</a>&nbsp;options,
                tech.tablesaw.api.Table&nbsp;data)</code></th>
 <td class="colLast">
 <div class="block">Plots a histogram given the chart title,
@@ -274,14 +274,14 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a id="plotHistogram(datastructs.IVector,visualizations.Histograms.HistogramOptions)">
+<a id="plotHistogram(jstat.datastructs.IVector,jstat.visualizations.Histograms.HistogramOptions)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>plotHistogram</h4>
-<pre class="methodSignature">public static&nbsp;void&nbsp;plotHistogram&#8203;(<a href="../datastructs/IVector.html" title="interface in datastructs">IVector</a>&lt;java.lang.Double&gt;&nbsp;x,
-                                 <a href="Histograms.HistogramOptions.html" title="class in visualizations">Histograms.HistogramOptions</a>&nbsp;options)</pre>
+<pre class="methodSignature">public static&nbsp;void&nbsp;plotHistogram&#8203;(<a href="../jstat.datastructs/IVector.html" title="interface in jstat.datastructs">IVector</a>&lt;java.lang.Double&gt;&nbsp;x,
+                                 <a href="Histograms.HistogramOptions.html" title="class in jstat.visualizations">Histograms.HistogramOptions</a>&nbsp;options)</pre>
 <div class="block">Plots a scatter chart given the chart title,
  data set in Table format,
  and one numeric column
@@ -289,26 +289,26 @@ extends java.lang.Object</pre>
  of the data set.</div>
 </li>
 </ul>
-<a id="plotHistogram(visualizations.Histograms.HistogramOptions,tech.tablesaw.api.Table)">
+<a id="plotHistogram(jstat.visualizations.Histograms.HistogramOptions,tech.tablesaw.api.Table)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>plotHistogram</h4>
-<pre class="methodSignature">public static&nbsp;void&nbsp;plotHistogram&#8203;(<a href="Histograms.HistogramOptions.html" title="class in visualizations">Histograms.HistogramOptions</a>&nbsp;options,
+<pre class="methodSignature">public static&nbsp;void&nbsp;plotHistogram&#8203;(<a href="Histograms.HistogramOptions.html" title="class in jstat.visualizations">Histograms.HistogramOptions</a>&nbsp;options,
                                  tech.tablesaw.api.Table&nbsp;data)</pre>
 <div class="block">Plots a histogram given the chart title,
  data set in Table format,
  and a column name.</div>
 </li>
 </ul>
-<a id="plotHistogram2D(visualizations.Histograms.HistogramOptions,tech.tablesaw.api.Table)">
+<a id="plotHistogram2D(jstat.visualizations.Histograms.HistogramOptions,tech.tablesaw.api.Table)">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>plotHistogram2D</h4>
-<pre class="methodSignature">public static&nbsp;void&nbsp;plotHistogram2D&#8203;(<a href="Histograms.HistogramOptions.html" title="class in visualizations">Histograms.HistogramOptions</a>&nbsp;options,
+<pre class="methodSignature">public static&nbsp;void&nbsp;plotHistogram2D&#8203;(<a href="Histograms.HistogramOptions.html" title="class in jstat.visualizations">Histograms.HistogramOptions</a>&nbsp;options,
                                    tech.tablesaw.api.Table&nbsp;data)</pre>
 <div class="block">Plots a histogram given the chart title,
  data set in Table format,

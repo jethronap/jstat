@@ -10,9 +10,9 @@
 <link rel="stylesheet" type="text/css" href="../../../jquery/jquery-ui.css" title="Style">
 <script type="text/javascript" src="../../../script.js"></script>
 <script type="text/javascript" src="../../../jquery/jszip/dist/jszip.min.js"></script>
-<script type="text/javascript" src="../../../jquery/jszip-utils/dist/jszip-utils.min.js"></script>
+<script type="text/javascript" src="../../../jquery/jszip-jstat.utils/dist/jszip-jstat.utils.min.js"></script>
 <!--[if IE]>
-<script type="text/javascript" src="../../../jquery/jszip-utils/dist/jszip-utils-ie.min.js"></script>
+<script type="text/javascript" src="../../../jquery/jszip-jstat.utils/dist/jszip-jstat.utils-ie.min.js"></script>
 <![endif]-->
 <script type="text/javascript" src="../../../jquery/jquery-3.3.1.js"></script>
 <script type="text/javascript" src="../../../jquery/jquery-migrate-3.0.1.js"></script>
@@ -116,7 +116,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <!-- ======== START OF CLASS DATA ======== -->
 <main role="main">
 <div class="header">
-<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">maths.functions.distances</a></div>
+<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">jstat.maths.functions.distances</a></div>
 <h2 title="Class EuclideanVectorCalculator" class="title">Class EuclideanVectorCalculator&lt;T&gt;</h2>
 </div>
 <div class="contentContainer">
@@ -124,7 +124,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li>java.lang.Object</li>
 <li>
 <ul class="inheritance">
-<li>maths.functions.distances.EuclideanVectorCalculator&lt;T&gt;</li>
+<li>jstat.maths.functions.distances.EuclideanVectorCalculator&lt;T&gt;</li>
 </ul>
 </li>
 </ul>
@@ -133,13 +133,13 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd><code><a href="DistanceCalculator.html" title="interface in maths.functions.distances">DistanceCalculator</a>&lt;<a href="../../../datastructs/IVector.html" title="interface in datastructs">IVector</a>&lt;T&gt;,&#8203;java.lang.Double&gt;</code></dd>
+<dd><code><a href="DistanceCalculator.html" title="interface in jstat.maths.functions.distances">DistanceCalculator</a>&lt;<a href="../../../jstat.datastructs/IVector.html" title="interface in jstat.datastructs">IVector</a>&lt;T&gt;,&#8203;java.lang.Double&gt;</code></dd>
 </dl>
 <hr>
 <pre>public class <span class="typeNameLabel">EuclideanVectorCalculator&lt;T&gt;</span>
 extends java.lang.Object
-implements <a href="DistanceCalculator.html" title="interface in maths.functions.distances">DistanceCalculator</a>&lt;<a href="../../../datastructs/IVector.html" title="interface in datastructs">IVector</a>&lt;T&gt;,&#8203;java.lang.Double&gt;</pre>
-<div class="block">Compute Euclidean distance for vector-like datastructs</div>
+implements <a href="DistanceCalculator.html" title="interface in jstat.maths.functions.distances">DistanceCalculator</a>&lt;<a href="../../../jstat.datastructs/IVector.html" title="interface in jstat.datastructs">IVector</a>&lt;T&gt;,&#8203;java.lang.Double&gt;</pre>
+<div class="block">Compute Euclidean distance for vector-like jstat.datastructs</div>
 </li>
 </ul>
 </div>
@@ -183,8 +183,8 @@ implements <a href="DistanceCalculator.html" title="interface in maths.functions
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>java.lang.Double</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#calculate(datastructs.IVector,datastructs.IVector)">calculate</a></span>&#8203;(<a href="../../../datastructs/IVector.html" title="interface in datastructs">IVector</a>&lt;<a href="EuclideanVectorCalculator.html" title="type parameter in EuclideanVectorCalculator">T</a>&gt;&nbsp;p1,
-         <a href="../../../datastructs/IVector.html" title="interface in datastructs">IVector</a>&lt;<a href="EuclideanVectorCalculator.html" title="type parameter in EuclideanVectorCalculator">T</a>&gt;&nbsp;p2)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#calculate(jstat.datastructs.IVector,jstat.datastructs.IVector)">calculate</a></span>&#8203;(<a href="../../../jstat.datastructs/IVector.html" title="interface in jstat.datastructs">IVector</a>&lt;<a href="EuclideanVectorCalculator.html" title="type parameter in EuclideanVectorCalculator">T</a>&gt;&nbsp;p1,
+         <a href="../../../jstat.datastructs/IVector.html" title="interface in jstat.datastructs">IVector</a>&lt;<a href="EuclideanVectorCalculator.html" title="type parameter in EuclideanVectorCalculator">T</a>&gt;&nbsp;p2)</code></th>
 <td class="colLast">
 <div class="block">Returns the distance between the two points</div>
 </td>
@@ -265,18 +265,18 @@ implements <a href="DistanceCalculator.html" title="interface in maths.functions
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a id="calculate(datastructs.IVector,datastructs.IVector)">
+<a id="calculate(jstat.datastructs.IVector,jstat.datastructs.IVector)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>calculate</h4>
-<pre class="methodSignature">public&nbsp;java.lang.Double&nbsp;calculate&#8203;(<a href="../../../datastructs/IVector.html" title="interface in datastructs">IVector</a>&lt;<a href="EuclideanVectorCalculator.html" title="type parameter in EuclideanVectorCalculator">T</a>&gt;&nbsp;p1,
-                                  <a href="../../../datastructs/IVector.html" title="interface in datastructs">IVector</a>&lt;<a href="EuclideanVectorCalculator.html" title="type parameter in EuclideanVectorCalculator">T</a>&gt;&nbsp;p2)</pre>
+<pre class="methodSignature">public&nbsp;java.lang.Double&nbsp;calculate&#8203;(<a href="../../../jstat.datastructs/IVector.html" title="interface in jstat.datastructs">IVector</a>&lt;<a href="EuclideanVectorCalculator.html" title="type parameter in EuclideanVectorCalculator">T</a>&gt;&nbsp;p1,
+                                  <a href="../../../jstat.datastructs/IVector.html" title="interface in jstat.datastructs">IVector</a>&lt;<a href="EuclideanVectorCalculator.html" title="type parameter in EuclideanVectorCalculator">T</a>&gt;&nbsp;p2)</pre>
 <div class="block">Returns the distance between the two points</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="DistanceCalculator.html#calculate(PointType,PointType)">calculate</a></code>&nbsp;in interface&nbsp;<code><a href="DistanceCalculator.html" title="interface in maths.functions.distances">DistanceCalculator</a>&lt;<a href="../../../datastructs/IVector.html" title="interface in datastructs">IVector</a>&lt;<a href="EuclideanVectorCalculator.html" title="type parameter in EuclideanVectorCalculator">T</a>&gt;,&#8203;java.lang.Double&gt;</code></dd>
+<dd><code><a href="DistanceCalculator.html#calculate(PointType,PointType)">calculate</a></code>&nbsp;in interface&nbsp;<code><a href="DistanceCalculator.html" title="interface in jstat.maths.functions.distances">DistanceCalculator</a>&lt;<a href="../../../jstat.datastructs/IVector.html" title="interface in jstat.datastructs">IVector</a>&lt;<a href="EuclideanVectorCalculator.html" title="type parameter in EuclideanVectorCalculator">T</a>&gt;,&#8203;java.lang.Double&gt;</code></dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>p1</code> - the first  point</dd>
 <dd><code>p2</code> - the second point</dd>
@@ -293,7 +293,7 @@ implements <a href="DistanceCalculator.html" title="interface in maths.functions
 <div class="block">Initialize the min distance</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="DistanceCalculator.html#minValue()">minValue</a></code>&nbsp;in interface&nbsp;<code><a href="DistanceCalculator.html" title="interface in maths.functions.distances">DistanceCalculator</a>&lt;<a href="../../../datastructs/IVector.html" title="interface in datastructs">IVector</a>&lt;<a href="EuclideanVectorCalculator.html" title="type parameter in EuclideanVectorCalculator">T</a>&gt;,&#8203;java.lang.Double&gt;</code></dd>
+<dd><code><a href="DistanceCalculator.html#minValue()">minValue</a></code>&nbsp;in interface&nbsp;<code><a href="DistanceCalculator.html" title="interface in jstat.maths.functions.distances">DistanceCalculator</a>&lt;<a href="../../../jstat.datastructs/IVector.html" title="interface in jstat.datastructs">IVector</a>&lt;<a href="EuclideanVectorCalculator.html" title="type parameter in EuclideanVectorCalculator">T</a>&gt;,&#8203;java.lang.Double&gt;</code></dd>
 </dl>
 </li>
 </ul>
@@ -307,7 +307,7 @@ implements <a href="DistanceCalculator.html" title="interface in maths.functions
 <div class="block">Initialize the maximum distance</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="DistanceCalculator.html#maxValue()">maxValue</a></code>&nbsp;in interface&nbsp;<code><a href="DistanceCalculator.html" title="interface in maths.functions.distances">DistanceCalculator</a>&lt;<a href="../../../datastructs/IVector.html" title="interface in datastructs">IVector</a>&lt;<a href="EuclideanVectorCalculator.html" title="type parameter in EuclideanVectorCalculator">T</a>&gt;,&#8203;java.lang.Double&gt;</code></dd>
+<dd><code><a href="DistanceCalculator.html#maxValue()">maxValue</a></code>&nbsp;in interface&nbsp;<code><a href="DistanceCalculator.html" title="interface in jstat.maths.functions.distances">DistanceCalculator</a>&lt;<a href="../../../jstat.datastructs/IVector.html" title="interface in jstat.datastructs">IVector</a>&lt;<a href="EuclideanVectorCalculator.html" title="type parameter in EuclideanVectorCalculator">T</a>&gt;,&#8203;java.lang.Double&gt;</code></dd>
 </dl>
 </li>
 </ul>
@@ -322,7 +322,7 @@ implements <a href="DistanceCalculator.html" title="interface in maths.functions
 <div class="block">Compare the two results</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="DistanceCalculator.html#compareMin(ResultType,ResultType)">compareMin</a></code>&nbsp;in interface&nbsp;<code><a href="DistanceCalculator.html" title="interface in maths.functions.distances">DistanceCalculator</a>&lt;<a href="../../../datastructs/IVector.html" title="interface in datastructs">IVector</a>&lt;<a href="EuclideanVectorCalculator.html" title="type parameter in EuclideanVectorCalculator">T</a>&gt;,&#8203;java.lang.Double&gt;</code></dd>
+<dd><code><a href="DistanceCalculator.html#compareMin(ResultType,ResultType)">compareMin</a></code>&nbsp;in interface&nbsp;<code><a href="DistanceCalculator.html" title="interface in jstat.maths.functions.distances">DistanceCalculator</a>&lt;<a href="../../../jstat.datastructs/IVector.html" title="interface in jstat.datastructs">IVector</a>&lt;<a href="EuclideanVectorCalculator.html" title="type parameter in EuclideanVectorCalculator">T</a>&gt;,&#8203;java.lang.Double&gt;</code></dd>
 </dl>
 </li>
 </ul>
@@ -340,7 +340,7 @@ implements <a href="DistanceCalculator.html" title="interface in maths.functions
  1 if  r1 greater than r2</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="DistanceCalculator.html#compare(ResultType,ResultType)">compare</a></code>&nbsp;in interface&nbsp;<code><a href="DistanceCalculator.html" title="interface in maths.functions.distances">DistanceCalculator</a>&lt;<a href="../../../datastructs/IVector.html" title="interface in datastructs">IVector</a>&lt;<a href="EuclideanVectorCalculator.html" title="type parameter in EuclideanVectorCalculator">T</a>&gt;,&#8203;java.lang.Double&gt;</code></dd>
+<dd><code><a href="DistanceCalculator.html#compare(ResultType,ResultType)">compare</a></code>&nbsp;in interface&nbsp;<code><a href="DistanceCalculator.html" title="interface in jstat.maths.functions.distances">DistanceCalculator</a>&lt;<a href="../../../jstat.datastructs/IVector.html" title="interface in jstat.datastructs">IVector</a>&lt;<a href="EuclideanVectorCalculator.html" title="type parameter in EuclideanVectorCalculator">T</a>&gt;,&#8203;java.lang.Double&gt;</code></dd>
 </dl>
 </li>
 </ul>

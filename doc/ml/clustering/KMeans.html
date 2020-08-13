@@ -10,9 +10,9 @@
 <link rel="stylesheet" type="text/css" href="../../jquery/jquery-ui.css" title="Style">
 <script type="text/javascript" src="../../script.js"></script>
 <script type="text/javascript" src="../../jquery/jszip/dist/jszip.min.js"></script>
-<script type="text/javascript" src="../../jquery/jszip-utils/dist/jszip-utils.min.js"></script>
+<script type="text/javascript" src="../../jquery/jszip-jstat.utils/dist/jszip-jstat.utils.min.js"></script>
 <!--[if IE]>
-<script type="text/javascript" src="../../jquery/jszip-utils/dist/jszip-utils-ie.min.js"></script>
+<script type="text/javascript" src="../../jquery/jszip-jstat.utils/dist/jszip-jstat.utils-ie.min.js"></script>
 <![endif]-->
 <script type="text/javascript" src="../../jquery/jquery-3.3.1.js"></script>
 <script type="text/javascript" src="../../jquery/jquery-migrate-3.0.1.js"></script>
@@ -116,7 +116,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <!-- ======== START OF CLASS DATA ======== -->
 <main role="main">
 <div class="header">
-<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">ml.clustering</a></div>
+<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">jstat.ml.clustering</a></div>
 <h2 title="Class KMeans" class="title">Class KMeans&lt;PointType,&#8203;DistanceType&gt;</h2>
 </div>
 <div class="contentContainer">
@@ -124,7 +124,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li>java.lang.Object</li>
 <li>
 <ul class="inheritance">
-<li>ml.clustering.KMeans&lt;PointType,&#8203;DistanceType&gt;</li>
+<li>jstat.ml.clustering.KMeans&lt;PointType,&#8203;DistanceType&gt;</li>
 </ul>
 </li>
 </ul>
@@ -156,7 +156,7 @@ extends java.lang.Object</pre>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>class&nbsp;</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="KMeans.Cluster.html" title="class in ml.clustering">KMeans.Cluster</a></span></code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="KMeans.Cluster.html" title="class in jstat.ml.clustering">KMeans.Cluster</a></span></code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 </table>
@@ -177,7 +177,7 @@ extends java.lang.Object</pre>
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr class="altColor">
-<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(ml.clustering.KMeansInput)">KMeans</a></span>&#8203;(<a href="KMeansInput.html" title="class in ml.clustering">KMeansInput</a>&nbsp;input)</code></th>
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(jstat.ml.clustering.KMeansInput)">KMeans</a></span>&#8203;(<a href="KMeansInput.html" title="class in jstat.ml.clustering">KMeansInput</a>&nbsp;input)</code></th>
 <td class="colLast">
 <div class="block">Constructor</div>
 </td>
@@ -201,7 +201,7 @@ extends java.lang.Object</pre>
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>&lt;DataSetType extends <a href="../../datastructs/I2DDataSet.html" title="interface in datastructs">I2DDataSet</a>&lt;<a href="../../datastructs/IVector.html" title="interface in datastructs">IVector</a>&lt;<a href="KMeans.html" title="type parameter in KMeans">PointType</a>&gt;&gt;,&#8203;SimilarityType extends <a href="../../maths/functions/distances/DistanceCalculator.html" title="interface in maths.functions.distances">DistanceCalculator</a>&lt;<a href="../../datastructs/IVector.html" title="interface in datastructs">IVector</a>&lt;<a href="KMeans.html" title="type parameter in KMeans">PointType</a>&gt;,&#8203;<a href="KMeans.html" title="type parameter in KMeans">DistanceType</a>&gt;,&#8203;RandomGeneratorType extends <a href="../../maths/functions/generators/IRandomGenerator.html" title="interface in maths.functions.generators">IRandomGenerator</a>&lt;<a href="KMeans.html" title="type parameter in KMeans">PointType</a>&gt;&gt;<br><a href="../../utils/IterativeAlgorithmResult.html" title="class in utils">IterativeAlgorithmResult</a></code></td>
+<td class="colFirst"><code>&lt;DataSetType extends <a href="../../jstat.datastructs/I2DDataSet.html" title="interface in jstat.datastructs">I2DDataSet</a>&lt;<a href="../../jstat.datastructs/IVector.html" title="interface in jstat.datastructs">IVector</a>&lt;<a href="KMeans.html" title="type parameter in KMeans">PointType</a>&gt;&gt;,&#8203;SimilarityType extends <a href="../../jstat.maths/functions/distances/DistanceCalculator.html" title="interface in jstat.maths.functions.distances">DistanceCalculator</a>&lt;<a href="../../jstat.datastructs/IVector.html" title="interface in jstat.datastructs">IVector</a>&lt;<a href="KMeans.html" title="type parameter in KMeans">PointType</a>&gt;,&#8203;<a href="KMeans.html" title="type parameter in KMeans">DistanceType</a>&gt;,&#8203;RandomGeneratorType extends <a href="../../jstat.maths/functions/generators/IRandomGenerator.html" title="interface in jstat.maths.functions.generators">IRandomGenerator</a>&lt;<a href="KMeans.html" title="type parameter in KMeans">PointType</a>&gt;&gt;<br><a href="../../jstat.utils/IterativeAlgorithmResult.html" title="class in jstat.utils">IterativeAlgorithmResult</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#cluster(DataSetType,SimilarityType,RandomGeneratorType)">cluster</a></span>&#8203;(DataSetType&nbsp;data,
        SimilarityType&nbsp;similarity,
        RandomGeneratorType&nbsp;centroidGenerator)</code></th>
@@ -231,13 +231,13 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a id="&lt;init&gt;(ml.clustering.KMeansInput)">
+<a id="&lt;init&gt;(jstat.ml.clustering.KMeansInput)">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>KMeans</h4>
-<pre>public&nbsp;KMeans&#8203;(<a href="KMeansInput.html" title="class in ml.clustering">KMeansInput</a>&nbsp;input)</pre>
+<pre>public&nbsp;KMeans&#8203;(<a href="KMeansInput.html" title="class in jstat.ml.clustering">KMeansInput</a>&nbsp;input)</pre>
 <div class="block">Constructor</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -255,7 +255,7 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a id="cluster(datastructs.I2DDataSet,maths.functions.distances.DistanceCalculator,maths.functions.generators.IRandomGenerator)">
+<a id="cluster(jstat.datastructs.I2DDataSet,jstat.maths.functions.distances.DistanceCalculator,jstat.maths.functions.generators.IRandomGenerator)">
 <!--   -->
 </a><a id="cluster(DataSetType,SimilarityType,RandomGeneratorType)">
 <!--   -->
@@ -263,7 +263,7 @@ extends java.lang.Object</pre>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>cluster</h4>
-<pre class="methodSignature">public&nbsp;&lt;DataSetType extends <a href="../../datastructs/I2DDataSet.html" title="interface in datastructs">I2DDataSet</a>&lt;<a href="../../datastructs/IVector.html" title="interface in datastructs">IVector</a>&lt;<a href="KMeans.html" title="type parameter in KMeans">PointType</a>&gt;&gt;,&#8203;SimilarityType extends <a href="../../maths/functions/distances/DistanceCalculator.html" title="interface in maths.functions.distances">DistanceCalculator</a>&lt;<a href="../../datastructs/IVector.html" title="interface in datastructs">IVector</a>&lt;<a href="KMeans.html" title="type parameter in KMeans">PointType</a>&gt;,&#8203;<a href="KMeans.html" title="type parameter in KMeans">DistanceType</a>&gt;,&#8203;RandomGeneratorType extends <a href="../../maths/functions/generators/IRandomGenerator.html" title="interface in maths.functions.generators">IRandomGenerator</a>&lt;<a href="KMeans.html" title="type parameter in KMeans">PointType</a>&gt;&gt;&nbsp;<a href="../../utils/IterativeAlgorithmResult.html" title="class in utils">IterativeAlgorithmResult</a>&nbsp;cluster&#8203;(DataSetType&nbsp;data,
+<pre class="methodSignature">public&nbsp;&lt;DataSetType extends <a href="../../jstat.datastructs/I2DDataSet.html" title="interface in jstat.datastructs">I2DDataSet</a>&lt;<a href="../../jstat.datastructs/IVector.html" title="interface in jstat.datastructs">IVector</a>&lt;<a href="KMeans.html" title="type parameter in KMeans">PointType</a>&gt;&gt;,&#8203;SimilarityType extends <a href="../../jstat.maths/functions/distances/DistanceCalculator.html" title="interface in jstat.maths.functions.distances">DistanceCalculator</a>&lt;<a href="../../jstat.datastructs/IVector.html" title="interface in jstat.datastructs">IVector</a>&lt;<a href="KMeans.html" title="type parameter in KMeans">PointType</a>&gt;,&#8203;<a href="KMeans.html" title="type parameter in KMeans">DistanceType</a>&gt;,&#8203;RandomGeneratorType extends <a href="../../jstat.maths/functions/generators/IRandomGenerator.html" title="interface in jstat.maths.functions.generators">IRandomGenerator</a>&lt;<a href="KMeans.html" title="type parameter in KMeans">PointType</a>&gt;&gt;&nbsp;<a href="../../jstat.utils/IterativeAlgorithmResult.html" title="class in jstat.utils">IterativeAlgorithmResult</a>&nbsp;cluster&#8203;(DataSetType&nbsp;data,
                                                                                                                                                                                                                                                   SimilarityType&nbsp;similarity,
                                                                                                                                                                                                                                                   RandomGeneratorType&nbsp;centroidGenerator)</pre>
 </li>

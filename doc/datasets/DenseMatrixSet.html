@@ -10,9 +10,9 @@
 <link rel="stylesheet" type="text/css" href="../jquery/jquery-ui.css" title="Style">
 <script type="text/javascript" src="../script.js"></script>
 <script type="text/javascript" src="../jquery/jszip/dist/jszip.min.js"></script>
-<script type="text/javascript" src="../jquery/jszip-utils/dist/jszip-utils.min.js"></script>
+<script type="text/javascript" src="../jquery/jszip-jstat.utils/dist/jszip-jstat.utils.min.js"></script>
 <!--[if IE]>
-<script type="text/javascript" src="../jquery/jszip-utils/dist/jszip-utils-ie.min.js"></script>
+<script type="text/javascript" src="../jquery/jszip-jstat.utils/dist/jszip-jstat.utils-ie.min.js"></script>
 <![endif]-->
 <script type="text/javascript" src="../jquery/jquery-3.3.1.js"></script>
 <script type="text/javascript" src="../jquery/jquery-migrate-3.0.1.js"></script>
@@ -116,7 +116,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <!-- ======== START OF CLASS DATA ======== -->
 <main role="main">
 <div class="header">
-<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">datasets</a></div>
+<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">jstat.datasets</a></div>
 <h2 title="Class DenseMatrixSet" class="title">Class DenseMatrixSet&lt;T&gt;</h2>
 </div>
 <div class="contentContainer">
@@ -124,7 +124,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li>java.lang.Object</li>
 <li>
 <ul class="inheritance">
-<li>datasets.DenseMatrixSet&lt;T&gt;</li>
+<li>jstat.datasets.DenseMatrixSet&lt;T&gt;</li>
 </ul>
 </li>
 </ul>
@@ -133,12 +133,12 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd><code><a href="../datastructs/I2DDataSet.html" title="interface in datastructs">I2DDataSet</a>&lt;<a href="../datastructs/IVector.html" title="interface in datastructs">IVector</a>&lt;T&gt;&gt;</code></dd>
+<dd><code><a href="../jstat.datastructs/I2DDataSet.html" title="interface in jstat.datastructs">I2DDataSet</a>&lt;<a href="../jstat.datastructs/IVector.html" title="interface in jstat.datastructs">IVector</a>&lt;T&gt;&gt;</code></dd>
 </dl>
 <hr>
 <pre>public class <span class="typeNameLabel">DenseMatrixSet&lt;T&gt;</span>
 extends java.lang.Object
-implements <a href="../datastructs/I2DDataSet.html" title="interface in datastructs">I2DDataSet</a>&lt;<a href="../datastructs/IVector.html" title="interface in datastructs">IVector</a>&lt;T&gt;&gt;</pre>
+implements <a href="../jstat.datastructs/I2DDataSet.html" title="interface in jstat.datastructs">I2DDataSet</a>&lt;<a href="../jstat.datastructs/IVector.html" title="interface in jstat.datastructs">IVector</a>&lt;T&gt;&gt;</pre>
 <div class="block">Represents a dense matrix set.</div>
 </li>
 </ul>
@@ -160,21 +160,21 @@ implements <a href="../datastructs/I2DDataSet.html" title="interface in datastru
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr class="altColor">
-<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(datasets.DenseMatrixSet)">DenseMatrixSet</a></span>&#8203;(<a href="DenseMatrixSet.html" title="class in datasets">DenseMatrixSet</a>&lt;<a href="DenseMatrixSet.html" title="type parameter in DenseMatrixSet">T</a>&gt;&nbsp;other)</code></th>
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(jstat.datasets.DenseMatrixSet)">DenseMatrixSet</a></span>&#8203;(<a href="DenseMatrixSet.html" title="class in jstat.datasets">DenseMatrixSet</a>&lt;<a href="DenseMatrixSet.html" title="type parameter in DenseMatrixSet">T</a>&gt;&nbsp;other)</code></th>
 <td class="colLast">
 <div class="block">Copy constructors</div>
 </td>
 </tr>
 <tr class="rowColor">
-<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(datastructs.RowType.Type,datastructs.RowBuilder)">DenseMatrixSet</a></span>&#8203;(<a href="../datastructs/RowType.Type.html" title="enum in datastructs">RowType.Type</a>&nbsp;rowType,
-              <a href="../datastructs/RowBuilder.html" title="class in datastructs">RowBuilder</a>&nbsp;rowBuilder)</code></th>
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(jstat.datastructs.RowType.Type,jstat.datastructs.RowBuilder)">DenseMatrixSet</a></span>&#8203;(<a href="../jstat.datastructs/RowType.Type.html" title="enum in jstat.datastructs">RowType.Type</a>&nbsp;rowType,
+              <a href="../jstat.datastructs/RowBuilder.html" title="class in jstat.datastructs">RowBuilder</a>&nbsp;rowBuilder)</code></th>
 <td class="colLast">
 <div class="block">Constructor</div>
 </td>
 </tr>
 <tr class="altColor">
-<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(datastructs.RowType.Type,datastructs.RowBuilder,int,int,T)">DenseMatrixSet</a></span>&#8203;(<a href="../datastructs/RowType.Type.html" title="enum in datastructs">RowType.Type</a>&nbsp;rowType,
-              <a href="../datastructs/RowBuilder.html" title="class in datastructs">RowBuilder</a>&nbsp;builder,
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(jstat.datastructs.RowType.Type,jstat.datastructs.RowBuilder,int,int,T)">DenseMatrixSet</a></span>&#8203;(<a href="../jstat.datastructs/RowType.Type.html" title="enum in jstat.datastructs">RowType.Type</a>&nbsp;rowType,
+              <a href="../jstat.datastructs/RowBuilder.html" title="class in jstat.datastructs">RowBuilder</a>&nbsp;builder,
               int&nbsp;m,
               int&nbsp;n,
               <a href="DenseMatrixSet.html" title="type parameter in DenseMatrixSet">T</a>&nbsp;val)</code></th>
@@ -183,8 +183,8 @@ implements <a href="../datastructs/I2DDataSet.html" title="interface in datastru
 </td>
 </tr>
 <tr class="rowColor">
-<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(datastructs.RowType.Type,datastructs.RowBuilder,tech.tablesaw.api.Table)">DenseMatrixSet</a></span>&#8203;(<a href="../datastructs/RowType.Type.html" title="enum in datastructs">RowType.Type</a>&nbsp;rowType,
-              <a href="../datastructs/RowBuilder.html" title="class in datastructs">RowBuilder</a>&nbsp;builder,
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(jstat.datastructs.RowType.Type,jstat.datastructs.RowBuilder,tech.tablesaw.api.Table)">DenseMatrixSet</a></span>&#8203;(<a href="../jstat.datastructs/RowType.Type.html" title="enum in jstat.datastructs">RowType.Type</a>&nbsp;rowType,
+              <a href="../jstat.datastructs/RowBuilder.html" title="class in jstat.datastructs">RowBuilder</a>&nbsp;builder,
               tech.tablesaw.api.Table&nbsp;data)</code></th>
 <td class="colLast">
 <div class="block">Constructor</div>
@@ -209,14 +209,14 @@ implements <a href="../datastructs/I2DDataSet.html" title="interface in datastru
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code><a href="../datastructs/I2DDataSet.html" title="interface in datastructs">I2DDataSet</a>&lt;<a href="../datastructs/IVector.html" title="interface in datastructs">IVector</a>&lt;<a href="DenseMatrixSet.html" title="type parameter in DenseMatrixSet">T</a>&gt;&gt;</code></td>
+<td class="colFirst"><code><a href="../jstat.datastructs/I2DDataSet.html" title="interface in jstat.datastructs">I2DDataSet</a>&lt;<a href="../jstat.datastructs/IVector.html" title="interface in jstat.datastructs">IVector</a>&lt;<a href="DenseMatrixSet.html" title="type parameter in DenseMatrixSet">T</a>&gt;&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#copy()">copy</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Copy this matrix</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code><a href="../datastructs/I2DDataSet.html" title="interface in datastructs">I2DDataSet</a>&lt;<a href="../datastructs/IVector.html" title="interface in datastructs">IVector</a>&lt;<a href="DenseMatrixSet.html" title="type parameter in DenseMatrixSet">T</a>&gt;&gt;</code></td>
+<td class="colFirst"><code><a href="../jstat.datastructs/I2DDataSet.html" title="interface in jstat.datastructs">I2DDataSet</a>&lt;<a href="../jstat.datastructs/IVector.html" title="interface in jstat.datastructs">IVector</a>&lt;<a href="DenseMatrixSet.html" title="type parameter in DenseMatrixSet">T</a>&gt;&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#create(int,int)">create</a></span>&#8203;(int&nbsp;m,
       int&nbsp;n)</code></th>
 <td class="colLast">
@@ -240,7 +240,7 @@ implements <a href="../datastructs/I2DDataSet.html" title="interface in datastru
 </td>
 </tr>
 <tr id="i4" class="altColor">
-<td class="colFirst"><code><a href="../datastructs/IVector.html" title="interface in datastructs">IVector</a>&lt;<a href="DenseMatrixSet.html" title="type parameter in DenseMatrixSet">T</a>&gt;</code></td>
+<td class="colFirst"><code><a href="../jstat.datastructs/IVector.html" title="interface in jstat.datastructs">IVector</a>&lt;<a href="DenseMatrixSet.html" title="type parameter in DenseMatrixSet">T</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getColumn(int)">getColumn</a></span>&#8203;(int&nbsp;column)</code></th>
 <td class="colLast">
 <div class="block">Returns a copy of the values of the column-th column</div>
@@ -253,14 +253,14 @@ implements <a href="../datastructs/I2DDataSet.html" title="interface in datastru
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i6" class="altColor">
-<td class="colFirst"><code><a href="../parallel/partitioners/IPartitionPolicy.html" title="interface in parallel.partitioners">IPartitionPolicy</a></code></td>
+<td class="colFirst"><code><a href="../jstat.parallel/partitioners/IPartitionPolicy.html" title="interface in jstat.parallel.partitioners">IPartitionPolicy</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getPartitionPolicy()">getPartitionPolicy</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns the partition policy</div>
 </td>
 </tr>
 <tr id="i7" class="rowColor">
-<td class="colFirst"><code><a href="../datastructs/IVector.html" title="interface in datastructs">IVector</a>&lt;<a href="DenseMatrixSet.html" title="type parameter in DenseMatrixSet">T</a>&gt;</code></td>
+<td class="colFirst"><code><a href="../jstat.datastructs/IVector.html" title="interface in jstat.datastructs">IVector</a>&lt;<a href="DenseMatrixSet.html" title="type parameter in DenseMatrixSet">T</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getRow(int)">getRow</a></span>&#8203;(int&nbsp;r)</code></th>
 <td class="colLast">
 <div class="block">Returns the i-th row of the data set</div>
@@ -278,7 +278,7 @@ implements <a href="../datastructs/I2DDataSet.html" title="interface in datastru
 </tr>
 <tr id="i9" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#initializeFrom(datasets.DenseMatrixSet)">initializeFrom</a></span>&#8203;(<a href="DenseMatrixSet.html" title="class in datasets">DenseMatrixSet</a>&lt;<a href="DenseMatrixSet.html" title="type parameter in DenseMatrixSet">T</a>&gt;&nbsp;other)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#initializeFrom(jstat.datasets.DenseMatrixSet)">initializeFrom</a></span>&#8203;(<a href="DenseMatrixSet.html" title="class in jstat.datasets">DenseMatrixSet</a>&lt;<a href="DenseMatrixSet.html" title="type parameter in DenseMatrixSet">T</a>&gt;&nbsp;other)</code></th>
 <td class="colLast">
 <div class="block">Initialize the matrix from the given DenseMatrix</div>
 </td>
@@ -315,8 +315,8 @@ implements <a href="../datastructs/I2DDataSet.html" title="interface in datastru
 </tr>
 <tr id="i14" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#set(int,datastructs.IVector)">set</a></span>&#8203;(int&nbsp;i,
-   <a href="../datastructs/IVector.html" title="interface in datastructs">IVector</a>&lt;<a href="DenseMatrixSet.html" title="type parameter in DenseMatrixSet">T</a>&gt;&nbsp;value)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#set(int,jstat.datastructs.IVector)">set</a></span>&#8203;(int&nbsp;i,
+   <a href="../jstat.datastructs/IVector.html" title="interface in jstat.datastructs">IVector</a>&lt;<a href="DenseMatrixSet.html" title="type parameter in DenseMatrixSet">T</a>&gt;&nbsp;value)</code></th>
 <td class="colLast">
 <div class="block">Set the i-th row</div>
 </td>
@@ -347,7 +347,7 @@ implements <a href="../datastructs/I2DDataSet.html" title="interface in datastru
 </tr>
 <tr id="i18" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setPartitionPolicy(parallel.partitioners.IPartitionPolicy)">setPartitionPolicy</a></span>&#8203;(<a href="../parallel/partitioners/IPartitionPolicy.html" title="interface in parallel.partitioners">IPartitionPolicy</a>&nbsp;policy)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setPartitionPolicy(jstat.parallel.partitioners.IPartitionPolicy)">setPartitionPolicy</a></span>&#8203;(<a href="../jstat.parallel/partitioners/IPartitionPolicy.html" title="interface in jstat.parallel.partitioners">IPartitionPolicy</a>&nbsp;policy)</code></th>
 <td class="colLast">
 <div class="block">Set the partition policy for this matrix</div>
 </td>
@@ -376,14 +376,14 @@ implements <a href="../datastructs/I2DDataSet.html" title="interface in datastru
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a id="&lt;init&gt;(datastructs.RowType.Type,datastructs.RowBuilder)">
+<a id="&lt;init&gt;(jstat.datastructs.RowType.Type,jstat.datastructs.RowBuilder)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>DenseMatrixSet</h4>
-<pre>public&nbsp;DenseMatrixSet&#8203;(<a href="../datastructs/RowType.Type.html" title="enum in datastructs">RowType.Type</a>&nbsp;rowType,
-                      <a href="../datastructs/RowBuilder.html" title="class in datastructs">RowBuilder</a>&nbsp;rowBuilder)</pre>
+<pre>public&nbsp;DenseMatrixSet&#8203;(<a href="../jstat.datastructs/RowType.Type.html" title="enum in jstat.datastructs">RowType.Type</a>&nbsp;rowType,
+                      <a href="../jstat.datastructs/RowBuilder.html" title="class in jstat.datastructs">RowBuilder</a>&nbsp;rowBuilder)</pre>
 <div class="block">Constructor</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -392,16 +392,16 @@ implements <a href="../datastructs/I2DDataSet.html" title="interface in datastru
 </dl>
 </li>
 </ul>
-<a id="&lt;init&gt;(datastructs.RowType.Type,datastructs.RowBuilder,int,int,java.lang.Object)">
+<a id="&lt;init&gt;(jstat.datastructs.RowType.Type,jstat.datastructs.RowBuilder,int,int,java.lang.Object)">
 <!--   -->
-</a><a id="&lt;init&gt;(datastructs.RowType.Type,datastructs.RowBuilder,int,int,T)">
+</a><a id="&lt;init&gt;(jstat.datastructs.RowType.Type,jstat.datastructs.RowBuilder,int,int,T)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>DenseMatrixSet</h4>
-<pre>public&nbsp;DenseMatrixSet&#8203;(<a href="../datastructs/RowType.Type.html" title="enum in datastructs">RowType.Type</a>&nbsp;rowType,
-                      <a href="../datastructs/RowBuilder.html" title="class in datastructs">RowBuilder</a>&nbsp;builder,
+<pre>public&nbsp;DenseMatrixSet&#8203;(<a href="../jstat.datastructs/RowType.Type.html" title="enum in jstat.datastructs">RowType.Type</a>&nbsp;rowType,
+                      <a href="../jstat.datastructs/RowBuilder.html" title="class in jstat.datastructs">RowBuilder</a>&nbsp;builder,
                       int&nbsp;m,
                       int&nbsp;n,
                       <a href="DenseMatrixSet.html" title="type parameter in DenseMatrixSet">T</a>&nbsp;val)</pre>
@@ -416,14 +416,14 @@ implements <a href="../datastructs/I2DDataSet.html" title="interface in datastru
 </dl>
 </li>
 </ul>
-<a id="&lt;init&gt;(datastructs.RowType.Type,datastructs.RowBuilder,tech.tablesaw.api.Table)">
+<a id="&lt;init&gt;(jstat.datastructs.RowType.Type,jstat.datastructs.RowBuilder,tech.tablesaw.api.Table)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>DenseMatrixSet</h4>
-<pre>public&nbsp;DenseMatrixSet&#8203;(<a href="../datastructs/RowType.Type.html" title="enum in datastructs">RowType.Type</a>&nbsp;rowType,
-                      <a href="../datastructs/RowBuilder.html" title="class in datastructs">RowBuilder</a>&nbsp;builder,
+<pre>public&nbsp;DenseMatrixSet&#8203;(<a href="../jstat.datastructs/RowType.Type.html" title="enum in jstat.datastructs">RowType.Type</a>&nbsp;rowType,
+                      <a href="../jstat.datastructs/RowBuilder.html" title="class in jstat.datastructs">RowBuilder</a>&nbsp;builder,
                       tech.tablesaw.api.Table&nbsp;data)</pre>
 <div class="block">Constructor</div>
 <dl>
@@ -434,13 +434,13 @@ implements <a href="../datastructs/I2DDataSet.html" title="interface in datastru
 </dl>
 </li>
 </ul>
-<a id="&lt;init&gt;(datasets.DenseMatrixSet)">
+<a id="&lt;init&gt;(jstat.datasets.DenseMatrixSet)">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>DenseMatrixSet</h4>
-<pre>public&nbsp;DenseMatrixSet&#8203;(<a href="DenseMatrixSet.html" title="class in datasets">DenseMatrixSet</a>&lt;<a href="DenseMatrixSet.html" title="type parameter in DenseMatrixSet">T</a>&gt;&nbsp;other)</pre>
+<pre>public&nbsp;DenseMatrixSet&#8203;(<a href="DenseMatrixSet.html" title="class in jstat.datasets">DenseMatrixSet</a>&lt;<a href="DenseMatrixSet.html" title="type parameter in DenseMatrixSet">T</a>&gt;&nbsp;other)</pre>
 <div class="block">Copy constructors</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -464,11 +464,11 @@ implements <a href="../datastructs/I2DDataSet.html" title="interface in datastru
 <ul class="blockList">
 <li class="blockList">
 <h4>copy</h4>
-<pre class="methodSignature">public&nbsp;<a href="../datastructs/I2DDataSet.html" title="interface in datastructs">I2DDataSet</a>&lt;<a href="../datastructs/IVector.html" title="interface in datastructs">IVector</a>&lt;<a href="DenseMatrixSet.html" title="type parameter in DenseMatrixSet">T</a>&gt;&gt;&nbsp;copy()</pre>
+<pre class="methodSignature">public&nbsp;<a href="../jstat.datastructs/I2DDataSet.html" title="interface in jstat.datastructs">I2DDataSet</a>&lt;<a href="../jstat.datastructs/IVector.html" title="interface in jstat.datastructs">IVector</a>&lt;<a href="DenseMatrixSet.html" title="type parameter in DenseMatrixSet">T</a>&gt;&gt;&nbsp;copy()</pre>
 <div class="block">Copy this matrix</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../datastructs/I2DDataSet.html#copy()">copy</a></code>&nbsp;in interface&nbsp;<code><a href="../datastructs/I2DDataSet.html" title="interface in datastructs">I2DDataSet</a>&lt;<a href="DenseMatrixSet.html" title="type parameter in DenseMatrixSet">T</a>&gt;</code></dd>
+<dd><code><a href="../jstat.datastructs/I2DDataSet.html#copy()">copy</a></code>&nbsp;in interface&nbsp;<code><a href="../jstat.datastructs/I2DDataSet.html" title="interface in jstat.datastructs">I2DDataSet</a>&lt;<a href="DenseMatrixSet.html" title="type parameter in DenseMatrixSet">T</a>&gt;</code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>A data set</dd>
 </dl>
@@ -480,12 +480,12 @@ implements <a href="../datastructs/I2DDataSet.html" title="interface in datastru
 <ul class="blockList">
 <li class="blockList">
 <h4>create</h4>
-<pre class="methodSignature">public&nbsp;<a href="../datastructs/I2DDataSet.html" title="interface in datastructs">I2DDataSet</a>&lt;<a href="../datastructs/IVector.html" title="interface in datastructs">IVector</a>&lt;<a href="DenseMatrixSet.html" title="type parameter in DenseMatrixSet">T</a>&gt;&gt;&nbsp;create&#8203;(int&nbsp;m,
+<pre class="methodSignature">public&nbsp;<a href="../jstat.datastructs/I2DDataSet.html" title="interface in jstat.datastructs">I2DDataSet</a>&lt;<a href="../jstat.datastructs/IVector.html" title="interface in jstat.datastructs">IVector</a>&lt;<a href="DenseMatrixSet.html" title="type parameter in DenseMatrixSet">T</a>&gt;&gt;&nbsp;create&#8203;(int&nbsp;m,
                                      int&nbsp;n)</pre>
 <div class="block">Create a new matrix</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../datastructs/I2DDataSet.html#create(int,int)">create</a></code>&nbsp;in interface&nbsp;<code><a href="../datastructs/I2DDataSet.html" title="interface in datastructs">I2DDataSet</a>&lt;<a href="DenseMatrixSet.html" title="type parameter in DenseMatrixSet">T</a>&gt;</code></dd>
+<dd><code><a href="../jstat.datastructs/I2DDataSet.html#create(int,int)">create</a></code>&nbsp;in interface&nbsp;<code><a href="../jstat.datastructs/I2DDataSet.html" title="interface in jstat.datastructs">I2DDataSet</a>&lt;<a href="DenseMatrixSet.html" title="type parameter in DenseMatrixSet">T</a>&gt;</code></dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>m</code> - The rows</dd>
 <dd><code>n</code> - The columns</dd>
@@ -504,7 +504,7 @@ implements <a href="../datastructs/I2DDataSet.html" title="interface in datastru
 <div class="block">How many rows the dataset has</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../datastructs/I2DDataSet.html#m()">m</a></code>&nbsp;in interface&nbsp;<code><a href="../datastructs/I2DDataSet.html" title="interface in datastructs">I2DDataSet</a>&lt;<a href="DenseMatrixSet.html" title="type parameter in DenseMatrixSet">T</a>&gt;</code></dd>
+<dd><code><a href="../jstat.datastructs/I2DDataSet.html#m()">m</a></code>&nbsp;in interface&nbsp;<code><a href="../jstat.datastructs/I2DDataSet.html" title="interface in jstat.datastructs">I2DDataSet</a>&lt;<a href="DenseMatrixSet.html" title="type parameter in DenseMatrixSet">T</a>&gt;</code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>The rows</dd>
 </dl>
@@ -520,7 +520,7 @@ implements <a href="../datastructs/I2DDataSet.html" title="interface in datastru
 <div class="block">How many columns the dataset has</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../datastructs/I2DDataSet.html#n()">n</a></code>&nbsp;in interface&nbsp;<code><a href="../datastructs/I2DDataSet.html" title="interface in datastructs">I2DDataSet</a>&lt;<a href="DenseMatrixSet.html" title="type parameter in DenseMatrixSet">T</a>&gt;</code></dd>
+<dd><code><a href="../jstat.datastructs/I2DDataSet.html#n()">n</a></code>&nbsp;in interface&nbsp;<code><a href="../jstat.datastructs/I2DDataSet.html" title="interface in jstat.datastructs">I2DDataSet</a>&lt;<a href="DenseMatrixSet.html" title="type parameter in DenseMatrixSet">T</a>&gt;</code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>The columns</dd>
 </dl>
@@ -540,13 +540,13 @@ implements <a href="../datastructs/I2DDataSet.html" title="interface in datastru
 </dl>
 </li>
 </ul>
-<a id="initializeFrom(datasets.DenseMatrixSet)">
+<a id="initializeFrom(jstat.datasets.DenseMatrixSet)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>initializeFrom</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;initializeFrom&#8203;(<a href="DenseMatrixSet.html" title="class in datasets">DenseMatrixSet</a>&lt;<a href="DenseMatrixSet.html" title="type parameter in DenseMatrixSet">T</a>&gt;&nbsp;other)</pre>
+<pre class="methodSignature">public&nbsp;void&nbsp;initializeFrom&#8203;(<a href="DenseMatrixSet.html" title="class in jstat.datasets">DenseMatrixSet</a>&lt;<a href="DenseMatrixSet.html" title="type parameter in DenseMatrixSet">T</a>&gt;&nbsp;other)</pre>
 <div class="block">Initialize the matrix from the given DenseMatrix</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -569,7 +569,7 @@ implements <a href="../datastructs/I2DDataSet.html" title="interface in datastru
  create a submatrix that has all the rows and columns specified</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../datastructs/I2DDataSet.html#getSubMatrix(E%5B%5D%5B%5D,int,int...)">getSubMatrix</a></code>&nbsp;in interface&nbsp;<code><a href="../datastructs/I2DDataSet.html" title="interface in datastructs">I2DDataSet</a>&lt;<a href="DenseMatrixSet.html" title="type parameter in DenseMatrixSet">T</a>&gt;</code></dd>
+<dd><code><a href="../jstat.datastructs/I2DDataSet.html#getSubMatrix(E%5B%5D%5B%5D,int,int...)">getSubMatrix</a></code>&nbsp;in interface&nbsp;<code><a href="../jstat.datastructs/I2DDataSet.html" title="interface in jstat.datastructs">I2DDataSet</a>&lt;<a href="DenseMatrixSet.html" title="type parameter in DenseMatrixSet">T</a>&gt;</code></dd>
 <dt><span class="paramLabel">Type Parameters:</span></dt>
 <dd><code>E</code> - A 2D array type</dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -614,18 +614,18 @@ implements <a href="../datastructs/I2DDataSet.html" title="interface in datastru
 </dl>
 </li>
 </ul>
-<a id="set(int,datastructs.IVector)">
+<a id="set(int,jstat.datastructs.IVector)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>set</h4>
 <pre class="methodSignature">public final&nbsp;void&nbsp;set&#8203;(int&nbsp;i,
-                      <a href="../datastructs/IVector.html" title="interface in datastructs">IVector</a>&lt;<a href="DenseMatrixSet.html" title="type parameter in DenseMatrixSet">T</a>&gt;&nbsp;value)</pre>
+                      <a href="../jstat.datastructs/IVector.html" title="interface in jstat.datastructs">IVector</a>&lt;<a href="DenseMatrixSet.html" title="type parameter in DenseMatrixSet">T</a>&gt;&nbsp;value)</pre>
 <div class="block">Set the i-th row</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../datastructs/I2DDataSet.html#set(int,RowType)">set</a></code>&nbsp;in interface&nbsp;<code><a href="../datastructs/I2DDataSet.html" title="interface in datastructs">I2DDataSet</a>&lt;<a href="DenseMatrixSet.html" title="type parameter in DenseMatrixSet">T</a>&gt;</code></dd>
+<dd><code><a href="../jstat.datastructs/I2DDataSet.html#set(int,RowType)">set</a></code>&nbsp;in interface&nbsp;<code><a href="../jstat.datastructs/I2DDataSet.html" title="interface in jstat.datastructs">I2DDataSet</a>&lt;<a href="DenseMatrixSet.html" title="type parameter in DenseMatrixSet">T</a>&gt;</code></dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>i</code> - The number of the row</dd>
 <dd><code>value</code> - The value of the vector</dd>
@@ -686,7 +686,7 @@ implements <a href="../datastructs/I2DDataSet.html" title="interface in datastru
 <ul class="blockList">
 <li class="blockList">
 <h4>getColumn</h4>
-<pre class="methodSignature">public final&nbsp;<a href="../datastructs/IVector.html" title="interface in datastructs">IVector</a>&lt;<a href="DenseMatrixSet.html" title="type parameter in DenseMatrixSet">T</a>&gt;&nbsp;getColumn&#8203;(int&nbsp;column)</pre>
+<pre class="methodSignature">public final&nbsp;<a href="../jstat.datastructs/IVector.html" title="interface in jstat.datastructs">IVector</a>&lt;<a href="DenseMatrixSet.html" title="type parameter in DenseMatrixSet">T</a>&gt;&nbsp;getColumn&#8203;(int&nbsp;column)</pre>
 <div class="block">Returns a copy of the values of the column-th column</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -700,12 +700,12 @@ implements <a href="../datastructs/I2DDataSet.html" title="interface in datastru
 <ul class="blockList">
 <li class="blockList">
 <h4>getRow</h4>
-<pre class="methodSignature">public final&nbsp;<a href="../datastructs/IVector.html" title="interface in datastructs">IVector</a>&lt;<a href="DenseMatrixSet.html" title="type parameter in DenseMatrixSet">T</a>&gt;&nbsp;getRow&#8203;(int&nbsp;r)</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../datastructs/I2DDataSet.html#getRow(int)">I2DDataSet</a></code></span></div>
+<pre class="methodSignature">public final&nbsp;<a href="../jstat.datastructs/IVector.html" title="interface in jstat.datastructs">IVector</a>&lt;<a href="DenseMatrixSet.html" title="type parameter in DenseMatrixSet">T</a>&gt;&nbsp;getRow&#8203;(int&nbsp;r)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../jstat.datastructs/I2DDataSet.html#getRow(int)">I2DDataSet</a></code></span></div>
 <div class="block">Returns the i-th row of the data set</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../datastructs/I2DDataSet.html#getRow(int)">getRow</a></code>&nbsp;in interface&nbsp;<code><a href="../datastructs/I2DDataSet.html" title="interface in datastructs">I2DDataSet</a>&lt;<a href="DenseMatrixSet.html" title="type parameter in DenseMatrixSet">T</a>&gt;</code></dd>
+<dd><code><a href="../jstat.datastructs/I2DDataSet.html#getRow(int)">getRow</a></code>&nbsp;in interface&nbsp;<code><a href="../jstat.datastructs/I2DDataSet.html" title="interface in jstat.datastructs">I2DDataSet</a>&lt;<a href="DenseMatrixSet.html" title="type parameter in DenseMatrixSet">T</a>&gt;</code></dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>r</code> - The number of the row</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -734,20 +734,20 @@ implements <a href="../datastructs/I2DDataSet.html" title="interface in datastru
 <div class="block">Exchange the i-th row with the j-th row</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../datastructs/I2DDataSet.html#exchangeRows(int,int)">exchangeRows</a></code>&nbsp;in interface&nbsp;<code><a href="../datastructs/I2DDataSet.html" title="interface in datastructs">I2DDataSet</a>&lt;<a href="DenseMatrixSet.html" title="type parameter in DenseMatrixSet">T</a>&gt;</code></dd>
+<dd><code><a href="../jstat.datastructs/I2DDataSet.html#exchangeRows(int,int)">exchangeRows</a></code>&nbsp;in interface&nbsp;<code><a href="../jstat.datastructs/I2DDataSet.html" title="interface in jstat.datastructs">I2DDataSet</a>&lt;<a href="DenseMatrixSet.html" title="type parameter in DenseMatrixSet">T</a>&gt;</code></dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>i</code> - The number of the row</dd>
 <dd><code>k</code> - The number of the row</dd>
 </dl>
 </li>
 </ul>
-<a id="setPartitionPolicy(parallel.partitioners.IPartitionPolicy)">
+<a id="setPartitionPolicy(jstat.parallel.partitioners.IPartitionPolicy)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>setPartitionPolicy</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;setPartitionPolicy&#8203;(<a href="../parallel/partitioners/IPartitionPolicy.html" title="interface in parallel.partitioners">IPartitionPolicy</a>&nbsp;policy)</pre>
+<pre class="methodSignature">public&nbsp;void&nbsp;setPartitionPolicy&#8203;(<a href="../jstat.parallel/partitioners/IPartitionPolicy.html" title="interface in jstat.parallel.partitioners">IPartitionPolicy</a>&nbsp;policy)</pre>
 <div class="block">Set the partition policy for this matrix</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -761,11 +761,11 @@ implements <a href="../datastructs/I2DDataSet.html" title="interface in datastru
 <ul class="blockListLast">
 <li class="blockList">
 <h4>getPartitionPolicy</h4>
-<pre class="methodSignature">public&nbsp;<a href="../parallel/partitioners/IPartitionPolicy.html" title="interface in parallel.partitioners">IPartitionPolicy</a>&nbsp;getPartitionPolicy()</pre>
+<pre class="methodSignature">public&nbsp;<a href="../jstat.parallel/partitioners/IPartitionPolicy.html" title="interface in jstat.parallel.partitioners">IPartitionPolicy</a>&nbsp;getPartitionPolicy()</pre>
 <div class="block">Returns the partition policy</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../datastructs/I2DDataSet.html#getPartitionPolicy()">getPartitionPolicy</a></code>&nbsp;in interface&nbsp;<code><a href="../datastructs/I2DDataSet.html" title="interface in datastructs">I2DDataSet</a>&lt;<a href="DenseMatrixSet.html" title="type parameter in DenseMatrixSet">T</a>&gt;</code></dd>
+<dd><code><a href="../jstat.datastructs/I2DDataSet.html#getPartitionPolicy()">getPartitionPolicy</a></code>&nbsp;in interface&nbsp;<code><a href="../jstat.datastructs/I2DDataSet.html" title="interface in jstat.datastructs">I2DDataSet</a>&lt;<a href="DenseMatrixSet.html" title="type parameter in DenseMatrixSet">T</a>&gt;</code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>The partition</dd>
 </dl>

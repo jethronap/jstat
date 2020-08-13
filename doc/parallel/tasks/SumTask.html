@@ -10,9 +10,9 @@
 <link rel="stylesheet" type="text/css" href="../../jquery/jquery-ui.css" title="Style">
 <script type="text/javascript" src="../../script.js"></script>
 <script type="text/javascript" src="../../jquery/jszip/dist/jszip.min.js"></script>
-<script type="text/javascript" src="../../jquery/jszip-utils/dist/jszip-utils.min.js"></script>
+<script type="text/javascript" src="../../jquery/jszip-jstat.utils/dist/jszip-jstat.utils.min.js"></script>
 <!--[if IE]>
-<script type="text/javascript" src="../../jquery/jszip-utils/dist/jszip-utils-ie.min.js"></script>
+<script type="text/javascript" src="../../jquery/jszip-jstat.utils/dist/jszip-jstat.utils-ie.min.js"></script>
 <![endif]-->
 <script type="text/javascript" src="../../jquery/jquery-3.3.1.js"></script>
 <script type="text/javascript" src="../../jquery/jquery-migrate-3.0.1.js"></script>
@@ -116,7 +116,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <!-- ======== START OF CLASS DATA ======== -->
 <main role="main">
 <div class="header">
-<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">parallel.tasks</a></div>
+<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">jstat.parallel.tasks</a></div>
 <h2 title="Class SumTask" class="title">Class SumTask&lt;ContainerType extends java.util.List&gt;</h2>
 </div>
 <div class="contentContainer">
@@ -124,10 +124,10 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li>java.lang.Object</li>
 <li>
 <ul class="inheritance">
-<li><a href="TaskBase.html" title="class in parallel.tasks">parallel.tasks.TaskBase</a>&lt;java.lang.Double&gt;</li>
+<li><a href="TaskBase.html" title="class in jstat.parallel.tasks">jstat.parallel.tasks.TaskBase</a>&lt;java.lang.Double&gt;</li>
 <li>
 <ul class="inheritance">
-<li>parallel.tasks.SumTask&lt;ContainerType&gt;</li>
+<li>jstat.parallel.tasks.SumTask&lt;ContainerType&gt;</li>
 </ul>
 </li>
 </ul>
@@ -142,7 +142,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </dl>
 <hr>
 <pre>public class <span class="typeNameLabel">SumTask&lt;ContainerType extends java.util.List&gt;</span>
-extends <a href="TaskBase.html" title="class in parallel.tasks">TaskBase</a>&lt;java.lang.Double&gt;</pre>
+extends <a href="TaskBase.html" title="class in jstat.parallel.tasks">TaskBase</a>&lt;java.lang.Double&gt;</pre>
 </li>
 </ul>
 </div>
@@ -157,10 +157,10 @@ extends <a href="TaskBase.html" title="class in parallel.tasks">TaskBase</a>&lt;
 </a>
 <h3>Field Summary</h3>
 <ul class="blockList">
-<li class="blockList"><a id="fields.inherited.from.class.parallel.tasks.TaskBase">
+<li class="blockList"><a id="fields.inherited.from.class.jstat.parallel.tasks.TaskBase">
 <!--   -->
 </a>
-<h3>Fields inherited from class&nbsp;parallel.tasks.<a href="TaskBase.html" title="class in parallel.tasks">TaskBase</a></h3>
+<h3>Fields inherited from class&nbsp;jstat.parallel.tasks.<a href="TaskBase.html" title="class in jstat.parallel.tasks">TaskBase</a></h3>
 <code><a href="TaskBase.html#barrier">barrier</a>, <a href="TaskBase.html#finished">finished</a>, <a href="TaskBase.html#taskId">taskId</a></code></li>
 </ul>
 </li>
@@ -225,10 +225,10 @@ extends <a href="TaskBase.html" title="class in parallel.tasks">TaskBase</a>&lt;
 </tr>
 </table>
 <ul class="blockList">
-<li class="blockList"><a id="methods.inherited.from.class.parallel.tasks.TaskBase">
+<li class="blockList"><a id="methods.inherited.from.class.jstat.parallel.tasks.TaskBase">
 <!--   -->
 </a>
-<h3>Methods inherited from class&nbsp;parallel.tasks.<a href="TaskBase.html" title="class in parallel.tasks">TaskBase</a></h3>
+<h3>Methods inherited from class&nbsp;jstat.parallel.tasks.<a href="TaskBase.html" title="class in jstat.parallel.tasks">TaskBase</a></h3>
 <code><a href="TaskBase.html#getTaskId()">getTaskId</a>, <a href="TaskBase.html#isFinished()">isFinished</a>, <a href="TaskBase.html#setFinished(boolean)">setFinished</a>, <a href="TaskBase.html#setResult(T)">setResult</a>, <a href="TaskBase.html#setTaskId(int)">setTaskId</a>, <a href="TaskBase.html#waitOnBarrier()">waitOnBarrier</a></code></li>
 </ul>
 <ul class="blockList">
@@ -294,7 +294,7 @@ extends <a href="TaskBase.html" title="class in parallel.tasks">TaskBase</a>&lt;
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code>call</code>&nbsp;in interface&nbsp;<code>java.util.concurrent.Callable&lt;<a href="SumTask.html" title="type parameter in SumTask">ContainerType</a> extends java.util.List&gt;</code></dd>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code><a href="TaskBase.html#call()">call</a></code>&nbsp;in class&nbsp;<code><a href="TaskBase.html" title="class in parallel.tasks">TaskBase</a>&lt;java.lang.Double&gt;</code></dd>
+<dd><code><a href="TaskBase.html#call()">call</a></code>&nbsp;in class&nbsp;<code><a href="TaskBase.html" title="class in jstat.parallel.tasks">TaskBase</a>&lt;java.lang.Double&gt;</code></dd>
 </dl>
 </li>
 </ul>
@@ -318,7 +318,7 @@ extends <a href="TaskBase.html" title="class in parallel.tasks">TaskBase</a>&lt;
 <div class="block">Return the result computed by the task</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code><a href="TaskBase.html#getResult()">getResult</a></code>&nbsp;in class&nbsp;<code><a href="TaskBase.html" title="class in parallel.tasks">TaskBase</a>&lt;java.lang.Double&gt;</code></dd>
+<dd><code><a href="TaskBase.html#getResult()">getResult</a></code>&nbsp;in class&nbsp;<code><a href="TaskBase.html" title="class in jstat.parallel.tasks">TaskBase</a>&lt;java.lang.Double&gt;</code></dd>
 </dl>
 </li>
 </ul>

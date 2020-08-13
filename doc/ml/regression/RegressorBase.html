@@ -10,9 +10,9 @@
 <link rel="stylesheet" type="text/css" href="../../jquery/jquery-ui.css" title="Style">
 <script type="text/javascript" src="../../script.js"></script>
 <script type="text/javascript" src="../../jquery/jszip/dist/jszip.min.js"></script>
-<script type="text/javascript" src="../../jquery/jszip-utils/dist/jszip-utils.min.js"></script>
+<script type="text/javascript" src="../../jquery/jszip-jstat.utils/dist/jszip-jstat.utils.min.js"></script>
 <!--[if IE]>
-<script type="text/javascript" src="../../jquery/jszip-utils/dist/jszip-utils-ie.min.js"></script>
+<script type="text/javascript" src="../../jquery/jszip-jstat.utils/dist/jszip-jstat.utils-ie.min.js"></script>
 <![endif]-->
 <script type="text/javascript" src="../../jquery/jquery-3.3.1.js"></script>
 <script type="text/javascript" src="../../jquery/jquery-migrate-3.0.1.js"></script>
@@ -116,15 +116,15 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <!-- ======== START OF CLASS DATA ======== -->
 <main role="main">
 <div class="header">
-<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">ml.regression</a></div>
-<h2 title="Class RegressorBase" class="title">Class RegressorBase&lt;DataSetType extends <a href="../../datasets/DenseMatrixSet.html" title="class in datasets">DenseMatrixSet</a>&lt;java.lang.Double&gt;,&#8203;HypothesisType extends <a href="../../maths/functions/IVectorRealFunction.html" title="interface in maths.functions">IVectorRealFunction</a>&lt;<a href="../../datastructs/IVector.html" title="interface in datastructs">IVector</a>&lt;java.lang.Double&gt;&gt;&gt;</h2>
+<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">jstat.ml.regression</a></div>
+<h2 title="Class RegressorBase" class="title">Class RegressorBase&lt;DataSetType extends <a href="../../jstat.datasets/DenseMatrixSet.html" title="class in jstat.datasets">DenseMatrixSet</a>&lt;java.lang.Double&gt;,&#8203;HypothesisType extends <a href="../../jstat.maths/functions/IVectorRealFunction.html" title="interface in jstat.maths.functions">IVectorRealFunction</a>&lt;<a href="../../jstat.datastructs/IVector.html" title="interface in jstat.datastructs">IVector</a>&lt;java.lang.Double&gt;&gt;&gt;</h2>
 </div>
 <div class="contentContainer">
 <ul class="inheritance">
 <li>java.lang.Object</li>
 <li>
 <ul class="inheritance">
-<li>ml.regression.RegressorBase&lt;DataSetType,&#8203;HypothesisType&gt;</li>
+<li>jstat.ml.regression.RegressorBase&lt;DataSetType,&#8203;HypothesisType&gt;</li>
 </ul>
 </li>
 </ul>
@@ -133,10 +133,10 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="blockList">
 <dl>
 <dt>Direct Known Subclasses:</dt>
-<dd><code><a href="LinearRegressor.html" title="class in ml.regression">LinearRegressor</a></code>, <code><a href="NonLinearRegressor.html" title="class in ml.regression">NonLinearRegressor</a></code></dd>
+<dd><code><a href="LinearRegressor.html" title="class in jstat.ml.regression">LinearRegressor</a></code>, <code><a href="NonLinearRegressor.html" title="class in jstat.ml.regression">NonLinearRegressor</a></code></dd>
 </dl>
 <hr>
-<pre>public class <span class="typeNameLabel">RegressorBase&lt;DataSetType extends <a href="../../datasets/DenseMatrixSet.html" title="class in datasets">DenseMatrixSet</a>&lt;java.lang.Double&gt;,&#8203;HypothesisType extends <a href="../../maths/functions/IVectorRealFunction.html" title="interface in maths.functions">IVectorRealFunction</a>&lt;<a href="../../datastructs/IVector.html" title="interface in datastructs">IVector</a>&lt;java.lang.Double&gt;&gt;&gt;</span>
+<pre>public class <span class="typeNameLabel">RegressorBase&lt;DataSetType extends <a href="../../jstat.datasets/DenseMatrixSet.html" title="class in jstat.datasets">DenseMatrixSet</a>&lt;java.lang.Double&gt;,&#8203;HypothesisType extends <a href="../../jstat.maths/functions/IVectorRealFunction.html" title="interface in jstat.maths.functions">IVectorRealFunction</a>&lt;<a href="../../jstat.datastructs/IVector.html" title="interface in jstat.datastructs">IVector</a>&lt;java.lang.Double&gt;&gt;&gt;</span>
 extends java.lang.Object</pre>
 </li>
 </ul>
@@ -209,22 +209,22 @@ extends java.lang.Object</pre>
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code><a href="../../datasets/VectorDouble.html" title="class in datasets">VectorDouble</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getErrors(DataSetType,datasets.VectorDouble)">getErrors</a></span>&#8203;(<a href="RegressorBase.html" title="type parameter in RegressorBase">DataSetType</a>&nbsp;dataSet,
-         <a href="../../datasets/VectorDouble.html" title="class in datasets">VectorDouble</a>&nbsp;y)</code></th>
+<td class="colFirst"><code><a href="../../jstat.datasets/VectorDouble.html" title="class in jstat.datasets">VectorDouble</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getErrors(DataSetType,jstat.datasets.VectorDouble)">getErrors</a></span>&#8203;(<a href="RegressorBase.html" title="type parameter in RegressorBase">DataSetType</a>&nbsp;dataSet,
+         <a href="../../jstat.datasets/VectorDouble.html" title="class in jstat.datasets">VectorDouble</a>&nbsp;y)</code></th>
 <td class="colLast">
 <div class="block">Returns the errors over the given dataset with respect to the given labels</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>double</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#predict(datasets.VectorDouble)">predict</a></span>&#8203;(<a href="../../datasets/VectorDouble.html" title="class in datasets">VectorDouble</a>&nbsp;y)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#predict(jstat.datasets.VectorDouble)">predict</a></span>&#8203;(<a href="../../jstat.datasets/VectorDouble.html" title="class in jstat.datasets">VectorDouble</a>&nbsp;y)</code></th>
 <td class="colLast">
 <div class="block">Predict the value for the given input</div>
 </td>
 </tr>
 <tr id="i2" class="altColor">
-<td class="colFirst"><code><a href="../../datasets/VectorDouble.html" title="class in datasets">VectorDouble</a></code></td>
+<td class="colFirst"><code><a href="../../jstat.datasets/VectorDouble.html" title="class in jstat.datasets">VectorDouble</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#predict(DataSetType)">predict</a></span>&#8203;(<a href="RegressorBase.html" title="type parameter in RegressorBase">DataSetType</a>&nbsp;dataSetType)</code></th>
 <td class="colLast">
 <div class="block">Predict the outputs over the given dataset</div>
@@ -232,9 +232,9 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>&lt;OutputType&gt;<br>OutputType</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#train(DataSetType,datasets.VectorDouble,optimization.ISupervisedOptimizer)">train</a></span>&#8203;(<a href="RegressorBase.html" title="type parameter in RegressorBase">DataSetType</a>&nbsp;dataSet,
-     <a href="../../datasets/VectorDouble.html" title="class in datasets">VectorDouble</a>&nbsp;y,
-     <a href="../../optimization/ISupervisedOptimizer.html" title="interface in optimization">ISupervisedOptimizer</a>&nbsp;optimizer)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#train(DataSetType,jstat.datasets.VectorDouble,jstat.optimization.ISupervisedOptimizer)">train</a></span>&#8203;(<a href="RegressorBase.html" title="type parameter in RegressorBase">DataSetType</a>&nbsp;dataSet,
+     <a href="../../jstat.datasets/VectorDouble.html" title="class in jstat.datasets">VectorDouble</a>&nbsp;y,
+     <a href="../../jstat.optimization/ISupervisedOptimizer.html" title="interface in jstat.optimization">ISupervisedOptimizer</a>&nbsp;optimizer)</code></th>
 <td class="colLast">
 <div class="block">Train the regressor on the given dataset</div>
 </td>
@@ -269,7 +269,7 @@ extends java.lang.Object</pre>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>hypothesisType</h4>
-<pre>protected&nbsp;<a href="RegressorBase.html" title="type parameter in RegressorBase">HypothesisType</a> extends <a href="../../maths/functions/IVectorRealFunction.html" title="interface in maths.functions">IVectorRealFunction</a>&lt;<a href="../../datastructs/IVector.html" title="interface in datastructs">IVector</a>&lt;java.lang.Double&gt;&gt; hypothesisType</pre>
+<pre>protected&nbsp;<a href="RegressorBase.html" title="type parameter in RegressorBase">HypothesisType</a> extends <a href="../../jstat.maths/functions/IVectorRealFunction.html" title="interface in jstat.maths.functions">IVectorRealFunction</a>&lt;<a href="../../jstat.datastructs/IVector.html" title="interface in jstat.datastructs">IVector</a>&lt;java.lang.Double&gt;&gt; hypothesisType</pre>
 <div class="block">The hypothesis function assumed by the regressor</div>
 </li>
 </ul>
@@ -283,7 +283,7 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a id="&lt;init&gt;(maths.functions.IVectorRealFunction)">
+<a id="&lt;init&gt;(jstat.maths.functions.IVectorRealFunction)">
 <!--   -->
 </a><a id="&lt;init&gt;(HypothesisType)">
 <!--   -->
@@ -305,31 +305,31 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a id="train(datasets.DenseMatrixSet,datasets.VectorDouble,optimization.ISupervisedOptimizer)">
+<a id="train(jstat.datasets.DenseMatrixSet,jstat.datasets.VectorDouble,jstat.optimization.ISupervisedOptimizer)">
 <!--   -->
-</a><a id="train(DataSetType,datasets.VectorDouble,optimization.ISupervisedOptimizer)">
+</a><a id="train(DataSetType,jstat.datasets.VectorDouble,jstat.optimization.ISupervisedOptimizer)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>train</h4>
 <pre class="methodSignature">public&nbsp;&lt;OutputType&gt;&nbsp;OutputType&nbsp;train&#8203;(<a href="RegressorBase.html" title="type parameter in RegressorBase">DataSetType</a>&nbsp;dataSet,
-                                     <a href="../../datasets/VectorDouble.html" title="class in datasets">VectorDouble</a>&nbsp;y,
-                                     <a href="../../optimization/ISupervisedOptimizer.html" title="interface in optimization">ISupervisedOptimizer</a>&nbsp;optimizer)</pre>
+                                     <a href="../../jstat.datasets/VectorDouble.html" title="class in jstat.datasets">VectorDouble</a>&nbsp;y,
+                                     <a href="../../jstat.optimization/ISupervisedOptimizer.html" title="interface in jstat.optimization">ISupervisedOptimizer</a>&nbsp;optimizer)</pre>
 <div class="block">Train the regressor on the given dataset</div>
 </li>
 </ul>
-<a id="predict(datasets.VectorDouble)">
+<a id="predict(jstat.datasets.VectorDouble)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>predict</h4>
-<pre class="methodSignature">public&nbsp;double&nbsp;predict&#8203;(<a href="../../datasets/VectorDouble.html" title="class in datasets">VectorDouble</a>&nbsp;y)</pre>
+<pre class="methodSignature">public&nbsp;double&nbsp;predict&#8203;(<a href="../../jstat.datasets/VectorDouble.html" title="class in jstat.datasets">VectorDouble</a>&nbsp;y)</pre>
 <div class="block">Predict the value for the given input</div>
 </li>
 </ul>
-<a id="predict(datasets.DenseMatrixSet)">
+<a id="predict(jstat.datasets.DenseMatrixSet)">
 <!--   -->
 </a><a id="predict(DataSetType)">
 <!--   -->
@@ -337,20 +337,20 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>predict</h4>
-<pre class="methodSignature">public&nbsp;<a href="../../datasets/VectorDouble.html" title="class in datasets">VectorDouble</a>&nbsp;predict&#8203;(<a href="RegressorBase.html" title="type parameter in RegressorBase">DataSetType</a>&nbsp;dataSetType)</pre>
+<pre class="methodSignature">public&nbsp;<a href="../../jstat.datasets/VectorDouble.html" title="class in jstat.datasets">VectorDouble</a>&nbsp;predict&#8203;(<a href="RegressorBase.html" title="type parameter in RegressorBase">DataSetType</a>&nbsp;dataSetType)</pre>
 <div class="block">Predict the outputs over the given dataset</div>
 </li>
 </ul>
-<a id="getErrors(datasets.DenseMatrixSet,datasets.VectorDouble)">
+<a id="getErrors(jstat.datasets.DenseMatrixSet,jstat.datasets.VectorDouble)">
 <!--   -->
-</a><a id="getErrors(DataSetType,datasets.VectorDouble)">
+</a><a id="getErrors(DataSetType,jstat.datasets.VectorDouble)">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>getErrors</h4>
-<pre class="methodSignature">public&nbsp;<a href="../../datasets/VectorDouble.html" title="class in datasets">VectorDouble</a>&nbsp;getErrors&#8203;(<a href="RegressorBase.html" title="type parameter in RegressorBase">DataSetType</a>&nbsp;dataSet,
-                              <a href="../../datasets/VectorDouble.html" title="class in datasets">VectorDouble</a>&nbsp;y)</pre>
+<pre class="methodSignature">public&nbsp;<a href="../../jstat.datasets/VectorDouble.html" title="class in jstat.datasets">VectorDouble</a>&nbsp;getErrors&#8203;(<a href="RegressorBase.html" title="type parameter in RegressorBase">DataSetType</a>&nbsp;dataSet,
+                              <a href="../../jstat.datasets/VectorDouble.html" title="class in jstat.datasets">VectorDouble</a>&nbsp;y)</pre>
 <div class="block">Returns the errors over the given dataset with respect to the given labels</div>
 </li>
 </ul>

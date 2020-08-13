@@ -10,9 +10,9 @@
 <link rel="stylesheet" type="text/css" href="../../jquery/jquery-ui.css" title="Style">
 <script type="text/javascript" src="../../script.js"></script>
 <script type="text/javascript" src="../../jquery/jszip/dist/jszip.min.js"></script>
-<script type="text/javascript" src="../../jquery/jszip-utils/dist/jszip-utils.min.js"></script>
+<script type="text/javascript" src="../../jquery/jszip-jstat.utils/dist/jszip-jstat.utils.min.js"></script>
 <!--[if IE]>
-<script type="text/javascript" src="../../jquery/jszip-utils/dist/jszip-utils-ie.min.js"></script>
+<script type="text/javascript" src="../../jquery/jszip-jstat.utils/dist/jszip-jstat.utils-ie.min.js"></script>
 <![endif]-->
 <script type="text/javascript" src="../../jquery/jquery-3.3.1.js"></script>
 <script type="text/javascript" src="../../jquery/jquery-migrate-3.0.1.js"></script>
@@ -116,15 +116,15 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <!-- ======== START OF CLASS DATA ======== -->
 <main role="main">
 <div class="header">
-<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">ml.classifiers</a></div>
-<h2 title="Class KNNClassifier" class="title">Class KNNClassifier&lt;DataType,&#8203;DataSetType extends <a href="../../datastructs/I2DDataSet.html" title="interface in datastructs">I2DDataSet</a>&lt;<a href="../../datastructs/IVector.html" title="interface in datastructs">IVector</a>&lt;DataType&gt;&gt;,&#8203;DistanceType extends <a href="../../maths/functions/distances/DistanceCalculator.html" title="interface in maths.functions.distances">DistanceCalculator</a>,&#8203;VoterType extends <a href="utils/ClassificationVoter.html" title="class in ml.classifiers.utils">ClassificationVoter</a>&gt;</h2>
+<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">jstat.ml.classifiers</a></div>
+<h2 title="Class KNNClassifier" class="title">Class KNNClassifier&lt;DataType,&#8203;DataSetType extends <a href="../../jstat.datastructs/I2DDataSet.html" title="interface in jstat.datastructs">I2DDataSet</a>&lt;<a href="../../jstat.datastructs/IVector.html" title="interface in jstat.datastructs">IVector</a>&lt;DataType&gt;&gt;,&#8203;DistanceType extends <a href="../../jstat.maths/functions/distances/DistanceCalculator.html" title="interface in jstat.maths.functions.distances">DistanceCalculator</a>,&#8203;VoterType extends <a href="jstat.utils/ClassificationVoter.html" title="class in jstat.ml.classifiers.jstat.utils">ClassificationVoter</a>&gt;</h2>
 </div>
 <div class="contentContainer">
 <ul class="inheritance">
 <li>java.lang.Object</li>
 <li>
 <ul class="inheritance">
-<li>ml.classifiers.KNNClassifier&lt;DataType,&#8203;DataSetType,&#8203;DistanceType,&#8203;VoterType&gt;</li>
+<li>jstat.ml.classifiers.KNNClassifier&lt;DataType,&#8203;DataSetType,&#8203;DistanceType,&#8203;VoterType&gt;</li>
 </ul>
 </li>
 </ul>
@@ -133,10 +133,10 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="blockList">
 <dl>
 <dt>Direct Known Subclasses:</dt>
-<dd><code><a href="ThreadedKNNClassifier.html" title="class in ml.classifiers">ThreadedKNNClassifier</a></code></dd>
+<dd><code><a href="ThreadedKNNClassifier.html" title="class in jstat.ml.classifiers">ThreadedKNNClassifier</a></code></dd>
 </dl>
 <hr>
-<pre>public class <span class="typeNameLabel">KNNClassifier&lt;DataType,&#8203;DataSetType extends <a href="../../datastructs/I2DDataSet.html" title="interface in datastructs">I2DDataSet</a>&lt;<a href="../../datastructs/IVector.html" title="interface in datastructs">IVector</a>&lt;DataType&gt;&gt;,&#8203;DistanceType extends <a href="../../maths/functions/distances/DistanceCalculator.html" title="interface in maths.functions.distances">DistanceCalculator</a>,&#8203;VoterType extends <a href="utils/ClassificationVoter.html" title="class in ml.classifiers.utils">ClassificationVoter</a>&gt;</span>
+<pre>public class <span class="typeNameLabel">KNNClassifier&lt;DataType,&#8203;DataSetType extends <a href="../../jstat.datastructs/I2DDataSet.html" title="interface in jstat.datastructs">I2DDataSet</a>&lt;<a href="../../jstat.datastructs/IVector.html" title="interface in jstat.datastructs">IVector</a>&lt;DataType&gt;&gt;,&#8203;DistanceType extends <a href="../../jstat.maths/functions/distances/DistanceCalculator.html" title="interface in jstat.maths.functions.distances">DistanceCalculator</a>,&#8203;VoterType extends <a href="jstat.utils/ClassificationVoter.html" title="class in jstat.ml.classifiers.jstat.utils">ClassificationVoter</a>&gt;</span>
 extends java.lang.Object</pre>
 <div class="block">KNNClassifier performs classification using the KNN algorithm</div>
 </li>
@@ -320,7 +320,7 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>dataSet</h4>
-<pre>protected&nbsp;<a href="KNNClassifier.html" title="type parameter in KNNClassifier">DataSetType</a> extends <a href="../../datastructs/I2DDataSet.html" title="interface in datastructs">I2DDataSet</a>&lt;<a href="../../datastructs/IVector.html" title="interface in datastructs">IVector</a>&lt;<a href="KNNClassifier.html" title="type parameter in KNNClassifier">DataType</a>&gt;&gt; dataSet</pre>
+<pre>protected&nbsp;<a href="KNNClassifier.html" title="type parameter in KNNClassifier">DataSetType</a> extends <a href="../../jstat.datastructs/I2DDataSet.html" title="interface in jstat.datastructs">I2DDataSet</a>&lt;<a href="../../jstat.datastructs/IVector.html" title="interface in jstat.datastructs">IVector</a>&lt;<a href="KNNClassifier.html" title="type parameter in KNNClassifier">DataType</a>&gt;&gt; dataSet</pre>
 <div class="block">The dataset</div>
 </li>
 </ul>
@@ -384,7 +384,7 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
-<a id="setDistanceCalculator(maths.functions.distances.DistanceCalculator)">
+<a id="setDistanceCalculator(jstat.maths.functions.distances.DistanceCalculator)">
 <!--   -->
 </a><a id="setDistanceCalculator(DistanceType)">
 <!--   -->
@@ -400,7 +400,7 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
-<a id="setMajorityVoter(ml.classifiers.utils.ClassificationVoter)">
+<a id="setMajorityVoter(jstat.ml.classifiers.jstat.utils.ClassificationVoter)">
 <!--   -->
 </a><a id="setMajorityVoter(VoterType)">
 <!--   -->
@@ -416,7 +416,7 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
-<a id="train(datastructs.I2DDataSet,java.util.List)">
+<a id="train(jstat.datastructs.I2DDataSet,java.util.List)">
 <!--   -->
 </a><a id="train(DataSetType,java.util.List)">
 <!--   -->
