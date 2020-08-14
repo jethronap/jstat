@@ -1,9 +1,8 @@
 package jstat.ml.models;
-import jstat.utils.ListMaths;
+
 import org.nd4j.linalg.api.ndarray.INDArray;
 import org.nd4j.linalg.factory.Nd4j;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -26,16 +25,18 @@ public class HiddenMarkovModel {
     /**
      * Compute the viterbi path for the given sequence
      */
-    public final void viterbi(INDArray sequence){
+    public final INDArray viterbi(INDArray sequence){
 
+        return null;
     }
 
     /**
      * Compute the viterbi path for the given sequence
      */
-    public final void viterbi(List<String> sequence){
+    public final INDArray viterbi(List<String> sequence){
 
         INDArray delta = Nd4j.zeros(sequence.size(), this.config.A.shape()[0]);
+        INDArray previous = Nd4j.zeros(sequence.size(), this.config.A.shape()[0]);
 
         Map<String, Integer> obsToIdx = this.config.obsToIdx;
         long startObsIdx = obsToIdx.get(sequence.get(0));
@@ -62,15 +63,27 @@ public class HiddenMarkovModel {
                     probs.putScalar(0, j, val);
                 }
 
-                delta.putScalar(t, i, ListMaths.maxINDArray(probs));
+                delta.putScalar(t, i, Nd4j.max(probs).getDouble(0));
+                previous.putScalar(t-1, i, Nd4j.argMax(probs).getInt(0));
 
             }
 
         }
 
         INDArray states = Nd4j.zeros(sequence.size());
-        //int last_state = Nd4j.argMax(delta.)
+        long last_state = Nd4j.argMax(delta.getRow(sequence.size()-1)).getInt(0);
+        states.putScalar(0, last_state);
+        long backtrack_idx = 1;
 
+        for(int  i= sequence.size()-2; i >= 0; --i) {
+
+            states.putScalar(backtrack_idx, previous.getInt(i, (int)last_state));
+            last_state = previous.getInt(i, (int)last_state);
+            backtrack_idx += 1;
+        }
+
+
+        return Nd4j.reverse(states);
 
     }
 
