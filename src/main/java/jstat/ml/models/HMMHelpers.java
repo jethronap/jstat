@@ -61,13 +61,14 @@ public class HMMHelpers {
                 alpha.putScalar(t, j, 0.0);
 
                 // fix j = state_idx and sum over the states
+				double alphaVal = 0.0
                 for(int i=0; i<A.shape()[0]; ++i) {
                     double alphaPrevious = alpha.getDouble(t-1, i);
                     double transProb = A.getDouble(i,j);
-                    double alphaVal = alpha.getDouble(t, j) + alphaPrevious*transProb;
-                    alpha.putScalar(t, j, alphaVal);
+                    alphaVal += alphaPrevious*transProb;
                 }
 
+				alpha.putScalar(t, j, alphaVal);
                 long idx = obsToIdx.get(sequence.get(t));
                 double alphaVal = alpha.getDouble(t, j)*B.getDouble(j, idx);
                 alpha.putScalar(t, j, alphaVal);
