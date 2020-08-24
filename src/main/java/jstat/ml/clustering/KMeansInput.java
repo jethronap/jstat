@@ -1,6 +1,9 @@
 package jstat.ml.clustering;
 
+import jstat.maths.functions.distances.IDistanceCalculator;
+import jstat.maths.functions.generators.IRandomGenerator;
 import jstat.utils.IterativAlgorithmController;
+import org.nd4j.linalg.api.ndarray.INDArray;
 
 public class KMeansInput {
 
@@ -14,6 +17,10 @@ public class KMeansInput {
      * Number of clusters to consider
      */
     public int k;
+
+    IDistanceCalculator distanceCalculator;
+
+    IRandomGenerator<INDArray> randomGenerator;
 
 
     /**

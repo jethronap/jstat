@@ -19,19 +19,13 @@ public class GaussianMixtureModel {
      * Constructor
      * @param components
      */
-    public GaussianMixtureModel(int components){
+    public GaussianMixtureModel(GMMConfig config){
 
-        this.weights = Nd4j.zeros(components);
+        this.config = config;
+        this.weights = Nd4j.zeros(config.n_components);
         this.mixture_mus = new ArrayList<>();
         this.mixture_sigmas = new ArrayList<>();
         this.dists = new ArrayList<>();
-    }
-
-    /**
-     * Constructor
-     */
-    public GaussianMixtureModel(INDArray weights){
-        this((int)weights.size(0));
     }
 
     /**
@@ -71,7 +65,18 @@ public class GaussianMixtureModel {
      */
     public void train(INDArray x){
 
+        // initialize using KMeans
+        initialize(x);
+
+
+
     }
+
+    private void initialize(INDArray x){
+
+    }
+
+    private GMMConfig config;
 
     /**
      * The weights of the mixture

@@ -1,7 +1,7 @@
 package jstat.ml.classifiers;
 
 import jstat.datastructs.IVector;
-import jstat.maths.functions.distances.DistanceCalculator;
+import jstat.maths.functions.distances.IDistanceCalculator;
 import jstat.ml.classifiers.utils.ClassificationVoter;
 import jstat.datastructs.I2DDataSet;
 import jstat.utils.Pair;
@@ -13,7 +13,7 @@ import java.util.*;
  * KNNClassifier performs classification using the KNN algorithm
  */
 public class KNNClassifier< DataType, DataSetType extends I2DDataSet<IVector<DataType>>,
-                           DistanceType extends DistanceCalculator,
+                           DistanceType extends IDistanceCalculator,
                            VoterType extends ClassificationVoter> {
 
     /**

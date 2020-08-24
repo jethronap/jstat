@@ -2,7 +2,7 @@ package jstat.ml.classifiers;
 
 import jstat.datastructs.I2DDataSet;
 import jstat.datastructs.IVector;
-import jstat.maths.functions.distances.DistanceCalculator;
+import jstat.maths.functions.distances.IDistanceCalculator;
 import jstat.parallel.partitioners.IPartitionPolicy;
 import jstat.parallel.tasks.TaskBase;
 import jstat.ml.classifiers.utils.ClassificationVoter;
@@ -13,7 +13,7 @@ import java.util.*;
 import java.util.concurrent.*;
 
 public class ThreadedKNNClassifier<DataType, DataSetType extends I2DDataSet<IVector<DataType>>,
-                                   DistanceType extends DistanceCalculator,
+                                   DistanceType extends IDistanceCalculator,
                                    VoterType extends ClassificationVoter> extends KNNClassifier<DataType, DataSetType, DistanceType, VoterType> {
 
     /**
