@@ -2,21 +2,23 @@ package jstat.maths.functions;
 
 import jstat.datastructs.IVector;
 import jstat.datasets.VectorDouble;
+import org.nd4j.linalg.api.ndarray.INDArray;
+import org.nd4j.linalg.factory.Nd4j;
 
-public class SigmoidFunction implements IVectorRealFunction<IVector<Double>> {
+public class SigmoidFunction implements IVectorRealFunction {
 
 
     /**
      * Constructor
      * @param function
      */
-    public SigmoidFunction(IVectorRealFunction<IVector<Double>> function){
+    public SigmoidFunction(IVectorRealFunction function){
 
         this.function = function;
     }
 
     @Override
-    public Double evaluate(IVector<Double> input){
+    public Double evaluate(INDArray input){
 
         Double value = this.function.evaluate(input);
         double expV = Math.exp(-value);
@@ -43,7 +45,7 @@ public class SigmoidFunction implements IVectorRealFunction<IVector<Double>> {
      * Returns the coefficients of the vector function
      */
     @Override
-    public final IVector<Double> getCoeffs(){
+    public final INDArray getCoeffs(){
         return this.function.getCoeffs();
     }
 
@@ -64,9 +66,9 @@ public class SigmoidFunction implements IVectorRealFunction<IVector<Double>> {
      * Returns the gradients with respect to the coefficients at the given data point
      */
     @Override
-    public VectorDouble gradidents(IVector<Double> data){
-        VectorDouble rslt = new VectorDouble(data);
-        rslt.set(0, 1.0);
+    public INDArray gradidents(INDArray data){
+        INDArray rslt = data;
+        rslt.putScalar(0, 1.0);
         return rslt;
     }
 
@@ -76,7 +78,7 @@ public class SigmoidFunction implements IVectorRealFunction<IVector<Double>> {
      * if i != 0 this function returns 0.0
      */
     @Override
-    public double gradient(int i, IVector<Double> data){
+    public double gradient(int i, INDArray data){
 
         if(i != 0){
             return 0.0;
@@ -91,7 +93,7 @@ public class SigmoidFunction implements IVectorRealFunction<IVector<Double>> {
      * Returns the gradient with respect to the i-th coeff
      */
     @Override
-    public double coeffGradient(int i, IVector<Double> data){
+    public double coeffGradient(int i, INDArray data){
 
         double z = this.function.evaluate(data);
         double expZ = Math.exp(-z);
@@ -102,16 +104,17 @@ public class SigmoidFunction implements IVectorRealFunction<IVector<Double>> {
      * Compute the gradients with respect to the coefficients
      */
     @Override
-    public VectorDouble coeffGradients(IVector<Double> data){
-        VectorDouble grads = new VectorDouble(this.function.numCoeffs(), 0.0);
+    public INDArray coeffGradients(INDArray data){
 
-        for (int i = 0; i < grads.size(); i++) {
-            grads.set(i, this.coeffGradient(i, data));
+        INDArray grads = Nd4j.zeros(this.function.numCoeffs());
+
+        for (int i = 0; i < grads.size(0); i++) {
+            grads.putScalar(i, this.coeffGradient(i, data));
         }
 
         return grads;
     }
 
 
-    private IVectorRealFunction<IVector<Double>> function;
+    private IVectorRealFunction function;
 }

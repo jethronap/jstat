@@ -3,13 +3,14 @@ package jstat.maths.functions.regularizers;
 import jstat.datastructs.IVector;
 import jstat.maths.functions.IRegularizerFunction;
 import jstat.maths.functions.IVectorRealFunction;
+import org.nd4j.linalg.api.ndarray.INDArray;
 
 public class RidgeRegularizer implements IRegularizerFunction {
 
     /**
      * Constructor.
      */
-    public RidgeRegularizer(double lambda, int start_coeffs, IVectorRealFunction<IVector<Double>> hypothesis){
+    public RidgeRegularizer(double lambda, int start_coeffs, IVectorRealFunction hypothesis){
 
         this.start_coeffs = start_coeffs;
         this.lambda = lambda;
@@ -23,7 +24,7 @@ public class RidgeRegularizer implements IRegularizerFunction {
     public Double evaluate(Void input){
 
 
-        IVector<Double> coeffs = hypothesis.getCoeffs();
+        INDArray coeffs = hypothesis.getCoeffs();
 
         if(coeffs == null){
             throw new IllegalStateException("Hypothesis coefficients are null");
@@ -31,9 +32,9 @@ public class RidgeRegularizer implements IRegularizerFunction {
 
         double sum = 0.0;
 
-        for(int c=start_coeffs; c<coeffs.size(); ++c){
+        for(int c=start_coeffs; c<coeffs.size(0); ++c){
 
-            double coeff = coeffs.get(c);
+            double coeff = coeffs.getDouble(c);
             sum += coeff*coeff;
 
         }
@@ -41,8 +42,18 @@ public class RidgeRegularizer implements IRegularizerFunction {
         return lambda*sum;
     }
 
+    /**
+     *
+     */
+    private int start_coeffs;
 
-    int start_coeffs;
-    double lambda;
-    IVectorRealFunction<IVector<Double>> hypothesis;
+    /**
+     *
+     */
+    private double lambda;
+
+    /**
+     * The hypothesis function to regularize
+     */
+    private IVectorRealFunction hypothesis;
 }

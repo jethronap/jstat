@@ -2,6 +2,7 @@ package jstat.maths.functions;
 
 
 import jstat.datasets.VectorDouble;
+import org.nd4j.linalg.api.ndarray.INDArray;
 
 public interface IScalarRealFunction extends IRealFunction<Double>  {
 
@@ -13,7 +14,7 @@ public interface IScalarRealFunction extends IRealFunction<Double>  {
     /**
      * Returns the coefficients of the vector function
      */
-    VectorDouble getCoeffs();
+    INDArray getCoeffs();
 
     /**
      * Set the coefficients of the function

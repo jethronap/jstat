@@ -1,6 +1,7 @@
 package jstat.maths.functions;
 
 import jstat.datastructs.IVector;
+import org.nd4j.linalg.api.ndarray.INDArray;
 
 public interface IRealFunction<InputType> extends IFunction<InputType, Double> {
 
@@ -12,7 +13,7 @@ public interface IRealFunction<InputType> extends IFunction<InputType, Double> {
     /**
      * Returns the coefficients of the vector function
      */
-    IVector<Double> getCoeffs();
+    INDArray getCoeffs();
 
     /**
      * Returns the i-th coefficient
@@ -33,6 +34,6 @@ public interface IRealFunction<InputType> extends IFunction<InputType, Double> {
     /**
      * Set the coefficents of the function
      */
-    default void setCoeffs(IVector<Double> coeffs){this.setCoeffs(coeffs.toArray());}
+    default void setCoeffs(INDArray coeffs){this.setCoeffs(coeffs.toDoubleVector());}
 
 }
