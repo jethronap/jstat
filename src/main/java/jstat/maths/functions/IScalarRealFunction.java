@@ -1,7 +1,6 @@
 package jstat.maths.functions;
 
 
-import jstat.datasets.VectorDouble;
 import org.nd4j.linalg.api.ndarray.INDArray;
 
 public interface IScalarRealFunction extends IRealFunction<Double>  {

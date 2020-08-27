@@ -1,6 +1,5 @@
 package jstat.maths.functions.distances;
 
-import jstat.datastructs.IVector;
 import org.nd4j.linalg.api.ndarray.INDArray;
 
 /**

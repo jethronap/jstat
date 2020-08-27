@@ -1,10 +1,9 @@
 package jstat.ml.classifiers;
 
-import jstat.datastructs.IVector;
 import jstat.maths.functions.distances.IDistanceCalculator;
 import jstat.ml.classifiers.utils.ClassificationVoter;
-import jstat.datastructs.I2DDataSet;
 import jstat.utils.Pair;
+import org.nd4j.linalg.api.ndarray.INDArray;
 
 import java.util.*;
 
@@ -12,8 +11,7 @@ import java.util.*;
 /**
  * KNNClassifier performs classification using the KNN algorithm
  */
-public class KNNClassifier< DataType, DataSetType extends I2DDataSet<IVector<DataType>>,
-                           DistanceType extends IDistanceCalculator,
+public class KNNClassifier<DistanceType extends IDistanceCalculator,
                            VoterType extends ClassificationVoter> {
 
     /**
@@ -57,16 +55,8 @@ public class KNNClassifier< DataType, DataSetType extends I2DDataSet<IVector<Dat
      * @param dataSet The given data set
      * @param labels The given labels
      */
-    public void train(DataSetType dataSet, List<Integer> labels){
-
-        if(this.copyDataset){
-            this.dataSet = (DataSetType) dataSet.copy();
-
-        }
-        else{
-            this.dataSet = dataSet;
-            this.labels = labels;
-        }
+    public void train(INDArray dataSet, List<Integer> labels){
+            this.dataSet =  dataSet;
     }
 
 
@@ -77,7 +67,7 @@ public class KNNClassifier< DataType, DataSetType extends I2DDataSet<IVector<Dat
      * @param point The given point
      * @return A point
      */
-    public <PointType> Integer  predict(PointType point){
+    public Integer  predictPoint(INDArray point){
 
         if(this.majorityVoter == null){
             throw new IllegalStateException(" Majority voter has not been set");
@@ -88,25 +78,25 @@ public class KNNClassifier< DataType, DataSetType extends I2DDataSet<IVector<Dat
         }
 
         // loop over the items in the data set and compute distances
-        for (int i = 0; i < this.dataSet.m(); i++) {
+        for (int i = 0; i < this.dataSet.size(0); i++) {
             this.majorityVoter.addItem(i, this.distanceCalculator.calculate(this.dataSet.getRow(i), point));
         }
 
         return this.getTopResult();
     }
 
-    public List<Integer> predict(DataSetType dataSet){
+    public List<Integer> predict(INDArray dataSet){
 
-        List<Integer> predictions = new ArrayList<>(dataSet.m());
+        List<Integer> predictions = new ArrayList<>((int)dataSet.size(0));
 
         // invalidate the predictions
-        for(int i=0; i<dataSet.m(); ++i){
+        for(int i=0; i<dataSet.size(0); ++i){
             predictions.add(-1);
         }
 
         // loop over all points in the dataset and make a prediction
-        for(int r=0; r<dataSet.m(); ++r){
-            predictions.set(r, this.predict(dataSet.getRow(r)));
+        for(int r=0; r<dataSet.size(0); ++r){
+            predictions.set(r, this.predictPoint(dataSet.getRow(r)));
         }
 
         return predictions;
@@ -152,7 +142,7 @@ public class KNNClassifier< DataType, DataSetType extends I2DDataSet<IVector<Dat
     /**
      * The dataset
      */
-    protected DataSetType dataSet;
+    protected INDArray dataSet;
 
     /**
      * The labels

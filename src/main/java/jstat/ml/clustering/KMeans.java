@@ -1,8 +1,6 @@
 package jstat.ml.clustering;
 
 import jstat.utils.IterativeAlgorithmResult;
-import jstat.datastructs.I2DDataSet;
-import jstat.datastructs.IVector;
 import org.nd4j.linalg.api.ndarray.INDArray;
 
 
@@ -54,9 +52,9 @@ public class KMeans{
             }
 
             //for each point calculate its distance from the centroids
-            for(int p=0; p<data.m(); ++p){
+            for(int p=0; p<data.size(0); ++p){
 
-                this.clusterPoint(p, data.getRow(p), this.input.distanceCalculator);
+                this.clusterPoint(p, data.getRow(p));
             }
 
             //recalculate centroids

@@ -1,7 +1,6 @@
 package jstat.maths.errorfunctions;
 
-import jstat.datasets.VectorDouble;
-import jstat.datastructs.I2DDataSet;
+import org.nd4j.linalg.api.ndarray.INDArray;
 
 public interface IVectorErrorRealFunction {
 
@@ -12,12 +11,11 @@ public interface IVectorErrorRealFunction {
      * @param labels
      * @return
      */
-    <DataSetType extends I2DDataSet> double evaluate(DataSetType data, VectorDouble labels);
+    double evaluate(INDArray data, INDArray labels);
 
     /**
      * Returns the gradients on the given data
      */
-    <DataSetType extends I2DDataSet> VectorDouble gradients(DataSetType data, VectorDouble labels);
-
+    INDArray gradients(INDArray data, INDArray labels);
 
 }

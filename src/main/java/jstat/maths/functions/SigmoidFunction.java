@@ -1,7 +1,5 @@
 package jstat.maths.functions;
 
-import jstat.datastructs.IVector;
-import jstat.datasets.VectorDouble;
 import org.nd4j.linalg.api.ndarray.INDArray;
 import org.nd4j.linalg.factory.Nd4j;
 

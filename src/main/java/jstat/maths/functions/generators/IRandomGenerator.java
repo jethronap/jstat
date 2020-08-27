@@ -1,14 +1,15 @@
 package jstat.maths.functions.generators;
 
-import jstat.datastructs.I2DDataSet;
-import jstat.datastructs.IVector;
+
+import org.nd4j.linalg.api.ndarray.INDArray;
 
 import java.util.List;
+
 
 /**
  * General interface to model
  */
-public interface IRandomGenerator<PointType> {
+public interface IRandomGenerator {
 
-    <DataSetTp extends I2DDataSet<IVector<PointType>>>  List<IVector<PointType>> generate(DataSetTp dataSet, int n);
+    List<INDArray> generate(INDArray dataSet, int n);
 }

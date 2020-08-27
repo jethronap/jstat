@@ -1,6 +1,5 @@
 package jstat.maths.functions;
 
-import jstat.datastructs.IVector;
 import org.nd4j.linalg.api.ndarray.INDArray;
 
 public interface IVectorRealFunction extends IRealFunction<INDArray> {

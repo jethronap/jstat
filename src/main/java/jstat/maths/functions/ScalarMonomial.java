@@ -1,6 +1,7 @@
 package jstat.maths.functions;
 
-import jstat.datasets.VectorDouble;
+import org.nd4j.linalg.api.ndarray.INDArray;
+import org.nd4j.linalg.factory.Nd4j;
 
 /**
  * Class that models a function of the form f = a*X^order
@@ -35,7 +36,11 @@ public class ScalarMonomial implements IScalarRealFunction {
      * Returns the coefficients of the vector function
      */
     @Override
-    public VectorDouble getCoeffs(){return new VectorDouble(1, this.a);}
+    public INDArray getCoeffs(){
+        INDArray rslt = Nd4j.zeros(1);
+        rslt.putScalar(0, this.a);
+        return rslt;
+    }
 
     /**
      * Set the coefficients of the function

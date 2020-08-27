@@ -20,7 +20,7 @@ public class KMeansInput {
 
     IDistanceCalculator distanceCalculator;
 
-    IRandomGenerator<INDArray> randomGenerator;
+    IRandomGenerator randomGenerator;
 
 
     /**

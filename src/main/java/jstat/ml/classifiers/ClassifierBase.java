@@ -1,10 +1,9 @@
 package jstat.ml.classifiers;
 
-import jstat.datastructs.I2DDataSet;
-import jstat.datasets.VectorDouble;
+import org.nd4j.linalg.api.ndarray.INDArray;
 
 
-public abstract  class ClassifierBase<DataSetType extends I2DDataSet> {
+public abstract  class ClassifierBase {
 
 
     /**
@@ -15,7 +14,7 @@ public abstract  class ClassifierBase<DataSetType extends I2DDataSet> {
      * @param labels The given labels
      * @return A trained data set
      */
-    public abstract  <OutputType> OutputType train(final DataSetType dataSet, final VectorDouble labels);
+    public abstract  <OutputType> OutputType train(final INDArray dataSet, final INDArray labels);
 
     /**
      * Predict the class of the given data point
@@ -24,7 +23,7 @@ public abstract  class ClassifierBase<DataSetType extends I2DDataSet> {
      * @param point The predicted point
      * @return A point
      */
-    public abstract <PointType> Integer  predict(PointType point);
+    public abstract Integer  predict(INDArray point);
 
     /**
      * Constructor

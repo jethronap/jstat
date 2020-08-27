@@ -1,12 +1,12 @@
 package jstat.ml.regression;
 
-import jstat.datasets.DenseMatrixSet;
+
 import jstat.maths.functions.LinearVectorPolynomial;
 
 /**
  * Linear regression modelling
  */
-public class LinearRegressor<DataSetType extends DenseMatrixSet<Double>> extends RegressorBase<DataSetType, LinearVectorPolynomial> {
+public class LinearRegressor extends RegressorBase {
 
     /**
      * Constructor

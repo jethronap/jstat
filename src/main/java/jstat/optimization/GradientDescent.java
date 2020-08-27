@@ -1,11 +1,9 @@
 package jstat.optimization;
 
-import jstat.datasets.VectorDouble;
 import jstat.utils.IterativeAlgorithmResult;
-import jstat.datastructs.I2DDataSet;
-import jstat.datastructs.IVector;
 import jstat.maths.functions.IVectorRealFunction;
 import org.nd4j.linalg.api.ndarray.INDArray;
+import org.nd4j.linalg.factory.Nd4j;
 
 public class GradientDescent implements ISupervisedOptimizer {
 
@@ -37,8 +35,9 @@ public class GradientDescent implements ISupervisedOptimizer {
             INDArray jGrads = this.input.errF.gradients(data, y);
 
             // update the
-            for(int c=0; c<coeffs.size(); ++c){
-                coeffs.add(c, -this.input.eta*jGrads.getDouble(c));
+            for(int c=0; c<coeffs.size(0); ++c){
+                double coeff = coeffs.getDouble(c) -this.input.eta*jGrads.getDouble(c);
+                coeffs.putScalar(c, coeff);
             }
 
             f.setCoeffs(coeffs);
@@ -56,7 +55,7 @@ public class GradientDescent implements ISupervisedOptimizer {
             }
 
             jOld = jCurr;
-            jGrads.zero();
+            jGrads = Nd4j.zeros(jGrads.size(0));
         }
 
         IterativeAlgorithmResult reslt =  this.input.iterationContorller.getState();

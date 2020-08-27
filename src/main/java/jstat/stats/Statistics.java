@@ -1,7 +1,6 @@
 package jstat.stats;
 
 
-import jstat.datasets.VectorDouble;
 import org.apache.commons.math3.stat.descriptive.DescriptiveStatistics;
 import jstat.utils.ListUtils;
 
@@ -112,21 +111,6 @@ public class Statistics {
     }
 
     /**
-     * Calculate the given metric from the given data
-     * @param data The data to calculate the metric
-     * @param metric The metric to calculate
-     * @return double
-     */
-    public static double calculate(VectorDouble data, Metrics metric){
-
-        if(data.empty()){
-            throw new IllegalArgumentException("The data set given is empty");
-        }
-
-        return Statistics.calculate(data.getRawData(), metric);
-    }
-
-    /**
      *
      * @param data The data to calculate the statistics
      * @return Statistics instance
@@ -165,17 +149,4 @@ public class Statistics {
         return Statistics.calculate(ListUtils.toDoubleArray(data));
     }
 
-    /**
-     *
-     * @param data The data to calculate the statistics
-     * @return Statistics instance
-     */
-    public static Statistics calculate(VectorDouble data){
-
-        if(data.empty()){
-            throw new IllegalArgumentException("The data set given is empty");
-        }
-
-        return Statistics.calculate(data.getRawData());
-    }
 }

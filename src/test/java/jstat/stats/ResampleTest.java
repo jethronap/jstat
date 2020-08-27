@@ -1,22 +1,22 @@
 package jstat.stats;
 
-import jstat.datasets.VectorDouble;
-import jstat.datastructs.IVector;
 import org.junit.Ignore;
 import org.junit.Test;
 import jstat.stats.utils.Resample;
+import org.nd4j.linalg.api.ndarray.INDArray;
+import org.nd4j.linalg.factory.Nd4j;
 
 import static org.junit.Assert.*;
 
 public class ResampleTest {
 
 
-    static final VectorDouble getNumericSample(int size){
+    static final INDArray getNumericSample(int size){
 
-        VectorDouble inSample = new VectorDouble(size);
+        INDArray inSample = Nd4j.zeros(size);
 
-        for(int i=0; i<inSample.size(); ++i){
-            inSample.set(i, new Double(i));
+        for(int i=0; i<inSample.size(0); ++i){
+            inSample.putScalar(i, (double) i);
         }
 
         return inSample;
@@ -31,10 +31,10 @@ public class ResampleTest {
     @Test
     public void testResampleEqualSize(){
 
-        VectorDouble inSample = ResampleTest.getNumericSample(10);
-        IVector<Double> outSample = Resample.resample(inSample, 10, 3);
+        INDArray inSample = ResampleTest.getNumericSample(10);
+        INDArray outSample = Resample.resample(inSample, 10, 3);
         assertNotNull(outSample);
-        assertEquals(outSample.size(), 10);
+        assertEquals(outSample.size(0), 10);
     }
 
 
@@ -45,10 +45,10 @@ public class ResampleTest {
     @Test
     public void testResampleSmallerSize(){
 
-        VectorDouble inSample = ResampleTest.getNumericSample(10);
-        IVector<Double> outSample = Resample.resample(inSample, 5, 3);
+        INDArray inSample = ResampleTest.getNumericSample(10);
+        INDArray outSample = Resample.resample(inSample, 5, 3);
         assertNotNull(outSample);
-        assertEquals(outSample.size(),5 );
+        assertEquals(outSample.size(0),5 );
     }
 
 

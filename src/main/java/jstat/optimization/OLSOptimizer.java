@@ -1,13 +1,9 @@
 package jstat.optimization;
 
 import jstat.utils.IterativeAlgorithmResult;
-import jstat.datastructs.I2DDataSet;
-import jstat.datastructs.IVector;
-import jstat.datasets.VectorDouble;
 import jstat.maths.functions.IVectorRealFunction;
 import org.apache.commons.math3.stat.regression.OLSMultipleLinearRegression;
-import jstat.utils.ArrayUtils;
-import jstat.utils.ListUtils;
+import org.nd4j.linalg.api.ndarray.INDArray;
 
 /**
  * Ordinary Least Squares optimizer for a real vector function
@@ -17,7 +13,7 @@ public class OLSOptimizer implements ISupervisedOptimizer {
     /**
      * Optimize f on the given data
      */
-    public <OutPutType, DataSetType extends I2DDataSet<IVector<Double>>> OutPutType optimize(final DataSetType data, final VectorDouble y, IVectorRealFunction f){
+    public <OutPutType> OutPutType optimize(final INDArray data, final INDArray y, IVectorRealFunction f){
 
         IterativeAlgorithmResult reslt = new IterativeAlgorithmResult();
         reslt.numThreadsUsed = 1;
@@ -26,21 +22,14 @@ public class OLSOptimizer implements ISupervisedOptimizer {
         OLSMultipleLinearRegression regression = new OLSMultipleLinearRegression();
 
         int numColsToInclude = 2;
-        Double[][] x = new Double[data.m()][numColsToInclude];
-        data.getSubMatrix(x, numColsToInclude, 1, 2);
 
-        double[] yArray = ListUtils.toDoubleArray(y.getRawData());
-        regression.newSampleData(yArray, ArrayUtils.toArray(x));
+        double[][] x = data.toDoubleMatrix();
+        double[] yArray = y.toDoubleVector();
+
+        regression.newSampleData(yArray, x);
         double[] coeffs = regression.estimateRegressionParameters();
         f.setCoeffs(coeffs);
         return (OutPutType) reslt;
     }
 
-    /**
-     * Optimize approximate function f on the given dataset and the
-     * given labels. Derived classes specify the output
-     */
-    /*public <OutPutType, DataSetType extends I2DDataSet> OutPutType optimize(final DataSetType data, final List<Integer> y, IVectorRealFunction f){
-        throw new NotImplementedException("This function has not been implemented");
-    }*/
 }

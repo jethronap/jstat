@@ -1,8 +1,5 @@
 package jstat.optimization;
 
-import jstat.datastructs.I2DDataSet;
-import jstat.datastructs.IVector;
-import jstat.datasets.VectorDouble;
 import jstat.maths.functions.IVectorRealFunction;
 import org.nd4j.linalg.api.ndarray.INDArray;
 

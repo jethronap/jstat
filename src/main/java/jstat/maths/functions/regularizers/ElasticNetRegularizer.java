@@ -1,6 +1,6 @@
 package jstat.maths.functions.regularizers;
 
-import jstat.datastructs.IVector;
+
 import jstat.maths.functions.IRegularizerFunction;
 import jstat.maths.functions.IVectorRealFunction;
 import org.nd4j.linalg.api.ndarray.INDArray;

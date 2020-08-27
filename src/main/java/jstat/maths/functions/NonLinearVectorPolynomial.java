@@ -1,8 +1,6 @@
 package jstat.maths.functions;
 
 
-import jstat.datastructs.IVector;
-import jstat.datasets.VectorDouble;
 import org.nd4j.linalg.api.ndarray.INDArray;
 import org.nd4j.linalg.factory.Nd4j;
 
@@ -34,7 +32,7 @@ public class NonLinearVectorPolynomial implements IVectorRealFunction {
     public Double evaluate(INDArray input){
 
         if(input.size(0) != this.terms.size()){
-            throw new IllegalArgumentException("Invalid number of coeffs. "+input.size()+" should be "+this.terms.size());
+            throw new IllegalArgumentException("Invalid number of coeffs. "+input.size(0)+" should be "+this.terms.size());
         }
 
         double rslt = 0.0;
@@ -85,7 +83,7 @@ public class NonLinearVectorPolynomial implements IVectorRealFunction {
 
         for (int i = 0; i < result.size(0) ; i++) {
 
-            result.putScalar(i, this.terms.get(i).getCoeffs().get(0).doubleValue());
+            result.putScalar(i, this.terms.get(i).getCoeffs().getDouble(0));
         }
 
         return result;
@@ -158,7 +156,7 @@ public class NonLinearVectorPolynomial implements IVectorRealFunction {
      */
     @Override
     public double getCoeff(int coeff){
-        return this.terms.get(coeff).getCoeffs().get(0);
+        return this.terms.get(coeff).getCoeffs().getDouble(0);
     }
 
 
