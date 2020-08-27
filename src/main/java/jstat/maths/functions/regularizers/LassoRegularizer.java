@@ -1,15 +1,15 @@
 package jstat.maths.functions.regularizers;
 
-import jstat.datastructs.IVector;
 import jstat.maths.functions.IRegularizerFunction;
 import jstat.maths.functions.IVectorRealFunction;
+import org.nd4j.linalg.api.ndarray.INDArray;
 
 public class LassoRegularizer implements IRegularizerFunction {
 
     /**
      * Constructor.
      */
-    public LassoRegularizer(double lambda, int startCoeffs, IVectorRealFunction<IVector<Double> > hypothesis){
+    public LassoRegularizer(double lambda, int startCoeffs, IVectorRealFunction hypothesis){
 
         this.startCoeffs = startCoeffs;
         this.lambda = lambda;
@@ -22,7 +22,7 @@ public class LassoRegularizer implements IRegularizerFunction {
     @Override
     public Double evaluate(Void input){
 
-        IVector<Double> coeffs = hypothesis.getCoeffs();
+        INDArray coeffs = hypothesis.getCoeffs();
 
         if(coeffs == null){
             throw new IllegalStateException("Hypothesis coefficients are null");
@@ -30,9 +30,9 @@ public class LassoRegularizer implements IRegularizerFunction {
 
         double sum = 0.0;
 
-        for(int c=startCoeffs; c<coeffs.size(); ++c){
+        for(int c=startCoeffs; c<coeffs.size(0); ++c){
 
-            double coeff = coeffs.get(c);
+            double coeff = coeffs.getDouble(c);
             sum += Math.abs(coeff);
         }
 
@@ -42,5 +42,5 @@ public class LassoRegularizer implements IRegularizerFunction {
 
     int startCoeffs;
     double lambda;
-    jstat.maths.functions.IVectorRealFunction<IVector<Double>> hypothesis;
+    IVectorRealFunction hypothesis;
 }

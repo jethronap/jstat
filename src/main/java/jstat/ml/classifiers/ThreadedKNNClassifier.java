@@ -1,20 +1,18 @@
 package jstat.ml.classifiers;
 
-import jstat.datastructs.I2DDataSet;
-import jstat.datastructs.IVector;
-import jstat.maths.functions.distances.DistanceCalculator;
+import jstat.maths.functions.distances.IDistanceCalculator;
 import jstat.parallel.partitioners.IPartitionPolicy;
 import jstat.parallel.tasks.TaskBase;
 import jstat.ml.classifiers.utils.ClassificationVoter;
 import jstat.utils.Pair;
 import jstat.utils.PairBuilder;
+import org.nd4j.linalg.api.ndarray.INDArray;
 
 import java.util.*;
 import java.util.concurrent.*;
 
-public class ThreadedKNNClassifier<DataType, DataSetType extends I2DDataSet<IVector<DataType>>,
-                                   DistanceType extends DistanceCalculator,
-                                   VoterType extends ClassificationVoter> extends KNNClassifier<DataType, DataSetType, DistanceType, VoterType> {
+public class ThreadedKNNClassifier<DistanceType extends IDistanceCalculator,
+                                   VoterType extends ClassificationVoter> extends KNNClassifier<DistanceType, VoterType> {
 
     /**
      * Constructor
@@ -34,7 +32,7 @@ public class ThreadedKNNClassifier<DataType, DataSetType extends I2DDataSet<IVec
      */
 
     @Override
-    public <PointType> Integer  predict(PointType point){
+    public Integer  predictPoint(INDArray point){
 
         if(this.majorityVoter == null){
             throw new IllegalStateException(" Majority voter has not been set");
@@ -44,7 +42,7 @@ public class ThreadedKNNClassifier<DataType, DataSetType extends I2DDataSet<IVec
             throw new IllegalStateException("Distance calculator has not been set");
         }
 
-        if(this.dataSet.getPartitionPolicy().numPartitions() == 0){
+        /*if(this.dataSet.getPartitionPolicy().numPartitions() == 0){
             throw new IllegalStateException("Dataset does not have partitions set");
         }
 
@@ -61,19 +59,19 @@ public class ThreadedKNNClassifier<DataType, DataSetType extends I2DDataSet<IVec
 
             this.tasks.add(new KNNTask<PointType>(i, point, this.dataSet, this.distanceCalculator, countDownLatch));
             this.executorService.submit((Callable<List<Pair<Integer, Object>>>)this.tasks.get(i));
-        }
+        }*/
 
         // the main thread waits here
-        try {
-            countDownLatch.await();
-        }
-        catch(InterruptedException e){
-        }
+        //try {
+        //    countDownLatch.await();
+        //}
+        //catch(InterruptedException e){
+        //}
 
         // all tasks have finished let's collect the distances
         for (int t = 0; t < this.tasks.size(); t++) {
 
-            List<Pair<Integer, Object>> taskResult = ((KNNTask<PointType>)this.tasks.get(t)).getResult();
+            List<Pair<Integer, Object>> taskResult = ((KNNTask)this.tasks.get(t)).getResult();
             this.majorityVoter.addItems(taskResult);
         }
 
@@ -94,13 +92,13 @@ public class ThreadedKNNClassifier<DataType, DataSetType extends I2DDataSet<IVec
      * The class that represents the task to submit to the executor
      *
      */
-    private class KNNTask<PointType> extends TaskBase<List<Pair<Integer, Object>>>
+    private class KNNTask extends TaskBase<List<Pair<Integer, Object>>>
     {
 
         /**
          * Constructor
          */
-        public KNNTask(int taskId, PointType point, DataSetType dataSet, DistanceType distanceCalculator,   CountDownLatch countDownLatch){
+        public KNNTask(int taskId, INDArray point, INDArray dataSet, DistanceType distanceCalculator,   CountDownLatch countDownLatch){
 
             this.setTaskId(taskId);
             this.setResult(new ArrayList<Pair<Integer, Object>>());
@@ -117,7 +115,7 @@ public class ThreadedKNNClassifier<DataType, DataSetType extends I2DDataSet<IVec
             // we don't want to loop over all rows but only to the
             // rows attached to the task. This is implicitly known
             // by the partitioning of the data set
-            IPartitionPolicy partitionePolicy = this.dataSet.getPartitionPolicy();
+            IPartitionPolicy partitionePolicy = null; //this.dataSet.getPartitionPolicy();
             List<Integer> rows = partitionePolicy.getParition(this.getTaskId());
             List<Pair<Integer, Object>> result = this.getResult();
 
@@ -134,12 +132,12 @@ public class ThreadedKNNClassifier<DataType, DataSetType extends I2DDataSet<IVec
         /**
          * The point type the task is working on
          */
-        PointType point;
+        INDArray point;
 
         /**
          * The dataset the task is working on
          */
-        private DataSetType dataSet;
+        private INDArray dataSet;
 
         /**
          * The distance used

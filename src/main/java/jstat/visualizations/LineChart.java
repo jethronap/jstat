@@ -1,6 +1,7 @@
 package jstat.visualizations;
 
-import jstat.datastructs.IVector;
+
+import org.nd4j.linalg.api.ndarray.INDArray;
 import tech.tablesaw.api.DoubleColumn;
 import tech.tablesaw.api.Table;
 import tech.tablesaw.plotly.Plot;
@@ -27,10 +28,10 @@ public class LineChart {
     /**
      * Plots a line given the chart options and two numeric columns
      */
-    public static void plotLine(IVector<Double> x, IVector<Double> y, LineChartOptions options){
+    public static void plotLine(INDArray x, INDArray y, LineChartOptions options){
 
-        DoubleColumn xCol = DoubleColumn.create(options.xAxisName, x.toArray());
-        DoubleColumn yCol = DoubleColumn.create(options.yAxisName, y.toArray());
+        DoubleColumn xCol = DoubleColumn.create(options.xAxisName, x.toDoubleVector());
+        DoubleColumn yCol = DoubleColumn.create(options.yAxisName, y.toDoubleVector());
         Table table = Table.create(xCol, yCol);
         Plot.show(LinePlot.create(options.chartTitle, table, options.xAxisName, options.yAxisName));
     }

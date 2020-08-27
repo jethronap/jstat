@@ -1,11 +1,10 @@
 package jstat.maths.errorfunctions;
 
 
-import jstat.datasets.VectorDouble;
-import jstat.datastructs.I2DDataSet;
-import jstat.datastructs.IVector;
 import jstat.maths.functions.IRegularizerFunction;
 import jstat.maths.functions.IVectorRealFunction;
+import org.nd4j.linalg.api.ndarray.INDArray;
+import org.nd4j.linalg.factory.Nd4j;
 
 /**
  * The Sum Square Error or SSE is defined as
@@ -19,17 +18,17 @@ public class SSEVectorFunction implements IVectorErrorRealFunction {
     /**
      * Compute the SSE error over the two vectors
      */
-    static public double error(VectorDouble y, VectorDouble yhat){
+    static public double error(INDArray y, INDArray yhat){
 
-        if(y.size() != yhat.size()){
+        if(y.size(0) != yhat.size(0)){
             throw new IllegalArgumentException("Invalid size of vectors ");
         }
 
         double rlst = 0.0;
 
-        for(int i=0; i<y.size(); ++i){
+        for(int i=0; i<y.size(0); ++i){
 
-            double diff = y.get(i) - yhat.get(i);
+            double diff = y.getDouble(i) - yhat.getDouble(i);
             diff *= diff;
             rlst += diff;
         }
@@ -39,7 +38,7 @@ public class SSEVectorFunction implements IVectorErrorRealFunction {
     /**
      * Constructor
      */
-    public SSEVectorFunction(IVectorRealFunction<IVector<Double>> hypothesis ){
+    public SSEVectorFunction(IVectorRealFunction hypothesis ){
 
         if(hypothesis == null){
             throw new IllegalArgumentException("Hypothesis function cannot be null");
@@ -49,7 +48,7 @@ public class SSEVectorFunction implements IVectorErrorRealFunction {
     /**
       * Constructor
      */
-    public SSEVectorFunction(IVectorRealFunction<IVector<Double>> hypothesis, IRegularizerFunction regularizerFunction){
+    public SSEVectorFunction(IVectorRealFunction hypothesis, IRegularizerFunction regularizerFunction){
 
         if(hypothesis == null){
             throw new IllegalArgumentException("Hypothesis function cannot be null");
@@ -62,18 +61,18 @@ public class SSEVectorFunction implements IVectorErrorRealFunction {
      * Evaluate the error function using the given data, labels
      */
     @Override
-    public <DataSetType extends I2DDataSet> double evaluate(DataSetType data, VectorDouble labels){
+    public  double evaluate(INDArray data, INDArray labels){
 
-        if(data.m() != labels.size()){
+        if(data.size(0) != labels.size(0)){
             throw new IllegalArgumentException("Invalid number of data points and labels vector size");
         }
 
         double result = 0.0;
 
-        for(int rowIdx=0; rowIdx<data.m(); ++rowIdx){
+        for(int rowIdx=0; rowIdx<data.size(0); ++rowIdx){
 
-            VectorDouble row = (VectorDouble) data.getRow(rowIdx);
-            double diff = labels.get(rowIdx) - this.hypothesis.evaluate(row);
+            INDArray row = data.getRow(rowIdx);
+            double diff = labels.getDouble(rowIdx) - this.hypothesis.evaluate(row);
             diff *= diff;
             result += diff;
         }
@@ -89,27 +88,28 @@ public class SSEVectorFunction implements IVectorErrorRealFunction {
      * Returns the gradients on the given data
      */
     @Override
-    public <DataSetType extends I2DDataSet> VectorDouble gradients(DataSetType data, VectorDouble labels){
+    public INDArray gradients(INDArray data, INDArray labels){
 
 
-        VectorDouble gradients = new VectorDouble(this.hypothesis.numCoeffs(), 0.0);
+        INDArray gradients = Nd4j.zeros(this.hypothesis.numCoeffs());
 
-        for(int rowIdx=0; rowIdx<data.m(); ++rowIdx){
+        for(int rowIdx=0; rowIdx<data.size(0); ++rowIdx){
 
-            VectorDouble row = (VectorDouble) data.getRow(rowIdx);
+            INDArray row = data.getRow(rowIdx);
 
-            double diff = (labels.get(rowIdx) - this.hypothesis.evaluate(row));
+            double diff = (labels.getDouble(rowIdx) - this.hypothesis.evaluate(row));
 
-            IVector<Double> hypothesisGrads = this.hypothesis.coeffGradients(row);
+            INDArray hypothesisGrads = this.hypothesis.coeffGradients(row);
 
             for(int coeff=0; coeff<this.hypothesis.numCoeffs(); ++coeff){
-                gradients.add(coeff, -2.0*diff*hypothesisGrads.get(coeff));
+                double grad = gradients.getDouble(coeff) -2.0*diff*hypothesisGrads.getDouble(coeff);
+                gradients.putScalar(coeff, grad);
             }
         }
 
         return gradients;
     }
 
-    private IVectorRealFunction<IVector<Double>> hypothesis;
+    private IVectorRealFunction hypothesis;
     private IRegularizerFunction regularizerFunction;
 }

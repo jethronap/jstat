@@ -1,10 +1,10 @@
 package jstat.ml.regression;
 
-import jstat.datasets.DenseMatrixSet;
+
 import jstat.maths.functions.NonLinearVectorPolynomial;
 import jstat.maths.functions.ScalarMonomial;
 
-public class NonLinearRegressor<DataSetType extends DenseMatrixSet<Double>> extends RegressorBase<DataSetType, NonLinearVectorPolynomial > {
+public class NonLinearRegressor extends RegressorBase {
 
     /**
      * Constructor

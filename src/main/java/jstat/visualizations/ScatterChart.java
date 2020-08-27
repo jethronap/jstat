@@ -1,7 +1,7 @@
 package jstat.visualizations;
 
 
-import jstat.datastructs.IVector;
+import org.nd4j.linalg.api.ndarray.INDArray;
 import tech.tablesaw.api.DoubleColumn;
 import tech.tablesaw.api.Table;
 import tech.tablesaw.plotly.Plot;
@@ -29,10 +29,10 @@ public class ScatterChart {
      * of the data set.
      */
 
-    public static void plotScatter(ScatterChartOptions options, IVector<Double> x, IVector<Double> y){
+    public static void plotScatter(ScatterChartOptions options, INDArray x, INDArray y){
 
-        DoubleColumn xCol = DoubleColumn.create(options.xAxisName, x.toArray());
-        DoubleColumn yCol = DoubleColumn.create(options.yAxisName, y.toArray());
+        DoubleColumn xCol = DoubleColumn.create(options.xAxisName, x.toDoubleVector());
+        DoubleColumn yCol = DoubleColumn.create(options.yAxisName, y.toDoubleVector());
         Table table = Table.create(xCol, yCol);
         Plot.show(ScatterPlot.create(options.chartTitle, table, options.xAxisName, options.yAxisName));
     }

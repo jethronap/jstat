@@ -1,10 +1,9 @@
 package jstat.optimization;
 
-import jstat.datasets.VectorDouble;
 import jstat.utils.IterativeAlgorithmResult;
-import jstat.datastructs.I2DDataSet;
-import jstat.datastructs.IVector;
 import jstat.maths.functions.IVectorRealFunction;
+import org.nd4j.linalg.api.ndarray.INDArray;
+import org.nd4j.linalg.factory.Nd4j;
 
 public class GradientDescent implements ISupervisedOptimizer {
 
@@ -22,22 +21,23 @@ public class GradientDescent implements ISupervisedOptimizer {
      * given labels. Derived classes specify the output
      */
     @Override
-    public <OutPutType, DataSetType extends I2DDataSet<IVector<Double>>> OutPutType  optimize(final DataSetType data, final VectorDouble y, IVectorRealFunction f){
+    public <OutPutType> OutPutType  optimize(final INDArray data, final INDArray y, IVectorRealFunction f){
 
         // compute the value of f with the current weights
         double jOld = this.input.errF.evaluate(data, y);
         double jCurr = 0.0;
 
-        IVector<Double> coeffs = f.getCoeffs();
+        INDArray coeffs = f.getCoeffs();
 
         while(this.input.iterationContorller.continueIterations()){
 
             //the gradients of the error function.
-            VectorDouble jGrads = this.input.errF.gradients(data, y);
+            INDArray jGrads = this.input.errF.gradients(data, y);
 
             // update the
-            for(int c=0; c<coeffs.size(); ++c){
-                coeffs.add(c, -this.input.eta*jGrads.get(c));
+            for(int c=0; c<coeffs.size(0); ++c){
+                double coeff = coeffs.getDouble(c) -this.input.eta*jGrads.getDouble(c);
+                coeffs.putScalar(c, coeff);
             }
 
             f.setCoeffs(coeffs);
@@ -55,7 +55,7 @@ public class GradientDescent implements ISupervisedOptimizer {
             }
 
             jOld = jCurr;
-            jGrads.zero();
+            jGrads = Nd4j.zeros(jGrads.size(0));
         }
 
         IterativeAlgorithmResult reslt =  this.input.iterationContorller.getState();

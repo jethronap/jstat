@@ -1,10 +1,9 @@
 import jstat.maths.ConfusionMatrixTestRunner;
 import org.junit.runner.Result;
 
-import jstat.dataloader.CsvLoaderTestRunner;
+
 import testutils.ITestRunnerBase;
-import jstat.dataloader.JsonLoaderTestRunner;
-import jstat.datastructs.NumericSampleTestRunner;
+
 import jstat.stats.ResampleTestRunner;
 import jstat.utils.ArrayOperationsTestRunner;
 
@@ -35,29 +34,6 @@ public class AllTestsRunner {
         totalIgnoredCount += result.getIgnoreCount();
         totalTime += result.getRunTime();
 
-        runner = new NumericSampleTestRunner();
-        result = runner.run(args);
-
-        totalNumTests += result.getRunCount();
-        totalFailureCount += result.getFailureCount();
-        totalIgnoredCount += result.getIgnoreCount();
-        totalTime += result.getRunTime();
-
-        runner = new JsonLoaderTestRunner();
-        result = runner.run(args);
-
-        totalNumTests += result.getRunCount();
-        totalFailureCount += result.getFailureCount();
-        totalIgnoredCount += result.getIgnoreCount();
-        totalTime += result.getRunTime();
-
-        runner = new CsvLoaderTestRunner();
-        result = runner.run(args);
-
-        totalNumTests += result.getRunCount();
-        totalFailureCount += result.getFailureCount();
-        totalIgnoredCount += result.getIgnoreCount();
-        totalTime += result.getRunTime();
 
         runner = new ConfusionMatrixTestRunner();
         result = runner.run(args);

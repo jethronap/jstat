@@ -1,23 +1,24 @@
 package jstat.ml.clustering;
 
 import jstat.utils.IterativeAlgorithmResult;
-import jstat.datastructs.I2DDataSet;
-import jstat.datastructs.IVector;
-import jstat.maths.functions.distances.DistanceCalculator;
-import jstat.maths.functions.generators.IRandomGenerator;
+import org.nd4j.linalg.api.ndarray.INDArray;
 
 
 import java.util.List;
 
-public class KMeans<PointType, DistanceType>{
+public class KMeans{
 
     public class Cluster
     {
         public int id;
-        public IVector<PointType> centroid;
+        public INDArray centroid;
         public List<Integer> points;
 
-        public <DataSetTp extends I2DDataSet<IVector<PointType>>> void calculateCentorid(DataSetTp dataSet){
+        /**
+         * Calculate the centroid of this cluster
+         * @param dataSet
+         */
+        public void calculateCentroid(INDArray dataSet){
 
             for(int i=0; i<points.size(); ++i){
                 //centroid.add(i, dataSet.getRow(this.points.get(i)));
@@ -31,18 +32,18 @@ public class KMeans<PointType, DistanceType>{
      * @param input The given input
      */
     public KMeans(KMeansInput input){
-
         this.input = input;
     }
 
-    public <DataSetType extends I2DDataSet<IVector<PointType>>,
-            SimilarityType extends DistanceCalculator<IVector<PointType>, DistanceType>,
-            RandomGeneratorType extends IRandomGenerator<PointType>>
-    IterativeAlgorithmResult  cluster(final DataSetType data,
-                                            final SimilarityType similarity, final RandomGeneratorType centroidGenerator){
+    /**
+     * Cluster the given dataset
+     * @param data
+     * @return
+     */
+    public IterativeAlgorithmResult  cluster(final INDArray data){
 
         // assign the random centroids
-        List<IVector<PointType>> centroidsOld = centroidGenerator.generate(data, this.input.k);
+        List<INDArray> centroidsOld = this.input.randomGenerator.generate(data, this.input.k);
 
         while(this.input.iterationContorller.continueIterations()){
 
@@ -51,20 +52,20 @@ public class KMeans<PointType, DistanceType>{
             }
 
             //for each point calculate its distance from the centroids
-            for(int p=0; p<data.m(); ++p){
+            for(int p=0; p<data.size(0); ++p){
 
-                this.clusterPoint(p, data.getRow(p), similarity);
+                this.clusterPoint(p, data.getRow(p));
             }
 
             //recalculate centroids
-            DistanceType maxDiff = similarity.maxValue();
+            double maxDiff = this.input.distanceCalculator.maxValue();
             for(int c=0; c<this.clusters.size(); ++c){
 
-                this.clusters.get(c).calculateCentorid(data);
+                this.clusters.get(c).calculateCentroid(data);
 
-                DistanceType distance = similarity.calculate(centroidsOld.get(c), this.clusters.get(c).centroid);
+                double distance = this.input.distanceCalculator.calculate(centroidsOld.get(c), this.clusters.get(c).centroid);
 
-                maxDiff = similarity.compareMin(distance, maxDiff);
+                maxDiff = this.input.distanceCalculator.compareMin(distance, maxDiff);
 
                 //if(distance < maxDiff){
                 //    maxDiff = distance;
@@ -86,15 +87,15 @@ public class KMeans<PointType, DistanceType>{
         return result;
     }
 
-    private <SimilarityType extends DistanceCalculator<IVector<PointType>, DistanceType>> void clusterPoint(int pointId, IVector<PointType> point, final SimilarityType similarity){
+    private void clusterPoint(int pointId, INDArray point){
 
-        DistanceType dist = similarity.maxValue();
+        double dist = this.input.distanceCalculator.maxValue();
         int clusterIdx = -1;
         for(int c=0; c<clusters.size(); ++c){
 
-            DistanceType distance = similarity.calculate(point, clusters.get(c).centroid);
+            double distance = this.input.distanceCalculator.calculate(point, clusters.get(c).centroid);
 
-            if(similarity.compare(distance , dist) == -1){
+            if(this.input.distanceCalculator.compare(distance , dist) == -1){
                 distance = dist;
                 clusterIdx = c;
             }

@@ -1,13 +1,10 @@
 package jstat.ml.classifiers;
 
-import jstat.datasets.VectorDouble;
 import jstat.optimization.ISupervisedOptimizer;
-import jstat.datastructs.I2DDataSet;
-import jstat.datastructs.IVector;
 import jstat.maths.functions.IVectorRealFunction;
+import org.nd4j.linalg.api.ndarray.INDArray;
 
-public class LogisticRegressionClassifier<DataSetType extends I2DDataSet<IVector<Double>>,
-                                HypothesisType extends IVectorRealFunction<IVector<Double>>> extends ClassifierBase<DataSetType> {
+public class LogisticRegressionClassifier extends ClassifierBase {
 
     /**
      * Constructor.
@@ -15,7 +12,7 @@ public class LogisticRegressionClassifier<DataSetType extends I2DDataSet<IVector
      * @param hypothesis A hypothesis type
      * @param optimizer An optimizer
      */
-    public LogisticRegressionClassifier(HypothesisType hypothesis, ISupervisedOptimizer optimizer){
+    public LogisticRegressionClassifier(IVectorRealFunction hypothesis, ISupervisedOptimizer optimizer){
         super();
         this.hypothesis = hypothesis;
         this.optimizer = optimizer;
@@ -25,7 +22,7 @@ public class LogisticRegressionClassifier<DataSetType extends I2DDataSet<IVector
      * Train the model using the provided dataset
      */
     @Override
-    public <OutputType> OutputType train(final DataSetType dataSet, final VectorDouble labels){
+    public <OutputType> OutputType train(final INDArray dataSet, final INDArray labels){
         return this.optimizer.optimize(dataSet, labels, this.hypothesis);
     }
 
@@ -33,8 +30,8 @@ public class LogisticRegressionClassifier<DataSetType extends I2DDataSet<IVector
      * Predict the class of the given data point
      */
     @Override
-    public <PointType> Integer  predict(PointType point){
-        VectorDouble vec = (VectorDouble) point;
+    public Integer  predict(INDArray point){
+        INDArray vec = point;
         double hypothesisVal = this.hypothesis.evaluate(vec);
 
         if(hypothesisVal >= 0.5){
@@ -46,6 +43,6 @@ public class LogisticRegressionClassifier<DataSetType extends I2DDataSet<IVector
     /**
      * The hypothesis function assumed by the regressor
      */
-    protected HypothesisType hypothesis;
+    protected IVectorRealFunction hypothesis;
     protected ISupervisedOptimizer optimizer;
 }

@@ -1,19 +1,18 @@
 package jstat.maths.functions.generators;
 
-import jstat.datastructs.I2DDataSet;
-import jstat.datastructs.IVector;
+import org.nd4j.linalg.api.ndarray.INDArray;
 
 import java.util.*;
 
-public class UniformRandomGenerator<T> implements IRandomGenerator<T> {
+public class UniformRandomGenerator implements IRandomGenerator {
 
     @Override
-    public <DataSetTp extends I2DDataSet<IVector<T>>> List<IVector<T>> generate(DataSetTp dataSet, int n){
+    public List<INDArray> generate(INDArray dataSet, int n){
 
         int min = 0;
-        int max = dataSet.m();
+        int max = (int) dataSet.size(0);
         Random random = new Random();
-        List<IVector<T>> result = new ArrayList<>();
+        List<INDArray> result = new ArrayList<>();
         Set<Integer> touched = new HashSet<>();
 
         for(int r=0; r<n; ++r){

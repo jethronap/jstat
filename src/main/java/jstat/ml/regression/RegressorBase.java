@@ -1,38 +1,38 @@
 package jstat.ml.regression;
 
-import jstat.datasets.VectorDouble;
-import jstat.optimization.ISupervisedOptimizer;
-import jstat.datastructs.IVector;
-import jstat.datasets.DenseMatrixSet;
-import jstat.maths.functions.IVectorRealFunction;
 
-public class RegressorBase<DataSetType extends DenseMatrixSet<Double>, HypothesisType extends IVectorRealFunction<IVector<Double>>> {
+import jstat.optimization.ISupervisedOptimizer;
+import jstat.maths.functions.IVectorRealFunction;
+import org.nd4j.linalg.api.ndarray.INDArray;
+import org.nd4j.linalg.factory.Nd4j;
+
+public class RegressorBase {
 
 
 
     /**
      * Train the regressor on the given dataset
      */
-    public <OutputType> OutputType train(DataSetType dataSet, VectorDouble y, ISupervisedOptimizer optimizer){
+    public <OutputType> OutputType train(INDArray dataSet, INDArray y, ISupervisedOptimizer optimizer){
         return optimizer.optimize(dataSet, y, this.hypothesisType);
     }
 
     /**
      * Predict the value for the given input
      */
-    public double predict(VectorDouble y){
-        return (double) this.hypothesisType.evaluate(y);
-    }
+    //public double predict(INDArray y){
+    //    return (double) this.hypothesisType.evaluate(y);
+    //}
 
     /**
      * Predict the outputs over the given dataset
      */
-    public VectorDouble predict(DataSetType dataSetType){
+    public INDArray predict(INDArray dataSet){
 
-        VectorDouble predictions = new VectorDouble(dataSetType.m(), 0.0);
+        INDArray predictions = Nd4j.zeros(dataSet.size(0));
 
-        for(int idx=0; idx<dataSetType.m(); ++idx){
-            predictions.set(idx, this.hypothesisType.evaluate(dataSetType.getRow(idx)));
+        for(int idx=0; idx<dataSet.size(0); ++idx){
+            predictions.putScalar(idx, this.hypothesisType.evaluate(dataSet.getRow(idx)));
         }
 
         return predictions;
@@ -42,19 +42,19 @@ public class RegressorBase<DataSetType extends DenseMatrixSet<Double>, Hypothesi
     /**
      * Returns the errors over the given dataset with respect to the given labels
      */
-    public VectorDouble getErrors(final DataSetType dataSet, final VectorDouble y){
+    public INDArray getErrors(final INDArray dataSet, final INDArray y){
 
-        if(y.size() != dataSet.m()){
-            throw new IllegalArgumentException("Dataset number of rows: "+dataSet.m()+" not equal to "+y.size());
+        if(y.size(1) != dataSet.size(0)){
+            throw new IllegalArgumentException("Dataset number of rows: "+dataSet.size(0)+" not equal to "+y.size(1));
         }
 
-        VectorDouble errs = new VectorDouble(y.size(), 0.0);
+        INDArray errs = Nd4j.zeros(y.size(1));
 
-        for(int row = 0; row<dataSet.m(); ++row){
+        for(int row = 0; row<dataSet.size(0); ++row){
 
-            IVector<Double> r = dataSet.getRow(row);
-            double error = y.get(row) - this.hypothesisType.evaluate(r);
-            errs.set(row , error);
+            INDArray r = dataSet.getRow(row);
+            double error = -1.0; //y.getScalar(row) - this.hypothesisType.evaluate(r);
+            errs.putScalar(row , error);
         }
 
         return errs;
@@ -63,7 +63,7 @@ public class RegressorBase<DataSetType extends DenseMatrixSet<Double>, Hypothesi
     /**
      * Protected constructor.
      */
-    protected RegressorBase(HypothesisType hypothesis){
+    protected RegressorBase(IVectorRealFunction hypothesis){
         this.hypothesisType = hypothesis;
     }
 
@@ -71,5 +71,5 @@ public class RegressorBase<DataSetType extends DenseMatrixSet<Double>, Hypothesi
     /**
      * The hypothesis function assumed by the regressor
      */
-    protected HypothesisType hypothesisType;
+    protected IVectorRealFunction hypothesisType;
 }

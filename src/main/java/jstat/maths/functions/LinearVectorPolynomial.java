@@ -1,14 +1,13 @@
 package jstat.maths.functions;
 
-import jstat.datasets.VectorDouble;
-import jstat.datastructs.IVector;
-import jstat.maths.VectorOperations;
+import org.nd4j.linalg.api.ndarray.INDArray;
+import org.nd4j.linalg.factory.Nd4j;
 
 /**
  * class that represents a linear polynomial of the form
  * f = w0 + w1*X1 + w2*X2+...worder-1*Xorder-1
  */
-public class LinearVectorPolynomial implements IVectorRealFunction<IVector<Double>> {
+public class LinearVectorPolynomial implements IVectorRealFunction {
 
     /**
       * Construct a vector polynomial: f = w0 + w1*X1 + w2*X2+...worder-1*Xorder-1
@@ -16,24 +15,18 @@ public class LinearVectorPolynomial implements IVectorRealFunction<IVector<Doubl
     public LinearVectorPolynomial(int order){
 
         // we also need the constant coefficient
-        this.coeffs = new VectorDouble(order + 1, 0.0);
+        this.coeffs = Nd4j.zeros(order + 1);
     }
 
 
-    public Double evaluate(VectorDouble input){
-        return VectorOperations.dotProduct(this.coeffs, input);
-    }
-
-
-    @Override
-    public Double evaluate(IVector<Double> input){
-        return this.evaluate((VectorDouble) input);
+    public Double evaluate(INDArray input){
+        return this.coeffs.mmul(input).getDouble(0);
     }
 
     /**
      * Set the coefficients of the Polynomial
      */
-    public final void setCoeffs(VectorDouble coeffs){
+    public final void setCoeffs(INDArray coeffs){
         this.coeffs = coeffs;
     }
 
@@ -42,22 +35,20 @@ public class LinearVectorPolynomial implements IVectorRealFunction<IVector<Doubl
      */
     @Override
     public final void setCoeffs(Double[] coeffs){
-        this.coeffs.set(coeffs);
+        /*this.coeffs.set(coeffs);*/
     }
 
     /**
      * Set the coefficients of the function
      */
     @Override
-    public void setCoeffs(double[] coeffs){
-        this.coeffs.set(coeffs);
-    }
+    public void setCoeffs(double[] coeffs){ }
 
     /**
      * Returns the coefficients of the vector function
      */
     @Override
-    public final VectorDouble getCoeffs(){
+    public final INDArray getCoeffs(){
         return this.coeffs;
     }
 
@@ -66,16 +57,16 @@ public class LinearVectorPolynomial implements IVectorRealFunction<IVector<Doubl
      */
     @Override
     public final int numCoeffs(){
-        return this.coeffs.size();
+        return (int) this.coeffs.size(0);
     }
 
     /**
      * Returns the gradients with respect to the coefficients at the given data point
      */
     @Override
-    public VectorDouble gradidents(IVector<Double> data){
-        VectorDouble rslt = new VectorDouble(data);
-        rslt.set(0, 1.0);
+    public INDArray gradidents(INDArray data){
+        INDArray rslt = data;
+        rslt.putScalar(0, 1.0);
         return rslt;
     }
 
@@ -83,7 +74,7 @@ public class LinearVectorPolynomial implements IVectorRealFunction<IVector<Doubl
      * Returns the gradient with respect to the i-th coeff
      */
     @Override
-    public double gradient(int i, IVector<Double> data){
+    public double gradient(int i, INDArray data){
 
         if(i==0){
             return 0.0;
@@ -92,14 +83,14 @@ public class LinearVectorPolynomial implements IVectorRealFunction<IVector<Doubl
         //this is  a linear model with respect to
         //the weights so simply return the value of the feature
         //for the i-th weight
-        return this.coeffs.get(i);
+        return this.coeffs.getDouble(i);
     }
 
     /**
      * Returns the gradient with respect to the i-th coeff
      */
     @Override
-    public double coeffGradient(int i, IVector<Double> data){
+    public double coeffGradient(int i, INDArray data){
 
         if(i==0){
             return 1.0;
@@ -108,7 +99,7 @@ public class LinearVectorPolynomial implements IVectorRealFunction<IVector<Doubl
         //this is  a linear model with respect to
         //the weights so simply return the value of the feature
         //for the i-th weight
-        return data.get(i);
+        return data.getDouble(i);
 
     }
 
@@ -116,11 +107,11 @@ public class LinearVectorPolynomial implements IVectorRealFunction<IVector<Doubl
      * Compute the gradients with respect to the coefficients
      */
     @Override
-    public VectorDouble coeffGradients(IVector<Double> data){
-        VectorDouble grads = new VectorDouble(this.coeffs.size(), 0.0);
+    public INDArray coeffGradients(INDArray data){
+        INDArray grads = Nd4j.zeros(this.coeffs.size(0));
 
-        for (int i = 0; i < grads.size(); i++) {
-            grads.set(i, this.coeffGradient(i, data));
+        for (int i = 0; i < grads.size(0); i++) {
+            grads.putScalar(i, this.coeffGradient(i, data));
         }
 
         return grads;
@@ -131,13 +122,13 @@ public class LinearVectorPolynomial implements IVectorRealFunction<IVector<Doubl
      */
     @Override
     public double getCoeff(int coeff){
-        return this.coeffs.get(coeff);
+        return this.coeffs.getDouble(coeff);
     }
 
 
     /**
      * The coefficients of the vector
      */
-    private VectorDouble coeffs;
+    private INDArray coeffs;
 
 }

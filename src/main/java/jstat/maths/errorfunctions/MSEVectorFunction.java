@@ -1,10 +1,9 @@
 package jstat.maths.errorfunctions;
 
-import jstat.datastructs.I2DDataSet;
-import jstat.datastructs.IVector;
-import jstat.datasets.VectorDouble;
 import jstat.maths.functions.IRegularizerFunction;
 import jstat.maths.functions.IVectorRealFunction;
+import org.nd4j.linalg.api.ndarray.INDArray;
+import org.nd4j.linalg.factory.Nd4j;
 
 /**
  * The Mean Square Error or MSE is defined as
@@ -18,7 +17,7 @@ public class MSEVectorFunction implements IVectorErrorRealFunction {
     /**
      * Constructor
      */
-    public MSEVectorFunction(IVectorRealFunction<IVector<Double>> hypothesis ){
+    public MSEVectorFunction(IVectorRealFunction hypothesis ){
 
         this.hypothesis = hypothesis;
         this.regularizerFunction = null;
@@ -27,7 +26,7 @@ public class MSEVectorFunction implements IVectorErrorRealFunction {
     /**
      * Constructor
      */
-    public MSEVectorFunction(IVectorRealFunction<IVector<Double>> hypothesis, IRegularizerFunction regularizerFunction ){
+    public MSEVectorFunction(IVectorRealFunction hypothesis, IRegularizerFunction regularizerFunction ){
 
         this.hypothesis = hypothesis;
         this.regularizerFunction = regularizerFunction;
@@ -40,22 +39,22 @@ public class MSEVectorFunction implements IVectorErrorRealFunction {
      * @return
      */
     @Override
-    public <DataSetType extends I2DDataSet> double evaluate(DataSetType data, VectorDouble labels){
+    public double evaluate(INDArray data, INDArray labels){
 
-        if(data.m() != labels.size()){
+        if(data.size(0) != labels.size(0)){
             throw new IllegalArgumentException("Invalid number of data points and labels vector size");
         }
 
         double result = 0.0;
 
-        for(int rowIdx=0; rowIdx<data.m(); ++rowIdx){
-            VectorDouble row = (VectorDouble) data.getRow(rowIdx);
-            double diff = labels.get(rowIdx) - this.hypothesis.evaluate(row);
+        for(int rowIdx=0; rowIdx<data.size(0); ++rowIdx){
+            INDArray row = data.getRow(rowIdx);
+            double diff = labels.getDouble(rowIdx) - this.hypothesis.evaluate(row);
             diff *= diff;
             result += diff;
         }
 
-        result /= data.m();
+        result /= data.size(0);
 
         if(regularizerFunction != null){
             result += regularizerFunction.evaluate(null);
@@ -68,27 +67,28 @@ public class MSEVectorFunction implements IVectorErrorRealFunction {
      * Returns the gradients on the given data
      */
     @Override
-    public <DataSetType extends I2DDataSet> VectorDouble gradients(DataSetType data, VectorDouble labels){
+    public INDArray gradients(INDArray data, INDArray labels){
 
 
-        VectorDouble gradients = new VectorDouble(this.hypothesis.numCoeffs(), 0.0);
+        INDArray gradients = Nd4j.zeros(this.hypothesis.numCoeffs());
 
-        for(int rowIdx=0; rowIdx<data.m(); ++rowIdx){
+        for(int rowIdx=0; rowIdx<data.size(0); ++rowIdx){
 
-            VectorDouble row = (VectorDouble) data.getRow(rowIdx);
+            INDArray row =  data.getRow(rowIdx);
 
-            double diff = (labels.get(rowIdx) - this.hypothesis.evaluate(row));
+            double diff = (labels.getDouble(rowIdx) - this.hypothesis.evaluate(row));
 
-            IVector<Double> hypothesisGrads = this.hypothesis.coeffGradients(row);
+            INDArray hypothesisGrads = this.hypothesis.coeffGradients(row);
 
             for(int coeff=0; coeff<this.hypothesis.numCoeffs(); ++coeff){
-                gradients.add(coeff, (-2.0/data.m())*diff*hypothesisGrads.get(coeff));
+                double grad = gradients.getDouble(coeff) - (2.0/data.size(0))*diff*hypothesisGrads.getDouble(coeff);
+                gradients.putScalar(coeff, grad);
             }
         }
 
         return gradients;
     }
 
-    private IVectorRealFunction<IVector<Double>> hypothesis;
+    private IVectorRealFunction hypothesis;
     IRegularizerFunction regularizerFunction;
 }

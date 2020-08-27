@@ -1,8 +1,8 @@
 package jstat.maths.functions;
 
 
-import jstat.datastructs.IVector;
-import jstat.datasets.VectorDouble;
+import org.nd4j.linalg.api.ndarray.INDArray;
+import org.nd4j.linalg.factory.Nd4j;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +14,7 @@ import java.util.List;
  * the term and the order this term has
  */
 
-public class NonLinearVectorPolynomial implements IVectorRealFunction<IVector<Double>> {
+public class NonLinearVectorPolynomial implements IVectorRealFunction {
 
     /**
      * Constructor
@@ -29,27 +29,19 @@ public class NonLinearVectorPolynomial implements IVectorRealFunction<IVector<Do
 
 
     @Override
-    public Double evaluate(IVector<Double> input){
+    public Double evaluate(INDArray input){
 
-        if(input.size() != this.terms.size()){
-            throw new IllegalArgumentException("Invalid number of coeffs. "+input.size()+" should be "+this.terms.size());
+        if(input.size(0) != this.terms.size()){
+            throw new IllegalArgumentException("Invalid number of coeffs. "+input.size(0)+" should be "+this.terms.size());
         }
 
         double rslt = 0.0;
-        for (int i = 0; i < input.size(); i++) {
-            rslt += this.terms.get(i).evaluate(input.get(i));
+        for (int i = 0; i < input.size(0); i++) {
+            rslt += this.terms.get(i).evaluate(input.getDouble(i));
         }
         return rslt;
     }
 
-    /**
-     * Set the coefficients of the Polynomial
-     */
-    @Override
-    public final void setCoeffs(IVector<Double> coeffs){
-
-        this.setCoeffs(coeffs.toArray());
-    }
 
     /**
      * Set the coefficients of the function
@@ -85,16 +77,16 @@ public class NonLinearVectorPolynomial implements IVectorRealFunction<IVector<Do
      * Returns the coefficients of the vector function
      */
     @Override
-    public final VectorDouble getCoeffs(){
+    public final INDArray getCoeffs(){
 
-        VectorDouble rslt = new VectorDouble(this.terms.size(), 0.0);
+        INDArray result = Nd4j.zeros(this.terms.size());
 
-        for (int i = 0; i < rslt.size() ; i++) {
+        for (int i = 0; i < result.size(0) ; i++) {
 
-            rslt.set(i, this.terms.get(i).getCoeffs().get(0));
+            result.putScalar(i, this.terms.get(i).getCoeffs().getDouble(0));
         }
 
-        return rslt;
+        return result;
     }
 
     /**
@@ -109,17 +101,17 @@ public class NonLinearVectorPolynomial implements IVectorRealFunction<IVector<Do
      * Returns the gradients with respect to the coefficients at the given data point
      */
     @Override
-    public VectorDouble gradidents(IVector<Double> data){
+    public INDArray gradidents(INDArray data){
 
-        if(data.size() != this.terms.size()){
-            throw new IllegalArgumentException("Invalid data size "+data.size()+" should be equal to: "+this.terms.size());
+        if(data.size(0) != this.terms.size()){
+            throw new IllegalArgumentException("Invalid data size "+data.size(0)+" should be equal to: "+this.terms.size());
         }
 
-        VectorDouble rslt = new VectorDouble(data.size(), 0.0);
+        INDArray rslt = Nd4j.zeros(data.size(0));
 
-        for (int i = 0; i < rslt.size() ; i++) {
+        for (int i = 0; i < rslt.size(0) ; i++) {
 
-            rslt.set(i, this.terms.get(i).gradient(data.get(i)));
+            rslt.putScalar(i, this.terms.get(i).gradient(data.getDouble(i)));
         }
 
         return rslt;
@@ -129,12 +121,12 @@ public class NonLinearVectorPolynomial implements IVectorRealFunction<IVector<Do
      * Compute the gradients with respect to the coefficients
      */
     @Override
-    public VectorDouble coeffGradients(IVector<Double> data){
+    public INDArray coeffGradients(INDArray data){
 
-        VectorDouble grads = new VectorDouble(this.terms.size(), 0.0);
+        INDArray grads = Nd4j.zeros(this.terms.size());
 
-        for (int i = 0; i < grads.size(); i++) {
-            grads.set(i, this.coeffGradient(i, data));
+        for (int i = 0; i < grads.size(0); i++) {
+            grads.putScalar(i, this.coeffGradient(i, data));
         }
 
         return grads;
@@ -144,9 +136,9 @@ public class NonLinearVectorPolynomial implements IVectorRealFunction<IVector<Do
      * Returns the gradient with respect to the i-th coeff
      */
     @Override
-    public double coeffGradient(int i, IVector<Double> data){
+    public double coeffGradient(int i, INDArray data){
 
-        return this.terms.get(i).coeffGradient(data.get(i));
+        return this.terms.get(i).coeffGradient(data.getDouble(i));
     }
 
 
@@ -154,9 +146,8 @@ public class NonLinearVectorPolynomial implements IVectorRealFunction<IVector<Do
      * Returns the gradient with respect to the i-th coeff
      */
     @Override
-    public double gradient(int i, IVector<Double> data){
-
-        return this.terms.get(i).gradient(data.get(i));
+    public double gradient(int i, INDArray data){
+        return this.terms.get(i).gradient(data.getDouble(i));
     }
 
 
@@ -165,10 +156,12 @@ public class NonLinearVectorPolynomial implements IVectorRealFunction<IVector<Do
      */
     @Override
     public double getCoeff(int coeff){
-        return this.terms.get(coeff).getCoeffs().get(0);
+        return this.terms.get(coeff).getCoeffs().getDouble(0);
     }
 
 
-
-    List<ScalarMonomial> terms;
+    /**
+     * The terms of the polynomial
+     */
+    private List<ScalarMonomial> terms;
 }

@@ -1,8 +1,8 @@
 package jstat.maths;
 
-import jstat.datasets.DenseMatrixSet;
-import jstat.datastructs.RowBuilder;
-import jstat.datastructs.RowType;
+import org.nd4j.linalg.api.ndarray.INDArray;
+import org.nd4j.linalg.factory.Nd4j;
+
 import java.util.List;
 
 
@@ -50,8 +50,7 @@ public class ConfusionMatrix {
                     predicted.size());
         }
 
-        this.data = new DenseMatrixSet<>(RowType.Type.INTEGER_VECTOR, new RowBuilder(),
-                                        nClasses, nClasses, 0);
+        this.data = Nd4j.zeros(nClasses, nClasses);
 
         // construct the matrix row-wise
         for(int r=0; r<actual.size(); ++r){
@@ -63,10 +62,10 @@ public class ConfusionMatrix {
             }
 
             if(row_idx == predicted.get(r)){
-                this.data.add(row_idx ,row_idx, 1);
+                this.data.putScalar(row_idx ,row_idx, 1);
             }
             else{
-                this.data.add(row_idx , predicted.get(r), 1);
+                this.data.putScalar(row_idx , predicted.get(r), 1);
             }
         }
 
@@ -107,7 +106,7 @@ public class ConfusionMatrix {
      */
     public int truePositives(){
         int result = 0;
-        for(int r=0; r < this.data.m(); ++r){
+        for(int r=0; r < this.data.size(0); ++r){
 
             result += this.getClassCounts(r);
         }
@@ -121,15 +120,15 @@ public class ConfusionMatrix {
      */
     public int getClassCounts(int c){
 
-        if( c >= this.data.m() || c < 0){
+        if( c >= this.data.size(0) || c < 0){
             throw new IllegalArgumentException("Invalid class index. Index "+
                     c+
                     " not in [0, "+
-                    this.data.n()+
+                    this.data.size(1)+
                     ")");
         }
 
-        return this.data.getEntry(c,c);
+        return this.data.getInt(c,c);
     }
 
     /**
@@ -138,19 +137,19 @@ public class ConfusionMatrix {
      * @return
      */
     public int getClassIncorrectCounts(int c){
-        if( c >= this.data.m() || c < 0){
+        if( c >= this.data.size(0) || c < 0){
             throw new IllegalArgumentException("Invalid class index. Index "+
                     c+
                     " not in [0, "+
-                    this.data.n()+
+                    this.data.size(1)+
                     ")");
         }
 
         int result = 0;
 
-        for(int r = 0; r<this.data.m(); ++r){
+        for(int r = 0; r<this.data.size(0); ++r){
             if( r != c){
-                result +=  this.data.getEntry(c , r);
+                result +=  this.data.getInt(c , r);
             }
         }
 
@@ -165,23 +164,23 @@ public class ConfusionMatrix {
      * @return
      */
     public int getClassCountsAsOtherClass(int c, int other){
-        if( c >= this.data.m()){
+        if( c >= this.data.size(0)){
             throw new IllegalArgumentException("Invalid class index. Index "+
                     c+
                     " not in [0, "+
-                    this.data.m()+
+                    this.data.size(0)+
                     ")");
         }
 
-        if( other >= this.data.m()){
+        if( other >= this.data.size(0)){
             throw new IllegalArgumentException("Invalid class index. Index "+
                     other+
                     " not in [0, "+
-                    this.data.n()+
+                    this.data.size(1)+
                     ")");
         }
 
-        return this.data.getEntry(c, other);
+        return this.data.getInt(c, other);
     }
 
     /**
@@ -190,7 +189,7 @@ public class ConfusionMatrix {
     public int totalCount(){return totalCount;}
 
 
-    private DenseMatrixSet<Integer> data;
+    private INDArray data;
     private int totalCount;
 
 }

@@ -24,11 +24,11 @@ public class HMMConfig {
     /**
      * State names
      */
-    List<String> states;
+    public List<String> states;
 
     /**
      * Map providing an association between
      * a string observation and its index
      */
-    Map<String, Integer> obsToIdx;
+    public Map<String, Integer> obsToIdx;
 }
