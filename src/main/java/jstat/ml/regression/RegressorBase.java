@@ -1,28 +1,35 @@
 package jstat.ml.regression;
 
 
+import jstat.ml.ISupervisedModel;
 import jstat.optimization.IOptimizer;
 import jstat.maths.functions.IVectorRealFunction;
 import org.nd4j.linalg.api.ndarray.INDArray;
 import org.nd4j.linalg.factory.Nd4j;
 
-public class RegressorBase {
-
+public class RegressorBase implements ISupervisedModel {
 
 
     /**
-     * Train the regressor on the given dataset
+     * Set the model paramters
+     * @param parameters
      */
-    public void train(INDArray dataSet, INDArray y, IOptimizer optimizer){
-        /*return optimizer.optimize(dataSet, y, this.hypothesisType);*/
+    @Override
+    public void setParameters(INDArray parameters){
+
+    }
+
+    @Override
+    public INDArray getParameters(){
+        return null;
     }
 
     /**
      * Predict the value for the given input
      */
-    //public double predict(INDArray y){
-    //    return (double) this.hypothesisType.evaluate(y);
-    //}
+    /*public double predict(INDArray y){
+        return 0.0; //(double) this.hypothesisType.evaluate(y);
+    }*/
 
     /**
      * Predict the outputs over the given dataset
@@ -61,7 +68,8 @@ public class RegressorBase {
     }
 
     /**
-     * Protected constructor.
+     * Protected constructor. Set the hypothesis function
+     * the regressor is using
      */
     protected RegressorBase(IVectorRealFunction hypothesis){
         this.hypothesisType = hypothesis;
