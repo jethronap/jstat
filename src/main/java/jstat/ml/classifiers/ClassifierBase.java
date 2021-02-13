@@ -14,7 +14,7 @@ public abstract  class ClassifierBase {
      * @param labels The given labels
      * @return A trained data set
      */
-    public abstract  <OutputType> OutputType train(final INDArray dataSet, final INDArray labels);
+    public abstract  void train(final INDArray dataSet, final INDArray labels);
 
     /**
      * Predict the class of the given data point

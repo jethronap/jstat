@@ -2,6 +2,7 @@ package jstat.optimization;
 
 import jstat.utils.IterativAlgorithmController;
 import jstat.maths.errorfunctions.IVectorErrorRealFunction;
+import org.nd4j.linalg.api.ndarray.INDArray;
 
 /**
  * Input class for Gradient Descent algorithm
@@ -33,4 +34,9 @@ public class GDInput{
      * The class that controls the iterations of the algorithm
      */
     public IterativAlgorithmController iterationContorller;
+
+    /**
+     * The model parameters to optimize
+     */
+    public INDArray params;
 }

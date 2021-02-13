@@ -1,6 +1,6 @@
 package jstat.ml.classifiers;
 
-import jstat.optimization.ISupervisedOptimizer;
+import jstat.optimization.IOptimizer;
 import jstat.maths.functions.IVectorRealFunction;
 import org.nd4j.linalg.api.ndarray.INDArray;
 
@@ -12,7 +12,7 @@ public class LogisticRegressionClassifier extends ClassifierBase {
      * @param hypothesis A hypothesis type
      * @param optimizer An optimizer
      */
-    public LogisticRegressionClassifier(IVectorRealFunction hypothesis, ISupervisedOptimizer optimizer){
+    public LogisticRegressionClassifier(IVectorRealFunction hypothesis, IOptimizer optimizer){
         super();
         this.hypothesis = hypothesis;
         this.optimizer = optimizer;
@@ -22,8 +22,8 @@ public class LogisticRegressionClassifier extends ClassifierBase {
      * Train the model using the provided dataset
      */
     @Override
-    public <OutputType> OutputType train(final INDArray dataSet, final INDArray labels){
-        return this.optimizer.optimize(dataSet, labels, this.hypothesis);
+    public void train(final INDArray dataSet, final INDArray labels){
+        /*return this.optimizer.optimize(dataSet, labels, this.hypothesis);*/
     }
 
     /**
@@ -44,5 +44,5 @@ public class LogisticRegressionClassifier extends ClassifierBase {
      * The hypothesis function assumed by the regressor
      */
     protected IVectorRealFunction hypothesis;
-    protected ISupervisedOptimizer optimizer;
+    protected IOptimizer optimizer;
 }

@@ -1,7 +1,7 @@
 package jstat.ml.regression;
 
 
-import jstat.optimization.ISupervisedOptimizer;
+import jstat.optimization.IOptimizer;
 import jstat.maths.functions.IVectorRealFunction;
 import org.nd4j.linalg.api.ndarray.INDArray;
 import org.nd4j.linalg.factory.Nd4j;
@@ -13,8 +13,8 @@ public class RegressorBase {
     /**
      * Train the regressor on the given dataset
      */
-    public <OutputType> OutputType train(INDArray dataSet, INDArray y, ISupervisedOptimizer optimizer){
-        return optimizer.optimize(dataSet, y, this.hypothesisType);
+    public void train(INDArray dataSet, INDArray y, IOptimizer optimizer){
+        /*return optimizer.optimize(dataSet, y, this.hypothesisType);*/
     }
 
     /**
