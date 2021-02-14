@@ -13,7 +13,7 @@ public class OLSOptimizer implements IOptimizer {
     /**
      * Optimize f on the given data
      */
-    public void optimize(final INDArray data, final INDArray y){
+    public void step(INDArray data, INDArray y){
 
         /*IterativeAlgorithmResult reslt = new IterativeAlgorithmResult();
         reslt.numThreadsUsed = 1;

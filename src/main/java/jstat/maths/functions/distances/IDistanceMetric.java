@@ -3,13 +3,10 @@ package jstat.maths.functions.distances;
 import org.nd4j.linalg.api.ndarray.INDArray;
 
 /**
-  *  Some path finding algorithms like A* use heuristic functions
-  *  in order to work. Often this heuristic may simply be the distance
-  *  between two positions. This interface provides a common contract
-  *  for distance claculation between two Points
+  * Interface for deriving simple distance metrics
   *
  */
-public interface IDistanceCalculator {
+public interface IDistanceMetric {
 
     /**
      * Returns the distance between the two points

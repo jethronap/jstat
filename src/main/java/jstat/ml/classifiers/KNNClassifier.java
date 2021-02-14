@@ -1,6 +1,6 @@
 package jstat.ml.classifiers;
 
-import jstat.maths.functions.distances.IDistanceCalculator;
+import jstat.maths.functions.distances.IDistanceMetric;
 import jstat.ml.classifiers.utils.ClassificationVoter;
 import jstat.utils.Pair;
 import org.nd4j.linalg.api.ndarray.INDArray;
@@ -11,8 +11,7 @@ import java.util.*;
 /**
  * KNNClassifier performs classification using the KNN algorithm
  */
-public class KNNClassifier<DistanceType extends IDistanceCalculator,
-                           VoterType extends ClassificationVoter> {
+public class KNNClassifier{
 
     /**
      * Constructor
@@ -37,7 +36,7 @@ public class KNNClassifier<DistanceType extends IDistanceCalculator,
      * Set the object that calculates the distance between instances in the dataset
      * @param distanceCalculator The chosen distance calculator
      */
-    public void setDistanceCalculator(DistanceType distanceCalculator){
+    public void setDistanceCalculator(IDistanceMetric distanceCalculator){
         this.distanceCalculator = distanceCalculator;
     }
 
@@ -45,7 +44,7 @@ public class KNNClassifier<DistanceType extends IDistanceCalculator,
      * Set the object that calculates the class
      * @param voter Class calculator
      */
-    public void setMajorityVoter(VoterType voter){
+    public void setMajorityVoter(ClassificationVoter voter){
         this.majorityVoter = voter;
     }
 
@@ -152,10 +151,10 @@ public class KNNClassifier<DistanceType extends IDistanceCalculator,
     /**
      * The distance used
      */
-    DistanceType distanceCalculator;
+    IDistanceMetric distanceCalculator;
 
     /**
      * How to get the majority set
      */
-    VoterType majorityVoter;
+    ClassificationVoter majorityVoter;
 }

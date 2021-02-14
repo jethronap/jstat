@@ -16,12 +16,39 @@ public class GradientDescent implements IOptimizer {
     }
 
 
+    public void zeroGradients(){
+        errorFunctionGrads = Nd4j.zeros(errorFunctionGrads.size(0));
+    }
+
+    public void compute_gradients(INDArray data, INDArray y){
+        errorFunctionGrads = this.input.errF.gradients(data, y);
+    }
+
+    /**
+     * Update the coefficients
+     */
+    public void updateParameters(){
+
+        for(int c=0; c<this.parameters.size(0); ++c){
+            double coeff = parameters.getDouble(c) - this.input.eta*errorFunctionGrads.getDouble(c);
+            parameters.putScalar(c, coeff);
+        }
+
+    }
+
+
     /**
      * Optimize approximate function f on the given dataset and the
      * given labels. Derived classes specify the output
      */
     @Override
-    public void optimize(final INDArray data, final INDArray y){
+    public void step(INDArray data, INDArray y){
+
+        // update the gradients
+        compute_gradients(data, y);
+
+        // update the parameters
+        updateParameters();
 
         // compute the value of f with the current weights
         /*double jOld = this.input.errF.evaluate(data, y);
@@ -67,4 +94,14 @@ public class GradientDescent implements IOptimizer {
      * The input to the optimizer
      */
     private GDInput input;
+
+    /**
+     * The parameters to optimize
+     */
+    private INDArray parameters;
+
+    /**
+     * The gradients returned by the
+     */
+    INDArray errorFunctionGrads;
 }

@@ -1,6 +1,7 @@
 package jstat.ml;
 
 import org.nd4j.linalg.api.ndarray.INDArray;
+import org.nd4j.linalg.factory.Nd4j;
 
 /**
  * Supervised learning models should implement
@@ -20,4 +21,9 @@ public interface ISupervisedModel {
      * @return INDArray
      */
     INDArray getParameters();
+
+    /**
+     * Predict the outputs over the given dataset
+     */
+    INDArray predict(INDArray dataSet);
 }

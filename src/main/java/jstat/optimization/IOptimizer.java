@@ -8,5 +8,6 @@ public interface IOptimizer {
     /**
      * Optimize over the input data points and labels
      */
-    void optimize(final INDArray data, final INDArray y);
+    void step(INDArray data, INDArray y);
+
 }

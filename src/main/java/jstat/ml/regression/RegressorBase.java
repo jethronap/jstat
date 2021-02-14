@@ -34,6 +34,7 @@ public class RegressorBase implements ISupervisedModel {
     /**
      * Predict the outputs over the given dataset
      */
+    @Override
     public INDArray predict(INDArray dataSet){
 
         INDArray predictions = Nd4j.zeros(dataSet.size(0));

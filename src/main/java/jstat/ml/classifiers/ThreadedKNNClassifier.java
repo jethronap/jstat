@@ -1,9 +1,9 @@
 package jstat.ml.classifiers;
 
-import jstat.maths.functions.distances.IDistanceCalculator;
+import jstat.maths.functions.distances.IDistanceMetric;
 import jstat.parallel.partitioners.IPartitionPolicy;
 import jstat.parallel.tasks.TaskBase;
-import jstat.ml.classifiers.utils.ClassificationVoter;
+
 import jstat.utils.Pair;
 import jstat.utils.PairBuilder;
 import org.nd4j.linalg.api.ndarray.INDArray;
@@ -11,8 +11,7 @@ import org.nd4j.linalg.api.ndarray.INDArray;
 import java.util.*;
 import java.util.concurrent.*;
 
-public class ThreadedKNNClassifier<DistanceType extends IDistanceCalculator,
-                                   VoterType extends ClassificationVoter> extends KNNClassifier<DistanceType, VoterType> {
+public class ThreadedKNNClassifier extends KNNClassifier{
 
     /**
      * Constructor
@@ -98,7 +97,7 @@ public class ThreadedKNNClassifier<DistanceType extends IDistanceCalculator,
         /**
          * Constructor
          */
-        public KNNTask(int taskId, INDArray point, INDArray dataSet, DistanceType distanceCalculator,   CountDownLatch countDownLatch){
+        public KNNTask(int taskId, INDArray point, INDArray dataSet, IDistanceMetric distanceCalculator,   CountDownLatch countDownLatch){
 
             this.setTaskId(taskId);
             this.setResult(new ArrayList<Pair<Integer, Object>>());
@@ -142,7 +141,7 @@ public class ThreadedKNNClassifier<DistanceType extends IDistanceCalculator,
         /**
          * The distance used
          */
-        private DistanceType distanceCalculator;
+        private IDistanceMetric distanceCalculator;
 
         /**
          * Each task counts down this latch when finished

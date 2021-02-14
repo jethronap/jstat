@@ -5,7 +5,7 @@ import org.nd4j.linalg.api.ndarray.INDArray;
 /**
  * Compute Euclidean distance for vector-like jstat.datastructs
  */
-public class EuclideanVectorCalculator implements IDistanceCalculator {
+public class EuclideanMetric implements IDistanceMetric {
 
 
     /**
