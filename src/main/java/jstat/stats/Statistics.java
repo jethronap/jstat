@@ -49,15 +49,15 @@ public class Statistics {
     @Override
     public final String toString(){
 
-	    String str = new String();
-	    str = "Mean:  "+new Double(mean).toString()+"\n";
-        str += "Variance:  "+new Double(variance).toString()+"\n";
-        str += "Median:  "+new Double(median).toString()+"\n";
-        str += "Max:  "+new Double(max).toString()+"\n";
-        str += "Min:  "+new Double(min).toString()+"\n";
-        str += "Skewness:  "+new Double(skewness).toString()+"\n";
-        str += "Kurtosis:  "+new Double(kurtosis).toString()+"\n";
-        str += "Valid:     "+new Boolean(isValid).toString()+"\n";
+	    String str = "";
+	    str = "Mean:  "+ mean +"\n";
+        str += "Variance:  "+ variance +"\n";
+        str += "Median:  "+ median +"\n";
+        str += "Max:  "+ max +"\n";
+        str += "Min:  "+ min +"\n";
+        str += "Skewness:  "+ skewness + "\n";
+        str += "Kurtosis:  "+ kurtosis +"\n";
+        str += "Valid:     "+ isValid +"\n";
 	    return str;
     }
 
