@@ -1,7 +1,5 @@
 package jstat.optimization;
 
-import jstat.utils.IterativeAlgorithmResult;
-import jstat.maths.functions.IVectorRealFunction;
 import org.nd4j.linalg.api.ndarray.INDArray;
 import org.nd4j.linalg.factory.Nd4j;
 
@@ -11,17 +9,24 @@ public class GradientDescent implements IOptimizer {
      * Constructor
      */
     public GradientDescent(GDInput input){
-
         this.input = input;
     }
 
 
+    /**
+     * Zero the computed gradients
+     */
     public void zeroGradients(){
-        errorFunctionGrads = Nd4j.zeros(errorFunctionGrads.size(0));
+        lossFunctionGrads = Nd4j.zeros(lossFunctionGrads.size(0));
     }
 
-    public void compute_gradients(INDArray data, INDArray y){
-        errorFunctionGrads = this.input.errF.gradients(data, y);
+    /**
+     * Compute the gradients on the given labeled data set
+     * @param data
+     * @param y
+     */
+    public void computeGradients(INDArray data, INDArray y){
+        lossFunctionGrads = this.input.lossFunction.paramGradients(data, y);
     }
 
     /**
@@ -29,13 +34,12 @@ public class GradientDescent implements IOptimizer {
      */
     public void updateParameters(){
 
-        for(int c=0; c<this.parameters.size(0); ++c){
-            double coeff = parameters.getDouble(c) - this.input.eta*errorFunctionGrads.getDouble(c);
-            parameters.putScalar(c, coeff);
+        for(int c=0; c<this.input.parameters.size(0); ++c){
+            double coeff = this.input.parameters.getDouble(c) - this.input.eta* lossFunctionGrads.getDouble(c);
+            this.input.parameters.putScalar(c, coeff);
         }
 
     }
-
 
     /**
      * Optimize approximate function f on the given dataset and the
@@ -45,10 +49,13 @@ public class GradientDescent implements IOptimizer {
     public void step(INDArray data, INDArray y){
 
         // update the gradients
-        compute_gradients(data, y);
+        computeGradients(data, y);
 
         // update the parameters
         updateParameters();
+
+        // zero the gradients
+        zeroGradients();
 
         // compute the value of f with the current weights
         /*double jOld = this.input.errF.evaluate(data, y);
@@ -96,12 +103,7 @@ public class GradientDescent implements IOptimizer {
     private GDInput input;
 
     /**
-     * The parameters to optimize
+     * The gradients returned by the error function
      */
-    private INDArray parameters;
-
-    /**
-     * The gradients returned by the
-     */
-    INDArray errorFunctionGrads;
+    INDArray lossFunctionGrads;
 }

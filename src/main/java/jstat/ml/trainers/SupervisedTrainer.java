@@ -1,5 +1,6 @@
 package jstat.ml.trainers;
 
+import jstat.maths.errorfunctions.ILossFunction;
 import jstat.ml.ISupervisedModel;
 import jstat.optimization.IOptimizer;
 import jstat.utils.DefaultIterativeAlgorithmController;
@@ -13,20 +14,26 @@ import org.nd4j.linalg.api.ndarray.INDArray;
  */
 public class SupervisedTrainer {
 
-    public SupervisedTrainer(ISupervisedModel model, IOptimizer optimizer,  int numItrs, double tol){
+    public SupervisedTrainer(ISupervisedModel model, IOptimizer optimizer, ILossFunction loss, int numItrs, double tol){
 
         this.model = model;
         this.optimizer = optimizer;
+        this.loss = loss;
         this.iterationController = new DefaultIterativeAlgorithmController(numItrs, tol);
 
     }
 
     public IterativeAlgorithmResult train(INDArray data, INDArray y){
 
+
+        double previousLoss = Double.MAX_VALUE;
         while(this.iterationController.continueIterations()){
 
             // do a model prediction
             INDArray result = model.predict(data);
+
+            // what is the loss
+            double currentLoss = this.loss.evaluate(result, y);
 
             // do one step of the optimizer
             // this updates the coefficients of
@@ -34,11 +41,14 @@ public class SupervisedTrainer {
             optimizer.step(data, y);
 
             // check for convergence
+            double absError = Math.abs(previousLoss - currentLoss);
 
-            System.out.println("Iteration: "+this.iterationController.getCurrentIteration());
-            //System.out.println("\tJold: "+jOld + " Jcur: " + jCurr);
-            //System.out.println("\tError |Jcur-Jold|: "+ error);
-            System.out.println("\tExit tolerance: "+iterationController.getExitTolerance());
+            // update the residual of the controller
+            this.iterationController.updateResidual(absError);
+
+            System.out.println("Iteration: " + this.iterationController.getCurrentIteration());
+            System.out.println("\tAbs Error |Jcur-Jold|: "+ this.iterationController.getResidual());
+            System.out.println("\tExit tolerance: " + this.iterationController.getExitTolerance());
 
         }
 
@@ -49,5 +59,6 @@ public class SupervisedTrainer {
 
     private ISupervisedModel model;
     private IOptimizer optimizer;
+    private ILossFunction loss;
     private IterativAlgorithmController iterationController;
 }

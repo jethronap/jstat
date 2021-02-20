@@ -2,11 +2,16 @@ package jstat.ml.regression;
 
 
 import jstat.ml.ISupervisedModel;
-import jstat.optimization.IOptimizer;
+
 import jstat.maths.functions.IVectorRealFunction;
 import org.nd4j.linalg.api.ndarray.INDArray;
 import org.nd4j.linalg.factory.Nd4j;
 
+
+/**
+ * Base class for regression models. Implements ISupervisedModel
+ * interface
+ */
 public class RegressorBase implements ISupervisedModel {
 
 
@@ -16,20 +21,17 @@ public class RegressorBase implements ISupervisedModel {
      */
     @Override
     public void setParameters(INDArray parameters){
-
-    }
-
-    @Override
-    public INDArray getParameters(){
-        return null;
+        this.hypothesisType.setCoeffs(parameters);
     }
 
     /**
-     * Predict the value for the given input
+     * Returns the parameters of the model
+     * @return
      */
-    /*public double predict(INDArray y){
-        return 0.0; //(double) this.hypothesisType.evaluate(y);
-    }*/
+    @Override
+    public INDArray getParameters(){
+        return this.hypothesisType.getCoeffs();
+    }
 
     /**
      * Predict the outputs over the given dataset

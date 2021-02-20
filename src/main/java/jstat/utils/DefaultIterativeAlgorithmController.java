@@ -66,9 +66,16 @@ public class DefaultIterativeAlgorithmController implements IterativAlgorithmCon
      */
     @Override
     public void updateResidual(double res){
-
         this.currentRes = res;
     }
+
+    /**
+     * Returns the current residual
+     */
+    public double getResidual(){
+        return this.currentRes;
+    }
+
 
     private int maxIterations;
     private double exitTolerance;

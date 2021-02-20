@@ -1,7 +1,6 @@
 package jstat.optimization;
 
-import jstat.utils.IterativAlgorithmController;
-import jstat.maths.errorfunctions.IVectorErrorRealFunction;
+import jstat.maths.errorfunctions.ILossFunction;
 import org.nd4j.linalg.api.ndarray.INDArray;
 
 /**
@@ -18,25 +17,15 @@ public class GDInput{
     /**
      * The learning rate used
      */
-    public double eta;
-
-    /**
-     * Use momentum implementation
-     */
-    public boolean useMomentum=false;
+    public double eta = 0.01;
 
     /**
      * The error function used
      */
-    public IVectorErrorRealFunction errF;
-
-    /**
-     * The class that controls the iterations of the algorithm
-     */
-    public IterativAlgorithmController iterationContorller;
+    public ILossFunction lossFunction;
 
     /**
      * The model parameters to optimize
      */
-    public INDArray params;
+    public INDArray parameters;
 }

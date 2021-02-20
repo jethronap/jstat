@@ -125,7 +125,6 @@ public class LinearVectorPolynomial implements IVectorRealFunction {
         return this.coeffs.getDouble(coeff);
     }
 
-
     /**
      * The coefficients of the vector
      */
