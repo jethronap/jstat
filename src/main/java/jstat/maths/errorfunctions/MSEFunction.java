@@ -12,12 +12,12 @@ import org.nd4j.linalg.factory.Nd4j;
  * The \hat{y} value is modeled after the IVectorRealFunction passed
  * to the object when instantiated
  */
-public class MSEVectorFunction implements ILossFunction {
+public class MSEFunction implements ILossFunction {
 
     /**
      * Constructor
      */
-    public MSEVectorFunction(IVectorRealFunction hypothesis ){
+    public MSEFunction(IVectorRealFunction hypothesis ){
 
         this.hypothesis = hypothesis;
         this.regularizerFunction = null;
@@ -26,7 +26,7 @@ public class MSEVectorFunction implements ILossFunction {
     /**
      * Constructor
      */
-    public MSEVectorFunction(IVectorRealFunction hypothesis, IRegularizerFunction regularizerFunction ){
+    public MSEFunction(IVectorRealFunction hypothesis, IRegularizerFunction regularizerFunction ){
 
         this.hypothesis = hypothesis;
         this.regularizerFunction = regularizerFunction;

@@ -9,12 +9,12 @@ import org.nd4j.linalg.factory.Nd4j;
  * LogisticSSEVectorFunction implements
  * J = \sum
  */
-public class LogisticSSEVectorFunction implements ILossFunction {
+public class LogisticSSEFunction implements ILossFunction {
 
     /**
      * Constructor
      */
-    public LogisticSSEVectorFunction(IVectorRealFunction hypothesis ){
+    public LogisticSSEFunction(IVectorRealFunction hypothesis ){
 
         if(hypothesis == null){
             throw new IllegalArgumentException("Hypothesis function cannot be null");

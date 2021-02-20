@@ -13,7 +13,7 @@ import org.nd4j.linalg.factory.Nd4j;
  * The \hat{y} value is modeled after the IVectorRealFunction passed
  * to the object when instantiated
  */
-public class SSEVectorFunction implements ILossFunction {
+public class SSEFunction implements ILossFunction {
 
     /**
      * Compute the SSE error over the two vectors
@@ -38,7 +38,7 @@ public class SSEVectorFunction implements ILossFunction {
     /**
      * Constructor
      */
-    public SSEVectorFunction(IVectorRealFunction hypothesis ){
+    public SSEFunction(IVectorRealFunction hypothesis ){
 
         if(hypothesis == null){
             throw new IllegalArgumentException("Hypothesis function cannot be null");
@@ -48,7 +48,7 @@ public class SSEVectorFunction implements ILossFunction {
     /**
       * Constructor
      */
-    public SSEVectorFunction(IVectorRealFunction hypothesis, IRegularizerFunction regularizerFunction){
+    public SSEFunction(IVectorRealFunction hypothesis, IRegularizerFunction regularizerFunction){
 
         if(hypothesis == null){
             throw new IllegalArgumentException("Hypothesis function cannot be null");

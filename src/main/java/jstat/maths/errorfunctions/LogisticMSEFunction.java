@@ -5,12 +5,12 @@ import jstat.maths.functions.IVectorRealFunction;
 import org.nd4j.linalg.api.ndarray.INDArray;
 import org.nd4j.linalg.factory.Nd4j;
 
-public class LogisticMSEVectorFunction implements ILossFunction {
+public class LogisticMSEFunction implements ILossFunction {
 
     /**
      * Constructor
      */
-    public LogisticMSEVectorFunction(IVectorRealFunction hypothesis ){
+    public LogisticMSEFunction(IVectorRealFunction hypothesis ){
 
         if(hypothesis == null){
             throw new IllegalArgumentException("Hypothesis function cannot be null");
