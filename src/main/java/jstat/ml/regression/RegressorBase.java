@@ -12,8 +12,69 @@ import org.nd4j.linalg.factory.Nd4j;
  * Base class for regression models. Implements ISupervisedModel
  * interface
  */
-public class RegressorBase implements ISupervisedModel {
+public class RegressorBase implements ISupervisedModel, IVectorRealFunction {
 
+    /**
+     * Evaluate the function on the given input
+     */
+    @Override
+    public Double evaluate(INDArray data){
+        return this.hypothesisFunction.evaluate(data);
+    }
+
+    /**
+     * Returns the number of coefficients
+     */
+    @Override
+    public int numCoeffs(){return (int)this.getParameters().size(0);}
+
+    /**
+     * Returns the coefficients of the vector function
+     */
+    @Override
+    public INDArray getCoeffs(){return this.getParameters();}
+
+    /**
+     * Returns the i-th coefficient
+     */
+    @Override
+    public double getCoeff(int i){return this.hypothesisFunction.getCoeff(i);}
+
+    /**
+     * Set the coefficients of the function
+     */
+    @Override
+    public void setCoeffs(Double[] coeffs){this.hypothesisFunction.setCoeffs(coeffs);}
+
+    /**
+     * Set the coefficients of the function
+     */
+    @Override
+    public void setCoeffs(double[] coeffs){this.hypothesisFunction.setCoeffs(coeffs);}
+
+    /**
+     * Returns the gradients with respect to the coefficients at the given data point
+     */
+    @Override
+    public INDArray gradidents(INDArray data){return hypothesisFunction.gradidents(data);}
+
+    /**
+     * Compute the gradients with respect to the coefficients
+     */
+    @Override
+    public INDArray coeffGradients(INDArray data){return this.hypothesisFunction.coeffGradients(data);}
+
+    /**
+     * Returns the i-th gradient
+     */
+    @Override
+    public double gradient(int i, INDArray data){return this.hypothesisFunction.gradient(i, data);}
+
+    /**
+     * Returns the gradient with respect to the i-th coeff
+     */
+    @Override
+    public double coeffGradient(int i, INDArray data){return this.hypothesisFunction.coeffGradient(i, data);}
 
     /**
      * Set the model paramters
@@ -21,7 +82,7 @@ public class RegressorBase implements ISupervisedModel {
      */
     @Override
     public void setParameters(INDArray parameters){
-        this.hypothesisType.setCoeffs(parameters);
+        this.hypothesisFunction.setCoeffs(parameters);
     }
 
     /**
@@ -30,7 +91,7 @@ public class RegressorBase implements ISupervisedModel {
      */
     @Override
     public INDArray getParameters(){
-        return this.hypothesisType.getCoeffs();
+        return this.hypothesisFunction.getCoeffs();
     }
 
     /**
@@ -42,7 +103,7 @@ public class RegressorBase implements ISupervisedModel {
         INDArray predictions = Nd4j.zeros(dataSet.size(0));
 
         for(int idx=0; idx<dataSet.size(0); ++idx){
-            predictions.putScalar(idx, this.hypothesisType.evaluate(dataSet.getRow(idx)));
+            predictions.putScalar(idx, this.hypothesisFunction.evaluate(dataSet.getRow(idx)));
         }
 
         return predictions;
@@ -75,12 +136,12 @@ public class RegressorBase implements ISupervisedModel {
      * the regressor is using
      */
     protected RegressorBase(IVectorRealFunction hypothesis){
-        this.hypothesisType = hypothesis;
+        this.hypothesisFunction = hypothesis;
     }
 
 
     /**
      * The hypothesis function assumed by the regressor
      */
-    protected IVectorRealFunction hypothesisType;
+    protected IVectorRealFunction hypothesisFunction;
 }
