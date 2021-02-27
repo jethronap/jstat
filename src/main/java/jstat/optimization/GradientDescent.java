@@ -9,6 +9,11 @@ public class GradientDescent implements IOptimizer {
      * Constructor
      */
     public GradientDescent(GDInput input){
+
+        if(input.parameters == null){
+            throw new IllegalArgumentException("Model parameters are not set");
+        }
+
         this.input = input;
     }
 
