@@ -15,16 +15,35 @@ public class CSVDataLoader {
 
     public static Pair<INDArray, INDArray> loadCarPlant() throws IOException {
 
-        File file = Configuration.dataDirectory;
+        File file = new File(Configuration.dataDirectory + "car_plant.csv");
 
         CsvReadOptions options = CsvReadOptions.builder(file).missingValueIndicator("null").build();
         Table dataSet = Table.read().usingOptions(options);
 
-        INDArray x = Nd4j.zeros(dataSet.rowCount());
+        INDArray x = Nd4j.zeros(dataSet.rowCount(), 1);
         INDArray y = Nd4j.zeros(dataSet.rowCount());
 
         for(int i=0; i<dataSet.rowCount(); ++i){
             x.putScalar(i, dataSet.doubleColumn(0).get(i));
+            y.putScalar(i, dataSet.doubleColumn(1).get(i));
+        }
+
+        return PairBuilder.makePair(x, y);
+    }
+
+    public static Pair<INDArray, INDArray> loadCarPlantWithIntercept() throws IOException {
+
+        File file = new File(Configuration.dataDirectory + "car_plant.csv");
+
+        CsvReadOptions options = CsvReadOptions.builder(file).missingValueIndicator("null").build();
+        Table dataSet = Table.read().usingOptions(options);
+
+        INDArray x = Nd4j.zeros(dataSet.rowCount(), 2);
+        INDArray y = Nd4j.zeros(dataSet.rowCount());
+
+        for(int i=0; i<dataSet.rowCount(); ++i){
+            x.putScalar(i, 0, 1.0);
+            x.putScalar(i, 1, dataSet.doubleColumn(0).get(i));
             y.putScalar(i, dataSet.doubleColumn(1).get(i));
         }
 
