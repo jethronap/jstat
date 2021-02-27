@@ -113,7 +113,7 @@ public class RegressorBase implements ISupervisedModel, IVectorRealFunction {
     /**
      * Returns the errors over the given dataset with respect to the given labels
      */
-    public INDArray getErrors(final INDArray dataSet, final INDArray y){
+    public INDArray getErrors(INDArray dataSet, INDArray y){
 
         if(y.size(1) != dataSet.size(0)){
             throw new IllegalArgumentException("Dataset number of rows: "+dataSet.size(0)+" not equal to "+y.size(1));
@@ -124,12 +124,18 @@ public class RegressorBase implements ISupervisedModel, IVectorRealFunction {
         for(int row = 0; row<dataSet.size(0); ++row){
 
             INDArray r = dataSet.getRow(row);
-            double error = -1.0; //y.getScalar(row) - this.hypothesisType.evaluate(r);
+            double error = y.getScalar(row).getDouble(0) - this.hypothesisFunction.evaluate(r);
             errs.putScalar(row , error);
         }
 
         return errs;
     }
+
+    /**
+     * Returns true if the intercept is accounted in the model
+     * @return
+     */
+    public boolean hasIntercept(){return withIntercept;}
 
     /**
      * Protected constructor. Set the hypothesis function
@@ -144,4 +150,10 @@ public class RegressorBase implements ISupervisedModel, IVectorRealFunction {
      * The hypothesis function assumed by the regressor
      */
     protected IVectorRealFunction hypothesisFunction;
+
+    /**
+     * Flag indicating that the interception
+     * term is used
+     */
+    protected boolean withIntercept;
 }

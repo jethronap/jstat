@@ -12,14 +12,41 @@ public class LinearVectorPolynomial implements IVectorRealFunction {
     /**
       * Construct a vector polynomial: f = w0 + w1*X1 + w2*X2+...worder-1*Xorder-1
      */
-    public LinearVectorPolynomial(int order){
+    public LinearVectorPolynomial(int order, boolean withIntercept){
 
-        // we also need the constant coefficient
-        this.coeffs = Nd4j.zeros(order + 1);
+        this.withIntercept = withIntercept;
+
+        if(withIntercept) {
+
+            // we also need the constant coefficient
+            this.coeffs = Nd4j.zeros(order + 1);
+        }
+        else{
+
+            this.coeffs = Nd4j.zeros(order);
+        }
     }
 
 
+    /**
+     * Returns true if the intercept is accounted in the model
+     * @return
+     */
+    public boolean hasIntercept(){return this.withIntercept;}
+
+    /**
+     * Compute the value of the polynomial
+     * @param input
+     * @return
+     */
     public Double evaluate(INDArray input){
+
+        double result = 0;
+        for(int i=0; i<this.coeffs.size(0); ++i){
+            result += this.coeffs.getDouble(i)*input.getDouble(i);
+        }
+
+        INDArray resultArr = this.coeffs.mmul(input);
         return this.coeffs.mmul(input).getDouble(0);
     }
 
@@ -27,6 +54,11 @@ public class LinearVectorPolynomial implements IVectorRealFunction {
      * Set the coefficients of the Polynomial
      */
     public final void setCoeffs(INDArray coeffs){
+
+        if(this.coeffs.size(0) != coeffs.size(0)){
+            //this is a mismatch
+        }
+
         this.coeffs = coeffs;
     }
 
@@ -92,6 +124,8 @@ public class LinearVectorPolynomial implements IVectorRealFunction {
     @Override
     public double coeffGradient(int i, INDArray data){
 
+        // this depends on whether we use intercept
+        // or not
         if(i==0){
             return 1.0;
         }
@@ -129,5 +163,11 @@ public class LinearVectorPolynomial implements IVectorRealFunction {
      * The coefficients of the vector
      */
     private INDArray coeffs;
+
+    /**
+     * Flag indicating that the interception
+     * term is used
+     */
+    private boolean withIntercept;
 
 }

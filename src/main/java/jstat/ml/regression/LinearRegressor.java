@@ -11,8 +11,9 @@ public class LinearRegressor extends RegressorBase {
     /**
      * Constructor
      */
-    public LinearRegressor(int numFeatures){
-        super(new LinearVectorPolynomial(numFeatures));
+    public LinearRegressor(int numFeatures, boolean withIntercept){
+            super(new LinearVectorPolynomial(numFeatures, withIntercept));
+            super.withIntercept = withIntercept;
     }
 
     /**
@@ -20,6 +21,7 @@ public class LinearRegressor extends RegressorBase {
      */
     public LinearRegressor(LinearVectorPolynomial hypothesis){
         super(hypothesis);
+        super.withIntercept = hypothesis.hasIntercept();
     }
 
 }
