@@ -47,9 +47,9 @@ public class MSEFunction implements ILossFunction {
 
         double result = 0.0;
 
-        for(int rowIdx=0; rowIdx<data.size(0); ++rowIdx){
-            INDArray row = data.getRow(rowIdx);
-            double diff = labels.getDouble(rowIdx) - this.hypothesis.evaluate(row);
+        for(int idx=0; idx<data.size(0); ++idx){
+            //INDArray row = data.getRow(rowIdx);
+            double diff = labels.getDouble(idx) - data.getDouble(idx);//this.hypothesis.evaluate(row);
             diff *= diff;
             result += diff;
         }
