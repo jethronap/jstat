@@ -33,9 +33,10 @@ public class MSEFunction implements ILossFunction {
     }
 
     /**
-     * Evaluate the error function using the given data, labels
-     * @param data
-     * @param labels
+     * Given the output and the target evaluate the
+     * loss function
+     * @param output
+     * @param target
      * @return
      */
     @Override
@@ -76,11 +77,16 @@ public class MSEFunction implements ILossFunction {
 
             INDArray row =  data.getRow(rowIdx);
 
+            // compute y_i - \hat{y_i}
             double diff = (labels.getDouble(rowIdx) - this.hypothesis.evaluate(row));
 
+            // the gradietns of the hypothesis on that
+            // point
             INDArray hypothesisGrads = this.hypothesis.coeffGradients(row);
 
             for(int coeff=0; coeff<this.hypothesis.numCoeffs(); ++coeff){
+
+                // update the gradient
                 double grad = gradients.getDouble(coeff) - (2.0/data.size(0))*diff*hypothesisGrads.getDouble(coeff);
                 gradients.putScalar(coeff, grad);
             }

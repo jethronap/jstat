@@ -1,5 +1,6 @@
 package jstat.ml.trainers;
 
+import jstat.base.CommonConstants;
 import jstat.maths.errorfunctions.ILossFunction;
 import jstat.ml.ISupervisedModel;
 import jstat.optimization.IOptimizer;
@@ -46,9 +47,10 @@ public class SupervisedTrainer {
             // update the residual of the controller
             this.iterationController.updateResidual(absError);
 
-            System.out.println("Iteration: " + this.iterationController.getCurrentIteration());
-            System.out.println("\tAbs Error |Jcur-Jold|: "+ this.iterationController.getResidual());
-            System.out.println("\tExit tolerance: " + this.iterationController.getExitTolerance());
+            System.out.println(CommonConstants.INFO + " Iteration: " + this.iterationController.getCurrentIteration());
+            System.out.println(CommonConstants.INFO + " Abs Error |Jcur-Jold|: "+ this.iterationController.getResidual());
+            System.out.println(CommonConstants.INFO + " Exit tolerance: " + this.iterationController.getExitTolerance());
+            previousLoss = currentLoss;
 
         }
 

@@ -43,8 +43,9 @@ public class GradientDescent implements IOptimizer {
             double coeff = this.input.parameters.getDouble(c) - this.input.eta* lossFunctionGrads.getDouble(c);
             this.input.parameters.putScalar(c, coeff);
         }
-
     }
+
+
 
     /**
      * Optimize approximate function f on the given dataset and the
@@ -61,6 +62,8 @@ public class GradientDescent implements IOptimizer {
 
         // zero the gradients
         zeroGradients();
+
+        System.out.println("Update parameters: " + this.input.parameters);
 
         // compute the value of f with the current weights
         /*double jOld = this.input.errF.evaluate(data, y);
