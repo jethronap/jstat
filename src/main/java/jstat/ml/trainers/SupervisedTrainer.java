@@ -26,7 +26,6 @@ public class SupervisedTrainer {
 
     public IterativeAlgorithmResult train(INDArray data, INDArray y){
 
-
         double previousLoss = Double.MAX_VALUE;
         while(this.iterationController.continueIterations()){
 
@@ -47,11 +46,13 @@ public class SupervisedTrainer {
             // update the residual of the controller
             this.iterationController.updateResidual(absError);
 
+            // update the model parameters
+            this.model.setParameters(optimizer.getOptimizedParameters());
+
             System.out.println(CommonConstants.INFO + " Iteration: " + this.iterationController.getCurrentIteration());
             System.out.println(CommonConstants.INFO + " Abs Error |Jcur-Jold|: "+ this.iterationController.getResidual());
             System.out.println(CommonConstants.INFO + " Exit tolerance: " + this.iterationController.getExitTolerance());
             previousLoss = currentLoss;
-
         }
 
         IterativeAlgorithmResult reslt =  this.iterationController.getState();
