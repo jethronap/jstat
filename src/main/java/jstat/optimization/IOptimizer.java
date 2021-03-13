@@ -10,4 +10,9 @@ public interface IOptimizer {
      */
     void step(INDArray data, INDArray y);
 
+    /**
+     * Returns the optimize parameters
+     */
+    INDArray getOptimizedParameters();
+
 }

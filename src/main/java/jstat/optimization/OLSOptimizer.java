@@ -29,6 +29,14 @@ public class OLSOptimizer implements IOptimizer {
     }
 
     /**
+     * Returns the optimize parameters
+     */
+    @Override
+    public INDArray getOptimizedParameters(){
+        return this.parameters;
+    }
+
+    /**
      * Returns true if the intercept is accounted in the model
      * @return
      */

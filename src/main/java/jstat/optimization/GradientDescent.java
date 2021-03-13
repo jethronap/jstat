@@ -17,6 +17,13 @@ public class GradientDescent implements IOptimizer {
         this.input = input;
     }
 
+    /**
+     * Returns the optimize parameters
+     */
+    @Override
+    public INDArray getOptimizedParameters(){
+        return this.input.parameters;
+    }
 
     /**
      * Zero the computed gradients
