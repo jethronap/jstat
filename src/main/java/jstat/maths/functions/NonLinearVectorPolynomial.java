@@ -28,6 +28,9 @@ public class NonLinearVectorPolynomial implements IVectorRealFunction {
     }
 
 
+    /**
+     * Evaluate the polynomial
+     */
     @Override
     public Double evaluate(INDArray input){
 
