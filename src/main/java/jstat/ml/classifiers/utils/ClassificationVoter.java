@@ -67,9 +67,10 @@ public class ClassificationVoter implements IVoter<Integer, Double, List<Pair<In
         return subList;
     }
 
-
+    /**
+     * Clear the map
+     */
     public void clear(){
-
         this.values = new ArrayList<Pair<Integer, Double>>();
     }
 
