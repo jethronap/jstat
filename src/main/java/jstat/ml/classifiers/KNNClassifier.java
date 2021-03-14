@@ -56,6 +56,7 @@ public class KNNClassifier{
      */
     public void train(INDArray dataSet, List<Integer> labels){
             this.dataSet =  dataSet;
+            this.labels = labels;
     }
 
 
