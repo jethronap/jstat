@@ -1,7 +1,7 @@
 package jstat.optimization;
 
-import jstat.utils.IterativAlgorithmController;
-import jstat.maths.errorfunctions.IVectorErrorRealFunction;
+import jstat.maths.errorfunctions.ILossFunction;
+import org.nd4j.linalg.api.ndarray.INDArray;
 
 /**
  * Input class for Gradient Descent algorithm
@@ -17,20 +17,15 @@ public class GDInput{
     /**
      * The learning rate used
      */
-    public double eta;
-
-    /**
-     * Use momentum implementation
-     */
-    public boolean useMomentum=false;
+    public double eta = 0.01;
 
     /**
      * The error function used
      */
-    public IVectorErrorRealFunction errF;
+    public ILossFunction lossFunction;
 
     /**
-     * The class that controls the iterations of the algorithm
+     * The model parameters to optimize
      */
-    public IterativAlgorithmController iterationContorller;
+    public INDArray parameters;
 }

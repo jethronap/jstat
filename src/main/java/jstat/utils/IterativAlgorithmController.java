@@ -23,6 +23,11 @@ public interface IterativAlgorithmController {
     double getExitTolerance();
 
     /**
+     * Returns the current residual
+     */
+    double getResidual();
+
+    /**
      * Returns the state of the controller
      */
     IterativeAlgorithmResult getState();

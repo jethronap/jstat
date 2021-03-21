@@ -12,12 +12,12 @@ import org.nd4j.linalg.factory.Nd4j;
  * The \hat{y} value is modeled after the IVectorRealFunction passed
  * to the object when instantiated
  */
-public class MSEVectorFunction implements IVectorErrorRealFunction {
+public class MSEFunction implements ILossFunction {
 
     /**
      * Constructor
      */
-    public MSEVectorFunction(IVectorRealFunction hypothesis ){
+    public MSEFunction(IVectorRealFunction hypothesis ){
 
         this.hypothesis = hypothesis;
         this.regularizerFunction = null;
@@ -26,16 +26,17 @@ public class MSEVectorFunction implements IVectorErrorRealFunction {
     /**
      * Constructor
      */
-    public MSEVectorFunction(IVectorRealFunction hypothesis, IRegularizerFunction regularizerFunction ){
+    public MSEFunction(IVectorRealFunction hypothesis, IRegularizerFunction regularizerFunction ){
 
         this.hypothesis = hypothesis;
         this.regularizerFunction = regularizerFunction;
     }
 
     /**
-     * Evaluate the error function using the given data, labels
-     * @param data
-     * @param labels
+     * Given the output and the target evaluate the
+     * loss function
+     * @param output
+     * @param target
      * @return
      */
     @Override
@@ -47,9 +48,9 @@ public class MSEVectorFunction implements IVectorErrorRealFunction {
 
         double result = 0.0;
 
-        for(int rowIdx=0; rowIdx<data.size(0); ++rowIdx){
-            INDArray row = data.getRow(rowIdx);
-            double diff = labels.getDouble(rowIdx) - this.hypothesis.evaluate(row);
+        for(int idx=0; idx<data.size(0); ++idx){
+            //INDArray row = data.getRow(rowIdx);
+            double diff = labels.getDouble(idx) - data.getDouble(idx);//this.hypothesis.evaluate(row);
             diff *= diff;
             result += diff;
         }
@@ -67,7 +68,7 @@ public class MSEVectorFunction implements IVectorErrorRealFunction {
      * Returns the gradients on the given data
      */
     @Override
-    public INDArray gradients(INDArray data, INDArray labels){
+    public INDArray paramGradients(INDArray data, INDArray labels){
 
 
         INDArray gradients = Nd4j.zeros(this.hypothesis.numCoeffs());
@@ -76,11 +77,16 @@ public class MSEVectorFunction implements IVectorErrorRealFunction {
 
             INDArray row =  data.getRow(rowIdx);
 
+            // compute y_i - \hat{y_i}
             double diff = (labels.getDouble(rowIdx) - this.hypothesis.evaluate(row));
 
+            // the gradietns of the hypothesis on that
+            // point
             INDArray hypothesisGrads = this.hypothesis.coeffGradients(row);
 
             for(int coeff=0; coeff<this.hypothesis.numCoeffs(); ++coeff){
+
+                // update the gradient
                 double grad = gradients.getDouble(coeff) - (2.0/data.size(0))*diff*hypothesisGrads.getDouble(coeff);
                 gradients.putScalar(coeff, grad);
             }

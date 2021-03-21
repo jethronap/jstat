@@ -5,16 +5,12 @@ import jstat.maths.functions.IVectorRealFunction;
 import org.nd4j.linalg.api.ndarray.INDArray;
 import org.nd4j.linalg.factory.Nd4j;
 
-/**
- * LogisticSSEVectorFunction implements
- * J = \sum
- */
-public class LogisticSSEVectorFunction implements IVectorErrorRealFunction {
+public class LogisticMSEFunction implements ILossFunction {
 
     /**
      * Constructor
      */
-    public LogisticSSEVectorFunction(IVectorRealFunction hypothesis ){
+    public LogisticMSEFunction(IVectorRealFunction hypothesis ){
 
         if(hypothesis == null){
             throw new IllegalArgumentException("Hypothesis function cannot be null");
@@ -26,9 +22,9 @@ public class LogisticSSEVectorFunction implements IVectorErrorRealFunction {
      * Evaluate the error function using the given data, labels
      */
     @Override
-    public double evaluate(INDArray data, INDArray labels){
+    public  double evaluate(INDArray data, INDArray labels){
 
-        if(data.size(0) != labels.size(0)){
+        if(data.size(0) != labels.size(1)){
             throw new IllegalArgumentException("Invalid number of data points and labels vector size");
         }
 
@@ -42,7 +38,7 @@ public class LogisticSSEVectorFunction implements IVectorErrorRealFunction {
             double hypothesisValue = this.hypothesis.evaluate(row);
 
             //h is close to one
-            if(Math.abs(hypothesisValue)  - 1.0 < CommonConstants.getTol()){
+            if(Math.abs(hypothesisValue - 1.0) < CommonConstants.getTol()){
 
                 //we plug a large error contribution if y is anything than one
                 if( y != 1.){
@@ -51,7 +47,6 @@ public class LogisticSSEVectorFunction implements IVectorErrorRealFunction {
             }
             else if(Math.abs(hypothesisValue) < CommonConstants.getTol()){
 
-                // std::cout<<" log_h infinity"<<std::endl;
                 //hval is zero. we only get contribution
                 //if the label is not zero as well
                 if( y > CommonConstants.getTol()){
@@ -68,14 +63,14 @@ public class LogisticSSEVectorFunction implements IVectorErrorRealFunction {
                 result += y*log_h +(1.-y)*log_one_minus_h;
             }
         }
-        return -result;
+        return -result/data.size(0);
     }
 
     /**
      * Returns the gradients on the given data
      */
     @Override
-    public INDArray gradients(INDArray data, INDArray labels){
+    public INDArray paramGradients(INDArray data, INDArray labels){
 
 
         INDArray gradients = Nd4j.zeros(this.hypothesis.numCoeffs());

@@ -2,6 +2,7 @@ package jstat.base;
 
 public final class CommonConstants {
 
+    public static final String INFO = "INFO: ";
     public static double getTol(){return CommonConstants.tol;}
     public static void setTol(double tol){CommonConstants.tol = tol;}
 
