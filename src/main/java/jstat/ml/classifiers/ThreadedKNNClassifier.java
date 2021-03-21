@@ -20,9 +20,10 @@ public class ThreadedKNNClassifier extends KNNClassifier{
      * @param copyDataset The copied data set
      * @param executorService The service executed
      */
-    public ThreadedKNNClassifier(int k, boolean copyDataset, ExecutorService executorService){
+    public ThreadedKNNClassifier(int k, boolean copyDataset, List<Pair<Integer, Integer>> partitions, ExecutorService executorService){
         super(k, copyDataset);
         this.executorService = executorService;
+        this.partitions = partitions;
     }
 
     /**
@@ -41,31 +42,22 @@ public class ThreadedKNNClassifier extends KNNClassifier{
             throw new IllegalStateException("Distance calculator has not been set");
         }
 
-        /*if(this.dataSet.getPartitionPolicy().numPartitions() == 0){
-            throw new IllegalStateException("Dataset does not have partitions set");
-        }
-
         if(this.tasks == null){
             // generate tasks as many as the partitions of the dataset
-            this.tasks = new ArrayList<>(this.dataSet.getPartitionPolicy().numPartitions());
+            this.tasks = new ArrayList<>(this.partitions.size());
 
         }
 
-        CountDownLatch countDownLatch = new CountDownLatch(this.dataSet.getPartitionPolicy().numPartitions());
+        CountDownLatch countDownLatch = new CountDownLatch(this.partitions.size());
 
         // let's create the tasks and add them to the List
-        for (int i = 0; i < this.dataSet.getPartitionPolicy().numPartitions(); i++) {
+        for (int i = 0; i < this.partitions.size(); i++) {
 
-            this.tasks.add(new KNNTask<PointType>(i, point, this.dataSet, this.distanceCalculator, countDownLatch));
+            this.tasks.add(new KNNTask(i, point, this.dataSet,
+                                      this.distanceCalculator, countDownLatch,
+                                      this.partitions.get(i)));
             this.executorService.submit((Callable<List<Pair<Integer, Object>>>)this.tasks.get(i));
-        }*/
-
-        // the main thread waits here
-        //try {
-        //    countDownLatch.await();
-        //}
-        //catch(InterruptedException e){
-        //}
+        }
 
         // all tasks have finished let's collect the distances
         for (int t = 0; t < this.tasks.size(); t++) {
@@ -83,6 +75,11 @@ public class ThreadedKNNClassifier extends KNNClassifier{
     private ExecutorService executorService;
 
     /**
+     * The partitions of the dataset
+     */
+    private List<Pair<Integer, Integer>> partitions;
+
+    /**
      * Private list that holds the tasks to submit
      */
     private List<KNNTask> tasks;
@@ -97,7 +94,8 @@ public class ThreadedKNNClassifier extends KNNClassifier{
         /**
          * Constructor
          */
-        public KNNTask(int taskId, INDArray point, INDArray dataSet, IDistanceMetric distanceCalculator,   CountDownLatch countDownLatch){
+        public KNNTask(int taskId, INDArray point, INDArray dataSet,
+                       IDistanceMetric distanceCalculator,   CountDownLatch countDownLatch, Pair<Integer, Integer> workRange){
 
             this.setTaskId(taskId);
             this.setResult(new ArrayList<Pair<Integer, Object>>());
@@ -105,6 +103,7 @@ public class ThreadedKNNClassifier extends KNNClassifier{
             this.dataSet = dataSet;
             this.distanceCalculator = distanceCalculator;
             this.countDownLatch = countDownLatch;
+            this.workRange = workRange;
         }
 
         @Override
@@ -114,13 +113,11 @@ public class ThreadedKNNClassifier extends KNNClassifier{
             // we don't want to loop over all rows but only to the
             // rows attached to the task. This is implicitly known
             // by the partitioning of the data set
-            IPartitionPolicy partitionePolicy = null; //this.dataSet.getPartitionPolicy();
-            List<Integer> rows = partitionePolicy.getParition(this.getTaskId());
             List<Pair<Integer, Object>> result = this.getResult();
 
-            for (int i = 0; i < rows.size(); i++) {
+            for (int i = workRange.first; i < workRange.second; i++) {
 
-                result.add(PairBuilder.makePair(rows.get(i), this.distanceCalculator.calculate(this.dataSet.getRow(rows.get(i)), point)));
+                result.add(PairBuilder.makePair(i, this.distanceCalculator.calculate(this.dataSet.getRow(i), point)));
             }
 
             this.setFinished( true );
@@ -137,6 +134,11 @@ public class ThreadedKNNClassifier extends KNNClassifier{
          * The dataset the task is working on
          */
         private INDArray dataSet;
+
+        /**
+         * The work range of the task
+         */
+        Pair<Integer, Integer> workRange;
 
         /**
          * The distance used

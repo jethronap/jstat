@@ -59,6 +59,23 @@ public class KNNClassifier{
             this.labels = labels;
     }
 
+    /**
+     * Train the model using the provided data set
+     *
+     * @param dataSet The given data set
+     * @param labels The given labels
+     */
+    public void train(INDArray dataSet, INDArray labels){
+
+        List<Integer> y = new ArrayList<>((int)labels.size(0));
+        for(int i=0; i< labels.size(0); ++i){
+            y.add(labels.getInt(i));
+        }
+
+        this.dataSet =  dataSet;
+        this.labels = y;
+    }
+
 
     /**
      * Predict the class of the given data point
